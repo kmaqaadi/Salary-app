@@ -2,219 +2,1189 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b16">
 <title>ملخص الراتب</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;background:#f5f7fb;color:#172033}
-.app{max-width:700px;margin:auto;padding:18px 14px 95px}
-h1{margin:0;font-size:25px}p{color:#6d7480}
-.summary{background:#2563eb;color:white;border-radius:20px;padding:20px;margin:16px 0}
-.amount{font-size:32px;font-weight:800;margin:8px 0}
-.card{background:white;border-radius:18px;padding:16px;margin-bottom:14px;border:1px solid #e5e9f0}
-.card h2{margin-top:0;font-size:18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-label{display:block;color:#6d7480;font-size:13px;margin-bottom:6px}
-.field{margin-bottom:12px}
-input{width:100%;padding:13px;border:1px solid #e5e9f0;border-radius:12px;font-size:16px}
-input:focus{outline:2px solid #bfdbfe}
-.readonly{background:#f8fafc}
-.row{display:flex;justify-content:space-between;border-top:1px solid #e5e9f0;padding:12px 0}
-.value{font-weight:bold}
-.green{color:#15803d}.red{color:#dc2626}
-.expense{display:grid;grid-template-columns:1fr 110px 42px;gap:8px;margin-bottom:9px}
-.expense button{border:0;border-radius:10px;color:#dc2626;background:#fef2f2;font-size:20px}
-button.add{width:100%;padding:12px;border:0;border-radius:12px;background:#eff6ff;color:#2563eb;font-weight:bold}
-.reset{width:100%;padding:12px;border:0;border-radius:12px;background:#fef2f2;color:#dc2626;font-weight:bold;margin-top:10px}
-.page{display:none}.page.active{display:block}
-.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:white;border-top:1px solid #e5e9f0;padding:10px}
-.tab{flex:1;border:0;padding:12px;background:white;font-weight:bold;color:#6d7480;border-radius:12px}
-.tab.active{background:#eff6ff;color:#2563eb}
-@media(max-width:550px){.grid{grid-template-columns:1fr}}
+:root{
+  --bg:#070913;
+  --surface:#101321;
+  --surface2:#161a2d;
+  --text:#f7f8ff;
+  --muted:#8f96ae;
+  --blue:#5b8cff;
+  --cyan:#40e0ff;
+  --violet:#985cff;
+  --pink:#ff5ea8;
+  --green:#45e6a3;
+  --red:#ff6577;
+  --line:rgba(255,255,255,.07);
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 85% 0%,rgba(91,140,255,.18),transparent 35%),
+    radial-gradient(circle at 10% 35%,rgba(152,92,255,.12),transparent 32%),
+    var(--bg);
+  color:var(--text);
+}
+
+button,input{font:inherit}
+
+.app{
+  max-width:720px;
+  margin:auto;
+  padding:22px 16px 110px;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:20px;
+  background:
+    linear-gradient(145deg,#5b8cff,#905bff 48%,#ff5eaa);
+  box-shadow:0 12px 30px rgba(91,140,255,.25);
+}
+
+.brand h1{
+  font-size:19px;
+  margin:0;
+}
+
+.brand small{
+  display:block;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.status{
+  font-size:12px;
+  color:var(--green);
+  background:rgba(69,230,163,.08);
+  border:1px solid rgba(69,230,163,.15);
+  padding:8px 10px;
+  border-radius:100px;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  padding:23px;
+  background:
+    linear-gradient(135deg,rgba(91,140,255,.21),rgba(152,92,255,.12) 48%,rgba(255,94,168,.08));
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 25px 70px rgba(0,0,0,.28);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  left:-100px;
+  top:-120px;
+  background:rgba(64,224,255,.15);
+  filter:blur(20px);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 125px;
+  gap:15px;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+
+.hero-label{
+  color:#b9bfd1;
+  font-size:14px;
+}
+
+.hero-money{
+  font-size:36px;
+  line-height:1.15;
+  font-weight:900;
+  margin:9px 0;
+  letter-spacing:-1px;
+}
+
+.hero-money span{
+  font-size:15px;
+  font-weight:600;
+  color:#bec4d8;
+}
+
+.hero-sub{
+  color:#939bb5;
+  font-size:13px;
+}
+
+/* ORBIT */
+
+.orbit{
+  --angle:0deg;
+  width:118px;
+  height:118px;
+  border-radius:50%;
+  padding:9px;
+  background:
+    conic-gradient(
+      var(--cyan) 0deg,
+      var(--blue) var(--angle),
+      rgba(255,255,255,.07) var(--angle),
+      rgba(255,255,255,.07) 360deg
+    );
+  box-shadow:
+    0 0 35px rgba(91,140,255,.22),
+    inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+.orbit-inner{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#0c0f1c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.orbit-inner strong{
+  font-size:18px;
+}
+
+.orbit-inner span{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* MINI STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+.stat{
+  padding:13px 14px;
+  background:rgba(0,0,0,.15);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;
+}
+
+.stat span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:5px;
+}
+
+.stat strong{
+  font-size:14px;
+}
+
+/* PAGE */
+
+.page{
+  display:none;
+  animation:fade .25s ease;
+  margin-top:18px;
+}
+
+.page.active{display:block}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(4px)}
+  to{opacity:1;transform:none}
+}
+
+.section-title{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin:23px 3px 11px;
+}
+
+.section-title h2{
+  font-size:16px;
+  margin:0;
+}
+
+.section-title span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:16px;
+  margin-bottom:12px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+.field:last-child{margin-bottom:0}
+
+.field label{
+  font-size:12px;
+  color:#a1a8bf;
+  display:block;
+  margin:0 4px 7px;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+.input-wrap input{
+  width:100%;
+  height:52px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.07);
+  color:white;
+  background:#0c0f1b;
+  padding:0 15px 0 58px;
+  outline:none;
+  transition:.2s;
+  appearance:none;
+}
+
+.input-wrap input:focus{
+  border-color:rgba(91,140,255,.65);
+  box-shadow:0 0 0 3px rgba(91,140,255,.09);
+}
+
+.unit{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#6f7896;
+  font-size:12px;
+}
+
+.auto{
+  background:linear-gradient(135deg,rgba(91,140,255,.09),rgba(152,92,255,.06)) !important;
+  color:#bfc9e8 !important;
+}
+
+/* ALLOWANCES */
+
+.allowance{
+  display:grid;
+  grid-template-columns:1fr 92px;
+  gap:10px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.allowance:last-child{
+  border-bottom:0;
+}
+
+.allowance-info strong{
+  display:block;
+  font-size:14px;
+}
+
+.allowance-info span{
+  display:block;
+  margin-top:5px;
+  font-size:12px;
+  color:var(--cyan);
+}
+
+.percent{
+  position:relative;
+}
+
+.percent input{
+  width:100%;
+  height:45px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0c0f1b;
+  color:white;
+  border-radius:14px;
+  text-align:center;
+  padding-left:24px;
+  outline:none;
+}
+
+.percent:after{
+  content:"%";
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#737b97;
+  font-size:12px;
+}
+
+/* MONEY ROWS */
+
+.money-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 3px;
+  border-bottom:1px solid var(--line);
+}
+
+.money-row:last-child{border-bottom:0}
+
+.money-row span{
+  color:#9ea6bd;
+  font-size:13px;
+}
+
+.money-row strong{
+  font-size:14px;
+}
+
+.positive{color:var(--green)!important}
+.negative{color:var(--red)!important}
+
+/* EXPENSES */
+
+.expense{
+  display:grid;
+  grid-template-columns:1fr 115px 42px;
+  gap:8px;
+  margin-bottom:9px;
+}
+
+.expense input{
+  min-width:0;
+  height:48px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#0c0f1b;
+  color:white;
+  padding:0 12px;
+  outline:none;
+}
+
+.expense button{
+  width:42px;
+  border:0;
+  border-radius:14px;
+  background:rgba(255,101,119,.09);
+  color:var(--red);
+  font-size:20px;
+}
+
+.add{
+  width:100%;
+  border:1px dashed rgba(91,140,255,.32);
+  color:#91aeff;
+  background:rgba(91,140,255,.07);
+  border-radius:15px;
+  height:48px;
+  margin-top:5px;
+  font-weight:700;
+}
+
+/* FINAL */
+
+.final-card{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg,rgba(69,230,163,.12),rgba(64,224,255,.05));
+  border:1px solid rgba(69,230,163,.13);
+}
+
+.final-card:after{
+  content:"";
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  position:absolute;
+  left:-70px;
+  bottom:-80px;
+  background:rgba(69,230,163,.12);
+  filter:blur(8px);
+}
+
+.final-big{
+  font-size:30px;
+  font-weight:900;
+  margin-top:5px;
+  color:var(--green);
+}
+
+.reset{
+  width:100%;
+  height:48px;
+  border:0;
+  border-radius:15px;
+  margin-top:12px;
+  background:rgba(255,101,119,.08);
+  color:#ff8290;
+}
+
+/* BOTTOM NAV */
+
+.nav{
+  position:fixed;
+  z-index:99;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(720px,100%);
+  padding:9px 13px calc(9px + env(safe-area-inset-bottom));
+  background:rgba(8,10,19,.88);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-top:1px solid rgba(255,255,255,.07);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.nav button{
+  height:57px;
+  border:0;
+  color:#6e7691;
+  background:transparent;
+  border-radius:16px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.nav button b{
+  display:block;
+  font-size:21px;
+  margin-bottom:2px;
+  font-weight:500;
+}
+
+.nav button.active{
+  color:white;
+  background:linear-gradient(135deg,rgba(91,140,255,.18),rgba(152,92,255,.12));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+@media(max-width:430px){
+  .app{padding-left:13px;padding-right:13px}
+  .hero{padding:19px}
+  .hero-grid{grid-template-columns:1fr 105px}
+  .orbit{width:100px;height:100px}
+  .hero-money{font-size:30px}
+}
 </style>
 </head>
+
 <body>
 
 <div class="app">
-<h1>ملخص الراتب</h1>
-<p>اعرف وين يروح راتبك وكم باقي لك</p>
 
-<div class="summary">
-<div>المتبقي الحالي</div>
-<div class="amount" id="remainingTop">0 ر.س</div>
-<div>إجمالي الراتب: <b id="grossTop">0 ر.س</b></div>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">ر</div>
+      <div>
+        <h1>ملخص الراتب</h1>
+        <small id="monthLabel">إدارة مالية شخصية</small>
+      </div>
+    </div>
+
+    <div class="status">● محفوظ</div>
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-grid">
+
+      <div>
+        <div class="hero-label">المتاح لك الآن</div>
+
+        <div class="hero-money">
+          <span id="remainingNumber">0</span>
+          <span>ر.س</span>
+        </div>
+
+        <div class="hero-sub">
+          بعد جميع الالتزامات والمصروفات
+        </div>
+      </div>
+
+      <div class="orbit" id="orbit">
+        <div class="orbit-inner">
+          <strong id="remainPct">0%</strong>
+          <span>متبقي</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span>إجمالي الراتب</span>
+        <strong id="grossTop">0 ر.س</strong>
+      </div>
+
+      <div class="stat">
+        <span>إجمالي الصرف</span>
+        <strong id="spentTop">0 ر.س</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAGE 1 -->
+
+  <section id="p1" class="page active">
+
+    <div class="section-title">
+      <h2>الراتب</h2>
+      <span>نقطة البداية</span>
+    </div>
+
+    <div class="card">
+
+      <div class="field">
+        <label>الراتب الأساسي</label>
+
+        <div class="input-wrap">
+          <input
+            id="salary"
+            type="number"
+            inputmode="decimal"
+            placeholder="0"
+          >
+          <span class="unit">ر.س</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-title">
+      <h2>البدلات الذكية</h2>
+      <span>تتغير تلقائيًا</span>
+    </div>
+
+    <div class="card">
+
+      <div class="allowance">
+        <div class="allowance-info">
+          <strong>بدل المواصلات</strong>
+          <span id="transportAmount">0 ر.س</span>
+        </div>
+
+        <div class="percent">
+          <input id="transportP" type="number" value="10">
+        </div>
+      </div>
+
+      <div class="allowance">
+        <div class="allowance-info">
+          <strong>بدل السكن</strong>
+          <span id="housingAmount">0 ر.س</span>
+        </div>
+
+        <div class="percent">
+          <input id="housingP" type="number" value="25">
+        </div>
+      </div>
+
+      <div class="allowance">
+        <div class="allowance-info">
+          <strong>بدل الشفت</strong>
+          <span id="shiftAmount">0 ر.س</span>
+        </div>
+
+        <div class="percent">
+          <input id="shiftP" type="number" value="15">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <div class="money-row">
+        <span>إجمالي البدلات</span>
+        <strong class="positive" id="allowances">0 ر.س</strong>
+      </div>
+
+      <div class="money-row">
+        <span>إجمالي الدخل</span>
+        <strong id="gross">0 ر.س</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PAGE 2 -->
+
+  <section id="p2" class="page">
+
+    <div class="section-title">
+      <h2>الالتزامات</h2>
+      <span>الثابتة كل شهر</span>
+    </div>
+
+    <div class="card">
+
+      <div class="field">
+        <label>استقطاع التأمينات</label>
+        <div class="input-wrap">
+          <input id="gosi" type="number" inputmode="decimal" value="0">
+          <span class="unit">ر.س</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>قسط / قرض</label>
+        <div class="input-wrap">
+          <input id="loan" type="number" inputmode="decimal" value="0">
+          <span class="unit">ر.س</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>إيجار</label>
+        <div class="input-wrap">
+          <input id="rent" type="number" inputmode="decimal" value="0">
+          <span class="unit">ر.س</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>التزامات أخرى</label>
+        <div class="input-wrap">
+          <input id="other" type="number" inputmode="decimal" value="0">
+          <span class="unit">ر.س</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <div class="money-row">
+        <span>إجمالي الالتزامات</span>
+        <strong class="negative" id="commitments">0 ر.س</strong>
+      </div>
+
+      <div class="money-row">
+        <span>المتبقي بعد الالتزامات</span>
+        <strong id="after">0 ر.س</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PAGE 3 -->
+
+  <section id="p3" class="page">
+
+    <div class="section-title">
+      <h2>المصروفات اليومية</h2>
+      <span>خصم مباشر</span>
+    </div>
+
+    <div class="card">
+
+      <div id="expenses"></div>
+
+      <button class="add" onclick="addExpense()">
+        ＋ إضافة مصروف جديد
+      </button>
+
+    </div>
+
+    <div class="card">
+
+      <div class="money-row">
+        <span>بعد الالتزامات</span>
+        <strong id="after2">0 ر.س</strong>
+      </div>
+
+      <div class="money-row">
+        <span>إجمالي المصروفات</span>
+        <strong class="negative" id="expensesTotal">0 ر.س</strong>
+      </div>
+
+    </div>
+
+    <div class="card final-card">
+
+      <div class="hero-label">المتبقي النهائي</div>
+
+      <div class="final-big" id="final">
+        0 ر.س
+      </div>
+
+      <button class="reset" onclick="resetAll()">
+        تصفير بيانات الشهر
+      </button>
+
+    </div>
+
+  </section>
+
 </div>
 
-<div id="p1" class="page active">
-<div class="card">
-<h2>الراتب والبدلات</h2>
+<nav class="nav">
 
-<div class="field">
-<label>الراتب الأساسي</label>
-<input id="salary" type="number" placeholder="مثال: 10000">
-</div>
+  <button class="active" onclick="page('p1',this)">
+    <b>◉</b>
+    الراتب
+  </button>
 
-<div class="grid">
-<div class="field"><label>بدل المواصلات %</label><input id="transportP" type="number" value="10"></div>
-<div class="field"><label>قيمة بدل المواصلات</label><input id="transportA" class="readonly" readonly></div>
+  <button onclick="page('p2',this)">
+    <b>⌁</b>
+    الالتزامات
+  </button>
 
-<div class="field"><label>بدل السكن %</label><input id="housingP" type="number" value="25"></div>
-<div class="field"><label>قيمة بدل السكن</label><input id="housingA" class="readonly" readonly></div>
+  <button onclick="page('p3',this)">
+    <b>◌</b>
+    المصروفات
+  </button>
 
-<div class="field"><label>بدل الشفت %</label><input id="shiftP" type="number" value="15"></div>
-<div class="field"><label>قيمة بدل الشفت</label><input id="shiftA" class="readonly" readonly></div>
-</div>
-
-<div class="row"><span>إجمالي البدلات</span><span class="value green" id="allowances">0 ر.س</span></div>
-<div class="row"><span>إجمالي الراتب</span><span class="value" id="gross">0 ر.س</span></div>
-</div>
-</div>
-
-<div id="p2" class="page">
-<div class="card">
-<h2>الالتزامات والاستقطاعات</h2>
-
-<div class="field"><label>استقطاع التأمينات</label><input id="gosi" type="number" value="0"></div>
-<div class="field"><label>قسط / قرض</label><input id="loan" type="number" value="0"></div>
-<div class="field"><label>إيجار</label><input id="rent" type="number" value="0"></div>
-<div class="field"><label>التزامات أخرى</label><input id="other" type="number" value="0"></div>
-
-<div class="row"><span>إجمالي الالتزامات</span><span class="value red" id="commitments">0 ر.س</span></div>
-<div class="row"><span>المتبقي بعد الالتزامات</span><span class="value" id="after">0 ر.س</span></div>
-</div>
-</div>
-
-<div id="p3" class="page">
-<div class="card">
-<h2>المصروفات</h2>
-<p>أي مبلغ تسجله ينخصم مباشرة من المتبقي.</p>
-<div id="expenses"></div>
-<button class="add" onclick="addExpense()">+ إضافة مصروف</button>
-</div>
-
-<div class="card">
-<h2>الخلاصة</h2>
-<div class="row"><span>بعد الالتزامات</span><span class="value" id="after2">0 ر.س</span></div>
-<div class="row"><span>المصروفات</span><span class="value red" id="expensesTotal">0 ر.س</span></div>
-<div class="row"><span>المتبقي النهائي</span><span class="value green" id="final">0 ر.س</span></div>
-<button class="reset" onclick="resetAll()">تصفير الشهر</button>
-</div>
-</div>
-</div>
-
-<div class="tabs">
-<button class="tab active" onclick="page('p1',this)">الراتب</button>
-<button class="tab" onclick="page('p2',this)">الالتزامات</button>
-<button class="tab" onclick="page('p3',this)">المتبقي</button>
-</div>
+</nav>
 
 <script>
-const $=x=>document.getElementById(x);
-const n=x=>Math.max(0,Number($(x).value)||0);
-const m=x=>new Intl.NumberFormat('ar-SA',{maximumFractionDigits:2}).format(x)+' ر.س';
+const $ = id => document.getElementById(id);
 
-let exp=[
-{name:'مقاضي البيت',amount:0},
-{name:'بنزين',amount:0},
-{name:'أكل',amount:0},
-{name:'أخرى',amount:0}
+const numberValue = id =>
+  Math.max(0, Number($(id)?.value) || 0);
+
+const formatNumber = value =>
+  new Intl.NumberFormat('ar-SA',{
+    maximumFractionDigits:2
+  }).format(value);
+
+const money = value =>
+  formatNumber(value) + ' ر.س';
+
+
+let expenses = [
+  {name:'مقاضي البيت',amount:0},
+  {name:'بنزين',amount:0},
+  {name:'أكل ومطاعم',amount:0},
+  {name:'أخرى',amount:0}
 ];
 
-try{
-const d=JSON.parse(localStorage.getItem('salaryApp'));
-if(d){
-['salary','transportP','housingP','shiftP','gosi','loan','rent','other'].forEach(x=>{
-if(d[x]!==undefined)$(x).value=d[x]
-});
-if(d.exp)exp=d.exp;
-}
-}catch(e){}
 
-function save(){
-try{
-let d={exp};
-['salary','transportP','housingP','shiftP','gosi','loan','rent','other'].forEach(x=>d[x]=$(x).value);
-localStorage.setItem('salaryApp',JSON.stringify(d));
-}catch(e){}
+function safeGet(){
+  try{
+    return JSON.parse(localStorage.getItem('salaryApp')) || null;
+  }catch(e){
+    return null;
+  }
 }
 
-function calc(){
-let s=n('salary');
-let t=s*n('transportP')/100;
-let h=s*n('housingP')/100;
-let sh=s*n('shiftP')/100;
 
-$('transportA').value=t.toFixed(2);
-$('housingA').value=h.toFixed(2);
-$('shiftA').value=sh.toFixed(2);
-
-let a=t+h+sh;
-let gross=s+a;
-let c=n('gosi')+n('loan')+n('rent')+n('other');
-let after=gross-c;
-let e=exp.reduce((x,y)=>x+(Number(y.amount)||0),0);
-let final=after-e;
-
-$('allowances').textContent=m(a);
-$('gross').textContent=m(gross);
-$('grossTop').textContent=m(gross);
-$('commitments').textContent=m(c);
-$('after').textContent=m(after);
-$('after2').textContent=m(after);
-$('expensesTotal').textContent=m(e);
-$('final').textContent=m(final);
-$('remainingTop').textContent=m(final);
-save();
+function safeSave(data){
+  try{
+    localStorage.setItem(
+      'salaryApp',
+      JSON.stringify(data)
+    );
+  }catch(e){}
 }
 
-function render(){
-$('expenses').innerHTML='';
-exp.forEach((x,i)=>{
-let d=document.createElement('div');
-d.className='expense';
-d.innerHTML='<input value="'+x.name+'" oninput="exp['+i+'].name=this.value;save()"><input type="number" value="'+x.amount+'" oninput="exp['+i+'].amount=this.value;calc()"><button onclick="del('+i+')">×</button>';
-$('expenses').appendChild(d);
-});
+
+function safeRemove(){
+  try{
+    localStorage.removeItem('salaryApp');
+  }catch(e){}
 }
+
+
+function loadData(){
+
+  const data = safeGet();
+
+  if(!data) return;
+
+  [
+    'salary',
+    'transportP',
+    'housingP',
+    'shiftP',
+    'gosi',
+    'loan',
+    'rent',
+    'other'
+  ].forEach(id=>{
+    if(data[id] !== undefined && $(id)){
+      $(id).value = data[id];
+    }
+  });
+
+  if(Array.isArray(data.exp)){
+    expenses = data.exp;
+  }
+
+}
+
+
+function saveData(){
+
+  const data = {
+    exp:expenses
+  };
+
+  [
+    'salary',
+    'transportP',
+    'housingP',
+    'shiftP',
+    'gosi',
+    'loan',
+    'rent',
+    'other'
+  ].forEach(id=>{
+    if($(id)){
+      data[id] = $(id).value;
+    }
+  });
+
+  safeSave(data);
+}
+
+
+function calculate(){
+
+  const salary = numberValue('salary');
+
+  const transport =
+    salary * numberValue('transportP') / 100;
+
+  const housing =
+    salary * numberValue('housingP') / 100;
+
+  const shift =
+    salary * numberValue('shiftP') / 100;
+
+  const allowanceTotal =
+    transport + housing + shift;
+
+  const gross =
+    salary + allowanceTotal;
+
+  const commitments =
+    numberValue('gosi') +
+    numberValue('loan') +
+    numberValue('rent') +
+    numberValue('other');
+
+  const after =
+    gross - commitments;
+
+  const expenseTotal =
+    expenses.reduce(
+      (sum,item)=>
+        sum + (Number(item.amount) || 0),
+      0
+    );
+
+  const finalRemaining =
+    after - expenseTotal;
+
+  const totalSpent =
+    commitments + expenseTotal;
+
+
+  $('transportAmount').textContent =
+    money(transport);
+
+  $('housingAmount').textContent =
+    money(housing);
+
+  $('shiftAmount').textContent =
+    money(shift);
+
+  $('allowances').textContent =
+    money(allowanceTotal);
+
+  $('gross').textContent =
+    money(gross);
+
+  $('grossTop').textContent =
+    money(gross);
+
+  $('spentTop').textContent =
+    money(totalSpent);
+
+  $('commitments').textContent =
+    money(commitments);
+
+  $('after').textContent =
+    money(after);
+
+  $('after2').textContent =
+    money(after);
+
+  $('expensesTotal').textContent =
+    money(expenseTotal);
+
+  $('final').textContent =
+    money(finalRemaining);
+
+  $('remainingNumber').textContent =
+    formatNumber(finalRemaining);
+
+
+  let percent = 0;
+
+  if(gross > 0){
+    percent =
+      Math.max(
+        0,
+        Math.min(
+          100,
+          (finalRemaining / gross) * 100
+        )
+      );
+  }
+
+  $('remainPct').textContent =
+    Math.round(percent) + '%';
+
+  $('orbit').style.setProperty(
+    '--angle',
+    (percent * 3.6) + 'deg'
+  );
+
+  saveData();
+}
+
+
+function renderExpenses(){
+
+  const box = $('expenses');
+
+  box.innerHTML = '';
+
+  expenses.forEach((item,index)=>{
+
+    const row =
+      document.createElement('div');
+
+    row.className = 'expense';
+
+    row.innerHTML = `
+      <input
+        value="${escapeHtml(item.name)}"
+        oninput="updateExpenseName(${index},this.value)"
+        aria-label="اسم المصروف"
+      >
+
+      <input
+        type="number"
+        inputmode="decimal"
+        value="${Number(item.amount) || 0}"
+        oninput="updateExpenseAmount(${index},this.value)"
+        aria-label="قيمة المصروف"
+      >
+
+      <button
+        onclick="deleteExpense(${index})"
+        aria-label="حذف"
+      >
+        ×
+      </button>
+    `;
+
+    box.appendChild(row);
+
+  });
+
+}
+
+
+function escapeHtml(value){
+
+  return String(value)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
+
+}
+
+
+function updateExpenseName(index,value){
+
+  expenses[index].name = value;
+
+  saveData();
+}
+
+
+function updateExpenseAmount(index,value){
+
+  expenses[index].amount =
+    Number(value) || 0;
+
+  calculate();
+}
+
 
 function addExpense(){
-exp.push({name:'مصروف جديد',amount:0});
-render();save();
+
+  expenses.push({
+    name:'مصروف جديد',
+    amount:0
+  });
+
+  renderExpenses();
+  calculate();
 }
 
-function del(i){
-exp.splice(i,1);render();calc();
+
+function deleteExpense(index){
+
+  expenses.splice(index,1);
+
+  renderExpenses();
+  calculate();
 }
 
-function page(id,b){
-document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-$(id).classList.add('active');b.classList.add('active');
+
+function page(id,button){
+
+  document
+    .querySelectorAll('.page')
+    .forEach(el=>
+      el.classList.remove('active')
+    );
+
+  document
+    .querySelectorAll('.nav button')
+    .forEach(el=>
+      el.classList.remove('active')
+    );
+
+  $(id).classList.add('active');
+
+  button.classList.add('active');
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
 }
+
 
 function resetAll(){
-if(confirm('هل تريد تصفير جميع بيانات الشهر؟')){
-localStorage.removeItem('salaryApp');
-$('salary').value=0;
-$('transportP').value=10;
-$('housingP').value=25;
-$('shiftP').value=15;
-$('gosi').value=$('loan').value=$('rent').value=$('other').value=0;
-exp=[
-{name:'مقاضي البيت',amount:0},
-{name:'بنزين',amount:0},
-{name:'أكل',amount:0},
-{name:'أخرى',amount:0}
-];
-render();calc();
-}
+
+  if(!confirm(
+    'هل تريد تصفير جميع بيانات الشهر؟'
+  )){
+    return;
+  }
+
+  safeRemove();
+
+  $('salary').value = '';
+
+  $('transportP').value = 10;
+  $('housingP').value = 25;
+  $('shiftP').value = 15;
+
+  $('gosi').value = 0;
+  $('loan').value = 0;
+  $('rent').value = 0;
+  $('other').value = 0;
+
+  expenses = [
+    {name:'مقاضي البيت',amount:0},
+    {name:'بنزين',amount:0},
+    {name:'أكل ومطاعم',amount:0},
+    {name:'أخرى',amount:0}
+  ];
+
+  renderExpenses();
+  calculate();
 }
 
-['salary','transportP','housingP','shiftP','gosi','loan','rent','other'].forEach(x=>{
-['input','change'].forEach(e=>$(x).addEventListener(e,calc));
+
+[
+  'salary',
+  'transportP',
+  'housingP',
+  'shiftP',
+  'gosi',
+  'loan',
+  'rent',
+  'other'
+].forEach(id=>{
+
+  ['input','change','keyup'].forEach(eventName=>{
+
+    $(id).addEventListener(
+      eventName,
+      calculate
+    );
+
+  });
+
 });
 
-render();
-calc();
+
+try{
+
+  $('monthLabel').textContent =
+    new Intl.DateTimeFormat(
+      'ar-SA',
+      {
+        month:'long',
+        year:'numeric'
+      }
+    ).format(new Date());
+
+}catch(e){}
+
+
+loadData();
+renderExpenses();
+calculate();
 </script>
+
 </body>
 </html>
