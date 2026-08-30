@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ملخص الراتب</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;background:#f5f7fb;color:#172033}
+.app{max-width:700px;margin:auto;padding:18px 14px 95px}
+h1{margin:0;font-size:25px}p{color:#6d7480}
+.summary{background:#2563eb;color:white;border-radius:20px;padding:20px;margin:16px 0}
+.amount{font-size:32px;font-weight:800;margin:8px 0}
+.card{background:white;border-radius:18px;padding:16px;margin-bottom:14px;border:1px solid #e5e9f0}
+.card h2{margin-top:0;font-size:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;color:#6d7480;font-size:13px;margin-bottom:6px}
+.field{margin-bottom:12px}
+input{width:100%;padding:13px;border:1px solid #e5e9f0;border-radius:12px;font-size:16px}
+input:focus{outline:2px solid #bfdbfe}
+.readonly{background:#f8fafc}
+.row{display:flex;justify-content:space-between;border-top:1px solid #e5e9f0;padding:12px 0}
+.value{font-weight:bold}
+.green{color:#15803d}.red{color:#dc2626}
+.expense{display:grid;grid-template-columns:1fr 110px 42px;gap:8px;margin-bottom:9px}
+.expense button{border:0;border-radius:10px;color:#dc2626;background:#fef2f2;font-size:20px}
+button.add{width:100%;padding:12px;border:0;border-radius:12px;background:#eff6ff;color:#2563eb;font-weight:bold}
+.reset{width:100%;padding:12px;border:0;border-radius:12px;background:#fef2f2;color:#dc2626;font-weight:bold;margin-top:10px}
+.page{display:none}.page.active{display:block}
+.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:white;border-top:1px solid #e5e9f0;padding:10px}
+.tab{flex:1;border:0;padding:12px;background:white;font-weight:bold;color:#6d7480;border-radius:12px}
+.tab.active{background:#eff6ff;color:#2563eb}
+@media(max-width:550px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="app">
+<h1>ملخص الراتب</h1>
+<p>اعرف وين يروح راتبك وكم باقي لك</p>
+
+<div class="summary">
+<div>المتبقي الحالي</div>
+<div class="amount" id="remainingTop">0 ر.س</div>
+<div>إجمالي الراتب: <b id="grossTop">0 ر.س</b></div>
+</div>
+
+<div id="p1" class="page active">
+<div class="card">
+<h2>الراتب والبدلات</h2>
+
+<div class="field">
+<label>الراتب الأساسي</label>
+<input id="salary" type="number" placeholder="مثال: 10000">
+</div>
+
+<div class="grid">
+<div class="field"><label>بدل المواصلات %</label><input id="transportP" type="number" value="10"></div>
+<div class="field"><label>قيمة بدل المواصلات</label><input id="transportA" class="readonly" readonly></div>
+
+<div class="field"><label>بدل السكن %</label><input id="housingP" type="number" value="25"></div>
+<div class="field"><label>قيمة بدل السكن</label><input id="housingA" class="readonly" readonly></div>
+
+<div class="field"><label>بدل الشفت %</label><input id="shiftP" type="number" value="15"></div>
+<div class="field"><label>قيمة بدل الشفت</label><input id="shiftA" class="readonly" readonly></div>
+</div>
+
+<div class="row"><span>إجمالي البدلات</span><span class="value green" id="allowances">0 ر.س</span></div>
+<div class="row"><span>إجمالي الراتب</span><span class="value" id="gross">0 ر.س</span></div>
+</div>
+</div>
+
+<div id="p2" class="page">
+<div class="card">
+<h2>الالتزامات والاستقطاعات</h2>
+
+<div class="field"><label>استقطاع التأمينات</label><input id="gosi" type="number" value="0"></div>
+<div class="field"><label>قسط / قرض</label><input id="loan" type="number" value="0"></div>
+<div class="field"><label>إيجار</label><input id="rent" type="number" value="0"></div>
+<div class="field"><label>التزامات أخرى</label><input id="other" type="number" value="0"></div>
+
+<div class="row"><span>إجمالي الالتزامات</span><span class="value red" id="commitments">0 ر.س</span></div>
+<div class="row"><span>المتبقي بعد الالتزامات</span><span class="value" id="after">0 ر.س</span></div>
+</div>
+</div>
+
+<div id="p3" class="page">
+<div class="card">
+<h2>المصروفات</h2>
+<p>أي مبلغ تسجله ينخصم مباشرة من المتبقي.</p>
+<div id="expenses"></div>
+<button class="add" onclick="addExpense()">+ إضافة مصروف</button>
+</div>
+
+<div class="card">
+<h2>الخلاصة</h2>
+<div class="row"><span>بعد الالتزامات</span><span class="value" id="after2">0 ر.س</span></div>
+<div class="row"><span>المصروفات</span><span class="value red" id="expensesTotal">0 ر.س</span></div>
+<div class="row"><span>المتبقي النهائي</span><span class="value green" id="final">0 ر.س</span></div>
+<button class="reset" onclick="resetAll()">تصفير الشهر</button>
+</div>
+</div>
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="page('p1',this)">الراتب</button>
+<button class="tab" onclick="page('p2',this)">الالتزامات</button>
+<button class="tab" onclick="page('p3',this)">المتبقي</button>
+</div>
+
+<script>
+const $=x=>document.getElementById(x);
+const n=x=>Math.max(0,Number($(x).value)||0);
+const m=x=>new Intl.NumberFormat('ar-SA',{maximumFractionDigits:2}).format(x)+' ر.س';
+
+let exp=[
+{name:'مقاضي البيت',amount:0},
+{name:'بنزين',amount:0},
+{name:'أكل',amount:0},
+{name:'أخرى',amount:0}
+];
+
+try{
+const d=JSON.parse(localStorage.getItem('salaryApp'));
+if(d){
+['salary','transportP','housingP','shiftP','gosi','loan','rent','other'].forEach(x=>{
+if(d[x]!==undefined)$(x).value=d[x]
+});
+if(d.exp)exp=d.exp;
+}
+}catch(e){}
+
+function save(){
+try{
+let d={exp};
+['salary','transportP','housingP','shiftP','gosi','loan','rent','other'].forEach(x=>d[x]=$(x).value);
+localStorage.setItem('salaryApp',JSON.stringify(d));
+}catch(e){}
+}
+
+function calc(){
+let s=n('salary');
+let t=s*n('transportP')/100;
+let h=s*n('housingP')/100;
+let sh=s*n('shiftP')/100;
+
+$('transportA').value=t.toFixed(2);
+$('housingA').value=h.toFixed(2);
+$('shiftA').value=sh.toFixed(2);
+
+let a=t+h+sh;
+let gross=s+a;
+let c=n('gosi')+n('loan')+n('rent')+n('other');
+let after=gross-c;
+let e=exp.reduce((x,y)=>x+(Number(y.amount)||0),0);
+let final=after-e;
+
+$('allowances').textContent=m(a);
+$('gross').textContent=m(gross);
+$('grossTop').textContent=m(gross);
+$('commitments').textContent=m(c);
+$('after').textContent=m(after);
+$('after2').textContent=m(after);
+$('expensesTotal').textContent=m(e);
+$('final').textContent=m(final);
+$('remainingTop').textContent=m(final);
+save();
+}
+
+function render(){
+$('expenses').innerHTML='';
+exp.forEach((x,i)=>{
+let d=document.createElement('div');
+d.className='expense';
+d.innerHTML='<input value="'+x.name+'" oninput="exp['+i+'].name=this.value;save()"><input type="number" value="'+x.amount+'" oninput="exp['+i+'].amount=this.value;calc()"><button onclick="del('+i+')">×</button>';
+$('expenses').appendChild(d);
+});
+}
+
+function addExpense(){
+exp.push({name:'مصروف جديد',amount:0});
+render();save();
+}
+
+function del(i){
+exp.splice(i,1);render();calc();
+}
+
+function page(id,b){
+document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+$(id).classList.add('active');b.classList.add('active');
+}
+
+function resetAll(){
+if(confirm('هل تريد تصفير جميع بيانات الشهر؟')){
+localStorage.removeItem('salaryApp');
+$('salary').value=0;
+$('transportP').value=10;
+$('housingP').value=25;
+$('shiftP').value=15;
+$('gosi').value=$('loan').value=$('rent').value=$('other').value=0;
+exp=[
+{name:'مقاضي البيت',amount:0},
+{name:'بنزين',amount:0},
+{name:'أكل',amount:0},
+{name:'أخرى',amount:0}
+];
+render();calc();
+}
+}
+
+['salary','transportP','housingP','shiftP','gosi','loan','rent','other'].forEach(x=>{
+['input','change'].forEach(e=>$(x).addEventListener(e,calc));
+});
+
+render();
+calc();
+</script>
+</body>
+</html>
