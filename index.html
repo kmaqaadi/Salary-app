@@ -2,12 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#090b16">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,14 +16,11 @@
 <style>
 :root{
   --bg:#070913;
-  --surface:#101321;
-  --surface2:#161a2d;
   --text:#f7f8ff;
   --muted:#8f96ae;
   --blue:#5b8cff;
   --cyan:#40e0ff;
   --violet:#985cff;
-  --pink:#ff5ea8;
   --green:#45e6a3;
   --red:#ff6577;
   --line:rgba(255,255,255,.07);
@@ -41,25 +33,23 @@
 
 html{
   background:var(--bg);
-  touch-action:pan-y;
 }
 
 body{
   margin:0;
   min-height:100vh;
   overflow-x:hidden;
-  color:var(--text);
   background:
     radial-gradient(circle at 85% 0%,rgba(91,140,255,.18),transparent 35%),
     radial-gradient(circle at 10% 35%,rgba(152,92,255,.12),transparent 32%),
     var(--bg);
+  color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
 }
 
 button,
 input,
-select,
-textarea{
+select{
   font:inherit;
   font-size:16px;
 }
@@ -69,8 +59,7 @@ button{
 }
 
 input,
-select,
-textarea{
+select{
   outline:none;
 }
 
@@ -80,19 +69,18 @@ textarea{
   padding:18px 14px 110px;
 }
 
-/* ==============================
-   HEADER
-============================== */
+/* HEADER */
 
 .topbar{
   display:flex;
+  justify-content:flex-start;
   align-items:center;
-  justify-content:flex-end;
   margin-bottom:12px;
 }
 
 .brand{
   display:flex;
+  flex-direction:row;
   align-items:center;
   gap:10px;
 }
@@ -100,16 +88,16 @@ textarea{
 .logo{
   width:44px;
   height:44px;
-  flex:0 0 auto;
   overflow:hidden;
+  flex:0 0 auto;
   border-radius:14px;
   box-shadow:0 10px 28px rgba(91,140,255,.25);
 }
 
 .logo img{
+  display:block;
   width:100%;
   height:100%;
-  display:block;
   object-fit:cover;
 }
 
@@ -126,9 +114,7 @@ textarea{
   white-space:nowrap;
 }
 
-/* ==============================
-   HERO
-============================== */
+/* HERO */
 
 .hero{
   position:relative;
@@ -143,7 +129,6 @@ textarea{
       rgba(152,92,255,.12) 48%,
       rgba(255,94,168,.08)
     );
-  box-shadow:0 18px 45px rgba(0,0,0,.22);
 }
 
 .hero:before{
@@ -174,21 +159,18 @@ textarea{
 
 .hero-money{
   margin:5px 0;
-  line-height:1.05;
+  line-height:1;
   white-space:nowrap;
 }
 
 #remainingNumber{
   font-size:30px;
   font-weight:900;
-  letter-spacing:-1px;
 }
 
 .currency{
-  margin-right:3px;
   color:#bec4d8;
   font-size:12px;
-  font-weight:600;
 }
 
 .hero-sub{
@@ -243,7 +225,6 @@ textarea{
 }
 
 .hero-stat{
-  min-width:0;
   padding:8px 10px;
   border:1px solid rgba(255,255,255,.06);
   border-radius:13px;
@@ -258,14 +239,9 @@ textarea{
 }
 
 .hero-stat strong{
-  display:block;
-  overflow:hidden;
   font-size:12px;
-  text-overflow:ellipsis;
-  white-space:nowrap;
 }
 
-/* صفحة المصروفات: المبلغ المتاح فقط */
 body.page-p3 .hero-stats{
   display:none;
 }
@@ -275,9 +251,7 @@ body.page-p3 .hero{
   padding-bottom:18px;
 }
 
-/* ==============================
-   COMMON
-============================== */
+/* GENERAL */
 
 .page{
   display:none;
@@ -325,11 +299,6 @@ body.page-p3 .hero{
   justify-content:space-between;
   gap:12px;
   padding:12px 3px;
-  border-bottom:1px solid var(--line);
-}
-
-.money-row:last-child{
-  border-bottom:0;
 }
 
 .money-row > span{
@@ -360,40 +329,39 @@ body.page-p3 .hero{
   font-size:10px;
 }
 
-/* ==============================
-   SALARY
-============================== */
+/* SALARY */
 
-.salary-title{
+.salary-heading{
   margin:18px 3px 9px;
 }
 
-.salary-title h2{
+.salary-heading h2{
   margin:0;
   font-size:16px;
 }
 
-.salary-card{
-  padding:12px 14px;
-}
-
 .salary-label{
   display:block;
-  margin:0 3px 7px;
+  margin:0 4px 7px;
   color:#a1a8bf;
-  font-size:11px;
+  font-size:12px;
 }
 
-.input-wrap{
+.salary-box{
+  padding:0;
+  border-radius:18px;
+}
+
+.salary-input-wrap{
   position:relative;
 }
 
 .salary-input{
   width:100%;
-  height:52px;
+  height:58px;
   padding:0 14px 0 55px;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:15px;
+  border:0;
+  border-radius:18px;
   background:#0c0f1b;
   color:white;
   text-align:right;
@@ -402,20 +370,19 @@ body.page-p3 .hero{
 
 .input-unit{
   position:absolute;
-  left:13px;
+  left:14px;
   top:50%;
   transform:translateY(-50%);
   color:#707894;
-  font-size:11px;
+  font-size:10px;
 }
 
-/* ==============================
-   FINANCIAL LISTS
-============================== */
+/* FINANCIAL LIST */
 
 .dynamic-list{
   display:flex;
   flex-direction:column;
+  gap:4px;
 }
 
 .dynamic-row{
@@ -423,19 +390,20 @@ body.page-p3 .hero{
   display:grid;
   grid-template-columns:30px minmax(0,1fr);
   gap:7px;
-  padding:10px 0;
-  border-bottom:1px solid var(--line);
+  padding:9px 0;
 }
 
-.dynamic-row:last-child{
-  border-bottom:0;
+/* لا خطوط فاصلة */
+.dynamic-row,
+.dynamic-row *{
+  border-top-color:transparent;
 }
 
 .dynamic-row.dragging{
   z-index:4;
   opacity:.75;
-  border-radius:14px;
-  background:rgba(91,140,255,.08);
+  border-radius:13px;
+  background:rgba(91,140,255,.07);
 }
 
 .handle{
@@ -444,7 +412,7 @@ body.page-p3 .hero{
   padding:0;
   border:0;
   background:transparent;
-  color:#67718d;
+  color:#68728e;
   font-size:19px;
   touch-action:none;
   user-select:none;
@@ -458,7 +426,6 @@ body.page-p3 .hero{
 .item-top{
   display:flex;
   align-items:center;
-  gap:8px;
 }
 
 .item-name{
@@ -473,15 +440,15 @@ body.page-p3 .hero{
 }
 
 .item-name.editable{
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border-bottom:0;
 }
 
 .item-bottom{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:8px;
-  margin-top:2px;
+  gap:7px;
+  margin-top:0;
 }
 
 .item-amount{
@@ -498,8 +465,8 @@ body.page-p3 .hero{
 }
 
 .mode{
-  width:68px;
-  height:36px;
+  width:66px;
+  height:35px;
   padding:0;
   border:1px solid var(--line);
   border-radius:11px;
@@ -509,15 +476,19 @@ body.page-p3 .hero{
   font-weight:700;
 }
 
+.mode.locked{
+  pointer-events:none;
+}
+
 .value-wrap{
   position:relative;
-  width:68px;
+  width:66px;
 }
 
 .value-wrap input{
-  width:68px;
-  height:36px;
-  padding:0 19px 0 4px;
+  width:66px;
+  height:35px;
+  padding:0 18px 0 4px;
   border:1px solid var(--line);
   border-radius:11px;
   background:#0c0f1b;
@@ -536,11 +507,13 @@ body.page-p3 .hero{
   pointer-events:none;
 }
 
+/* DELETE MODE */
+
 .delete-mark{
   position:absolute;
   top:50%;
   left:0;
-  z-index:5;
+  z-index:10;
   display:none;
   width:34px;
   height:34px;
@@ -560,82 +533,89 @@ body.page-p3 .hero{
   visibility:hidden;
 }
 
-.add{
-  width:100%;
-  height:43px;
-  margin-top:8px;
-  border:1px dashed rgba(91,140,255,.32);
-  border-radius:13px;
-  background:rgba(91,140,255,.07);
-  color:#91aeff;
-  font-size:13px;
-  font-weight:700;
-}
-
 .hint{
   margin-top:7px;
-  color:#68718c;
+  color:#626c86;
   font-size:9px;
   text-align:center;
 }
 
-/* ==============================
-   MENU
-============================== */
+/* ACTION SHEETS */
 
-.menu-overlay{
+.overlay{
   position:fixed;
   inset:0;
-  z-index:199;
+  z-index:150;
   display:none;
-  background:rgba(0,0,0,.28);
+  background:rgba(0,0,0,.38);
 }
 
-.menu-overlay.show{
+.overlay.show{
   display:block;
 }
 
-.action-sheet{
+.sheet{
   position:fixed;
   right:14px;
-  bottom:calc(88px + env(safe-area-inset-bottom));
+  bottom:calc(86px + env(safe-area-inset-bottom));
   left:14px;
-  z-index:200;
+  z-index:151;
   display:none;
   max-width:690px;
   padding:8px;
   margin:auto;
   border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
+  border-radius:19px;
   background:#111522;
-  box-shadow:0 18px 50px rgba(0,0,0,.38);
+  box-shadow:0 18px 50px rgba(0,0,0,.4);
 }
 
-.action-sheet.show{
+.sheet.show{
   display:block;
 }
 
-.action-sheet button{
+.sheet-title{
+  padding:11px;
+  color:#8f96ae;
+  text-align:center;
+  font-size:11px;
+}
+
+.sheet button{
   width:100%;
-  min-height:46px;
+  min-height:48px;
   border:0;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(255,255,255,.06);
   background:transparent;
   color:white;
   font-size:14px;
 }
 
-.action-sheet button:last-child{
+.sheet button:last-child{
   border-bottom:0;
 }
 
-.action-sheet .danger{
+.sheet .danger{
   color:var(--red);
 }
 
-/* ==============================
-   BUDGET PAGE
-============================== */
+.choice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  padding:6px;
+}
+
+.choice-grid button{
+  min-height:54px;
+  border:1px solid rgba(91,140,255,.2);
+  border-radius:14px;
+  background:rgba(91,140,255,.08);
+  color:#b2c2ff;
+  font-weight:800;
+}
+
+/* PAGE 3 */
 
 .budget-summary{
   display:grid;
@@ -662,8 +642,16 @@ body.page-p3 .hero{
   font-size:14px;
 }
 
-.budget-row .item-bottom{
-  align-items:flex-end;
+.add{
+  width:100%;
+  height:43px;
+  margin-top:8px;
+  border:1px dashed rgba(91,140,255,.32);
+  border-radius:13px;
+  background:rgba(91,140,255,.07);
+  color:#91aeff;
+  font-size:13px;
+  font-weight:700;
 }
 
 .budget-info{
@@ -684,24 +672,20 @@ body.page-p3 .hero{
 }
 
 .budget-value{
+  position:relative;
   width:92px;
 }
 
 .budget-value input{
   width:92px;
   height:38px;
-  padding:0 8px 0 30px;
+  padding:0 8px 0 28px;
   border:1px solid var(--line);
   border-radius:11px;
   background:#0c0f1b;
   color:white;
   text-align:right;
-  font-size:16px;
 }
-
-/* ==============================
-   DAILY TRANSACTIONS
-============================== */
 
 .expense-form{
   display:grid;
@@ -717,7 +701,6 @@ body.page-p3 .hero{
   border-radius:13px;
   background:#0c0f1b;
   color:white;
-  font-size:16px;
 }
 
 .form-grid{
@@ -775,7 +758,6 @@ body.page-p3 .hero{
   color:var(--red);
   font-size:13px;
   font-weight:800;
-  white-space:nowrap;
 }
 
 .transaction-menu{
@@ -785,12 +767,9 @@ body.page-p3 .hero{
   border-radius:10px;
   background:rgba(255,255,255,.04);
   color:#7f89a8;
-  font-size:17px;
 }
 
-/* ==============================
-   NAV
-============================== */
+/* NAV */
 
 .nav{
   position:fixed;
@@ -804,7 +783,7 @@ body.page-p3 .hero{
   padding:9px 13px calc(9px + env(safe-area-inset-bottom));
   margin:auto;
   border-top:1px solid rgba(255,255,255,.07);
-  background:rgba(8,10,19,.9);
+  background:rgba(8,10,19,.91);
   backdrop-filter:blur(22px);
   -webkit-backdrop-filter:blur(22px);
 }
@@ -836,15 +815,10 @@ body.page-p3 .hero{
     );
 }
 
-/* ==============================
-   MOBILE
-============================== */
-
 @media(max-width:380px){
-
   .app{
-    padding-right:11px;
     padding-left:11px;
+    padding-right:11px;
   }
 
   #remainingNumber{
@@ -856,7 +830,6 @@ body.page-p3 .hero{
   .value-wrap input{
     width:62px;
   }
-
 }
 </style>
 </head>
@@ -874,23 +847,18 @@ body.page-p3 .hero{
 
       <div>
         <h1>رصد</h1>
-        <small id="monthLabel">إدارة مالية شخصية</small>
+        <small id="monthLabel"></small>
       </div>
 
     </div>
   </div>
-
-  <!-- HERO -->
 
   <div class="hero">
 
     <div class="hero-grid">
 
       <div>
-
-        <div class="hero-label">
-          المتاح لك الآن
-        </div>
+        <div class="hero-label">المتاح لك الآن</div>
 
         <div class="hero-money">
           <span id="remainingNumber">0</span>
@@ -900,16 +868,13 @@ body.page-p3 .hero{
         <div class="hero-sub">
           بعد الالتزامات والمصروفات
         </div>
-
       </div>
 
       <div class="orbit" id="orbit">
-
         <div class="orbit-inner">
           <strong id="remainPct">0%</strong>
           <span>متبقي</span>
         </div>
-
       </div>
 
     </div>
@@ -930,23 +895,21 @@ body.page-p3 .hero{
 
   </div>
 
-  <!-- =========================
-       PAGE 1
-  ========================== -->
+  <!-- PAGE 1 -->
 
   <section id="p1" class="page active">
 
-    <div class="salary-title">
+    <div class="salary-heading">
       <h2>الراتب</h2>
     </div>
 
-    <div class="card salary-card">
+    <label class="salary-label">
+      الراتب الأساسي
+    </label>
 
-      <label class="salary-label">
-        الراتب الأساسي
-      </label>
+    <div class="card salary-box">
 
-      <div class="input-wrap">
+      <div class="salary-input-wrap">
 
         <input
           id="salary"
@@ -976,16 +939,8 @@ body.page-p3 .hero{
         class="dynamic-list"
       ></div>
 
-      <button
-        type="button"
-        class="add"
-        id="addAllowance"
-      >
-        ＋ إضافة بدل
-      </button>
-
       <div class="hint">
-        ضغطة على ☰ للخيارات — ضغط مطوّل للسحب والترتيب
+        ☰ ضغطة للخيارات — ضغط مطوّل للترتيب
       </div>
 
     </div>
@@ -994,9 +949,7 @@ body.page-p3 .hero{
 
       <div class="money-row">
 
-        <span>
-          إجمالي البدلات
-        </span>
+        <span>إجمالي البدلات</span>
 
         <div class="total-side">
 
@@ -1019,24 +972,15 @@ body.page-p3 .hero{
       </div>
 
       <div class="money-row">
-
-        <span>
-          إجمالي الدخل
-        </span>
-
-        <strong id="gross">
-          0 ر.س
-        </strong>
-
+        <span>إجمالي الدخل</span>
+        <strong id="gross">0 ر.س</strong>
       </div>
 
     </div>
 
   </section>
 
-  <!-- =========================
-       PAGE 2
-  ========================== -->
+  <!-- PAGE 2 -->
 
   <section id="p2" class="page">
 
@@ -1052,16 +996,8 @@ body.page-p3 .hero{
         class="dynamic-list"
       ></div>
 
-      <button
-        type="button"
-        class="add"
-        id="addCommitment"
-      >
-        ＋ إضافة التزام
-      </button>
-
       <div class="hint">
-        ضغطة على ☰ للخيارات — ضغط مطوّل للسحب والترتيب
+        ☰ ضغطة للخيارات — ضغط مطوّل للترتيب
       </div>
 
     </div>
@@ -1070,9 +1006,7 @@ body.page-p3 .hero{
 
       <div class="money-row">
 
-        <span>
-          إجمالي الالتزامات
-        </span>
+        <span>إجمالي الالتزامات</span>
 
         <div class="total-side">
 
@@ -1110,22 +1044,13 @@ body.page-p3 .hero{
 
   </section>
 
-  <!-- =========================
-       PAGE 3
-  ========================== -->
+  <!-- PAGE 3 -->
 
   <section id="p3" class="page">
 
     <div class="section-title">
-
-      <h2>
-        توزيع الميزانية
-      </h2>
-
-      <span>
-        وزّع المتبقي على احتياجاتك
-      </span>
-
+      <h2>توزيع الميزانية</h2>
+      <span>وزع المتبقي</span>
     </div>
 
     <div class="budget-summary">
@@ -1138,8 +1063,8 @@ body.page-p3 .hero{
       <div class="mini-card">
         <span>غير موزع</span>
         <strong
-          class="positive"
           id="unallocated"
+          class="positive"
         >
           0 ر.س
         </strong>
@@ -1147,10 +1072,7 @@ body.page-p3 .hero{
 
     </div>
 
-    <div
-      class="card"
-      id="budgetCard"
-    >
+    <div class="card">
 
       <div
         id="budgetList"
@@ -1158,31 +1080,18 @@ body.page-p3 .hero{
       ></div>
 
       <button
+        id="addBudget"
         type="button"
         class="add"
-        id="addBudget"
       >
         ＋ إضافة فئة
       </button>
 
-      <div class="hint">
-        المخصص لا يخصم من رصيدك — الصرف الفعلي هو الذي يخصم
-      </div>
-
     </div>
 
-    <!-- DAILY SPENDING -->
-
     <div class="section-title">
-
-      <h2>
-        تسجيل مصروف
-      </h2>
-
-      <span>
-        الصرف اليومي
-      </span>
-
+      <h2>تسجيل مصروف</h2>
+      <span>الصرف اليومي</span>
     </div>
 
     <div class="card">
@@ -1227,15 +1136,8 @@ body.page-p3 .hero{
     </div>
 
     <div class="section-title">
-
-      <h2>
-        المصروفات الأخيرة
-      </h2>
-
-      <span id="transactionCount">
-        0 عملية
-      </span>
-
+      <h2>المصروفات الأخيرة</h2>
+      <span id="transactionCount">0 عملية</span>
     </div>
 
     <div
@@ -1247,53 +1149,96 @@ body.page-p3 .hero{
 
 </div>
 
-<!-- =========================
-     ACTION SHEET
-========================== -->
+<!-- OVERLAY -->
 
 <div
-  class="menu-overlay"
-  id="menuOverlay"
+  id="overlay"
+  class="overlay"
 ></div>
 
+<!-- OPTIONS -->
+
 <div
-  class="action-sheet"
-  id="actionSheet"
+  id="optionsSheet"
+  class="sheet"
 >
 
+  <div
+    id="optionsTitle"
+    class="sheet-title"
+  >
+    خيارات
+  </div>
+
   <button
+    id="optionAdd"
     type="button"
-    id="menuAdd"
   >
     إضافة
   </button>
 
   <button
+    id="optionDelete"
     type="button"
     class="danger"
-    id="menuDeleteMode"
   >
     حذف
   </button>
 
   <button
+    id="optionCancel"
     type="button"
-    id="menuCancel"
   >
     إلغاء
   </button>
 
 </div>
 
-<!-- =========================
-     NAV
-========================== -->
+<!-- TYPE CHOICE -->
+
+<div
+  id="typeSheet"
+  class="sheet"
+>
+
+  <div class="sheet-title">
+    اختر نوع القيمة
+  </div>
+
+  <div class="choice-grid">
+
+    <button
+      id="choosePercent"
+      type="button"
+    >
+      نسبة
+    </button>
+
+    <button
+      id="chooseFixed"
+      type="button"
+    >
+      مبلغ ثابت
+    </button>
+
+  </div>
+
+  <button
+    id="typeCancel"
+    type="button"
+  >
+    إلغاء
+  </button>
+
+</div>
+
+<!-- NAV -->
 
 <nav class="nav">
 
   <button
-    type="button"
     class="active"
+    type="button"
     data-page="p1"
   >
     <b>◉</b>
@@ -1319,19 +1264,11 @@ body.page-p3 .hero{
 </nav>
 
 <script>
-
-/* ==============================
-   HELPERS
-============================== */
-
 const $ = id =>
   document.getElementById(id);
 
 const num = value =>
-  Math.max(
-    0,
-    Number(value) || 0
-  );
+  Math.max(0,Number(value) || 0);
 
 const makeId = () =>
   'x' +
@@ -1341,49 +1278,33 @@ const makeId = () =>
 const formatNumber = value =>
   new Intl.NumberFormat(
     'ar-SA',
-    {
-      maximumFractionDigits:2
-    }
+    {maximumFractionDigits:2}
   ).format(value);
 
 const money = value =>
   formatNumber(value) + ' ر.س';
 
-function escapeHtml(value){
+const cleanPercent = value =>
+  new Intl.NumberFormat(
+    'ar-SA',
+    {maximumFractionDigits:1}
+  ).format(
+    Math.round(value * 10) / 10
+  );
 
+function escapeHtml(value){
   return String(value)
     .replace(/&/g,'&amp;')
     .replace(/</g,'&lt;')
     .replace(/>/g,'&gt;')
     .replace(/"/g,'&quot;')
     .replace(/'/g,'&#039;');
-
 }
 
-function percent(value){
-
-  const n =
-    Math.round(
-      value * 10
-    ) / 10;
-
-  return new Intl.NumberFormat(
-    'ar-SA',
-    {
-      maximumFractionDigits:1
-    }
-  ).format(n);
-
-}
-
-/* ==============================
-   DEFAULTS
-============================== */
+/* DATA */
 
 function defaultAllowances(){
-
   return [
-
     {
       id:makeId(),
       name:'بدل المواصلات',
@@ -1391,7 +1312,6 @@ function defaultAllowances(){
       value:10,
       system:true
     },
-
     {
       id:makeId(),
       name:'بدل السكن',
@@ -1399,15 +1319,11 @@ function defaultAllowances(){
       value:25,
       system:true
     }
-
   ];
-
 }
 
 function defaultCommitments(){
-
   return [
-
     {
       id:makeId(),
       name:'استقطاع التأمينات',
@@ -1415,7 +1331,6 @@ function defaultCommitments(){
       value:0,
       system:true
     },
-
     {
       id:makeId(),
       name:'قسط / قرض',
@@ -1423,7 +1338,6 @@ function defaultCommitments(){
       value:0,
       system:false
     },
-
     {
       id:makeId(),
       name:'إيجار',
@@ -1431,7 +1345,6 @@ function defaultCommitments(){
       value:0,
       system:false
     },
-
     {
       id:makeId(),
       name:'التزامات أخرى',
@@ -1439,45 +1352,32 @@ function defaultCommitments(){
       value:0,
       system:false
     }
-
   ];
-
 }
 
 function defaultBudgets(){
-
   return [
-
     {
       id:makeId(),
       name:'مقاضي البيت',
-      allocated:0,
-      system:false
+      allocated:0
     },
-
     {
       id:makeId(),
       name:'بنزين',
-      allocated:0,
-      system:false
+      allocated:0
     },
-
     {
       id:makeId(),
       name:'أكل ومطاعم',
-      allocated:0,
-      system:false
+      allocated:0
     },
-
     {
       id:makeId(),
       name:'أخرى',
-      allocated:0,
-      system:false
+      allocated:0
     }
-
   ];
-
 }
 
 let allowances =
@@ -1491,60 +1391,38 @@ let budgets =
 
 let transactions = [];
 
-/* ==============================
-   STORAGE
-============================== */
-
-function getStorage(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        'salaryApp'
-      )
-    );
-
-  }catch(e){
-
-    return null;
-
-  }
-
-}
+/* STORAGE */
 
 function save(){
-
   try{
-
     localStorage.setItem(
       'salaryApp',
       JSON.stringify({
-
-        version:3,
-
-        salary:
-          $('salary').value,
-
+        version:4,
+        salary:$('salary').value,
         allowances,
-
         commitments,
-
         budgets,
-
         transactions
-
       })
     );
-
   }catch(e){}
-
 }
 
 function load(){
 
-  const data =
-    getStorage();
+  let data;
+
+  try{
+    data =
+      JSON.parse(
+        localStorage.getItem(
+          'salaryApp'
+        )
+      );
+  }catch(e){
+    return;
+  }
 
   if(!data){
     return;
@@ -1553,13 +1431,9 @@ function load(){
   if(
     data.salary !== undefined
   ){
-
     $('salary').value =
       data.salary;
-
   }
-
-  /* ALLOWANCES */
 
   if(
     Array.isArray(
@@ -1578,30 +1452,24 @@ function load(){
               : 'percent',
           value:num(item.value),
           system:
-            item.name === 'بدل المواصلات' ||
-            item.name === 'بدل السكن'
+            item.name ===
+              'بدل المواصلات' ||
+            item.name ===
+              'بدل السكن'
         })
       );
 
     allowances =
       allowances.filter(
         item =>
-          item.name !== 'بدل الشفت' ||
-          !item.system
+          !(
+            item.name ===
+            'بدل الشفت' &&
+            item.system
+          )
       );
 
   }
-
-  /* OLD ALLOWANCES */
-
-  else{
-
-    allowances =
-      defaultAllowances();
-
-  }
-
-  /* COMMITMENTS */
 
   if(
     Array.isArray(
@@ -1651,15 +1519,6 @@ function load(){
 
   }
 
-  else{
-
-    commitments =
-      defaultCommitments();
-
-  }
-
-  /* NEW BUDGETS */
-
   if(
     Array.isArray(
       data.budgets
@@ -1671,38 +1530,11 @@ function load(){
         item => ({
           id:item.id || makeId(),
           name:item.name || 'فئة',
-          allocated:
-            num(item.allocated),
-          system:false
+          allocated:num(item.allocated)
         })
       );
 
   }
-
-  /* OLD EXPENSE LIST MIGRATION */
-
-  else if(
-    Array.isArray(
-      data.exp
-    )
-  ){
-
-    budgets =
-      data.exp.map(
-        item => ({
-          id:makeId(),
-          name:
-            item.name ||
-            'فئة',
-          allocated:
-            num(item.amount),
-          system:false
-        })
-      );
-
-  }
-
-  /* TRANSACTIONS */
 
   if(
     Array.isArray(
@@ -1727,60 +1559,38 @@ function load(){
 
 }
 
-/* ==============================
-   CALCULATIONS
-============================== */
+/* CALC */
 
 function salaryValue(){
-
   return num(
     $('salary').value
   );
+}
+
+function itemAmount(item,salary){
+
+  return item.type === 'percent'
+    ? salary * num(item.value) / 100
+    : num(item.value);
 
 }
 
-function itemAmount(
-  item,
-  salary
-){
-
-  if(
-    item.type === 'percent'
-  ){
-
-    return (
-      salary *
-      num(item.value) /
-      100
-    );
-
-  }
-
-  return num(
-    item.value
-  );
-
-}
-
-function spentForBudget(
-  id
-){
+function spentForBudget(id){
 
   return transactions
     .filter(
-      item =>
-        item.budgetId === id
+      t =>
+        t.budgetId === id
     )
     .reduce(
-      (sum,item) =>
-        sum +
-        num(item.amount),
+      (sum,t) =>
+        sum + num(t.amount),
       0
     );
 
 }
 
-function totals(){
+function getTotals(){
 
   const salary =
     salaryValue();
@@ -1818,8 +1628,7 @@ function totals(){
   const transactionTotal =
     transactions.reduce(
       (sum,item) =>
-        sum +
-        num(item.amount),
+        sum + num(item.amount),
       0
     );
 
@@ -1830,17 +1639,11 @@ function totals(){
   const allocatedTotal =
     budgets.reduce(
       (sum,item) =>
-        sum +
-        num(item.allocated),
+        sum + num(item.allocated),
       0
     );
 
-  const unallocated =
-    afterCommitments -
-    allocatedTotal;
-
   return {
-
     salary,
     allowanceTotal,
     gross,
@@ -1849,17 +1652,16 @@ function totals(){
     transactionTotal,
     finalRemaining,
     allocatedTotal,
-    unallocated
-
+    unallocated:
+      afterCommitments -
+      allocatedTotal
   };
 
 }
 
-/* ==============================
-   FINANCIAL ROW
-============================== */
+/* ROWS */
 
-function financialRow(
+function createFinancialRow(
   item,
   index,
   kind
@@ -1881,8 +1683,9 @@ function financialRow(
   row.dataset.id =
     item.id;
 
-  const salary =
-    salaryValue();
+  const lockedType =
+    kind === 'allowance' &&
+    item.system;
 
   row.innerHTML = `
 
@@ -1929,7 +1732,7 @@ function financialRow(
             money(
               itemAmount(
                 item,
-                salary
+                salaryValue()
               )
             )
           }
@@ -1939,7 +1742,11 @@ function financialRow(
 
           <button
             type="button"
-            class="mode"
+            class="mode ${
+              lockedType
+                ? 'locked'
+                : ''
+            }"
           >
             ${
               item.type === 'percent'
@@ -1971,7 +1778,6 @@ function financialRow(
       </div>
 
     </div>
-
   `;
 
   const nameInput =
@@ -1989,16 +1795,6 @@ function financialRow(
       '.mode'
     );
 
-  const handle =
-    row.querySelector(
-      '.handle'
-    );
-
-  const deleteButton =
-    row.querySelector(
-      '.delete-mark'
-    );
-
   if(!item.system){
 
     nameInput.addEventListener(
@@ -2009,12 +1805,6 @@ function financialRow(
           nameInput.value;
 
         save();
-
-        if(
-          kind === 'allowance'
-        ){
-          calculate();
-        }
 
       }
     );
@@ -2035,243 +1825,25 @@ function financialRow(
     }
   );
 
-  mode.addEventListener(
-    'click',
-    () => {
+  if(!lockedType){
 
-      item.type =
-        item.type === 'percent'
-          ? 'fixed'
-          : 'percent';
+    mode.addEventListener(
+      'click',
+      () => {
 
-      if(
-        kind === 'allowance'
-      ){
-        renderAllowances();
-      }else{
-        renderCommitments();
+        item.type =
+          item.type === 'percent'
+            ? 'fixed'
+            : 'percent';
+
+        renderFinancialLists();
+
+        calculate();
+
       }
-
-      calculate();
-
-    }
-  );
-
-  deleteButton.addEventListener(
-    'click',
-    () => {
-
-      const list =
-        kind === 'allowance'
-          ? allowances
-          : commitments;
-
-      list.splice(
-        index,
-        1
-      );
-
-      exitDeleteMode();
-
-      renderAll();
-
-    }
-  );
-
-  setupHandle(
-    handle,
-    row,
-    kind
-  );
-
-  return row;
-
-}
-
-/* ==============================
-   RENDER ALLOWANCES
-============================== */
-
-function renderAllowances(){
-
-  const box =
-    $('allowancesList');
-
-  box.innerHTML =
-    '';
-
-  allowances.forEach(
-    (item,index) => {
-
-      box.appendChild(
-        financialRow(
-          item,
-          index,
-          'allowance'
-        )
-      );
-
-    }
-  );
-
-}
-
-/* ==============================
-   RENDER COMMITMENTS
-============================== */
-
-function renderCommitments(){
-
-  const box =
-    $('commitmentsList');
-
-  box.innerHTML =
-    '';
-
-  commitments.forEach(
-    (item,index) => {
-
-      box.appendChild(
-        financialRow(
-          item,
-          index,
-          'commitment'
-        )
-      );
-
-    }
-  );
-
-}
-
-/* ==============================
-   BUDGET ROW
-============================== */
-
-function budgetRow(
-  item,
-  index
-){
-
-  const spent =
-    spentForBudget(
-      item.id
     );
 
-  const remaining =
-    num(item.allocated) -
-    spent;
-
-  const row =
-    document.createElement(
-      'div'
-    );
-
-  row.className =
-    'dynamic-row budget-row deletable';
-
-  row.dataset.id =
-    item.id;
-
-  row.innerHTML = `
-
-    <button
-      type="button"
-      class="handle"
-    >
-      ☰
-    </button>
-
-    <button
-      type="button"
-      class="delete-mark"
-    >
-      ×
-    </button>
-
-    <div class="item-body">
-
-      <div class="item-top">
-
-        <input
-          class="item-name editable"
-          value="${escapeHtml(item.name)}"
-        >
-
-      </div>
-
-      <div class="item-bottom">
-
-        <div class="budget-info">
-
-          <span class="remaining">
-            ${money(remaining)}
-          </span>
-
-          <small>
-            صرفت ${money(spent)}
-          </small>
-
-        </div>
-
-        <div class="budget-value input-wrap">
-
-          <input
-            type="number"
-            inputmode="decimal"
-            value="${num(item.allocated)}"
-            aria-label="المبلغ المخصص"
-          >
-
-          <span class="input-unit">
-            ر.س
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-  const name =
-    row.querySelector(
-      '.item-name'
-    );
-
-  const amount =
-    row.querySelector(
-      '.budget-value input'
-    );
-
-  name.addEventListener(
-    'input',
-    () => {
-
-      item.name =
-        name.value;
-
-      save();
-
-      updateExpenseCategories();
-
-    }
-  );
-
-  amount.addEventListener(
-    'input',
-    () => {
-
-      item.allocated =
-        num(
-          amount.value
-        );
-
-      calculate();
-
-    }
-  );
+  }
 
   row
     .querySelector(
@@ -2281,43 +1853,33 @@ function budgetRow(
       'click',
       () => {
 
-        const hasTransactions =
-          transactions.some(
-            transaction =>
-              transaction.budgetId ===
-              item.id
-          );
+        if(item.system){
+          return;
+        }
 
         if(
-          hasTransactions
+          kind === 'allowance'
         ){
 
-          const ok =
-            confirm(
-              'هذه الفئة مرتبطة بمصروفات مسجلة. حذفها سيحذف مصروفاتها أيضًا. هل تريد المتابعة؟'
-            );
+          allowances.splice(
+            index,
+            1
+          );
 
-          if(!ok){
-            return;
-          }
+        }else{
 
-          transactions =
-            transactions.filter(
-              transaction =>
-                transaction.budgetId !==
-                item.id
-            );
+          commitments.splice(
+            index,
+            1
+          );
 
         }
 
-        budgets.splice(
-          index,
-          1
-        );
-
         exitDeleteMode();
 
-        renderAll();
+        renderFinancialLists();
+
+        calculate();
 
       }
     );
@@ -2327,43 +1889,79 @@ function budgetRow(
       '.handle'
     ),
     row,
-    'budget'
+    kind
   );
 
   return row;
 
 }
 
-function renderBudgets(){
+function renderFinancialLists(){
 
-  const box =
-    $('budgetList');
+  $('allowancesList')
+    .innerHTML =
+      '';
 
-  box.innerHTML =
-    '';
-
-  budgets.forEach(
+  allowances.forEach(
     (item,index) => {
 
-      box.appendChild(
-        budgetRow(
-          item,
-          index
-        )
-      );
+      $('allowancesList')
+        .appendChild(
+          createFinancialRow(
+            item,
+            index,
+            'allowance'
+          )
+        );
 
     }
   );
 
-  updateExpenseCategories();
+  $('commitmentsList')
+    .innerHTML =
+      '';
+
+  commitments.forEach(
+    (item,index) => {
+
+      $('commitmentsList')
+        .appendChild(
+          createFinancialRow(
+            item,
+            index,
+            'commitment'
+          )
+        );
+
+    }
+  );
 
 }
 
-/* ==============================
-   HANDLE: TAP + LONG PRESS DRAG
-============================== */
+/* HANDLE */
 
-let menuContext = null;
+let menuKind = null;
+let pendingAddKind = null;
+
+function sourceForKind(kind){
+
+  return kind === 'allowance'
+    ? allowances
+    : kind === 'commitment'
+      ? commitments
+      : budgets;
+
+}
+
+function listForKind(kind){
+
+  return kind === 'allowance'
+    ? $('allowancesList')
+    : kind === 'commitment'
+      ? $('commitmentsList')
+      : $('budgetList');
+
+}
 
 function setupHandle(
   handle,
@@ -2371,57 +1969,13 @@ function setupHandle(
   kind
 ){
 
-  let timer = null;
+  let timer;
   let dragging = false;
   let startX = 0;
   let startY = 0;
 
   const list =
-    kind === 'allowance'
-      ? $('allowancesList')
-      :
-      kind === 'commitment'
-        ? $('commitmentsList')
-        :
-        $('budgetList');
-
-  function sourceList(){
-
-    if(
-      kind === 'allowance'
-    ){
-      return allowances;
-    }
-
-    if(
-      kind === 'commitment'
-    ){
-      return commitments;
-    }
-
-    return budgets;
-
-  }
-
-  function startDrag(
-    event
-  ){
-
-    dragging = true;
-
-    row.classList.add(
-      'dragging'
-    );
-
-    try{
-
-      handle.setPointerCapture(
-        event.pointerId
-      );
-
-    }catch(e){}
-
-  }
+    listForKind(kind);
 
   handle.addEventListener(
     'pointerdown',
@@ -2437,9 +1991,17 @@ function setupHandle(
         setTimeout(
           () => {
 
-            startDrag(
-              event
+            dragging = true;
+
+            row.classList.add(
+              'dragging'
             );
+
+            try{
+              handle.setPointerCapture(
+                event.pointerId
+              );
+            }catch(e){}
 
           },
           450
@@ -2452,9 +2014,7 @@ function setupHandle(
     'pointermove',
     event => {
 
-      if(
-        !dragging
-      ){
+      if(!dragging){
 
         const moved =
           Math.abs(
@@ -2466,34 +2026,27 @@ function setupHandle(
             startY
           );
 
-        if(
-          moved > 12
-        ){
-
-          clearTimeout(
-            timer
-          );
-
+        if(moved > 12){
+          clearTimeout(timer);
         }
 
         return;
-
       }
 
       event.preventDefault();
 
-      const el =
+      const element =
         document.elementFromPoint(
           event.clientX,
           event.clientY
         );
 
-      if(!el){
+      if(!element){
         return;
       }
 
       const target =
-        el.closest(
+        element.closest(
           '.dynamic-row'
         );
 
@@ -2531,17 +2084,52 @@ function setupHandle(
     }
   );
 
-  function end(
-    event
-  ){
+  handle.addEventListener(
+    'pointerup',
+    event => {
 
-    clearTimeout(
-      timer
-    );
+      clearTimeout(timer);
 
-    if(
-      dragging
-    ){
+      if(dragging){
+
+        dragging = false;
+
+        row.classList.remove(
+          'dragging'
+        );
+
+        const order =
+          Array.from(
+            list.querySelectorAll(
+              '.dynamic-row'
+            )
+          ).map(
+            element =>
+              element.dataset.id
+          );
+
+        sourceForKind(kind)
+          .sort(
+            (a,b) =>
+              order.indexOf(a.id) -
+              order.indexOf(b.id)
+          );
+
+        save();
+
+        return;
+      }
+
+      openOptions(kind);
+
+    }
+  );
+
+  handle.addEventListener(
+    'pointercancel',
+    () => {
+
+      clearTimeout(timer);
 
       dragging = false;
 
@@ -2549,160 +2137,130 @@ function setupHandle(
         'dragging'
       );
 
-      const order =
-        Array.from(
-          list.querySelectorAll(
-            '.dynamic-row'
-          )
-        ).map(
-          element =>
-            element.dataset.id
-        );
-
-      sourceList().sort(
-        (a,b) =>
-          order.indexOf(a.id) -
-          order.indexOf(b.id)
-      );
-
-      save();
-
-      return;
-
-    }
-
-    openMenu(
-      kind
-    );
-
-  }
-
-  handle.addEventListener(
-    'pointerup',
-    end
-  );
-
-  handle.addEventListener(
-    'pointercancel',
-    () => {
-
-      clearTimeout(
-        timer
-      );
-
-      dragging =
-        false;
-
-      row.classList.remove(
-        'dragging'
-      );
-
     }
   );
 
 }
 
-/* ==============================
-   ACTION SHEET
-============================== */
+/* OPTIONS */
 
-function openMenu(
-  kind
-){
+function showOverlay(){
+  $('overlay')
+    .classList.add(
+      'show'
+    );
+}
 
-  menuContext =
+function hideOverlay(){
+  $('overlay')
+    .classList.remove(
+      'show'
+    );
+}
+
+function openOptions(kind){
+
+  menuKind =
     kind;
 
-  $('menuAdd')
+  $('optionsTitle')
+    .textContent =
+      kind === 'allowance'
+        ? 'خيارات البدلات'
+        : 'خيارات الالتزامات';
+
+  $('optionAdd')
     .textContent =
       kind === 'allowance'
         ? 'إضافة بدل'
-        :
-        kind === 'commitment'
-          ? 'إضافة التزام'
-          :
-          'إضافة فئة';
+        : 'إضافة التزام';
 
-  $('menuOverlay')
-    .classList.add(
-      'show'
-    );
+  showOverlay();
 
-  $('actionSheet')
+  $('optionsSheet')
     .classList.add(
       'show'
     );
 
 }
 
-function closeMenu(){
+function closeSheets(){
 
-  $('menuOverlay')
+  $('optionsSheet')
     .classList.remove(
       'show'
     );
 
-  $('actionSheet')
+  $('typeSheet')
     .classList.remove(
       'show'
     );
+
+  hideOverlay();
 
 }
 
-$('menuCancel')
+$('optionCancel')
   .addEventListener(
     'click',
-    closeMenu
+    closeSheets
   );
 
-$('menuOverlay')
+$('typeCancel')
   .addEventListener(
     'click',
-    closeMenu
+    closeSheets
   );
 
-$('menuAdd')
+$('overlay')
+  .addEventListener(
+    'click',
+    closeSheets
+  );
+
+$('optionAdd')
   .addEventListener(
     'click',
     () => {
 
-      addByKind(
-        menuContext
-      );
+      pendingAddKind =
+        menuKind;
 
-      closeMenu();
+      $('optionsSheet')
+        .classList.remove(
+          'show'
+        );
+
+      $('typeSheet')
+        .classList.add(
+          'show'
+        );
 
     }
   );
 
-$('menuDeleteMode')
+$('optionDelete')
   .addEventListener(
     'click',
     () => {
 
-      closeMenu();
+      closeSheets();
 
       activateDeleteMode(
-        menuContext
+        menuKind
       );
 
     }
   );
 
-function activateDeleteMode(
-  kind
-){
+function activateDeleteMode(kind){
 
   exitDeleteMode();
 
   const card =
     kind === 'allowance'
       ? $('allowanceCard')
-      :
-      kind === 'commitment'
-        ? $('commitmentCard')
-        :
-        $('budgetCard');
+      : $('commitmentCard');
 
   card.classList.add(
     'delete-mode'
@@ -2725,128 +2283,216 @@ function exitDeleteMode(){
 
 }
 
-/* ==============================
-   ADD
-============================== */
-
-function addByKind(
-  kind
-){
+function addFinancialItem(type){
 
   if(
-    kind === 'allowance'
+    pendingAddKind ===
+    'allowance'
   ){
 
-    const percentMode =
-      confirm(
-        'هل تريد البدل كنسبة من الراتب؟\n\nموافق = نسبة\nإلغاء = مبلغ ثابت'
-      );
-
     allowances.push({
-
       id:makeId(),
-
       name:'بدل إضافي',
-
-      type:
-        percentMode
-          ? 'percent'
-          : 'fixed',
-
+      type,
       value:0,
-
       system:false
-
     });
-
-    renderAllowances();
 
   }
 
   else if(
-    kind === 'commitment'
+    pendingAddKind ===
+    'commitment'
   ){
 
-    const percentMode =
-      confirm(
-        'هل تريد الالتزام كنسبة من الراتب؟\n\nموافق = نسبة\nإلغاء = مبلغ ثابت'
-      );
-
     commitments.push({
-
       id:makeId(),
-
       name:'التزام جديد',
-
-      type:
-        percentMode
-          ? 'percent'
-          : 'fixed',
-
+      type,
       value:0,
-
       system:false
-
     });
-
-    renderCommitments();
 
   }
 
-  else{
+  closeSheets();
 
-    budgets.push({
-
-      id:makeId(),
-
-      name:'فئة جديدة',
-
-      allocated:0,
-
-      system:false
-
-    });
-
-    renderBudgets();
-
-  }
+  renderFinancialLists();
 
   calculate();
 
 }
 
-$('addAllowance')
+$('choosePercent')
   .addEventListener(
     'click',
     () =>
-      addByKind(
-        'allowance'
+      addFinancialItem(
+        'percent'
       )
   );
 
-$('addCommitment')
+$('chooseFixed')
   .addEventListener(
     'click',
     () =>
-      addByKind(
-        'commitment'
+      addFinancialItem(
+        'fixed'
       )
   );
+
+/* PAGE 3 */
+
+function renderBudgets(){
+
+  const box =
+    $('budgetList');
+
+  box.innerHTML =
+    '';
+
+  budgets.forEach(
+    (item,index) => {
+
+      const spent =
+        spentForBudget(
+          item.id
+        );
+
+      const remaining =
+        num(item.allocated) -
+        spent;
+
+      const row =
+        document.createElement(
+          'div'
+        );
+
+      row.className =
+        'dynamic-row';
+
+      row.dataset.id =
+        item.id;
+
+      row.innerHTML = `
+
+        <button
+          type="button"
+          class="handle"
+        >
+          ☰
+        </button>
+
+        <div class="item-body">
+
+          <div class="item-top">
+
+            <input
+              class="item-name editable"
+              value="${escapeHtml(item.name)}"
+            >
+
+          </div>
+
+          <div class="item-bottom">
+
+            <div class="budget-info">
+
+              <span class="remaining">
+                ${money(remaining)}
+              </span>
+
+              <small>
+                صرفت ${money(spent)}
+              </small>
+
+            </div>
+
+            <div class="budget-value">
+
+              <input
+                type="number"
+                inputmode="decimal"
+                value="${num(item.allocated)}"
+              >
+
+              <span class="input-unit">
+                ر.س
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      const name =
+        row.querySelector(
+          '.item-name'
+        );
+
+      const amount =
+        row.querySelector(
+          '.budget-value input'
+        );
+
+      name.addEventListener(
+        'input',
+        () => {
+
+          item.name =
+            name.value;
+
+          save();
+
+          updateCategories();
+
+        }
+      );
+
+      amount.addEventListener(
+        'input',
+        () => {
+
+          item.allocated =
+            num(
+              amount.value
+            );
+
+          calculate();
+
+        }
+      );
+
+      box.appendChild(row);
+
+    }
+  );
+
+  updateCategories();
+
+}
 
 $('addBudget')
   .addEventListener(
     'click',
-    () =>
-      addByKind(
-        'budget'
-      )
+    () => {
+
+      budgets.push({
+        id:makeId(),
+        name:'فئة جديدة',
+        allocated:0
+      });
+
+      renderBudgets();
+
+      calculate();
+
+    }
   );
 
-/* ==============================
-   EXPENSE FORM
-============================== */
-
-function updateExpenseCategories(){
+function updateCategories(){
 
   const select =
     $('expenseCategory');
@@ -2871,23 +2517,18 @@ function updateExpenseCategories(){
       option.textContent =
         budget.name;
 
-      select.appendChild(
-        option
-      );
+      select.appendChild(option);
 
     }
   );
 
   if(
     budgets.some(
-      item =>
-        item.id === old
+      b =>
+        b.id === old
     )
   ){
-
-    select.value =
-      old;
-
+    select.value = old;
   }
 
 }
@@ -2922,28 +2563,20 @@ $('expenseForm')
       }
 
       transactions.unshift({
-
         id:makeId(),
-
         budgetId,
-
         amount,
-
         note,
-
         createdAt:
           new Date()
             .toISOString()
-
       });
 
-      $('expenseAmount')
-        .value =
-          '';
+      $('expenseAmount').value =
+        '';
 
-      $('expenseNote')
-        .value =
-          '';
+      $('expenseNote').value =
+        '';
 
       renderBudgets();
 
@@ -2953,10 +2586,6 @@ $('expenseForm')
 
     }
   );
-
-/* ==============================
-   TRANSACTIONS
-============================== */
 
 function renderTransactions(){
 
@@ -2995,9 +2624,7 @@ function renderTransactions(){
     empty.textContent =
       'ما سجلت أي مصروف حتى الآن';
 
-    box.appendChild(
-      empty
-    );
+    box.appendChild(empty);
 
     return;
 
@@ -3008,20 +2635,15 @@ function renderTransactions(){
 
       const budget =
         budgets.find(
-          item =>
-            item.id ===
+          b =>
+            b.id ===
             transaction.budgetId
         );
 
       const category =
         budget
           ? budget.name
-          : 'فئة محذوفة';
-
-      const date =
-        new Date(
-          transaction.createdAt
-        );
+          : 'فئة';
 
       const dateText =
         new Intl.DateTimeFormat(
@@ -3033,7 +2655,9 @@ function renderTransactions(){
             minute:'2-digit'
           }
         ).format(
-          date
+          new Date(
+            transaction.createdAt
+          )
         );
 
       const row =
@@ -3055,7 +2679,8 @@ function renderTransactions(){
           <p>
             ${
               transaction.note
-                ? escapeHtml(transaction.note) + ' • '
+                ? escapeHtml(transaction.note) +
+                  ' • '
                 : ''
             }
             ${escapeHtml(dateText)}
@@ -3072,13 +2697,11 @@ function renderTransactions(){
           <button
             type="button"
             class="transaction-menu"
-            aria-label="خيارات"
           >
             ⋯
           </button>
 
         </div>
-
       `;
 
       row
@@ -3103,32 +2726,28 @@ function renderTransactions(){
               1
             );
 
-            renderBudgets();
-
             renderTransactions();
+
+            renderBudgets();
 
             calculate();
 
           }
         );
 
-      box.appendChild(
-        row
-      );
+      box.appendChild(row);
 
     }
   );
 
 }
 
-/* ==============================
-   CALCULATE
-============================== */
+/* CALCULATE */
 
 function calculate(){
 
   const result =
-    totals();
+    getTotals();
 
   $('allowancesTotal')
     .textContent =
@@ -3140,14 +2759,12 @@ function calculate(){
     .textContent =
       (
         result.salary > 0
-          ?
-          percent(
-            result.allowanceTotal /
-            result.salary *
-            100
-          )
-          :
-          '٠'
+          ? cleanPercent(
+              result.allowanceTotal /
+              result.salary *
+              100
+            )
+          : '٠'
       ) +
       '% من الراتب الأساسي';
 
@@ -3173,14 +2790,12 @@ function calculate(){
     .textContent =
       (
         result.gross > 0
-          ?
-          percent(
-            result.commitmentTotal /
-            result.gross *
-            100
-          )
-          :
-          '٠'
+          ? cleanPercent(
+              result.commitmentTotal /
+              result.gross *
+              100
+            )
+          : '٠'
       ) +
       '% من إجمالي الدخل';
 
@@ -3223,12 +2838,10 @@ function calculate(){
 
   let remainingPercent =
     result.gross > 0
-      ?
-      result.finalRemaining /
-      result.gross *
-      100
-      :
-      0;
+      ? result.finalRemaining /
+        result.gross *
+        100
+      : 0;
 
   remainingPercent =
     Math.max(
@@ -3255,13 +2868,13 @@ function calculate(){
       'deg'
     );
 
-  updateDynamicAmounts();
+  updateRowAmounts();
 
   save();
 
 }
 
-function updateDynamicAmounts(){
+function updateRowAmounts(){
 
   const salary =
     salaryValue();
@@ -3275,8 +2888,8 @@ function updateDynamicAmounts(){
 
         const item =
           allowances.find(
-            allowance =>
-              allowance.id ===
+            i =>
+              i.id ===
               row.dataset.id
           );
 
@@ -3308,8 +2921,8 @@ function updateDynamicAmounts(){
 
         const item =
           commitments.find(
-            commitment =>
-              commitment.id ===
+            i =>
+              i.id ===
               row.dataset.id
           );
 
@@ -3332,68 +2945,9 @@ function updateDynamicAmounts(){
       }
     );
 
-  renderBudgetNumbers();
-
 }
 
-function renderBudgetNumbers(){
-
-  document
-    .querySelectorAll(
-      '#budgetList .dynamic-row'
-    )
-    .forEach(
-      row => {
-
-        const budget =
-          budgets.find(
-            item =>
-              item.id ===
-              row.dataset.id
-          );
-
-        if(!budget){
-          return;
-        }
-
-        const spent =
-          spentForBudget(
-            budget.id
-          );
-
-        const remaining =
-          num(
-            budget.allocated
-          ) -
-          spent;
-
-        row
-          .querySelector(
-            '.remaining'
-          )
-          .textContent =
-            money(
-              remaining
-            );
-
-        row
-          .querySelector(
-            '.budget-info small'
-          )
-          .textContent =
-            'صرفت ' +
-            money(
-              spent
-            );
-
-      }
-    );
-
-}
-
-/* ==============================
-   NAVIGATION
-============================== */
+/* NAV */
 
 document
   .querySelectorAll(
@@ -3408,7 +2962,7 @@ document
 
           exitDeleteMode();
 
-          closeMenu();
+          closeSheets();
 
           document
             .querySelectorAll(
@@ -3460,16 +3014,14 @@ document
     }
   );
 
-/* ==============================
-   DATE
-============================== */
+/* DATE */
 
 function updateDate(){
 
-  try{
+  const now =
+    new Date();
 
-    const now =
-      new Date();
+  try{
 
     const ar =
       new Intl.DateTimeFormat(
@@ -3478,9 +3030,7 @@ function updateDate(){
           month:'long',
           year:'numeric'
         }
-      ).format(
-        now
-      );
+      ).format(now);
 
     const en =
       new Intl.DateTimeFormat(
@@ -3489,9 +3039,7 @@ function updateDate(){
           month:'long',
           year:'numeric'
         }
-      ).format(
-        now
-      );
+      ).format(now);
 
     $('monthLabel')
       .textContent =
@@ -3509,9 +3057,7 @@ function updateDate(){
 
 }
 
-/* ==============================
-   PREVENT DOUBLE-TAP ZOOM
-============================== */
+/* PREVENT IOS ZOOM */
 
 let lastTouchEnd = 0;
 
@@ -3527,9 +3073,7 @@ document.addEventListener(
       lastTouchEnd <=
       300
     ){
-
       event.preventDefault();
-
     }
 
     lastTouchEnd =
@@ -3541,44 +3085,25 @@ document.addEventListener(
   }
 );
 
-/* ==============================
-   SALARY
-============================== */
-
 $('salary')
   .addEventListener(
     'input',
     calculate
   );
 
-/* ==============================
-   RENDER ALL
-============================== */
-
-function renderAll(){
-
-  renderAllowances();
-
-  renderCommitments();
-
-  renderBudgets();
-
-  renderTransactions();
-
-  calculate();
-
-}
-
-/* ==============================
-   START
-============================== */
+/* START */
 
 load();
 
 updateDate();
 
-renderAll();
+renderFinancialLists();
 
+renderBudgets();
+
+renderTransactions();
+
+calculate();
 </script>
 
 </body>
