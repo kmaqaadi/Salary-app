@@ -2,7 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+>
+
 <meta name="theme-color" content="#090b16">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,11 +23,11 @@
   --bg:#070913;
   --text:#f7f8ff;
   --muted:#8f96ae;
-  --blue:#5b8cff;
-  --cyan:#40e0ff;
+  --blue:#6098ff;
+  --cyan:#63c7ff;
   --violet:#985cff;
-  --green:#45e6a3;
-  --red:#ff6577;
+  --green:#55e3a4;
+  --red:#c84d5e;
   --line:rgba(255,255,255,.07);
 }
 
@@ -39,12 +44,29 @@ body{
   margin:0;
   min-height:100vh;
   overflow-x:hidden;
+
   background:
-    radial-gradient(circle at 85% 0%,rgba(91,140,255,.18),transparent 35%),
-    radial-gradient(circle at 10% 35%,rgba(152,92,255,.12),transparent 32%),
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(91,140,255,.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 35%,
+      rgba(152,92,255,.12),
+      transparent 32%
+    ),
     var(--bg);
+
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
 button,
@@ -63,19 +85,30 @@ select{
   outline:none;
 }
 
+input{
+  min-width:0;
+}
+
 .app{
   max-width:720px;
   margin:auto;
-  padding:18px 14px 110px;
+
+  padding:
+    calc(env(safe-area-inset-top) + 18px)
+    14px
+    110px;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .topbar{
   display:flex;
   justify-content:flex-start;
   align-items:center;
-  margin-bottom:12px;
+
+  margin-bottom:14px;
 }
 
 .brand{
@@ -88,10 +121,16 @@ select{
 .logo{
   width:44px;
   height:44px;
-  overflow:hidden;
+
   flex:0 0 auto;
+
+  overflow:hidden;
+
   border-radius:14px;
-  box-shadow:0 10px 28px rgba(91,140,255,.25);
+
+  box-shadow:
+    0 10px 28px
+    rgba(91,140,255,.25);
 }
 
 .logo img{
@@ -108,20 +147,33 @@ select{
 
 .brand small{
   display:block;
+
   margin-top:3px;
+
   color:var(--muted);
+
   font-size:10px;
+
   white-space:nowrap;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   position:relative;
+
   overflow:hidden;
+
   padding:14px 16px;
-  border:1px solid rgba(255,255,255,.09);
+
+  border:
+    1px solid
+    rgba(255,255,255,.09);
+
   border-radius:23px;
+
   background:
     linear-gradient(
       135deg,
@@ -133,22 +185,35 @@ select{
 
 .hero:before{
   content:"";
+
   position:absolute;
+
   top:-115px;
   left:-90px;
+
   width:180px;
   height:180px;
+
   border-radius:50%;
-  background:rgba(64,224,255,.14);
+
+  background:
+    rgba(64,224,255,.12);
+
   filter:blur(20px);
 }
 
 .hero-grid{
   position:relative;
   z-index:1;
+
   display:grid;
-  grid-template-columns:minmax(0,1fr) 82px;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    82px;
+
   gap:10px;
+
   align-items:center;
 }
 
@@ -159,7 +224,9 @@ select{
 
 .hero-money{
   margin:5px 0;
+
   line-height:1;
+
   white-space:nowrap;
 }
 
@@ -170,7 +237,7 @@ select{
 
 .currency{
   color:#bec4d8;
-  font-size:12px;
+  font-size:15px;
 }
 
 .hero-sub{
@@ -178,30 +245,47 @@ select{
   font-size:10px;
 }
 
+/* دائرة النسبة */
+
 .orbit{
   --angle:0deg;
+
   width:78px;
   height:78px;
+
   padding:6px;
+
   border-radius:50%;
+
   background:
     conic-gradient(
+      from -90deg,
       var(--cyan) 0deg,
       var(--blue) var(--angle),
-      rgba(255,255,255,.07) var(--angle),
-      rgba(255,255,255,.07) 360deg
+      rgba(255,255,255,.08)
+      var(--angle),
+      rgba(255,255,255,.08)
+      360deg
     );
 }
 
 .orbit-inner{
   width:100%;
   height:100%;
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
   justify-content:center;
-  border:1px solid rgba(255,255,255,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
   border-radius:50%;
+
   background:#0c0f1c;
 }
 
@@ -211,30 +295,46 @@ select{
 
 .orbit-inner span{
   margin-top:2px;
+
   color:var(--muted);
+
   font-size:9px;
 }
 
 .hero-stats{
   position:relative;
   z-index:1;
+
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:7px;
+
   margin-top:8px;
 }
 
 .hero-stat{
   padding:8px 10px;
-  border:1px solid rgba(255,255,255,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
   border-radius:13px;
-  background:rgba(0,0,0,.15);
+
+  background:
+    rgba(0,0,0,.15);
 }
 
 .hero-stat span{
   display:block;
+
   margin-bottom:3px;
+
   color:var(--muted);
+
   font-size:9px;
 }
 
@@ -242,19 +342,64 @@ select{
   font-size:12px;
 }
 
+/* ملخص الصفحة الثالثة داخل الهيرو */
+
+.p3-hero-summary{
+  position:relative;
+  z-index:1;
+
+  display:none;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:7px;
+
+  margin-top:10px;
+}
+
+.p3-hero-mini{
+  padding:9px 10px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
+  border-radius:13px;
+
+  background:
+    rgba(0,0,0,.15);
+}
+
+.p3-hero-mini span{
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--muted);
+
+  font-size:9px;
+}
+
+.p3-hero-mini strong{
+  font-size:12px;
+}
+
 body.page-p3 .hero-stats{
   display:none;
 }
 
-body.page-p3 .hero{
-  padding-top:18px;
-  padding-bottom:18px;
+body.page-p3 .p3-hero-summary{
+  display:grid;
 }
 
-/* GENERAL */
+/* =========================
+   GENERAL
+========================= */
 
 .page{
   display:none;
+
   margin-top:14px;
 }
 
@@ -264,10 +409,16 @@ body.page-p3 .hero{
 
 .section-title{
   display:flex;
+
   align-items:flex-end;
   justify-content:space-between;
+
   gap:10px;
-  margin:18px 3px 9px;
+
+  margin:
+    18px
+    3px
+    9px;
 }
 
 .section-title h2{
@@ -282,9 +433,15 @@ body.page-p3 .hero{
 
 .card{
   padding:14px;
+
   margin-bottom:10px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:21px;
+
   background:
     linear-gradient(
       180deg,
@@ -295,14 +452,18 @@ body.page-p3 .hero{
 
 .money-row{
   display:flex;
+
   align-items:center;
   justify-content:space-between;
+
   gap:12px;
+
   padding:12px 3px;
 }
 
 .money-row > span{
   color:#9ea6bd;
+
   font-size:13px;
 }
 
@@ -324,31 +485,36 @@ body.page-p3 .hero{
 
 .substat{
   display:block;
+
   margin-top:4px;
+
   color:#7f89a8;
+
   font-size:10px;
 }
 
-/* SALARY */
+/* =========================
+   SALARY
+========================= */
 
 .salary-heading{
-  margin:18px 3px 9px;
+  margin:
+    18px
+    3px
+    9px;
 }
 
 .salary-heading h2{
   margin:0;
+
   font-size:16px;
 }
 
-.salary-label{
-  display:block;
-  margin:0 4px 7px;
-  color:#a1a8bf;
-  font-size:12px;
-}
+/* ما عاد فيه راتب أساسي رمادي */
 
 .salary-box{
   padding:0;
+
   border-radius:18px;
 }
 
@@ -359,63 +525,119 @@ body.page-p3 .hero{
 .salary-input{
   width:100%;
   height:58px;
-  padding:0 14px 0 55px;
+
+  padding:
+    0
+    14px
+    0
+    52px;
+
   border:0;
+
   border-radius:18px;
+
   background:#0c0f1b;
+
   color:white;
+
   text-align:right;
+
   font-size:17px;
 }
 
+/* =========================
+   RIYAL
+========================= */
+
 .input-unit{
   position:absolute;
-  left:14px;
+
+  left:12px;
   top:50%;
-  transform:translateY(-50%);
+
+  transform:
+    translateY(-50%);
+
   color:#707894;
-  font-size:10px;
+
+  font-size:16px;
+
+  line-height:1;
 }
 
-/* FINANCIAL LIST */
+.sar{
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    sans-serif;
+
+  white-space:nowrap;
+}
+
+/* =========================
+   LISTS
+========================= */
 
 .dynamic-list{
   display:flex;
+
   flex-direction:column;
+
   gap:4px;
 }
 
 .dynamic-row{
   position:relative;
+
   display:grid;
-  grid-template-columns:30px minmax(0,1fr);
+
+  grid-template-columns:
+    30px
+    minmax(0,1fr);
+
   gap:7px;
-  padding:9px 0;
+
+  padding:8px 0;
 }
 
-/* لا خطوط فاصلة */
+/* لا خطوط بين العناصر */
+
 .dynamic-row,
 .dynamic-row *{
-  border-top-color:transparent;
+  border-top-color:
+    transparent;
 }
 
 .dynamic-row.dragging{
   z-index:4;
+
   opacity:.75;
+
   border-radius:13px;
-  background:rgba(91,140,255,.07);
+
+  background:
+    rgba(91,140,255,.07);
 }
 
 .handle{
   width:30px;
-  height:42px;
+  height:38px;
+
   padding:0;
+
   border:0;
+
   background:transparent;
+
   color:#68728e;
-  font-size:19px;
+
+  font-size:18px;
+
   touch-action:none;
+
   user-select:none;
+
   -webkit-user-select:none;
 }
 
@@ -425,54 +647,81 @@ body.page-p3 .hero{
 
 .item-top{
   display:flex;
+
   align-items:center;
 }
 
 .item-name{
+  width:100%;
   min-width:0;
+
   flex:1;
+
   padding:2px 0;
+
   border:0;
+
   background:transparent;
+
   color:white;
+
   font-size:14px;
   font-weight:700;
-}
 
-.item-name.editable{
-  border-bottom:0;
+  text-align:right;
 }
 
 .item-bottom{
   display:flex;
+
   align-items:center;
   justify-content:space-between;
-  gap:7px;
+
+  gap:6px;
+
   margin-top:0;
 }
 
 .item-amount{
   color:var(--cyan);
-  font-size:15px;
+
+  font-size:14px;
+
   font-weight:800;
+
   white-space:nowrap;
 }
 
 .controls{
   display:flex;
+
   align-items:center;
+
   gap:5px;
+
+  flex-shrink:0;
 }
 
+/* المربعات أصغر */
+
 .mode{
-  width:66px;
-  height:35px;
+  width:57px;
+  height:32px;
+
   padding:0;
-  border:1px solid var(--line);
-  border-radius:11px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:10px;
+
   background:#0c0f1b;
+
   color:#aab2ca;
-  font-size:11px;
+
+  font-size:10px;
+
   font-weight:700;
 }
 
@@ -482,72 +731,167 @@ body.page-p3 .hero{
 
 .value-wrap{
   position:relative;
-  width:66px;
+
+  display:flex;
+
+  align-items:center;
+
+  width:54px;
+  height:32px;
+
+  padding:
+    0
+    5px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:10px;
+
+  background:#0c0f1b;
 }
 
 .value-wrap input{
-  width:66px;
-  height:35px;
-  padding:0 18px 0 4px;
-  border:1px solid var(--line);
-  border-radius:11px;
-  background:#0c0f1b;
+  width:100%;
+  height:100%;
+
+  padding:0;
+
+  border:0;
+
+  background:transparent;
+
   color:white;
+
   text-align:center;
-  font-size:16px;
+
+  font-size:14px;
+
+  line-height:1;
 }
 
-.value-wrap span{
-  position:absolute;
-  left:6px;
-  top:50%;
-  transform:translateY(-50%);
+.value-unit{
+  flex:0 0 auto;
+
+  margin-left:2px;
+
   color:#707894;
+
   font-size:9px;
+
+  line-height:1;
+
+  white-space:nowrap;
+
   pointer-events:none;
 }
 
-/* DELETE MODE */
+/* تصغير الرقم إذا طال */
+
+.value-wrap.long input{
+  font-size:12px;
+}
+
+.value-wrap.very-long input{
+  font-size:10px;
+}
+
+/* =========================
+   DELETE MODE
+========================= */
 
 .delete-mark{
   position:absolute;
-  top:50%;
+
   left:0;
+  bottom:8px;
+
   z-index:10;
+
   display:none;
-  width:34px;
-  height:34px;
-  transform:translateY(-50%);
-  border:0;
-  border-radius:11px;
-  background:rgba(255,101,119,.14);
-  color:var(--red);
-  font-size:20px;
+
+  width:30px;
+  height:30px;
+
+  padding:0;
+
+  border:
+    1px solid
+    rgba(180,60,75,.18);
+
+  border-radius:9px;
+
+  background:
+    rgba(116,35,47,.28);
+
+  color:#c95c6a;
+
+  font-size:18px;
+
+  line-height:1;
 }
 
-.delete-mode .dynamic-row.deletable .delete-mark{
+/* وقت الحذف:
+   المربعين يتحركون يمين
+   والاكس يصير يسارهم
+*/
+
+.delete-mode
+.dynamic-row.deletable
+.delete-mark{
   display:block;
 }
 
-.delete-mode .dynamic-row.deletable .handle{
+.delete-mode
+.dynamic-row.deletable
+.handle{
   visibility:hidden;
 }
 
+.delete-mode
+.dynamic-row.deletable
+.item-bottom{
+  padding-left:36px;
+}
+
+.delete-mode
+.dynamic-row.deletable
+.controls{
+  margin-left:auto;
+  transform:
+    translateX(0);
+}
+
+/* =========================
+   HINT
+========================= */
+
 .hint{
   margin-top:7px;
+
   color:#626c86;
+
   font-size:9px;
+
   text-align:center;
 }
 
-/* ACTION SHEETS */
+/* =========================
+   SHEETS
+========================= */
 
 .overlay{
   position:fixed;
+
   inset:0;
+
   z-index:150;
+
   display:none;
-  background:rgba(0,0,0,.38);
+
+  background:
+    rgba(0,0,0,.4);
 }
 
 .overlay.show{
@@ -556,18 +900,38 @@ body.page-p3 .hero{
 
 .sheet{
   position:fixed;
+
   right:14px;
-  bottom:calc(86px + env(safe-area-inset-bottom));
+
+  bottom:
+    calc(
+      86px +
+      env(safe-area-inset-bottom)
+    );
+
   left:14px;
+
   z-index:151;
+
   display:none;
+
   max-width:690px;
+
   padding:8px;
+
   margin:auto;
-  border:1px solid rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
   border-radius:19px;
+
   background:#111522;
-  box-shadow:0 18px 50px rgba(0,0,0,.4);
+
+  box-shadow:
+    0 18px 50px
+    rgba(0,0,0,.4);
 }
 
 .sheet.show{
@@ -576,18 +940,28 @@ body.page-p3 .hero{
 
 .sheet-title{
   padding:11px;
+
   color:#8f96ae;
+
   text-align:center;
+
   font-size:11px;
 }
 
 .sheet button{
   width:100%;
   min-height:48px;
+
   border:0;
-  border-bottom:1px solid rgba(255,255,255,.06);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.06);
+
   background:transparent;
+
   color:white;
+
   font-size:14px;
 }
 
@@ -596,217 +970,327 @@ body.page-p3 .hero{
 }
 
 .sheet .danger{
-  color:var(--red);
+  color:#c95c6a;
 }
 
 .choice-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:8px;
+
   padding:6px;
 }
 
 .choice-grid button{
   min-height:54px;
-  border:1px solid rgba(91,140,255,.2);
+
+  border:
+    1px solid
+    rgba(91,140,255,.2);
+
   border-radius:14px;
-  background:rgba(91,140,255,.08);
+
+  background:
+    rgba(91,140,255,.08);
+
   color:#b2c2ff;
+
   font-weight:800;
 }
 
-/* PAGE 3 */
-
-.budget-summary{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-bottom:10px;
-}
-
-.mini-card{
-  padding:11px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#0c0f1b;
-}
-
-.mini-card span{
-  display:block;
-  margin-bottom:4px;
-  color:var(--muted);
-  font-size:10px;
-}
-
-.mini-card strong{
-  font-size:14px;
-}
-
-.add{
-  width:100%;
-  height:43px;
-  margin-top:8px;
-  border:1px dashed rgba(91,140,255,.32);
-  border-radius:13px;
-  background:rgba(91,140,255,.07);
-  color:#91aeff;
-  font-size:13px;
-  font-weight:700;
-}
+/* =========================
+   PAGE 3
+========================= */
 
 .budget-info{
   display:flex;
+
   flex-direction:column;
+
   gap:2px;
 }
 
 .budget-info .remaining{
   color:var(--green);
+
   font-size:14px;
+
   font-weight:800;
 }
 
 .budget-info small{
   color:var(--muted);
+
   font-size:9px;
 }
 
 .budget-value{
   position:relative;
-  width:92px;
+
+  display:flex;
+
+  align-items:center;
+
+  width:75px;
+  height:34px;
+
+  gap:3px;
+
+  padding:0 6px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:10px;
+
+  background:#0c0f1b;
 }
 
 .budget-value input{
-  width:92px;
-  height:38px;
-  padding:0 8px 0 28px;
-  border:1px solid var(--line);
-  border-radius:11px;
-  background:#0c0f1b;
+  width:100%;
+  height:100%;
+
+  padding:0;
+
+  border:0;
+
+  background:transparent;
+
   color:white;
-  text-align:right;
+
+  text-align:center;
+
+  font-size:14px;
+}
+
+.budget-value .value-unit{
+  font-size:10px;
+}
+
+.budget-value.long input{
+  font-size:12px;
+}
+
+.budget-value.very-long input{
+  font-size:10px;
 }
 
 .expense-form{
   display:grid;
+
   gap:8px;
 }
 
 .expense-form select,
 .expense-form input{
   width:100%;
+
   min-height:46px;
+
   padding:0 12px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:13px;
+
   background:#0c0f1b;
+
   color:white;
 }
 
 .form-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:8px;
 }
 
 .primary-btn{
   width:100%;
+
   min-height:46px;
-  border:1px solid rgba(91,140,255,.28);
+
+  border:
+    1px solid
+    rgba(91,140,255,.28);
+
   border-radius:13px;
-  background:rgba(91,140,255,.12);
+
+  background:
+    rgba(91,140,255,.12);
+
   color:#a8bcff;
+
   font-size:13px;
+
   font-weight:800;
 }
 
 .transaction-list{
   display:flex;
+
   flex-direction:column;
+
   gap:8px;
 }
 
 .transaction{
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    auto;
+
   gap:10px;
+
   align-items:center;
+
   padding:11px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:14px;
+
   background:#0c0f1b;
 }
 
 .transaction h4{
-  margin:0 0 4px;
+  margin:
+    0
+    0
+    4px;
+
   font-size:13px;
 }
 
 .transaction p{
   margin:0;
+
   color:var(--muted);
+
   font-size:9px;
 }
 
 .transaction-right{
   display:flex;
+
   align-items:center;
+
   gap:8px;
 }
 
 .transaction-amount{
   color:var(--red);
+
   font-size:13px;
+
   font-weight:800;
 }
 
 .transaction-menu{
   width:34px;
   height:34px;
+
   border:0;
+
   border-radius:10px;
-  background:rgba(255,255,255,.04);
+
+  background:
+    rgba(255,255,255,.04);
+
   color:#7f89a8;
 }
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
 
 .nav{
   position:fixed;
+
   z-index:99;
+
   right:0;
   bottom:0;
   left:0;
-  width:min(720px,100%);
+
+  width:
+    min(
+      720px,
+      100%
+    );
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  padding:9px 13px calc(9px + env(safe-area-inset-bottom));
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  padding:
+    9px
+    13px
+    calc(
+      9px +
+      env(safe-area-inset-bottom)
+    );
+
   margin:auto;
-  border-top:1px solid rgba(255,255,255,.07);
-  background:rgba(8,10,19,.91);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.07);
+
+  background:
+    rgba(8,10,19,.91);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
 }
 
 .nav button{
   height:57px;
+
   border:0;
+
   border-radius:16px;
+
   background:transparent;
+
   color:#6e7691;
+
   font-size:11px;
+
   font-weight:700;
 }
 
 .nav button b{
   display:block;
+
   margin-bottom:2px;
+
   font-size:21px;
+
   font-weight:500;
 }
 
 .nav button.active{
   color:white;
+
   background:
     linear-gradient(
       135deg,
@@ -816,6 +1300,7 @@ body.page-p3 .hero{
 }
 
 @media(max-width:380px){
+
   .app{
     padding-left:11px;
     padding-right:11px;
@@ -825,11 +1310,14 @@ body.page-p3 .hero{
     font-size:27px;
   }
 
-  .mode,
-  .value-wrap,
-  .value-wrap input{
-    width:62px;
+  .mode{
+    width:54px;
   }
+
+  .value-wrap{
+    width:50px;
+  }
+
 }
 </style>
 </head>
@@ -838,74 +1326,169 @@ body.page-p3 .hero{
 
 <div class="app">
 
+  <!-- HEADER -->
+
   <div class="topbar">
+
     <div class="brand">
 
       <div class="logo">
-        <img src="icon.png.PNG" alt="رصد">
+        <img
+          src="icon.png.PNG"
+          alt="رصد"
+        >
       </div>
 
       <div>
         <h1>رصد</h1>
-        <small id="monthLabel"></small>
+
+        <small
+          id="monthLabel"
+        ></small>
       </div>
 
     </div>
+
   </div>
+
+  <!-- HERO -->
 
   <div class="hero">
 
     <div class="hero-grid">
 
       <div>
-        <div class="hero-label">المتاح لك الآن</div>
+
+        <div class="hero-label">
+          المتاح لك الآن
+        </div>
 
         <div class="hero-money">
-          <span id="remainingNumber">0</span>
-          <span class="currency">ر.س</span>
+
+          <span
+            id="remainingNumber"
+          >
+            0
+          </span>
+
+          <span class="currency sar">
+            &#x20C1;
+          </span>
+
         </div>
 
         <div class="hero-sub">
           بعد الالتزامات والمصروفات
         </div>
+
       </div>
 
-      <div class="orbit" id="orbit">
+      <div
+        class="orbit"
+        id="orbit"
+      >
+
         <div class="orbit-inner">
-          <strong id="remainPct">0%</strong>
-          <span>متبقي</span>
+
+          <strong
+            id="remainPct"
+          >
+            0%
+          </strong>
+
+          <span>
+            متبقي
+          </span>
+
         </div>
+
       </div>
 
     </div>
 
+    <!-- صفحات 1 و 2 -->
+
     <div class="hero-stats">
 
       <div class="hero-stat">
-        <span>إجمالي الراتب</span>
-        <strong id="grossTop">0 ر.س</strong>
+
+        <span>
+          إجمالي الراتب
+        </span>
+
+        <strong
+          id="grossTop"
+        >
+          0
+        </strong>
+
       </div>
 
       <div class="hero-stat">
-        <span>إجمالي الصرف</span>
-        <strong id="spentTop">0 ر.س</strong>
+
+        <span>
+          إجمالي الصرف
+        </span>
+
+        <strong
+          id="spentTop"
+        >
+          0
+        </strong>
+
+      </div>
+
+    </div>
+
+    <!-- الصفحة الثالثة -->
+
+    <div class="p3-hero-summary">
+
+      <div class="p3-hero-mini">
+
+        <span>
+          بعد الالتزامات
+        </span>
+
+        <strong
+          id="budgetAvailable"
+        >
+          0
+        </strong>
+
+      </div>
+
+      <div class="p3-hero-mini">
+
+        <span>
+          غير موزع
+        </span>
+
+        <strong
+          id="unallocated"
+          class="positive"
+        >
+          0
+        </strong>
+
       </div>
 
     </div>
 
   </div>
 
-  <!-- PAGE 1 -->
+  <!-- ======================
+       PAGE 1
+  ======================= -->
 
-  <section id="p1" class="page active">
+  <section
+    id="p1"
+    class="page active"
+  >
 
     <div class="salary-heading">
       <h2>الراتب</h2>
     </div>
-
-    <label class="salary-label">
-      الراتب الأساسي
-    </label>
 
     <div class="card salary-box">
 
@@ -919,8 +1502,8 @@ body.page-p3 .hero{
           placeholder="0"
         >
 
-        <span class="input-unit">
-          ر.س
+        <span class="input-unit sar">
+          &#x20C1;
         </span>
 
       </div>
@@ -928,11 +1511,21 @@ body.page-p3 .hero{
     </div>
 
     <div class="section-title">
-      <h2>البدلات</h2>
-      <span>تتغير تلقائيًا</span>
+
+      <h2>
+        البدلات
+      </h2>
+
+      <span>
+        تتغير تلقائيًا
+      </span>
+
     </div>
 
-    <div class="card" id="allowanceCard">
+    <div
+      class="card"
+      id="allowanceCard"
+    >
 
       <div
         id="allowancesList"
@@ -949,7 +1542,9 @@ body.page-p3 .hero{
 
       <div class="money-row">
 
-        <span>إجمالي البدلات</span>
+        <span>
+          إجمالي البدلات
+        </span>
 
         <div class="total-side">
 
@@ -957,14 +1552,14 @@ body.page-p3 .hero{
             class="positive"
             id="allowancesTotal"
           >
-            0 ر.س
+            0
           </strong>
 
           <small
             class="substat"
             id="allowancesPercent"
           >
-            0% من الراتب الأساسي
+            0%
           </small>
 
         </div>
@@ -972,24 +1567,46 @@ body.page-p3 .hero{
       </div>
 
       <div class="money-row">
-        <span>إجمالي الدخل</span>
-        <strong id="gross">0 ر.س</strong>
+
+        <span>
+          إجمالي الدخل
+        </span>
+
+        <strong id="gross">
+          0
+        </strong>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- PAGE 2 -->
+  <!-- ======================
+       PAGE 2
+  ======================= -->
 
-  <section id="p2" class="page">
+  <section
+    id="p2"
+    class="page"
+  >
 
     <div class="section-title">
-      <h2>الالتزامات</h2>
-      <span>الاستقطاعات الشهرية</span>
+
+      <h2>
+        الالتزامات
+      </h2>
+
+      <span>
+        الاستقطاعات الشهرية
+      </span>
+
     </div>
 
-    <div class="card" id="commitmentCard">
+    <div
+      class="card"
+      id="commitmentCard"
+    >
 
       <div
         id="commitmentsList"
@@ -1006,7 +1623,9 @@ body.page-p3 .hero{
 
       <div class="money-row">
 
-        <span>إجمالي الالتزامات</span>
+        <span>
+          إجمالي الالتزامات
+        </span>
 
         <div class="total-side">
 
@@ -1014,14 +1633,14 @@ body.page-p3 .hero{
             class="negative"
             id="commitmentsTotal"
           >
-            0 ر.س
+            0
           </strong>
 
           <small
             class="substat"
             id="commitmentsPercent"
           >
-            0% من إجمالي الدخل
+            0%
           </small>
 
         </div>
@@ -1034,8 +1653,10 @@ body.page-p3 .hero{
           المتبقي بعد الالتزامات
         </span>
 
-        <strong id="afterCommitments">
-          0 ر.س
+        <strong
+          id="afterCommitments"
+        >
+          0
         </strong>
 
       </div>
@@ -1044,54 +1665,53 @@ body.page-p3 .hero{
 
   </section>
 
-  <!-- PAGE 3 -->
+  <!-- ======================
+       PAGE 3
+  ======================= -->
 
-  <section id="p3" class="page">
+  <section
+    id="p3"
+    class="page"
+  >
 
     <div class="section-title">
-      <h2>توزيع الميزانية</h2>
-      <span>وزع المتبقي</span>
-    </div>
 
-    <div class="budget-summary">
+      <h2>
+        توزيع الميزانية
+      </h2>
 
-      <div class="mini-card">
-        <span>بعد الالتزامات</span>
-        <strong id="budgetAvailable">0 ر.س</strong>
-      </div>
-
-      <div class="mini-card">
-        <span>غير موزع</span>
-        <strong
-          id="unallocated"
-          class="positive"
-        >
-          0 ر.س
-        </strong>
-      </div>
+      <span>
+        وزع المتبقي
+      </span>
 
     </div>
 
-    <div class="card">
+    <div
+      class="card"
+      id="budgetCard"
+    >
 
       <div
         id="budgetList"
         class="dynamic-list"
       ></div>
 
-      <button
-        id="addBudget"
-        type="button"
-        class="add"
-      >
-        ＋ إضافة فئة
-      </button>
+      <div class="hint">
+        ☰ ضغطة للخيارات — ضغط مطوّل للترتيب
+      </div>
 
     </div>
 
     <div class="section-title">
-      <h2>تسجيل مصروف</h2>
-      <span>الصرف اليومي</span>
+
+      <h2>
+        تسجيل مصروف
+      </h2>
+
+      <span>
+        الصرف اليومي
+      </span>
+
     </div>
 
     <div class="card">
@@ -1119,6 +1739,7 @@ body.page-p3 .hero{
           <input
             id="expenseNote"
             type="text"
+            dir="auto"
             placeholder="ملاحظة"
           >
 
@@ -1136,8 +1757,17 @@ body.page-p3 .hero{
     </div>
 
     <div class="section-title">
-      <h2>المصروفات الأخيرة</h2>
-      <span id="transactionCount">0 عملية</span>
+
+      <h2>
+        المصروفات الأخيرة
+      </h2>
+
+      <span
+        id="transactionCount"
+      >
+        0 عملية
+      </span>
+
     </div>
 
     <div
@@ -1149,14 +1779,18 @@ body.page-p3 .hero{
 
 </div>
 
-<!-- OVERLAY -->
+<!-- ======================
+     OVERLAY
+======================= -->
 
 <div
   id="overlay"
   class="overlay"
 ></div>
 
-<!-- OPTIONS -->
+<!-- ======================
+     OPTIONS
+======================= -->
 
 <div
   id="optionsSheet"
@@ -1194,7 +1828,9 @@ body.page-p3 .hero{
 
 </div>
 
-<!-- TYPE CHOICE -->
+<!-- ======================
+     TYPE CHOICE
+======================= -->
 
 <div
   id="typeSheet"
@@ -1232,7 +1868,9 @@ body.page-p3 .hero{
 
 </div>
 
-<!-- NAV -->
+<!-- ======================
+     NAV
+======================= -->
 
 <nav class="nav">
 
@@ -1267,44 +1905,103 @@ body.page-p3 .hero{
 const $ = id =>
   document.getElementById(id);
 
-const num = value =>
-  Math.max(0,Number(value) || 0);
+const SAR = '\u20C1';
 
 const makeId = () =>
   'x' +
   Date.now().toString(36) +
   Math.random().toString(36).slice(2);
 
-const formatNumber = value =>
-  new Intl.NumberFormat(
+function numberValue(value){
+
+  if(
+    value === '' ||
+    value === null ||
+    value === undefined
+  ){
+    return 0;
+  }
+
+  return Math.max(
+    0,
+    Number(value) || 0
+  );
+
+}
+
+function formatNumber(value){
+
+  return new Intl.NumberFormat(
     'ar-SA',
-    {maximumFractionDigits:2}
+    {
+      maximumFractionDigits:2
+    }
   ).format(value);
 
-const money = value =>
-  formatNumber(value) + ' ر.س';
+}
 
-const cleanPercent = value =>
-  new Intl.NumberFormat(
+function money(value){
+
+  return (
+    formatNumber(value) +
+    ' ' +
+    SAR
+  );
+
+}
+
+function cleanPercent(value){
+
+  return new Intl.NumberFormat(
     'ar-SA',
-    {maximumFractionDigits:1}
+    {
+      maximumFractionDigits:1
+    }
   ).format(
     Math.round(value * 10) / 10
   );
 
-function escapeHtml(value){
-  return String(value)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#039;');
 }
 
-/* DATA */
+function escapeHtml(value){
+
+  return String(value)
+
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+
+    .replace(
+      /</g,
+      '&lt;'
+    )
+
+    .replace(
+      />/g,
+      '&gt;'
+    )
+
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+
+    .replace(
+      /'/g,
+      '&#039;'
+    );
+
+}
+
+/* ======================
+   DEFAULTS
+======================= */
 
 function defaultAllowances(){
+
   return [
+
     {
       id:makeId(),
       name:'بدل المواصلات',
@@ -1312,6 +2009,7 @@ function defaultAllowances(){
       value:10,
       system:true
     },
+
     {
       id:makeId(),
       name:'بدل السكن',
@@ -1319,65 +2017,81 @@ function defaultAllowances(){
       value:25,
       system:true
     }
+
   ];
+
 }
 
 function defaultCommitments(){
+
   return [
+
     {
       id:makeId(),
       name:'استقطاع التأمينات',
       type:'fixed',
-      value:0,
+      value:'',
       system:true
     },
+
     {
       id:makeId(),
       name:'قسط / قرض',
       type:'fixed',
-      value:0,
+      value:'',
       system:false
     },
+
     {
       id:makeId(),
       name:'إيجار',
       type:'fixed',
-      value:0,
+      value:'',
       system:false
     },
+
     {
       id:makeId(),
       name:'التزامات أخرى',
       type:'fixed',
-      value:0,
+      value:'',
       system:false
     }
+
   ];
+
 }
 
 function defaultBudgets(){
+
   return [
+
     {
       id:makeId(),
       name:'مقاضي البيت',
       allocated:0
     },
+
     {
       id:makeId(),
       name:'بنزين',
       allocated:0
     },
+
     {
       id:makeId(),
       name:'أكل ومطاعم',
       allocated:0
     },
+
     {
       id:makeId(),
       name:'أخرى',
       allocated:0
     }
+
   ];
+
 }
 
 let allowances =
@@ -1389,24 +2103,41 @@ let commitments =
 let budgets =
   defaultBudgets();
 
-let transactions = [];
+let transactions =
+  [];
 
-/* STORAGE */
+/* ======================
+   STORAGE
+======================= */
 
 function save(){
+
   try{
+
     localStorage.setItem(
       'salaryApp',
+
       JSON.stringify({
-        version:4,
-        salary:$('salary').value,
+
+        version:5,
+
+        salary:
+          $('salary').value,
+
         allowances,
+
         commitments,
+
         budgets,
+
         transactions
+
       })
+
     );
+
   }catch(e){}
+
 }
 
 function load(){
@@ -1414,14 +2145,18 @@ function load(){
   let data;
 
   try{
+
     data =
       JSON.parse(
         localStorage.getItem(
           'salaryApp'
         )
       );
+
   }catch(e){
+
     return;
+
   }
 
   if(!data){
@@ -1429,10 +2164,13 @@ function load(){
   }
 
   if(
-    data.salary !== undefined
+    data.salary !==
+    undefined
   ){
+
     $('salary').value =
       data.salary;
+
   }
 
   if(
@@ -1444,29 +2182,36 @@ function load(){
     allowances =
       data.allowances.map(
         item => ({
-          id:item.id || makeId(),
-          name:item.name || 'بدل',
+
+          id:
+            item.id ||
+            makeId(),
+
+          name:
+            item.name ||
+            'بدل',
+
           type:
-            item.type === 'fixed'
+            item.type ===
+            'fixed'
               ? 'fixed'
               : 'percent',
-          value:num(item.value),
+
+          value:
+            item.value === ''
+              ? ''
+              : numberValue(
+                  item.value
+                ),
+
           system:
             item.name ===
-              'بدل المواصلات' ||
+              'بدل المواصلات'
+            ||
             item.name ===
               'بدل السكن'
-        })
-      );
 
-    allowances =
-      allowances.filter(
-        item =>
-          !(
-            item.name ===
-            'بدل الشفت' &&
-            item.system
-          )
+        })
       );
 
   }
@@ -1480,40 +2225,32 @@ function load(){
     commitments =
       data.commitments.map(
         item => ({
-          id:item.id || makeId(),
-          name:item.name || 'التزام',
+
+          id:
+            item.id ||
+            makeId(),
+
+          name:
+            item.name ||
+            'التزام',
+
           type:
-            item.type === 'percent'
+            item.type ===
+            'percent'
               ? 'percent'
               : 'fixed',
-          value:num(item.value),
+
+          value:
+            item.value === ''
+              ? ''
+              : numberValue(
+                  item.value
+                ),
+
           system:
             item.name ===
             'استقطاع التأمينات'
-        })
-      );
 
-  }
-
-  else if(
-    Array.isArray(
-      data.commitmentsList
-    )
-  ){
-
-    commitments =
-      data.commitmentsList.map(
-        item => ({
-          id:item.id || makeId(),
-          name:item.name || 'التزام',
-          type:
-            item.type === 'percent'
-              ? 'percent'
-              : 'fixed',
-          value:num(item.value),
-          system:
-            item.name ===
-            'استقطاع التأمينات'
         })
       );
 
@@ -1528,9 +2265,20 @@ function load(){
     budgets =
       data.budgets.map(
         item => ({
-          id:item.id || makeId(),
-          name:item.name || 'فئة',
-          allocated:num(item.allocated)
+
+          id:
+            item.id ||
+            makeId(),
+
+          name:
+            item.name ||
+            'فئة',
+
+          allocated:
+            numberValue(
+              item.allocated
+            )
+
         })
       );
 
@@ -1545,13 +2293,29 @@ function load(){
     transactions =
       data.transactions.map(
         item => ({
-          id:item.id || makeId(),
-          budgetId:item.budgetId || '',
-          amount:num(item.amount),
-          note:item.note || '',
+
+          id:
+            item.id ||
+            makeId(),
+
+          budgetId:
+            item.budgetId ||
+            '',
+
+          amount:
+            numberValue(
+              item.amount
+            ),
+
+          note:
+            item.note ||
+            '',
+
           createdAt:
             item.createdAt ||
-            new Date().toISOString()
+            new Date()
+              .toISOString()
+
         })
       );
 
@@ -1559,32 +2323,60 @@ function load(){
 
 }
 
-/* CALC */
+/* ======================
+   CALCULATIONS
+======================= */
 
 function salaryValue(){
-  return num(
+
+  return numberValue(
     $('salary').value
   );
+
 }
 
-function itemAmount(item,salary){
+function itemAmount(
+  item,
+  salary
+){
 
-  return item.type === 'percent'
-    ? salary * num(item.value) / 100
-    : num(item.value);
+  const value =
+    numberValue(
+      item.value
+    );
+
+  if(
+    item.type ===
+    'percent'
+  ){
+
+    return (
+      salary *
+      value /
+      100
+    );
+
+  }
+
+  return value;
 
 }
 
 function spentForBudget(id){
 
   return transactions
+
     .filter(
-      t =>
-        t.budgetId === id
+      transaction =>
+        transaction.budgetId === id
     )
+
     .reduce(
-      (sum,t) =>
-        sum + num(t.amount),
+      (sum,transaction) =>
+        sum +
+        numberValue(
+          transaction.amount
+        ),
       0
     );
 
@@ -1628,7 +2420,10 @@ function getTotals(){
   const transactionTotal =
     transactions.reduce(
       (sum,item) =>
-        sum + num(item.amount),
+        sum +
+        numberValue(
+          item.amount
+        ),
       0
     );
 
@@ -1639,27 +2434,75 @@ function getTotals(){
   const allocatedTotal =
     budgets.reduce(
       (sum,item) =>
-        sum + num(item.allocated),
+        sum +
+        numberValue(
+          item.allocated
+        ),
       0
     );
 
   return {
+
     salary,
+
     allowanceTotal,
+
     gross,
+
     commitmentTotal,
+
     afterCommitments,
+
     transactionTotal,
+
     finalRemaining,
+
     allocatedTotal,
+
     unallocated:
       afterCommitments -
       allocatedTotal
+
   };
 
 }
 
-/* ROWS */
+/* ======================
+   INPUT SIZE
+======================= */
+
+function updateValueSize(
+  wrap,
+  input
+){
+
+  if(
+    !wrap ||
+    !input
+  ){
+    return;
+  }
+
+  const length =
+    String(
+      input.value || ''
+    ).length;
+
+  wrap.classList.toggle(
+    'long',
+    length >= 5
+  );
+
+  wrap.classList.toggle(
+    'very-long',
+    length >= 7
+  );
+
+}
+
+/* ======================
+   FINANCIAL ROW
+======================= */
 
 function createFinancialRow(
   item,
@@ -1684,8 +2527,15 @@ function createFinancialRow(
     item.id;
 
   const lockedType =
-    kind === 'allowance' &&
+    kind ===
+      'allowance'
+    &&
     item.system;
+
+  const valueText =
+    item.value === ''
+      ? ''
+      : item.value;
 
   row.innerHTML = `
 
@@ -1710,11 +2560,9 @@ function createFinancialRow(
       <div class="item-top">
 
         <input
-          class="item-name ${
-            item.system
-              ? ''
-              : 'editable'
-          }"
+          type="text"
+          dir="auto"
+          class="item-name"
           value="${escapeHtml(item.name)}"
           ${
             item.system
@@ -1749,7 +2597,8 @@ function createFinancialRow(
             }"
           >
             ${
-              item.type === 'percent'
+              item.type ===
+              'percent'
                 ? 'نسبة'
                 : 'ثابت'
             }
@@ -1760,15 +2609,19 @@ function createFinancialRow(
             <input
               type="number"
               inputmode="decimal"
-              value="${num(item.value)}"
+              placeholder=""
+              value="${valueText}"
             >
 
-            <span>
+            <span class="value-unit">
+
               ${
-                item.type === 'percent'
+                item.type ===
+                'percent'
                   ? '%'
-                  : 'ر.س'
+                  : SAR
               }
+
             </span>
 
           </div>
@@ -1790,58 +2643,83 @@ function createFinancialRow(
       '.value-wrap input'
     );
 
+  const valueWrap =
+    row.querySelector(
+      '.value-wrap'
+    );
+
   const mode =
     row.querySelector(
       '.mode'
     );
 
-  if(!item.system){
+  updateValueSize(
+    valueWrap,
+    valueInput
+  );
 
-    nameInput.addEventListener(
-      'input',
-      () => {
+  if(
+    !item.system
+  ){
 
-        item.name =
-          nameInput.value;
+    nameInput
+      .addEventListener(
+        'input',
+        () => {
 
-        save();
+          item.name =
+            nameInput.value;
 
-      }
-    );
+          save();
+
+        }
+      );
 
   }
 
-  valueInput.addEventListener(
-    'input',
-    () => {
-
-      item.value =
-        num(
-          valueInput.value
-        );
-
-      calculate();
-
-    }
-  );
-
-  if(!lockedType){
-
-    mode.addEventListener(
-      'click',
+  valueInput
+    .addEventListener(
+      'input',
       () => {
 
-        item.type =
-          item.type === 'percent'
-            ? 'fixed'
-            : 'percent';
+        item.value =
+          valueInput.value === ''
+            ? ''
+            : numberValue(
+                valueInput.value
+              );
 
-        renderFinancialLists();
+        updateValueSize(
+          valueWrap,
+          valueInput
+        );
 
         calculate();
 
       }
     );
+
+  if(
+    !lockedType
+  ){
+
+    mode
+      .addEventListener(
+        'click',
+        () => {
+
+          item.type =
+            item.type ===
+            'percent'
+              ? 'fixed'
+              : 'percent';
+
+          renderFinancialLists();
+
+          calculate();
+
+        }
+      );
 
   }
 
@@ -1858,7 +2736,8 @@ function createFinancialRow(
         }
 
         if(
-          kind === 'allowance'
+          kind ===
+          'allowance'
         ){
 
           allowances.splice(
@@ -1866,7 +2745,9 @@ function createFinancialRow(
             1
           );
 
-        }else{
+        }
+
+        else{
 
           commitments.splice(
             index,
@@ -1938,28 +2819,53 @@ function renderFinancialLists(){
 
 }
 
-/* HANDLE */
+/* ======================
+   HANDLE + DRAG
+======================= */
 
-let menuKind = null;
-let pendingAddKind = null;
+let menuKind =
+  null;
+
+let pendingAddKind =
+  null;
 
 function sourceForKind(kind){
 
-  return kind === 'allowance'
-    ? allowances
-    : kind === 'commitment'
-      ? commitments
-      : budgets;
+  if(
+    kind ===
+    'allowance'
+  ){
+    return allowances;
+  }
+
+  if(
+    kind ===
+    'commitment'
+  ){
+    return commitments;
+  }
+
+  return budgets;
 
 }
 
 function listForKind(kind){
 
-  return kind === 'allowance'
-    ? $('allowancesList')
-    : kind === 'commitment'
-      ? $('commitmentsList')
-      : $('budgetList');
+  if(
+    kind ===
+    'allowance'
+  ){
+    return $('allowancesList');
+  }
+
+  if(
+    kind ===
+    'commitment'
+  ){
+    return $('commitmentsList');
+  }
+
+  return $('budgetList');
 
 }
 
@@ -1969,193 +2875,243 @@ function setupHandle(
   kind
 ){
 
-  let timer;
-  let dragging = false;
-  let startX = 0;
-  let startY = 0;
+  let timer =
+    null;
+
+  let dragging =
+    false;
+
+  let startX =
+    0;
+
+  let startY =
+    0;
 
   const list =
     listForKind(kind);
 
-  handle.addEventListener(
-    'pointerdown',
-    event => {
+  handle
+    .addEventListener(
+      'pointerdown',
+      event => {
 
-      startX =
-        event.clientX;
+        startX =
+          event.clientX;
 
-      startY =
-        event.clientY;
+        startY =
+          event.clientY;
 
-      timer =
-        setTimeout(
-          () => {
+        timer =
+          setTimeout(
+            () => {
 
-            dragging = true;
+              dragging =
+                true;
 
-            row.classList.add(
-              'dragging'
-            );
+              row.classList
+                .add(
+                  'dragging'
+                );
 
-            try{
-              handle.setPointerCapture(
-                event.pointerId
-              );
-            }catch(e){}
+            },
+            450
+          );
 
-          },
-          450
-        );
+      }
+    );
 
-    }
-  );
-
-  handle.addEventListener(
-    'pointermove',
-    event => {
-
-      if(!dragging){
+  handle
+    .addEventListener(
+      'pointermove',
+      event => {
 
         const moved =
           Math.abs(
             event.clientX -
             startX
-          ) +
+          )
+          +
           Math.abs(
             event.clientY -
             startY
           );
 
-        if(moved > 12){
-          clearTimeout(timer);
+        if(
+          !dragging
+        ){
+
+          if(
+            moved > 12
+          ){
+
+            clearTimeout(
+              timer
+            );
+
+          }
+
+          return;
+
         }
 
-        return;
-      }
+        event.preventDefault();
 
-      event.preventDefault();
+        const element =
+          document
+            .elementFromPoint(
+              event.clientX,
+              event.clientY
+            );
 
-      const element =
-        document.elementFromPoint(
-          event.clientX,
-          event.clientY
-        );
+        if(!element){
+          return;
+        }
 
-      if(!element){
-        return;
-      }
+        const target =
+          element.closest(
+            '.dynamic-row'
+          );
 
-      const target =
-        element.closest(
-          '.dynamic-row'
-        );
+        if(
+          !target
+          ||
+          target === row
+          ||
+          target.parentElement !==
+            list
+        ){
+          return;
+        }
 
-      if(
-        !target ||
-        target === row ||
-        target.parentElement !== list
-      ){
-        return;
-      }
-
-      const rect =
-        target.getBoundingClientRect();
-
-      if(
-        event.clientY <
-        rect.top +
-        rect.height / 2
-      ){
-
-        list.insertBefore(
-          row,
+        const rect =
           target
+            .getBoundingClientRect();
+
+        if(
+          event.clientY <
+          rect.top +
+          rect.height / 2
+        ){
+
+          list.insertBefore(
+            row,
+            target
+          );
+
+        }
+
+        else{
+
+          list.insertBefore(
+            row,
+            target.nextSibling
+          );
+
+        }
+
+      }
+    );
+
+  handle
+    .addEventListener(
+      'pointerup',
+      () => {
+
+        clearTimeout(
+          timer
         );
 
-      }else{
+        if(
+          dragging
+        ){
 
-        list.insertBefore(
-          row,
-          target.nextSibling
+          dragging =
+            false;
+
+          row.classList
+            .remove(
+              'dragging'
+            );
+
+          const order =
+            Array.from(
+              list.querySelectorAll(
+                '.dynamic-row'
+              )
+            ).map(
+              element =>
+                element.dataset.id
+            );
+
+          sourceForKind(kind)
+            .sort(
+              (a,b) =>
+                order.indexOf(
+                  a.id
+                )
+                -
+                order.indexOf(
+                  b.id
+                )
+            );
+
+          save();
+
+          return;
+
+        }
+
+        openOptions(
+          kind
         );
 
       }
+    );
 
-    }
-  );
+  handle
+    .addEventListener(
+      'pointercancel',
+      () => {
 
-  handle.addEventListener(
-    'pointerup',
-    event => {
-
-      clearTimeout(timer);
-
-      if(dragging){
-
-        dragging = false;
-
-        row.classList.remove(
-          'dragging'
+        clearTimeout(
+          timer
         );
 
-        const order =
-          Array.from(
-            list.querySelectorAll(
-              '.dynamic-row'
-            )
-          ).map(
-            element =>
-              element.dataset.id
+        dragging =
+          false;
+
+        row.classList
+          .remove(
+            'dragging'
           );
 
-        sourceForKind(kind)
-          .sort(
-            (a,b) =>
-              order.indexOf(a.id) -
-              order.indexOf(b.id)
-          );
-
-        save();
-
-        return;
       }
-
-      openOptions(kind);
-
-    }
-  );
-
-  handle.addEventListener(
-    'pointercancel',
-    () => {
-
-      clearTimeout(timer);
-
-      dragging = false;
-
-      row.classList.remove(
-        'dragging'
-      );
-
-    }
-  );
+    );
 
 }
 
-/* OPTIONS */
+/* ======================
+   SHEETS
+======================= */
 
 function showOverlay(){
+
   $('overlay')
-    .classList.add(
+    .classList
+    .add(
       'show'
     );
+
 }
 
 function hideOverlay(){
+
   $('overlay')
-    .classList.remove(
+    .classList
+    .remove(
       'show'
     );
+
 }
 
 function openOptions(kind){
@@ -2163,22 +3119,53 @@ function openOptions(kind){
   menuKind =
     kind;
 
-  $('optionsTitle')
-    .textContent =
-      kind === 'allowance'
-        ? 'خيارات البدلات'
-        : 'خيارات الالتزامات';
+  if(
+    kind ===
+    'allowance'
+  ){
 
-  $('optionAdd')
-    .textContent =
-      kind === 'allowance'
-        ? 'إضافة بدل'
-        : 'إضافة التزام';
+    $('optionsTitle')
+      .textContent =
+        'خيارات البدلات';
+
+    $('optionAdd')
+      .textContent =
+        'إضافة بدل';
+
+  }
+
+  else if(
+    kind ===
+    'commitment'
+  ){
+
+    $('optionsTitle')
+      .textContent =
+        'خيارات الالتزامات';
+
+    $('optionAdd')
+      .textContent =
+        'إضافة التزام';
+
+  }
+
+  else{
+
+    $('optionsTitle')
+      .textContent =
+        'خيارات توزيع الميزانية';
+
+    $('optionAdd')
+      .textContent =
+        'إضافة فئة';
+
+  }
 
   showOverlay();
 
   $('optionsSheet')
-    .classList.add(
+    .classList
+    .add(
       'show'
     );
 
@@ -2187,12 +3174,14 @@ function openOptions(kind){
 function closeSheets(){
 
   $('optionsSheet')
-    .classList.remove(
+    .classList
+    .remove(
       'show'
     );
 
   $('typeSheet')
-    .classList.remove(
+    .classList
+    .remove(
       'show'
     );
 
@@ -2226,13 +3215,40 @@ $('optionAdd')
       pendingAddKind =
         menuKind;
 
+      if(
+        menuKind ===
+        'budget'
+      ){
+
+        budgets.push({
+
+          id:makeId(),
+
+          name:'فئة جديدة',
+
+          allocated:''
+
+        });
+
+        closeSheets();
+
+        renderBudgets();
+
+        calculate();
+
+        return;
+
+      }
+
       $('optionsSheet')
-        .classList.remove(
+        .classList
+        .remove(
           'show'
         );
 
       $('typeSheet')
-        .classList.add(
+        .classList
+        .add(
           'show'
         );
 
@@ -2244,10 +3260,13 @@ $('optionDelete')
     'click',
     () => {
 
+      const kind =
+        menuKind;
+
       closeSheets();
 
       activateDeleteMode(
-        menuKind
+        kind
       );
 
     }
@@ -2257,14 +3276,43 @@ function activateDeleteMode(kind){
 
   exitDeleteMode();
 
-  const card =
-    kind === 'allowance'
-      ? $('allowanceCard')
-      : $('commitmentCard');
+  let card;
 
-  card.classList.add(
-    'delete-mode'
-  );
+  if(
+    kind ===
+    'allowance'
+  ){
+
+    card =
+      $('allowanceCard');
+
+  }
+
+  else if(
+    kind ===
+    'commitment'
+  ){
+
+    card =
+      $('commitmentCard');
+
+  }
+
+  else{
+
+    card =
+      $('budgetCard');
+
+  }
+
+  if(card){
+
+    card.classList
+      .add(
+        'delete-mode'
+      );
+
+  }
 
 }
 
@@ -2276,12 +3324,17 @@ function exitDeleteMode(){
     )
     .forEach(
       element =>
-        element.classList.remove(
-          'delete-mode'
-        )
+        element.classList
+          .remove(
+            'delete-mode'
+          )
     );
 
 }
+
+/* ======================
+   ADD FINANCIAL
+======================= */
 
 function addFinancialItem(type){
 
@@ -2291,11 +3344,17 @@ function addFinancialItem(type){
   ){
 
     allowances.push({
+
       id:makeId(),
+
       name:'بدل إضافي',
+
       type,
-      value:0,
+
+      value:'',
+
       system:false
+
     });
 
   }
@@ -2306,11 +3365,17 @@ function addFinancialItem(type){
   ){
 
     commitments.push({
+
       id:makeId(),
+
       name:'التزام جديد',
+
       type,
-      value:0,
+
+      value:'',
+
       system:false
+
     });
 
   }
@@ -2341,7 +3406,9 @@ $('chooseFixed')
       )
   );
 
-/* PAGE 3 */
+/* ======================
+   BUDGETS
+======================= */
 
 function renderBudgets(){
 
@@ -2360,7 +3427,10 @@ function renderBudgets(){
         );
 
       const remaining =
-        num(item.allocated) -
+        numberValue(
+          item.allocated
+        )
+        -
         spent;
 
       const row =
@@ -2369,18 +3439,32 @@ function renderBudgets(){
         );
 
       row.className =
-        'dynamic-row';
+        'dynamic-row deletable';
 
       row.dataset.id =
         item.id;
+
+      const allocatedValue =
+        item.allocated === ''
+          ? ''
+          : item.allocated;
 
       row.innerHTML = `
 
         <button
           type="button"
           class="handle"
+          aria-label="خيارات"
         >
           ☰
+        </button>
+
+        <button
+          type="button"
+          class="delete-mark"
+          aria-label="حذف"
+        >
+          ×
         </button>
 
         <div class="item-body">
@@ -2388,7 +3472,9 @@ function renderBudgets(){
           <div class="item-top">
 
             <input
-              class="item-name editable"
+              type="text"
+              dir="auto"
+              class="item-name"
               value="${escapeHtml(item.name)}"
             >
 
@@ -2413,11 +3499,12 @@ function renderBudgets(){
               <input
                 type="number"
                 inputmode="decimal"
-                value="${num(item.allocated)}"
+                placeholder=""
+                value="${allocatedValue}"
               >
 
-              <span class="input-unit">
-                ر.س
+              <span class="value-unit sar">
+                ${SAR}
               </span>
 
             </div>
@@ -2427,45 +3514,107 @@ function renderBudgets(){
         </div>
       `;
 
-      const name =
+      const nameInput =
         row.querySelector(
           '.item-name'
         );
 
-      const amount =
+      const amountInput =
         row.querySelector(
           '.budget-value input'
         );
 
-      name.addEventListener(
-        'input',
-        () => {
+      const amountWrap =
+        row.querySelector(
+          '.budget-value'
+        );
 
-          item.name =
-            name.value;
-
-          save();
-
-          updateCategories();
-
-        }
+      updateValueSize(
+        amountWrap,
+        amountInput
       );
 
-      amount.addEventListener(
-        'input',
-        () => {
+      nameInput
+        .addEventListener(
+          'input',
+          () => {
 
-          item.allocated =
-            num(
-              amount.value
+            item.name =
+              nameInput.value;
+
+            save();
+
+            updateCategories();
+
+          }
+        );
+
+      amountInput
+        .addEventListener(
+          'input',
+          () => {
+
+            item.allocated =
+              amountInput.value === ''
+                ? ''
+                : numberValue(
+                    amountInput.value
+                  );
+
+            updateValueSize(
+              amountWrap,
+              amountInput
             );
 
-          calculate();
+            calculate();
 
-        }
+          }
+        );
+
+      row
+        .querySelector(
+          '.delete-mark'
+        )
+        .addEventListener(
+          'click',
+          () => {
+
+            const id =
+              item.id;
+
+            budgets.splice(
+              index,
+              1
+            );
+
+            transactions =
+              transactions.filter(
+                transaction =>
+                  transaction.budgetId !== id
+              );
+
+            exitDeleteMode();
+
+            renderBudgets();
+
+            renderTransactions();
+
+            calculate();
+
+          }
+        );
+
+      setupHandle(
+        row.querySelector(
+          '.handle'
+        ),
+        row,
+        'budget'
       );
 
-      box.appendChild(row);
+      box.appendChild(
+        row
+      );
 
     }
   );
@@ -2474,23 +3623,9 @@ function renderBudgets(){
 
 }
 
-$('addBudget')
-  .addEventListener(
-    'click',
-    () => {
-
-      budgets.push({
-        id:makeId(),
-        name:'فئة جديدة',
-        allocated:0
-      });
-
-      renderBudgets();
-
-      calculate();
-
-    }
-  );
+/* ======================
+   EXPENSE CATEGORIES
+======================= */
 
 function updateCategories(){
 
@@ -2517,21 +3652,30 @@ function updateCategories(){
       option.textContent =
         budget.name;
 
-      select.appendChild(option);
+      select.appendChild(
+        option
+      );
 
     }
   );
 
   if(
     budgets.some(
-      b =>
-        b.id === old
+      budget =>
+        budget.id === old
     )
   ){
-    select.value = old;
+
+    select.value =
+      old;
+
   }
 
 }
+
+/* ======================
+   ADD EXPENSE
+======================= */
 
 $('expenseForm')
   .addEventListener(
@@ -2545,7 +3689,7 @@ $('expenseForm')
           .value;
 
       const amount =
-        num(
+        numberValue(
           $('expenseAmount')
             .value
         );
@@ -2556,27 +3700,36 @@ $('expenseForm')
           .trim();
 
       if(
-        !budgetId ||
+        !budgetId
+        ||
         amount <= 0
       ){
         return;
       }
 
       transactions.unshift({
+
         id:makeId(),
+
         budgetId,
+
         amount,
+
         note,
+
         createdAt:
           new Date()
             .toISOString()
+
       });
 
-      $('expenseAmount').value =
-        '';
+      $('expenseAmount')
+        .value =
+          '';
 
-      $('expenseNote').value =
-        '';
+      $('expenseNote')
+        .value =
+          '';
 
       renderBudgets();
 
@@ -2586,6 +3739,10 @@ $('expenseForm')
 
     }
   );
+
+/* ======================
+   TRANSACTIONS
+======================= */
 
 function renderTransactions(){
 
@@ -2624,7 +3781,9 @@ function renderTransactions(){
     empty.textContent =
       'ما سجلت أي مصروف حتى الآن';
 
-    box.appendChild(empty);
+    box.appendChild(
+      empty
+    );
 
     return;
 
@@ -2635,8 +3794,8 @@ function renderTransactions(){
 
       const budget =
         budgets.find(
-          b =>
-            b.id ===
+          item =>
+            item.id ===
             transaction.budgetId
         );
 
@@ -2677,13 +3836,21 @@ function renderTransactions(){
           </h4>
 
           <p>
+
             ${
               transaction.note
-                ? escapeHtml(transaction.note) +
-                  ' • '
-                : ''
+                ?
+                escapeHtml(
+                  transaction.note
+                )
+                +
+                ' • '
+                :
+                ''
             }
+
             ${escapeHtml(dateText)}
+
           </p>
 
         </div>
@@ -2735,14 +3902,18 @@ function renderTransactions(){
           }
         );
 
-      box.appendChild(row);
+      box.appendChild(
+        row
+      );
 
     }
   );
 
 }
 
-/* CALCULATE */
+/* ======================
+   CALCULATE
+======================= */
 
 function calculate(){
 
@@ -2759,13 +3930,16 @@ function calculate(){
     .textContent =
       (
         result.salary > 0
-          ? cleanPercent(
-              result.allowanceTotal /
-              result.salary *
-              100
-            )
-          : '٠'
-      ) +
+          ?
+          cleanPercent(
+            result.allowanceTotal /
+            result.salary *
+            100
+          )
+          :
+          '٠'
+      )
+      +
       '% من الراتب الأساسي';
 
   $('gross')
@@ -2790,13 +3964,16 @@ function calculate(){
     .textContent =
       (
         result.gross > 0
-          ? cleanPercent(
-              result.commitmentTotal /
-              result.gross *
-              100
-            )
-          : '٠'
-      ) +
+          ?
+          cleanPercent(
+            result.commitmentTotal /
+            result.gross *
+            100
+          )
+          :
+          '٠'
+      )
+      +
       '% من إجمالي الدخل';
 
   $('afterCommitments')
@@ -2838,10 +4015,12 @@ function calculate(){
 
   let remainingPercent =
     result.gross > 0
-      ? result.finalRemaining /
-        result.gross *
-        100
-      : 0;
+      ?
+      result.finalRemaining /
+      result.gross *
+      100
+      :
+      0;
 
   remainingPercent =
     Math.max(
@@ -2856,15 +4035,19 @@ function calculate(){
     .textContent =
       Math.round(
         remainingPercent
-      ) +
+      )
+      +
       '%';
 
   $('orbit')
     .style
     .setProperty(
       '--angle',
-      remainingPercent *
-      3.6 +
+      (
+        remainingPercent *
+        3.6
+      )
+      +
       'deg'
     );
 
@@ -2888,8 +4071,8 @@ function updateRowAmounts(){
 
         const item =
           allowances.find(
-            i =>
-              i.id ===
+            item =>
+              item.id ===
               row.dataset.id
           );
 
@@ -2921,8 +4104,8 @@ function updateRowAmounts(){
 
         const item =
           commitments.find(
-            i =>
-              i.id ===
+            item =>
+              item.id ===
               row.dataset.id
           );
 
@@ -2947,7 +4130,9 @@ function updateRowAmounts(){
 
 }
 
-/* NAV */
+/* ======================
+   NAV
+======================= */
 
 document
   .querySelectorAll(
@@ -2956,65 +4141,72 @@ document
   .forEach(
     button => {
 
-      button.addEventListener(
-        'click',
-        () => {
+      button
+        .addEventListener(
+          'click',
+          () => {
 
-          exitDeleteMode();
+            exitDeleteMode();
 
-          closeSheets();
+            closeSheets();
 
-          document
-            .querySelectorAll(
-              '.page'
-            )
-            .forEach(
-              page =>
-                page.classList.remove(
-                  'active'
-                )
+            document
+              .querySelectorAll(
+                '.page'
+              )
+              .forEach(
+                page =>
+                  page.classList
+                    .remove(
+                      'active'
+                    )
+              );
+
+            document
+              .querySelectorAll(
+                '.nav button'
+              )
+              .forEach(
+                nav =>
+                  nav.classList
+                    .remove(
+                      'active'
+                    )
+              );
+
+            const page =
+              button.dataset.page;
+
+            $(page)
+              .classList
+              .add(
+                'active'
+              );
+
+            button
+              .classList
+              .add(
+                'active'
+              );
+
+            document.body.className =
+              'page-' +
+              page;
+
+            window.scrollTo(
+              0,
+              0
             );
 
-          document
-            .querySelectorAll(
-              '.nav button'
-            )
-            .forEach(
-              nav =>
-                nav.classList.remove(
-                  'active'
-                )
-            );
-
-          const page =
-            button.dataset.page;
-
-          $(page)
-            .classList.add(
-              'active'
-            );
-
-          button
-            .classList.add(
-              'active'
-            );
-
-          document.body.className =
-            'page-' +
-            page;
-
-          window.scrollTo(
-            0,
-            0
-          );
-
-        }
-      );
+          }
+        );
 
     }
   );
 
-/* DATE */
+/* ======================
+   DATE
+======================= */
 
 function updateDate(){
 
@@ -3030,7 +4222,9 @@ function updateDate(){
           month:'long',
           year:'numeric'
         }
-      ).format(now);
+      ).format(
+        now
+      );
 
     const en =
       new Intl.DateTimeFormat(
@@ -3039,7 +4233,9 @@ function updateDate(){
           month:'long',
           year:'numeric'
         }
-      ).format(now);
+      ).format(
+        now
+      );
 
     $('monthLabel')
       .textContent =
@@ -3047,7 +4243,9 @@ function updateDate(){
         ' • ' +
         en;
 
-  }catch(e){
+  }
+
+  catch(e){
 
     $('monthLabel')
       .textContent =
@@ -3057,33 +4255,39 @@ function updateDate(){
 
 }
 
-/* PREVENT IOS ZOOM */
+/* ======================
+   IOS ZOOM
+======================= */
 
-let lastTouchEnd = 0;
+let lastTouchEnd =
+  0;
 
-document.addEventListener(
-  'touchend',
-  event => {
+document
+  .addEventListener(
+    'touchend',
+    event => {
 
-    const now =
-      Date.now();
+      const now =
+        Date.now();
 
-    if(
-      now -
-      lastTouchEnd <=
-      300
-    ){
-      event.preventDefault();
+      if(
+        now -
+        lastTouchEnd <=
+        300
+      ){
+
+        event.preventDefault();
+
+      }
+
+      lastTouchEnd =
+        now;
+
+    },
+    {
+      passive:false
     }
-
-    lastTouchEnd =
-      now;
-
-  },
-  {
-    passive:false
-  }
-);
+  );
 
 $('salary')
   .addEventListener(
@@ -3091,7 +4295,9 @@ $('salary')
     calculate
   );
 
-/* START */
+/* ======================
+   START
+======================= */
 
 load();
 
