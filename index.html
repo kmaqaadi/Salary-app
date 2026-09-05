@@ -40,8 +40,17 @@
 html{
   min-height:100%;
   background:
-    radial-gradient(circle at 82% -5%,rgba(54,83,151,.30),transparent 36%),
-    linear-gradient(180deg,#10172f 0,#080a15 36%,#070913 100%);
+    radial-gradient(
+      circle at 82% -5%,
+      rgba(54,83,151,.30),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      #10172f 0,
+      #080a15 36%,
+      #070913 100%
+    );
 }
 
 body{
@@ -50,7 +59,14 @@ body{
   overflow-x:hidden;
   color:var(--text);
   background:transparent;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
 button,
@@ -73,13 +89,16 @@ select{
 .app{
   max-width:720px;
   margin:auto;
+
   padding:
     calc(env(safe-area-inset-top) + 5px)
     14px
     110px;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .topbar{
   display:flex;
@@ -102,7 +121,10 @@ select{
   flex:0 0 auto;
   overflow:hidden;
   border-radius:14px;
-  box-shadow:0 8px 26px rgba(91,140,255,.22);
+
+  box-shadow:
+    0 8px 26px
+    rgba(91,140,255,.22);
 }
 
 .logo img{
@@ -125,6 +147,7 @@ select{
 .brand small{
   display:block;
   margin-top:3px;
+
   color:var(--muted);
   font-size:10px;
   white-space:nowrap;
@@ -134,22 +157,45 @@ select{
   width:42px;
   height:42px;
   flex:0 0 auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
   padding:0;
-  border:1px solid rgba(255,255,255,.07);
+
+  border:
+    1px solid
+    rgba(255,255,255,.07);
+
   border-radius:13px;
-  background:rgba(0,0,0,.12);
+
+  background:
+    rgba(0,0,0,.12);
+
   color:#aeb6cc;
-  font-size:19px;
+
+  /* كبرنا الرمز فقط */
+  font-size:25px;
+  line-height:1;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   position:relative;
   overflow:hidden;
+
   padding:14px 16px;
-  border:1px solid rgba(255,255,255,.09);
+
+  border:
+    1px solid
+    rgba(255,255,255,.09);
+
   border-radius:23px;
+
   background:
     linear-gradient(
       135deg,
@@ -161,21 +207,33 @@ select{
 
 .hero::before{
   content:"";
+
   position:absolute;
+
   top:-115px;
   left:-90px;
+
   width:180px;
   height:180px;
+
   border-radius:50%;
-  background:rgba(64,224,255,.10);
+
+  background:
+    rgba(64,224,255,.10);
+
   filter:blur(22px);
 }
 
 .hero-grid{
   position:relative;
   z-index:1;
+
   display:grid;
-  grid-template-columns:minmax(0,1fr) 82px;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    82px;
+
   gap:10px;
   align-items:center;
 }
@@ -188,8 +246,11 @@ select{
 .hero-money{
   display:flex;
   align-items:baseline;
+
   gap:5px;
+
   margin:5px 0;
+
   line-height:1;
   white-space:nowrap;
 }
@@ -211,29 +272,42 @@ select{
 
 .orbit{
   --angle:0deg;
+
   width:78px;
   height:78px;
+
   padding:6px;
+
   border-radius:50%;
+
   background:
     conic-gradient(
       from -90deg,
       var(--cyan) 0deg,
       var(--blue) var(--angle),
-      rgba(255,255,255,.08) var(--angle),
-      rgba(255,255,255,.08) 360deg
+      rgba(255,255,255,.08)
+      var(--angle),
+      rgba(255,255,255,.08)
+      360deg
     );
 }
 
 .orbit-inner{
   width:100%;
   height:100%;
+
   display:flex;
   flex-direction:column;
+
   align-items:center;
   justify-content:center;
-  border:1px solid rgba(255,255,255,.05);
+
+  border:
+    1px solid
+    rgba(255,255,255,.05);
+
   border-radius:50%;
+
   background:#0c0f1c;
 }
 
@@ -243,6 +317,7 @@ select{
 
 .orbit-inner span{
   margin-top:2px;
+
   color:var(--muted);
   font-size:9px;
 }
@@ -251,24 +326,37 @@ select{
 .p3-hero-summary{
   position:relative;
   z-index:1;
+
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:7px;
+
   margin-top:9px;
 }
 
 .hero-stat,
 .p3-hero-mini{
   padding:9px 10px;
-  border:1px solid rgba(255,255,255,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
   border-radius:13px;
-  background:rgba(0,0,0,.14);
+
+  background:
+    rgba(0,0,0,.14);
 }
 
 .hero-stat span,
 .p3-hero-mini span{
   display:block;
+
   margin-bottom:4px;
+
   color:var(--muted);
   font-size:9px;
 }
@@ -279,7 +367,6 @@ select{
   font-size:12px;
 }
 
-/* لا أخضر داخل المربع العلوي */
 .hero .positive,
 .hero .negative{
   color:#f7f8ff!important;
@@ -297,7 +384,9 @@ body.page-p3 .p3-hero-summary{
   display:grid;
 }
 
-/* GENERAL */
+/* =========================
+   GENERAL
+========================= */
 
 .page{
   display:none;
@@ -310,10 +399,16 @@ body.page-p3 .p3-hero-summary{
 
 .section-title{
   display:flex;
+
   align-items:flex-end;
   justify-content:space-between;
+
   gap:10px;
-  margin:18px 3px 9px;
+
+  margin:
+    18px
+    3px
+    9px;
 }
 
 .section-title h2{
@@ -329,8 +424,13 @@ body.page-p3 .p3-hero-summary{
 .card{
   padding:14px;
   margin-bottom:10px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:21px;
+
   background:
     linear-gradient(
       180deg,
@@ -341,9 +441,12 @@ body.page-p3 .p3-hero-summary{
 
 .money-row{
   display:flex;
+
   align-items:center;
   justify-content:space-between;
+
   gap:12px;
+
   padding:12px 3px;
 }
 
@@ -370,15 +473,22 @@ body.page-p3 .p3-hero-summary{
 
 .substat{
   display:block;
+
   margin-top:4px;
+
   color:#7f89a8;
   font-size:10px;
 }
 
-/* SALARY */
+/* =========================
+   SALARY
+========================= */
 
 .salary-heading{
-  margin:18px 3px 9px;
+  margin:
+    18px
+    3px
+    9px;
 }
 
 .salary-heading h2{
@@ -393,6 +503,7 @@ body.page-p3 .p3-hero-summary{
 
 .salary-input-wrap{
   position:relative;
+
   display:flex;
   align-items:center;
 }
@@ -400,27 +511,46 @@ body.page-p3 .p3-hero-summary{
 .salary-input{
   width:100%;
   height:58px;
-  padding:0 14px 0 50px;
+
+  padding:
+    0
+    14px
+    0
+    50px;
+
   border:0;
+
   border-radius:18px;
+
   background:#0c0f1b;
+
   color:white;
+
   text-align:right;
   font-size:17px;
 }
 
 .input-unit{
   position:absolute;
+
   left:13px;
   top:50%;
-  transform:translateY(-50%);
+
+  transform:
+    translateY(-50%);
+
   color:#747d99;
+
   font-size:13px;
+
   white-space:nowrap;
+
   pointer-events:none;
 }
 
-/* LISTS */
+/* =========================
+   LISTS
+========================= */
 
 .dynamic-list{
   display:flex;
@@ -430,35 +560,57 @@ body.page-p3 .p3-hero-summary{
 
 .dynamic-row{
   position:relative;
-  display:grid;
-  grid-template-columns:30px minmax(0,1fr);
-  gap:7px;
-  padding:8px 0;
-}
 
-/* بدون خطوط فاصلة */
-.dynamic-row{
+  display:grid;
+
+  grid-template-columns:
+    30px
+    minmax(0,1fr);
+
+  gap:7px;
+
+  padding:8px 0;
+
   border:0!important;
+
+  transition:
+    background .15s ease,
+    opacity .15s ease;
 }
 
 .dynamic-row.dragging{
-  z-index:4;
-  opacity:.76;
+  z-index:20;
+
+  opacity:.82;
+
   border-radius:13px;
-  background:rgba(91,140,255,.07);
+
+  background:
+    rgba(91,140,255,.10);
 }
 
 .handle{
   width:30px;
   height:38px;
+
   padding:0;
+
   border:0;
+
   background:transparent;
+
   color:#68728e;
+
   font-size:18px;
+
   touch-action:none;
+
   user-select:none;
   -webkit-user-select:none;
+}
+
+.handle.drag-ready{
+  color:#8eaaff;
 }
 
 .item-body{
@@ -473,47 +625,73 @@ body.page-p3 .p3-hero-summary{
 .item-name{
   width:100%;
   min-width:0;
+
   padding:2px 0;
+
   border:0;
+
   background:transparent;
+
   color:white;
+
   text-align:right;
+
   font-size:14px;
   font-weight:700;
 }
 
 .item-bottom{
   display:flex;
+
   align-items:center;
   justify-content:space-between;
+
   gap:6px;
+
   margin-top:0;
 }
 
 .item-amount{
   color:var(--cyan);
+
   font-size:14px;
+
   font-weight:800;
+
   white-space:nowrap;
 }
 
 .controls{
   display:flex;
+
   align-items:center;
+
   gap:5px;
+
   flex:0 0 auto;
-  transition:transform .16s ease;
+
+  transition:
+    transform .16s ease;
 }
 
 .mode{
   width:56px;
   height:31px;
+
   padding:0;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:10px;
+
   background:#0c0f1b;
+
   color:#aab2ca;
+
   font-size:10px;
+
   font-weight:700;
 }
 
@@ -523,35 +701,56 @@ body.page-p3 .p3-hero-summary{
 
 .value-wrap{
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   gap:2px;
+
   width:53px;
   height:31px;
+
   padding:0 4px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:10px;
+
   background:#0c0f1b;
 }
 
 .value-wrap input{
   width:100%;
   height:100%;
+
   padding:0;
+
   border:0;
+
   background:transparent;
+
   color:white;
+
   text-align:center;
+
   font-size:14px;
+
   line-height:1;
 }
 
 .value-unit{
   flex:0 0 auto;
+
   color:#707894;
+
   font-size:9px;
+
   line-height:1;
+
   white-space:nowrap;
+
   pointer-events:none;
 }
 
@@ -563,50 +762,80 @@ body.page-p3 .p3-hero-summary{
   font-size:9.5px;
 }
 
-/* DELETE MODE */
+/* =========================
+   DELETE MODE
+========================= */
 
 .delete-mark{
   position:absolute;
+
   left:0;
   bottom:8px;
+
   z-index:10;
+
   display:none;
+
   width:29px;
   height:29px;
+
   padding:0;
-  border:1px solid rgba(150,57,70,.22);
+
+  border:
+    1px solid
+    rgba(150,57,70,.22);
+
   border-radius:9px;
-  background:rgba(82,27,36,.55);
+
+  background:
+    rgba(82,27,36,.55);
+
   color:#bd6370;
+
   font-size:17px;
+
   line-height:1;
 }
 
-.delete-mode .dynamic-row.deletable .delete-mark{
+.delete-mode
+.dynamic-row.deletable
+.delete-mark{
   display:block;
 }
 
-.delete-mode .dynamic-row.deletable .handle{
+.delete-mode
+.dynamic-row.deletable
+.handle{
   visibility:hidden;
 }
 
-/* تحريك بسيط فقط بمساحة الاكس */
-.delete-mode .dynamic-row.deletable .item-bottom{
+/* تحريك بسيط فقط */
+.delete-mode
+.dynamic-row.deletable
+.item-bottom{
   padding-left:32px;
 }
 
-.delete-mode .dynamic-row.deletable .controls{
-  transform:translateX(5px);
+.delete-mode
+.dynamic-row.deletable
+.controls{
+  transform:
+    translateX(5px);
 }
 
 .hint{
   margin-top:7px;
+
   color:#626c86;
+
   font-size:9px;
+
   text-align:center;
 }
 
-/* PAGE 3 */
+/* =========================
+   PAGE 3
+========================= */
 
 .budget-info{
   display:flex;
@@ -616,36 +845,54 @@ body.page-p3 .p3-hero-summary{
 
 .budget-info .remaining{
   color:var(--green);
+
   font-size:14px;
+
   font-weight:800;
 }
 
 .budget-info small{
   color:var(--muted);
+
   font-size:9px;
 }
 
 .budget-value{
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   gap:3px;
+
   width:74px;
   height:33px;
+
   padding:0 5px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:10px;
+
   background:#0c0f1b;
 }
 
 .budget-value input{
   width:100%;
   height:100%;
+
   padding:0;
+
   border:0;
+
   background:transparent;
+
   color:white;
+
   text-align:center;
+
   font-size:14px;
 }
 
@@ -665,56 +912,95 @@ body.page-p3 .p3-hero-summary{
 .expense-form select,
 .expense-form input{
   width:100%;
+
   min-height:46px;
+
   padding:0 12px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:13px;
+
   background:#0c0f1b;
+
   color:white;
 }
 
 .form-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:8px;
 }
 
 .primary-btn{
   width:100%;
+
   min-height:46px;
-  border:1px solid rgba(91,140,255,.28);
+
+  border:
+    1px solid
+    rgba(91,140,255,.28);
+
   border-radius:13px;
-  background:rgba(91,140,255,.12);
+
+  background:
+    rgba(91,140,255,.12);
+
   color:#a8bcff;
+
   font-size:13px;
   font-weight:800;
 }
 
 .transaction-list{
   display:flex;
+
   flex-direction:column;
+
   gap:8px;
 }
 
 .transaction{
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    auto;
+
   gap:10px;
+
   align-items:center;
+
   padding:11px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
   border-radius:14px;
+
   background:#0c0f1b;
 }
 
 .transaction h4{
-  margin:0 0 4px;
+  margin:
+    0
+    0
+    4px;
+
   font-size:13px;
 }
 
 .transaction p{
   margin:0;
+
   color:var(--muted);
+
   font-size:9px;
 }
 
@@ -726,27 +1012,41 @@ body.page-p3 .p3-hero-summary{
 
 .transaction-amount{
   color:var(--red);
+
   font-size:13px;
+
   font-weight:800;
 }
 
 .transaction-menu{
   width:34px;
   height:34px;
+
   border:0;
+
   border-radius:10px;
-  background:rgba(255,255,255,.04);
+
+  background:
+    rgba(255,255,255,.04);
+
   color:#7f89a8;
 }
 
-/* OVERLAY / SHEETS */
+/* =========================
+   OVERLAY / SHEETS
+========================= */
 
 .overlay{
   position:fixed;
   inset:0;
+
   z-index:150;
+
   display:none;
-  background:rgba(0,0,0,.45);
+
+  background:
+    rgba(0,0,0,.45);
+
   backdrop-filter:blur(2px);
   -webkit-backdrop-filter:blur(2px);
 }
@@ -757,18 +1057,38 @@ body.page-p3 .p3-hero-summary{
 
 .sheet{
   position:fixed;
+
   right:14px;
-  bottom:calc(86px + env(safe-area-inset-bottom));
+
+  bottom:
+    calc(
+      86px +
+      env(safe-area-inset-bottom)
+    );
+
   left:14px;
+
   z-index:151;
+
   display:none;
+
   max-width:690px;
+
   padding:8px;
+
   margin:auto;
-  border:1px solid rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
   border-radius:19px;
+
   background:#111522;
-  box-shadow:0 18px 50px rgba(0,0,0,.4);
+
+  box-shadow:
+    0 18px 50px
+    rgba(0,0,0,.4);
 }
 
 .sheet.show{
@@ -777,18 +1097,29 @@ body.page-p3 .p3-hero-summary{
 
 .sheet-title{
   padding:11px;
+
   color:#8f96ae;
+
   text-align:center;
+
   font-size:11px;
 }
 
 .sheet button{
   width:100%;
+
   min-height:48px;
+
   border:0;
-  border-bottom:1px solid rgba(255,255,255,.06);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.06);
+
   background:transparent;
+
   color:white;
+
   font-size:14px;
 }
 
@@ -802,104 +1133,172 @@ body.page-p3 .p3-hero-summary{
 
 .choice-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:8px;
+
   padding:6px;
 }
 
 .choice-grid button{
   min-height:54px;
-  border:1px solid rgba(91,140,255,.20);
+
+  border:
+    1px solid
+    rgba(91,140,255,.20);
+
   border-radius:14px;
-  background:rgba(91,140,255,.08);
+
+  background:
+    rgba(91,140,255,.08);
+
   color:#b2c2ff;
+
   font-weight:800;
 }
 
-/* SETTINGS */
+/* =========================
+   SETTINGS
+========================= */
 
 .settings-sheet{
   bottom:auto;
-  top:calc(env(safe-area-inset-top) + 56px);
+
+  top:
+    calc(
+      env(safe-area-inset-top) +
+      56px
+    );
 }
 
 .settings-group{
   padding:9px;
 }
 
-.settings-group + .settings-group{
-  border-top:1px solid rgba(255,255,255,.06);
+.settings-group +
+.settings-group{
+  border-top:
+    1px solid
+    rgba(255,255,255,.06);
 }
 
 .settings-label{
   display:block;
+
   margin-bottom:8px;
+
   color:#8f96ae;
+
   font-size:10px;
 }
 
 .segment{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:6px;
 }
 
 .segment button{
   min-height:43px;
-  border:1px solid rgba(255,255,255,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
   border-radius:11px;
+
   background:#0d111e;
+
   color:#8992aa;
+
   font-size:12px;
 }
 
 .segment button.active{
-  border-color:rgba(91,140,255,.25);
-  background:rgba(91,140,255,.14);
+  border-color:
+    rgba(91,140,255,.25);
+
+  background:
+    rgba(91,140,255,.14);
+
   color:white;
 }
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
 
 .nav{
   position:fixed;
+
   z-index:99;
+
   right:0;
   bottom:0;
   left:0;
+
   width:min(720px,100%);
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   padding:
     9px
     13px
-    calc(9px + env(safe-area-inset-bottom));
+    calc(
+      9px +
+      env(safe-area-inset-bottom)
+    );
+
   margin:auto;
-  border-top:1px solid rgba(255,255,255,.07);
-  background:rgba(8,10,19,.92);
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.07);
+
+  background:
+    rgba(8,10,19,.92);
+
   backdrop-filter:blur(22px);
   -webkit-backdrop-filter:blur(22px);
 }
 
 .nav button{
   height:57px;
+
   border:0;
+
   border-radius:16px;
+
   background:transparent;
+
   color:#6e7691;
+
   font-size:11px;
+
   font-weight:700;
 }
 
 .nav button b{
   display:block;
+
   margin-bottom:2px;
+
   font-size:21px;
+
   font-weight:500;
 }
 
 .nav button.active{
   color:white;
+
   background:
     linear-gradient(
       135deg,
@@ -909,6 +1308,7 @@ body.page-p3 .p3-hero-summary{
 }
 
 @media(max-width:380px){
+
   .app{
     padding-left:11px;
     padding-right:11px;
@@ -936,14 +1336,19 @@ body.page-p3 .p3-hero-summary{
   <header class="topbar">
 
     <div class="brand">
+
       <div class="logo">
-        <img src="icon.png.PNG" alt="رصد">
+        <img
+          src="icon.png.PNG"
+          alt="رصد"
+        >
       </div>
 
       <div class="brand-text">
         <h1>رصد</h1>
         <small id="monthLabel"></small>
       </div>
+
     </div>
 
     <button
@@ -952,7 +1357,7 @@ body.page-p3 .p3-hero-summary{
       type="button"
       aria-label="الإعدادات"
     >
-      ⚙︎
+      ⚙
     </button>
 
   </header>
@@ -962,6 +1367,7 @@ body.page-p3 .p3-hero-summary{
     <div class="hero-grid">
 
       <div>
+
         <div
           class="hero-label"
           data-i18n="availableNow"
@@ -970,26 +1376,43 @@ body.page-p3 .p3-hero-summary{
         </div>
 
         <div class="hero-money">
-          <span id="remainingNumber">0</span>
-          <span class="currency sar-sign">⃁</span>
+
+          <span id="remainingNumber">
+            0
+          </span>
+
+          <span class="currency sar-sign">
+            ⃁
+          </span>
+
         </div>
 
         <div
           class="hero-sub"
-          data-i18n="afterCommitmentsExpenses"
+          data-i18n="afterEverything"
         >
-          بعد الالتزامات والمصروفات
+          بعد الاستقطاعات والالتزامات والمصروفات
         </div>
+
       </div>
 
       <div
         class="orbit"
         id="orbit"
       >
+
         <div class="orbit-inner">
-          <strong id="remainPct">0%</strong>
-          <span data-i18n="remaining">متبقي</span>
+
+          <strong id="remainPct">
+            0%
+          </strong>
+
+          <span data-i18n="remaining">
+            متبقي
+          </span>
+
         </div>
+
       </div>
 
     </div>
@@ -997,13 +1420,27 @@ body.page-p3 .p3-hero-summary{
     <div class="hero-stats">
 
       <div class="hero-stat">
-        <span data-i18n="totalSalary">إجمالي الراتب</span>
-        <strong id="grossTop">0</strong>
+
+        <span data-i18n="totalSalary">
+          إجمالي الراتب
+        </span>
+
+        <strong id="grossTop">
+          0
+        </strong>
+
       </div>
 
       <div class="hero-stat">
-        <span data-i18n="totalSpent">إجمالي الصرف</span>
-        <strong id="spentTop">0</strong>
+
+        <span data-i18n="totalSpent">
+          إجمالي الصرف
+        </span>
+
+        <strong id="spentTop">
+          0
+        </strong>
+
       </div>
 
     </div>
@@ -1011,20 +1448,36 @@ body.page-p3 .p3-hero-summary{
     <div class="p3-hero-summary">
 
       <div class="p3-hero-mini">
-        <span data-i18n="afterCommitments">بعد الالتزامات</span>
-        <strong id="budgetAvailable">0</strong>
+
+        <span data-i18n="afterCommitments">
+          بعد الالتزامات
+        </span>
+
+        <strong id="budgetAvailable">
+          0
+        </strong>
+
       </div>
 
       <div class="p3-hero-mini">
-        <span data-i18n="unallocated">غير موزع</span>
-        <strong id="unallocated">0</strong>
+
+        <span data-i18n="unallocated">
+          غير موزع
+        </span>
+
+        <strong id="unallocated">
+          0
+        </strong>
+
       </div>
 
     </div>
 
   </div>
 
-  <!-- PAGE 1 -->
+  <!-- =====================
+       PAGE 1
+  ====================== -->
 
   <section
     id="p1"
@@ -1032,7 +1485,11 @@ body.page-p3 .p3-hero-summary{
   >
 
     <div class="salary-heading">
-      <h2 data-i18n="basicSalary">الراتب الأساسي</h2>
+
+      <h2 data-i18n="basicSalary">
+        الراتب الأساسي
+      </h2>
+
     </div>
 
     <div class="card salary-box">
@@ -1045,18 +1502,26 @@ body.page-p3 .p3-hero-summary{
           type="text"
           inputmode="decimal"
           autocomplete="off"
-          placeholder=""
         >
 
-        <span class="input-unit sar-sign">⃁</span>
+        <span class="input-unit sar-sign">
+          ⃁
+        </span>
 
       </div>
 
     </div>
 
     <div class="section-title">
-      <h2 data-i18n="allowances">البدلات</h2>
-      <span data-i18n="autoChange">تتغير تلقائيًا</span>
+
+      <h2 data-i18n="allowances">
+        البدلات
+      </h2>
+
+      <span data-i18n="autoChange">
+        تتغير تلقائيًا
+      </span>
+
     </div>
 
     <div
@@ -1073,7 +1538,7 @@ body.page-p3 .p3-hero-summary{
         class="hint"
         data-i18n="handleHint"
       >
-        ☰ ضغطة للخيارات — ضغط مطوّل للترتيب
+        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
       </div>
 
     </div>
@@ -1081,9 +1546,13 @@ body.page-p3 .p3-hero-summary{
     <div class="card">
 
       <div class="money-row">
-        <span data-i18n="totalAllowances">إجمالي البدلات</span>
+
+        <span data-i18n="totalAllowances">
+          إجمالي البدلات
+        </span>
 
         <div class="total-side">
+
           <strong
             class="positive"
             id="allowancesTotal"
@@ -1097,28 +1566,123 @@ body.page-p3 .p3-hero-summary{
           >
             0%
           </small>
+
         </div>
+
       </div>
 
       <div class="money-row">
-        <span data-i18n="totalIncome">إجمالي الدخل</span>
-        <strong id="gross">0</strong>
+
+        <span data-i18n="totalIncome">
+          إجمالي الدخل
+        </span>
+
+        <strong id="gross">
+          0
+        </strong>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- PAGE 2 -->
+  <!-- =====================
+       PAGE 2
+  ====================== -->
 
   <section
     id="p2"
     class="page"
   >
 
+    <!-- الاستقطاعات -->
+
     <div class="section-title">
-      <h2 data-i18n="commitments">الالتزامات</h2>
-      <span data-i18n="monthlyDeductions">الاستقطاعات الشهرية</span>
+
+      <h2 data-i18n="deductions">
+        الاستقطاعات
+      </h2>
+
+      <span data-i18n="monthlyDeductions">
+        الاستقطاعات الشهرية
+      </span>
+
+    </div>
+
+    <div
+      class="card"
+      id="deductionCard"
+    >
+
+      <div
+        id="deductionsList"
+        class="dynamic-list"
+      ></div>
+
+      <div
+        class="hint"
+        data-i18n="handleHint"
+      >
+        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <div class="money-row">
+
+        <span data-i18n="totalDeductions">
+          إجمالي الاستقطاعات
+        </span>
+
+        <div class="total-side">
+
+          <strong
+            class="negative"
+            id="deductionsTotal"
+          >
+            0
+          </strong>
+
+          <small
+            class="substat"
+            id="deductionsPercent"
+          >
+            0%
+          </small>
+
+        </div>
+
+      </div>
+
+      <div class="money-row">
+
+        <span data-i18n="remainingAfterDeductions">
+          المتبقي بعد الاستقطاعات
+        </span>
+
+        <strong id="afterDeductions">
+          0
+        </strong>
+
+      </div>
+
+    </div>
+
+    <!-- الالتزامات -->
+
+    <div class="section-title">
+
+      <h2 data-i18n="commitments">
+        الالتزامات
+      </h2>
+
+      <span data-i18n="monthlyCommitments">
+        الالتزامات الشهرية
+      </span>
+
     </div>
 
     <div
@@ -1135,7 +1699,7 @@ body.page-p3 .p3-hero-summary{
         class="hint"
         data-i18n="handleHint"
       >
-        ☰ ضغطة للخيارات — ضغط مطوّل للترتيب
+        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
       </div>
 
     </div>
@@ -1184,7 +1748,9 @@ body.page-p3 .p3-hero-summary{
 
   </section>
 
-  <!-- PAGE 3 -->
+  <!-- =====================
+       PAGE 3
+  ====================== -->
 
   <section
     id="p3"
@@ -1192,6 +1758,7 @@ body.page-p3 .p3-hero-summary{
   >
 
     <div class="section-title">
+
       <h2 data-i18n="budgetDistribution">
         توزيع الميزانية
       </h2>
@@ -1199,6 +1766,7 @@ body.page-p3 .p3-hero-summary{
       <span data-i18n="distributeRemaining">
         وزع المتبقي
       </span>
+
     </div>
 
     <div
@@ -1215,14 +1783,21 @@ body.page-p3 .p3-hero-summary{
         class="hint"
         data-i18n="handleHint"
       >
-        ☰ ضغطة للخيارات — ضغط مطوّل للترتيب
+        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
       </div>
 
     </div>
 
     <div class="section-title">
-      <h2 data-i18n="recordExpense">تسجيل مصروف</h2>
-      <span data-i18n="dailySpending">الصرف اليومي</span>
+
+      <h2 data-i18n="recordExpense">
+        تسجيل مصروف
+      </h2>
+
+      <span data-i18n="dailySpending">
+        الصرف اليومي
+      </span>
+
     </div>
 
     <div class="card">
@@ -1273,6 +1848,7 @@ body.page-p3 .p3-hero-summary{
     </div>
 
     <div class="section-title">
+
       <h2 data-i18n="recentExpenses">
         المصروفات الأخيرة
       </h2>
@@ -1280,6 +1856,7 @@ body.page-p3 .p3-hero-summary{
       <span id="transactionCount">
         0 عملية
       </span>
+
     </div>
 
     <div
@@ -1291,14 +1868,18 @@ body.page-p3 .p3-hero-summary{
 
 </div>
 
-<!-- OVERLAY -->
+<!-- =====================
+     OVERLAY
+====================== -->
 
 <div
   id="overlay"
   class="overlay"
 ></div>
 
-<!-- OPTIONS SHEET -->
+<!-- =====================
+     OPTIONS
+====================== -->
 
 <div
   id="optionsSheet"
@@ -1338,7 +1919,9 @@ body.page-p3 .p3-hero-summary{
 
 </div>
 
-<!-- TYPE SHEET -->
+<!-- =====================
+     TYPE PICKER
+====================== -->
 
 <div
   id="typeSheet"
@@ -1382,7 +1965,9 @@ body.page-p3 .p3-hero-summary{
 
 </div>
 
-<!-- SETTINGS -->
+<!-- =====================
+     SETTINGS
+====================== -->
 
 <div
   id="settingsSheet"
@@ -1464,7 +2049,9 @@ body.page-p3 .p3-hero-summary{
 
 </div>
 
-<!-- NAV -->
+<!-- =====================
+     NAV
+====================== -->
 
 <nav class="nav">
 
@@ -1472,138 +2059,388 @@ body.page-p3 .p3-hero-summary{
     type="button"
     data-page="p1"
   >
+
     <b>◉</b>
-    <span data-i18n="salaryTab">الراتب</span>
+
+    <span data-i18n="salaryTab">
+      الراتب
+    </span>
+
   </button>
 
   <button
     type="button"
     data-page="p2"
   >
+
     <b>⌁</b>
-    <span data-i18n="commitmentsTab">الالتزامات</span>
+
+    <span data-i18n="commitmentsTab">
+      الالتزامات
+    </span>
+
   </button>
 
   <button
     type="button"
     data-page="p3"
   >
+
     <b>◌</b>
-    <span data-i18n="expensesTab">المصروفات</span>
+
+    <span data-i18n="expensesTab">
+      المصروفات
+    </span>
+
   </button>
 
 </nav>
 
 <script>
-const $ = id => document.getElementById(id);
+const $ =
+  id =>
+    document.getElementById(id);
 
 /* =========================
-   SETTINGS / TEXT
+   TRANSLATIONS
 ========================= */
 
 const translations = {
+
   ar:{
-    availableNow:'المتاح لك الآن',
-    afterCommitmentsExpenses:'بعد الالتزامات والمصروفات',
-    remaining:'متبقي',
-    totalSalary:'إجمالي الراتب',
-    totalSpent:'إجمالي الصرف',
-    afterCommitments:'بعد الالتزامات',
-    unallocated:'غير موزع',
-    basicSalary:'الراتب الأساسي',
-    allowances:'البدلات',
-    autoChange:'تتغير تلقائيًا',
-    handleHint:'☰ ضغطة للخيارات — ضغط مطوّل للترتيب',
-    totalAllowances:'إجمالي البدلات',
-    totalIncome:'إجمالي الدخل',
-    commitments:'الالتزامات',
-    monthlyDeductions:'الاستقطاعات الشهرية',
-    totalCommitments:'إجمالي الالتزامات',
-    remainingAfterCommitments:'المتبقي بعد الالتزامات',
-    budgetDistribution:'توزيع الميزانية',
-    distributeRemaining:'وزع المتبقي',
-    recordExpense:'تسجيل مصروف',
-    dailySpending:'الصرف اليومي',
-    recentExpenses:'المصروفات الأخيرة',
-    amount:'المبلغ',
-    note:'ملاحظة',
-    delete:'حذف',
-    cancel:'إلغاء',
-    close:'إغلاق',
-    chooseValueType:'اختر نوع القيمة',
-    percent:'نسبة',
-    fixed:'ثابت',
-    fixedAmount:'مبلغ ثابت',
-    settings:'الإعدادات',
-    numberStyle:'شكل الأرقام',
-    appLanguage:'لغة التطبيق',
-    salaryTab:'الراتب',
-    commitmentsTab:'الالتزامات',
-    expensesTab:'المصروفات',
-    addAllowance:'إضافة بدل',
-    addCommitment:'إضافة التزام',
-    addCategory:'إضافة فئة',
-    allowanceOptions:'خيارات البدلات',
-    commitmentOptions:'خيارات الالتزامات',
-    budgetOptions:'خيارات توزيع الميزانية',
-    noExpenses:'ما سجلت أي مصروف حتى الآن',
-    operation:'عملية',
-    operations:'عملية',
-    spent:'صرفت',
-    ofBasicSalary:'من الراتب الأساسي',
-    ofTotalIncome:'من إجمالي الدخل'
+
+    availableNow:
+      'المتاح لك الآن',
+
+    afterEverything:
+      'بعد الاستقطاعات والالتزامات والمصروفات',
+
+    remaining:
+      'متبقي',
+
+    totalSalary:
+      'إجمالي الراتب',
+
+    totalSpent:
+      'إجمالي الصرف',
+
+    afterCommitments:
+      'بعد الالتزامات',
+
+    unallocated:
+      'غير موزع',
+
+    basicSalary:
+      'الراتب الأساسي',
+
+    allowances:
+      'البدلات',
+
+    autoChange:
+      'تتغير تلقائيًا',
+
+    handleHint:
+      '☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب',
+
+    totalAllowances:
+      'إجمالي البدلات',
+
+    totalIncome:
+      'إجمالي الدخل',
+
+    deductions:
+      'الاستقطاعات',
+
+    monthlyDeductions:
+      'الاستقطاعات الشهرية',
+
+    totalDeductions:
+      'إجمالي الاستقطاعات',
+
+    remainingAfterDeductions:
+      'المتبقي بعد الاستقطاعات',
+
+    commitments:
+      'الالتزامات',
+
+    monthlyCommitments:
+      'الالتزامات الشهرية',
+
+    totalCommitments:
+      'إجمالي الالتزامات',
+
+    remainingAfterCommitments:
+      'المتبقي بعد الالتزامات',
+
+    budgetDistribution:
+      'توزيع الميزانية',
+
+    distributeRemaining:
+      'وزع المتبقي',
+
+    recordExpense:
+      'تسجيل مصروف',
+
+    dailySpending:
+      'الصرف اليومي',
+
+    recentExpenses:
+      'المصروفات الأخيرة',
+
+    amount:
+      'المبلغ',
+
+    note:
+      'ملاحظة',
+
+    delete:
+      'حذف',
+
+    cancel:
+      'إلغاء',
+
+    close:
+      'إغلاق',
+
+    chooseValueType:
+      'اختر نوع القيمة',
+
+    percent:
+      'نسبة',
+
+    fixed:
+      'ثابت',
+
+    fixedAmount:
+      'مبلغ ثابت',
+
+    settings:
+      'الإعدادات',
+
+    numberStyle:
+      'شكل الأرقام',
+
+    appLanguage:
+      'لغة التطبيق',
+
+    salaryTab:
+      'الراتب',
+
+    commitmentsTab:
+      'الالتزامات',
+
+    expensesTab:
+      'المصروفات',
+
+    addAllowance:
+      'إضافة بدل',
+
+    addDeduction:
+      'إضافة استقطاع',
+
+    addCommitment:
+      'إضافة التزام',
+
+    addCategory:
+      'إضافة فئة',
+
+    allowanceOptions:
+      'خيارات البدلات',
+
+    deductionOptions:
+      'خيارات الاستقطاعات',
+
+    commitmentOptions:
+      'خيارات الالتزامات',
+
+    budgetOptions:
+      'خيارات توزيع الميزانية',
+
+    noExpenses:
+      'ما سجلت أي مصروف حتى الآن',
+
+    operation:
+      'عملية',
+
+    operations:
+      'عملية',
+
+    spent:
+      'صرفت',
+
+    ofBasicSalary:
+      'من الراتب الأساسي',
+
+    ofTotalIncome:
+      'من إجمالي الدخل'
   },
 
   en:{
-    availableNow:'Available now',
-    afterCommitmentsExpenses:'After commitments and expenses',
-    remaining:'Remaining',
-    totalSalary:'Total salary',
-    totalSpent:'Total spent',
-    afterCommitments:'After commitments',
-    unallocated:'Unallocated',
-    basicSalary:'Basic salary',
-    allowances:'Allowances',
-    autoChange:'Updates automatically',
-    handleHint:'Tap ☰ for options — hold to reorder',
-    totalAllowances:'Total allowances',
-    totalIncome:'Total income',
-    commitments:'Commitments',
-    monthlyDeductions:'Monthly deductions',
-    totalCommitments:'Total commitments',
-    remainingAfterCommitments:'Remaining after commitments',
-    budgetDistribution:'Budget distribution',
-    distributeRemaining:'Allocate remaining',
-    recordExpense:'Record expense',
-    dailySpending:'Daily spending',
-    recentExpenses:'Recent expenses',
-    amount:'Amount',
-    note:'Note',
-    delete:'Delete',
-    cancel:'Cancel',
-    close:'Close',
-    chooseValueType:'Choose value type',
-    percent:'Percent',
-    fixed:'Fixed',
-    fixedAmount:'Fixed amount',
-    settings:'Settings',
-    numberStyle:'Number style',
-    appLanguage:'App language',
-    salaryTab:'Salary',
-    commitmentsTab:'Commitments',
-    expensesTab:'Expenses',
-    addAllowance:'Add allowance',
-    addCommitment:'Add commitment',
-    addCategory:'Add category',
-    allowanceOptions:'Allowance options',
-    commitmentOptions:'Commitment options',
-    budgetOptions:'Budget options',
-    noExpenses:'No expenses recorded yet',
-    operation:'transaction',
-    operations:'transactions',
-    spent:'Spent',
-    ofBasicSalary:'of basic salary',
-    ofTotalIncome:'of total income'
+
+    availableNow:
+      'Available now',
+
+    afterEverything:
+      'After deductions, commitments and expenses',
+
+    remaining:
+      'Remaining',
+
+    totalSalary:
+      'Total salary',
+
+    totalSpent:
+      'Total spent',
+
+    afterCommitments:
+      'After commitments',
+
+    unallocated:
+      'Unallocated',
+
+    basicSalary:
+      'Basic salary',
+
+    allowances:
+      'Allowances',
+
+    autoChange:
+      'Updates automatically',
+
+    handleHint:
+      'Tap ☰ for options — hold and drag to reorder',
+
+    totalAllowances:
+      'Total allowances',
+
+    totalIncome:
+      'Total income',
+
+    deductions:
+      'Deductions',
+
+    monthlyDeductions:
+      'Monthly deductions',
+
+    totalDeductions:
+      'Total deductions',
+
+    remainingAfterDeductions:
+      'Remaining after deductions',
+
+    commitments:
+      'Commitments',
+
+    monthlyCommitments:
+      'Monthly commitments',
+
+    totalCommitments:
+      'Total commitments',
+
+    remainingAfterCommitments:
+      'Remaining after commitments',
+
+    budgetDistribution:
+      'Budget distribution',
+
+    distributeRemaining:
+      'Allocate remaining',
+
+    recordExpense:
+      'Record expense',
+
+    dailySpending:
+      'Daily spending',
+
+    recentExpenses:
+      'Recent expenses',
+
+    amount:
+      'Amount',
+
+    note:
+      'Note',
+
+    delete:
+      'Delete',
+
+    cancel:
+      'Cancel',
+
+    close:
+      'Close',
+
+    chooseValueType:
+      'Choose value type',
+
+    percent:
+      'Percent',
+
+    fixed:
+      'Fixed',
+
+    fixedAmount:
+      'Fixed amount',
+
+    settings:
+      'Settings',
+
+    numberStyle:
+      'Number style',
+
+    appLanguage:
+      'App language',
+
+    salaryTab:
+      'Salary',
+
+    commitmentsTab:
+      'Commitments',
+
+    expensesTab:
+      'Expenses',
+
+    addAllowance:
+      'Add allowance',
+
+    addDeduction:
+      'Add deduction',
+
+    addCommitment:
+      'Add commitment',
+
+    addCategory:
+      'Add category',
+
+    allowanceOptions:
+      'Allowance options',
+
+    deductionOptions:
+      'Deduction options',
+
+    commitmentOptions:
+      'Commitment options',
+
+    budgetOptions:
+      'Budget options',
+
+    noExpenses:
+      'No expenses recorded yet',
+
+    operation:
+      'transaction',
+
+    operations:
+      'transactions',
+
+    spent:
+      'Spent',
+
+    ofBasicSalary:
+      'of basic salary',
+
+    ofTotalIncome:
+      'of total income'
   }
 };
 
@@ -1613,7 +2450,14 @@ let settings = {
 };
 
 function t(key){
-  return translations[settings.language][key] || key;
+
+  return (
+    translations[
+      settings.language
+    ][key]
+    ||
+    key
+  );
 }
 
 /* =========================
@@ -1621,68 +2465,142 @@ function t(key){
 ========================= */
 
 function normalizeDigits(value){
-  return String(value ?? '')
-    .replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d))
-    .replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
-    .replace(/٫/g,'.')
-    .replace(/[٬,]/g,'');
+
+  return String(
+    value ?? ''
+  )
+
+  .replace(
+    /[٠-٩]/g,
+    d =>
+      '٠١٢٣٤٥٦٧٨٩'
+      .indexOf(d)
+  )
+
+  .replace(
+    /[۰-۹]/g,
+    d =>
+      '۰۱۲۳۴۵۶۷۸۹'
+      .indexOf(d)
+  )
+
+  .replace(
+    /٫/g,
+    '.'
+  )
+
+  .replace(
+    /[٬,]/g,
+    ''
+  );
 }
 
 function cleanNumericInput(value){
-  let v = normalizeDigits(value);
 
-  v = v.replace(/[^0-9.]/g,'');
+  let v =
+    normalizeDigits(value);
 
-  const firstDot = v.indexOf('.');
+  v =
+    v.replace(
+      /[^0-9.]/g,
+      ''
+    );
+
+  const firstDot =
+    v.indexOf('.');
 
   if(firstDot !== -1){
+
     v =
-      v.slice(0,firstDot + 1) +
-      v.slice(firstDot + 1).replace(/\./g,'');
+      v.slice(
+        0,
+        firstDot + 1
+      )
+      +
+      v.slice(
+        firstDot + 1
+      )
+      .replace(
+        /\./g,
+        ''
+      );
   }
 
   if(v.includes('.')){
-    let [whole,decimal] = v.split('.');
 
-    whole = whole.replace(/^0+(?=\d)/,'');
+    let [
+      whole,
+      decimal
+    ] =
+      v.split('.');
+
+    whole =
+      whole.replace(
+        /^0+(?=\d)/,
+        ''
+      );
 
     if(whole === ''){
       whole = '0';
     }
 
-    return whole + '.' + decimal;
+    return (
+      whole +
+      '.' +
+      decimal
+    );
   }
 
-  v = v.replace(/^0+/,'');
+  v =
+    v.replace(
+      /^0+/,
+      ''
+    );
 
   return v;
 }
 
 function numberValue(value){
-  const v = normalizeDigits(value);
+
+  const v =
+    normalizeDigits(value);
 
   if(v === ''){
     return 0;
   }
 
-  const n = Number(v);
+  const n =
+    Number(v);
 
-  return Number.isFinite(n)
-    ? Math.max(0,n)
-    : 0;
+  return (
+    Number.isFinite(n)
+      ? Math.max(0,n)
+      : 0
+  );
 }
 
 function inputDigits(value){
-  const latin = normalizeDigits(value);
+
+  const latin =
+    normalizeDigits(value);
 
   if(settings.digits === 'ar'){
-    return latin.replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+
+    return latin.replace(
+      /[0-9]/g,
+      d =>
+        '٠١٢٣٤٥٦٧٨٩'[d]
+    );
   }
 
   return latin;
 }
 
-function formatNumber(value,decimals=2){
+function formatNumber(
+  value,
+  decimals=2
+){
+
   const locale =
     settings.digits === 'ar'
       ? 'ar-SA'
@@ -1691,40 +2609,69 @@ function formatNumber(value,decimals=2){
   return new Intl.NumberFormat(
     locale,
     {
-      maximumFractionDigits:decimals,
+      maximumFractionDigits:
+        decimals,
+
       useGrouping:true
     }
   ).format(value);
 }
 
 function percentText(value){
-  const percent =
+
+  const symbol =
     settings.digits === 'ar'
       ? '٪'
       : '%';
 
-  return formatNumber(value,1) + percent;
+  return (
+    formatNumber(
+      value,
+      1
+    )
+    +
+    symbol
+  );
 }
 
 function money(value){
-  return formatNumber(value,2) + ' ⃁';
+
+  return (
+    formatNumber(
+      value,
+      2
+    )
+    +
+    ' ⃁'
+  );
 }
 
 function rawInputValue(value){
+
   if(
-    value === '' ||
-    value === null ||
+    value === ''
+    ||
+    value === null
+    ||
     value === undefined
   ){
     return '';
   }
 
-  return inputDigits(String(value));
+  return inputDigits(
+    String(value)
+  );
 }
 
-function resizeNumericWrap(wrap,input){
+function resizeNumericWrap(
+  wrap,
+  input
+){
+
   const length =
-    normalizeDigits(input.value).length;
+    normalizeDigits(
+      input.value
+    ).length;
 
   wrap.classList.toggle(
     'long',
@@ -1741,18 +2688,45 @@ function resizeNumericWrap(wrap,input){
    HELPERS
 ========================= */
 
-const makeId = () =>
-  'x' +
-  Date.now().toString(36) +
-  Math.random().toString(36).slice(2);
+const makeId =
+  () =>
+    'x'
+    +
+    Date.now()
+      .toString(36)
+    +
+    Math.random()
+      .toString(36)
+      .slice(2);
 
 function escapeHtml(value){
+
   return String(value)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#039;');
+
+  .replace(
+    /&/g,
+    '&amp;'
+  )
+
+  .replace(
+    /</g,
+    '&lt;'
+  )
+
+  .replace(
+    />/g,
+    '&gt;'
+  )
+
+  .replace(
+    /"/g,
+    '&quot;'
+  )
+
+  .replace(
+    /'/g,
+    '&#039;'
+  );
 }
 
 /* =========================
@@ -1760,7 +2734,9 @@ function escapeHtml(value){
 ========================= */
 
 function defaultAllowances(){
+
   return [
+
     {
       id:makeId(),
       name:'بدل المواصلات',
@@ -1769,6 +2745,7 @@ function defaultAllowances(){
       system:true,
       systemKey:'transport'
     },
+
     {
       id:makeId(),
       name:'بدل السكن',
@@ -1777,11 +2754,14 @@ function defaultAllowances(){
       system:true,
       systemKey:'housing'
     }
+
   ];
 }
 
-function defaultCommitments(){
+function defaultDeductions(){
+
   return [
+
     {
       id:makeId(),
       name:'استقطاع التأمينات',
@@ -1789,7 +2769,15 @@ function defaultCommitments(){
       value:'',
       system:true,
       systemKey:'insurance'
-    },
+    }
+
+  ];
+}
+
+function defaultCommitments(){
+
+  return [
+
     {
       id:makeId(),
       name:'قسط / قرض',
@@ -1797,6 +2785,7 @@ function defaultCommitments(){
       value:'',
       system:false
     },
+
     {
       id:makeId(),
       name:'إيجار',
@@ -1804,6 +2793,7 @@ function defaultCommitments(){
       value:'',
       system:false
     },
+
     {
       id:makeId(),
       name:'التزامات أخرى',
@@ -1811,55 +2801,153 @@ function defaultCommitments(){
       value:'',
       system:false
     }
+
   ];
 }
 
 function defaultBudgets(){
+
   return [
-    {id:makeId(),name:'مقاضي البيت',allocated:''},
-    {id:makeId(),name:'بنزين',allocated:''},
-    {id:makeId(),name:'أكل ومطاعم',allocated:''},
-    {id:makeId(),name:'أخرى',allocated:''}
+
+    {
+      id:makeId(),
+      name:'مقاضي البيت',
+      allocated:''
+    },
+
+    {
+      id:makeId(),
+      name:'بنزين',
+      allocated:''
+    },
+
+    {
+      id:makeId(),
+      name:'أكل ومطاعم',
+      allocated:''
+    },
+
+    {
+      id:makeId(),
+      name:'أخرى',
+      allocated:''
+    }
+
   ];
 }
 
-let allowances = defaultAllowances();
-let commitments = defaultCommitments();
-let budgets = defaultBudgets();
+let allowances =
+  defaultAllowances();
+
+let deductions =
+  defaultDeductions();
+
+let commitments =
+  defaultCommitments();
+
+let budgets =
+  defaultBudgets();
+
 let transactions = [];
-let activePage = 'p1';
+
+let activePage =
+  'p1';
 
 /* =========================
    STORAGE
 ========================= */
 
 function save(){
+
   try{
+
     localStorage.setItem(
       'salaryApp',
+
       JSON.stringify({
-        version:6,
-        salary:normalizeDigits($('salary').value),
+
+        version:7,
+
+        salary:
+          normalizeDigits(
+            $('salary').value
+          ),
+
         allowances,
+
+        deductions,
+
         commitments,
+
         budgets,
+
         transactions,
+
         settings,
+
         activePage
       })
     );
+
   }catch(e){}
 }
 
+function normalizeFinancialItem(
+  item,
+  fallbackName
+){
+
+  return {
+
+    id:
+      item.id
+      ||
+      makeId(),
+
+    name:
+      item.name
+      ||
+      fallbackName,
+
+    type:
+      item.type === 'percent'
+        ? 'percent'
+        : 'fixed',
+
+    value:
+      item.value === ''
+      ||
+      item.value === undefined
+        ? ''
+        : cleanNumericInput(
+            item.value
+          ),
+
+    system:
+      item.system === true,
+
+    systemKey:
+      item.systemKey
+      ||
+      null
+  };
+}
+
 function load(){
+
   let data;
 
   try{
+
     data =
       JSON.parse(
-        localStorage.getItem('salaryApp')
+        localStorage.getItem(
+          'salaryApp'
+        )
       );
+
   }catch(e){
+
     return;
   }
 
@@ -1868,6 +2956,7 @@ function load(){
   }
 
   if(data.settings){
+
     settings = {
       ...settings,
       ...data.settings
@@ -1875,99 +2964,273 @@ function load(){
   }
 
   if(
-    data.activePage === 'p1' ||
-    data.activePage === 'p2' ||
+    data.activePage === 'p1'
+    ||
+    data.activePage === 'p2'
+    ||
     data.activePage === 'p3'
   ){
-    activePage = data.activePage;
+
+    activePage =
+      data.activePage;
   }
 
-  if(data.salary !== undefined){
+  if(
+    data.salary !== undefined
+  ){
+
     $('salary').value =
       rawInputValue(
-        cleanNumericInput(data.salary)
+        cleanNumericInput(
+          data.salary
+        )
       );
   }
 
-  if(Array.isArray(data.allowances)){
+  if(
+    Array.isArray(
+      data.allowances
+    )
+  ){
+
     allowances =
-      data.allowances.map(item => ({
-        id:item.id || makeId(),
-        name:item.name || 'بدل',
-        type:item.type === 'fixed' ? 'fixed' : 'percent',
-        value:
-          item.value === '' ||
-          item.value === undefined
-            ? ''
-            : cleanNumericInput(item.value),
+      data.allowances.map(
+        item => {
 
-        system:
-          item.name === 'بدل المواصلات' ||
-          item.name === 'بدل السكن' ||
-          item.system === true,
+          const result =
+            normalizeFinancialItem(
+              item,
+              'بدل'
+            );
 
-        systemKey:
-          item.systemKey ||
-          (
-            item.name === 'بدل المواصلات'
-              ? 'transport'
-              : item.name === 'بدل السكن'
-                ? 'housing'
-                : null
-          )
-      }));
+          if(
+            item.name ===
+            'بدل المواصلات'
+            ||
+            item.systemKey ===
+            'transport'
+          ){
+
+            result.system =
+              true;
+
+            result.systemKey =
+              'transport';
+          }
+
+          if(
+            item.name ===
+            'بدل السكن'
+            ||
+            item.systemKey ===
+            'housing'
+          ){
+
+            result.system =
+              true;
+
+            result.systemKey =
+              'housing';
+          }
+
+          return result;
+        }
+      );
   }
 
-  if(Array.isArray(data.commitments)){
+  /*
+    النسخة الجديدة:
+    deductions = الاستقطاعات
+    commitments = الالتزامات
+
+    ترحيل بيانات النسخة القديمة:
+    التأمينات -> استقطاعات
+    والباقي -> التزامات
+  */
+
+  if(
+    Array.isArray(
+      data.deductions
+    )
+  ){
+
+    deductions =
+      data.deductions.map(
+        item => {
+
+          const result =
+            normalizeFinancialItem(
+              item,
+              'استقطاع'
+            );
+
+          if(
+            item.systemKey ===
+            'insurance'
+            ||
+            String(
+              item.name
+            ).includes(
+              'التأمين'
+            )
+          ){
+
+            result.system =
+              true;
+
+            result.systemKey =
+              'insurance';
+          }
+
+          return result;
+        }
+      );
+
+    if(
+      Array.isArray(
+        data.commitments
+      )
+    ){
+
+      commitments =
+        data.commitments.map(
+          item =>
+            normalizeFinancialItem(
+              item,
+              'التزام'
+            )
+        );
+    }
+  }
+
+  else if(
+    Array.isArray(
+      data.commitments
+    )
+  ){
+
+    const old =
+      data.commitments.map(
+        item =>
+          normalizeFinancialItem(
+            item,
+            'التزام'
+          )
+      );
+
+    const insuranceItems =
+      old.filter(
+        item =>
+          item.systemKey ===
+          'insurance'
+          ||
+          String(
+            item.name
+          ).includes(
+            'التأمين'
+          )
+      );
+
+    const otherItems =
+      old.filter(
+        item =>
+          !insuranceItems
+          .includes(item)
+      );
+
+    deductions =
+      insuranceItems.length
+        ? insuranceItems.map(
+            item => ({
+              ...item,
+              system:true,
+              systemKey:
+                'insurance'
+            })
+          )
+        : defaultDeductions();
+
     commitments =
-      data.commitments.map(item => ({
-        id:item.id || makeId(),
-        name:item.name || 'التزام',
-        type:item.type === 'percent' ? 'percent' : 'fixed',
-        value:
-          item.value === '' ||
-          item.value === undefined
-            ? ''
-            : cleanNumericInput(item.value),
-
-        system:
-          item.name === 'استقطاع التأمينات' ||
-          item.system === true,
-
-        systemKey:
-          item.systemKey ||
-          (
-            item.name === 'استقطاع التأمينات'
-              ? 'insurance'
-              : null
+      otherItems.length
+        ? otherItems.map(
+            item => ({
+              ...item,
+              system:false,
+              systemKey:null
+            })
           )
-      }));
+        : defaultCommitments();
   }
 
-  if(Array.isArray(data.budgets)){
+  if(
+    Array.isArray(
+      data.budgets
+    )
+  ){
+
     budgets =
-      data.budgets.map(item => ({
-        id:item.id || makeId(),
-        name:item.name || 'فئة',
-        allocated:
-          item.allocated === '' ||
-          item.allocated === undefined
-            ? ''
-            : cleanNumericInput(item.allocated)
-      }));
+      data.budgets.map(
+        item => ({
+
+          id:
+            item.id
+            ||
+            makeId(),
+
+          name:
+            item.name
+            ||
+            'فئة',
+
+          allocated:
+            item.allocated === ''
+            ||
+            item.allocated === undefined
+              ? ''
+              : cleanNumericInput(
+                  item.allocated
+                )
+        })
+      );
   }
 
-  if(Array.isArray(data.transactions)){
+  if(
+    Array.isArray(
+      data.transactions
+    )
+  ){
+
     transactions =
-      data.transactions.map(item => ({
-        id:item.id || makeId(),
-        budgetId:item.budgetId || '',
-        amount:numberValue(item.amount),
-        note:item.note || '',
-        createdAt:
-          item.createdAt ||
-          new Date().toISOString()
-      }));
+      data.transactions.map(
+        item => ({
+
+          id:
+            item.id
+            ||
+            makeId(),
+
+          budgetId:
+            item.budgetId
+            ||
+            '',
+
+          amount:
+            numberValue(
+              item.amount
+            ),
+
+          note:
+            item.note
+            ||
+            '',
+
+          createdAt:
+            item.createdAt
+            ||
+            new Date()
+            .toISOString()
+        })
+      );
   }
 }
 
@@ -1976,148 +3239,405 @@ function load(){
 ========================= */
 
 function salaryValue(){
+
   return numberValue(
     $('salary').value
   );
 }
 
-function itemAmount(item,salary){
-  const value =
-    numberValue(item.value);
+function itemAmount(
+  item,
+  salary
+){
 
-  return item.type === 'percent'
-    ? salary * value / 100
-    : value;
+  const value =
+    numberValue(
+      item.value
+    );
+
+  return (
+    item.type === 'percent'
+      ? salary *
+        value /
+        100
+      : value
+  );
 }
 
 function spentForBudget(id){
+
   return transactions
-    .filter(item => item.budgetId === id)
-    .reduce(
-      (sum,item) =>
-        sum + numberValue(item.amount),
-      0
-    );
+
+  .filter(
+    item =>
+      item.budgetId === id
+  )
+
+  .reduce(
+    (
+      sum,
+      item
+    ) =>
+      sum
+      +
+      numberValue(
+        item.amount
+      ),
+
+    0
+  );
 }
 
 function getTotals(){
+
   const salary =
     salaryValue();
 
   const allowanceTotal =
     allowances.reduce(
-      (sum,item) =>
-        sum + itemAmount(item,salary),
+      (
+        sum,
+        item
+      ) =>
+        sum
+        +
+        itemAmount(
+          item,
+          salary
+        ),
+
       0
     );
 
   const gross =
-    salary + allowanceTotal;
+    salary
+    +
+    allowanceTotal;
+
+  const deductionTotal =
+    deductions.reduce(
+      (
+        sum,
+        item
+      ) =>
+        sum
+        +
+        itemAmount(
+          item,
+          salary
+        ),
+
+      0
+    );
+
+  const afterDeductions =
+    gross
+    -
+    deductionTotal;
 
   const commitmentTotal =
     commitments.reduce(
-      (sum,item) =>
-        sum + itemAmount(item,salary),
+      (
+        sum,
+        item
+      ) =>
+        sum
+        +
+        itemAmount(
+          item,
+          salary
+        ),
+
       0
     );
 
   const afterCommitments =
-    gross - commitmentTotal;
+    afterDeductions
+    -
+    commitmentTotal;
 
   const transactionTotal =
     transactions.reduce(
-      (sum,item) =>
-        sum + numberValue(item.amount),
+      (
+        sum,
+        item
+      ) =>
+        sum
+        +
+        numberValue(
+          item.amount
+        ),
+
       0
     );
 
   const finalRemaining =
-    afterCommitments - transactionTotal;
+    afterCommitments
+    -
+    transactionTotal;
 
   const allocatedTotal =
     budgets.reduce(
-      (sum,item) =>
-        sum + numberValue(item.allocated),
+      (
+        sum,
+        item
+      ) =>
+        sum
+        +
+        numberValue(
+          item.allocated
+        ),
+
       0
     );
 
   return {
+
     salary,
+
     allowanceTotal,
+
     gross,
+
+    deductionTotal,
+
+    afterDeductions,
+
     commitmentTotal,
+
     afterCommitments,
+
     transactionTotal,
+
     finalRemaining,
+
     allocatedTotal,
+
     unallocated:
-      afterCommitments - allocatedTotal
+      afterCommitments
+      -
+      allocatedTotal
   };
 }
 
 /* =========================
-   FINANCIAL ROWS
+   SYSTEM NAMES
 ========================= */
 
-function displayedSystemName(item){
-  if(settings.language === 'ar'){
-    if(item.systemKey === 'transport') return 'بدل المواصلات';
-    if(item.systemKey === 'housing') return 'بدل السكن';
-    if(item.systemKey === 'insurance') return 'استقطاع التأمينات';
+function displayedSystemName(
+  item
+){
+
+  if(
+    settings.language ===
+    'ar'
+  ){
+
+    if(
+      item.systemKey ===
+      'transport'
+    ){
+      return 'بدل المواصلات';
+    }
+
+    if(
+      item.systemKey ===
+      'housing'
+    ){
+      return 'بدل السكن';
+    }
+
+    if(
+      item.systemKey ===
+      'insurance'
+    ){
+      return 'استقطاع التأمينات';
+    }
   }
 
-  if(settings.language === 'en'){
-    if(item.systemKey === 'transport') return 'Transport allowance';
-    if(item.systemKey === 'housing') return 'Housing allowance';
-    if(item.systemKey === 'insurance') return 'Social insurance';
+  if(
+    settings.language ===
+    'en'
+  ){
+
+    if(
+      item.systemKey ===
+      'transport'
+    ){
+      return 'Transport allowance';
+    }
+
+    if(
+      item.systemKey ===
+      'housing'
+    ){
+      return 'Housing allowance';
+    }
+
+    if(
+      item.systemKey ===
+      'insurance'
+    ){
+      return 'Social insurance';
+    }
   }
 
   return item.name;
 }
 
-function createFinancialRow(
-  item,
-  index,
+/* =========================
+   LIST HELPERS
+========================= */
+
+function sourceForKind(
   kind
 ){
+
+  if(
+    kind ===
+    'allowance'
+  ){
+    return allowances;
+  }
+
+  if(
+    kind ===
+    'deduction'
+  ){
+    return deductions;
+  }
+
+  if(
+    kind ===
+    'commitment'
+  ){
+    return commitments;
+  }
+
+  return budgets;
+}
+
+function listForKind(
+  kind
+){
+
+  if(
+    kind ===
+    'allowance'
+  ){
+    return $('allowancesList');
+  }
+
+  if(
+    kind ===
+    'deduction'
+  ){
+    return $('deductionsList');
+  }
+
+  if(
+    kind ===
+    'commitment'
+  ){
+    return $('commitmentsList');
+  }
+
+  return $('budgetList');
+}
+
+function cardForKind(
+  kind
+){
+
+  if(
+    kind ===
+    'allowance'
+  ){
+    return $('allowanceCard');
+  }
+
+  if(
+    kind ===
+    'deduction'
+  ){
+    return $('deductionCard');
+  }
+
+  if(
+    kind ===
+    'commitment'
+  ){
+    return $('commitmentCard');
+  }
+
+  return $('budgetCard');
+}
+
+/* =========================
+   FINANCIAL ROW
+========================= */
+
+function createFinancialRow(
+  item,
+  kind
+){
+
   const row =
-    document.createElement('div');
+    document.createElement(
+      'div'
+    );
 
   row.className =
-    'dynamic-row' +
-    (item.system ? '' : ' deletable');
+    'dynamic-row'
+    +
+    (
+      item.system
+        ? ''
+        : ' deletable'
+    );
 
   row.dataset.id =
     item.id;
 
   const lockedType =
-    kind === 'allowance' &&
+    kind === 'allowance'
+    &&
     item.system;
 
   const value =
-    rawInputValue(item.value);
+    rawInputValue(
+      item.value
+    );
 
   const displayName =
     item.system
-      ? displayedSystemName(item)
+      ? displayedSystemName(
+          item
+        )
       : item.name;
 
   row.innerHTML = `
+
     <button
       type="button"
       class="handle"
       aria-label="options"
-    >☰</button>
+    >
+      ☰
+    </button>
 
     <button
       type="button"
       class="delete-mark"
       aria-label="delete"
-    >×</button>
+    >
+      ×
+    </button>
 
     <div class="item-body">
 
       <div class="item-top">
+
         <input
           type="text"
           dir="auto"
@@ -2125,12 +3645,22 @@ function createFinancialRow(
           value="${escapeHtml(displayName)}"
           ${item.system ? 'readonly' : ''}
         >
+
       </div>
 
       <div class="item-bottom">
 
         <div class="item-amount">
-          ${money(itemAmount(item,salaryValue()))}
+
+          ${
+            money(
+              itemAmount(
+                item,
+                salaryValue()
+              )
+            )
+          }
+
         </div>
 
         <div class="controls">
@@ -2139,11 +3669,13 @@ function createFinancialRow(
             type="button"
             class="mode ${lockedType ? 'locked' : ''}"
           >
+
             ${
               item.type === 'percent'
                 ? t('percent')
                 : t('fixed')
             }
+
           </button>
 
           <div class="value-wrap">
@@ -2156,6 +3688,7 @@ function createFinancialRow(
             >
 
             <span class="value-unit">
+
               ${
                 item.type === 'percent'
                   ? (
@@ -2165,6 +3698,7 @@ function createFinancialRow(
                     )
                   : '⃁'
               }
+
             </span>
 
           </div>
@@ -2177,16 +3711,24 @@ function createFinancialRow(
   `;
 
   const nameInput =
-    row.querySelector('.item-name');
+    row.querySelector(
+      '.item-name'
+    );
 
   const valueInput =
-    row.querySelector('.value-wrap input');
+    row.querySelector(
+      '.value-wrap input'
+    );
 
   const valueWrap =
-    row.querySelector('.value-wrap');
+    row.querySelector(
+      '.value-wrap'
+    );
 
   const mode =
-    row.querySelector('.mode');
+    row.querySelector(
+      '.mode'
+    );
 
   resizeNumericWrap(
     valueWrap,
@@ -2194,13 +3736,16 @@ function createFinancialRow(
   );
 
   if(!item.system){
+
     nameInput.addEventListener(
       'input',
       () => {
+
         item.name =
           nameInput.value;
 
         save();
+
         updateCategories();
       }
     );
@@ -2209,6 +3754,7 @@ function createFinancialRow(
   valueInput.addEventListener(
     'input',
     () => {
+
       const cleaned =
         cleanNumericInput(
           valueInput.value
@@ -2218,7 +3764,9 @@ function createFinancialRow(
         cleaned;
 
       valueInput.value =
-        rawInputValue(cleaned);
+        rawInputValue(
+          cleaned
+        );
 
       resizeNumericWrap(
         valueWrap,
@@ -2230,43 +3778,64 @@ function createFinancialRow(
   );
 
   if(!lockedType){
+
     mode.addEventListener(
       'click',
       () => {
+
         item.type =
           item.type === 'percent'
             ? 'fixed'
             : 'percent';
 
         renderFinancialLists();
+
         calculate();
       }
     );
   }
 
-  row
-    .querySelector('.delete-mark')
-    .addEventListener(
-      'click',
-      () => {
-        if(item.system){
-          return;
-        }
+  row.querySelector(
+    '.delete-mark'
+  )
+  .addEventListener(
+    'click',
+    () => {
 
-        if(kind === 'allowance'){
-          allowances.splice(index,1);
-        }else{
-          commitments.splice(index,1);
-        }
-
-        exitDeleteMode();
-        renderFinancialLists();
-        calculate();
+      if(item.system){
+        return;
       }
-    );
+
+      const source =
+        sourceForKind(kind);
+
+      const index =
+        source.findIndex(
+          current =>
+            current.id ===
+            item.id
+        );
+
+      if(index !== -1){
+
+        source.splice(
+          index,
+          1
+        );
+      }
+
+      exitDeleteMode();
+
+      renderFinancialLists();
+
+      calculate();
+    }
+  );
 
   setupHandle(
-    row.querySelector('.handle'),
+    row.querySelector(
+      '.handle'
+    ),
     row,
     kind
   );
@@ -2275,66 +3844,93 @@ function createFinancialRow(
 }
 
 function renderFinancialLists(){
-  $('allowancesList').innerHTML = '';
+
+  $('allowancesList').innerHTML =
+    '';
 
   allowances.forEach(
-    (item,index) => {
+    item => {
+
       $('allowancesList')
-        .appendChild(
-          createFinancialRow(
-            item,
-            index,
-            'allowance'
-          )
-        );
+      .appendChild(
+        createFinancialRow(
+          item,
+          'allowance'
+        )
+      );
     }
   );
 
-  $('commitmentsList').innerHTML = '';
+  $('deductionsList').innerHTML =
+    '';
+
+  deductions.forEach(
+    item => {
+
+      $('deductionsList')
+      .appendChild(
+        createFinancialRow(
+          item,
+          'deduction'
+        )
+      );
+    }
+  );
+
+  $('commitmentsList').innerHTML =
+    '';
 
   commitments.forEach(
-    (item,index) => {
+    item => {
+
       $('commitmentsList')
-        .appendChild(
-          createFinancialRow(
-            item,
-            index,
-            'commitment'
-          )
-        );
+      .appendChild(
+        createFinancialRow(
+          item,
+          'commitment'
+        )
+      );
     }
   );
 }
 
 /* =========================
-   HANDLE + OPTIONS
+   NEW LONG PRESS DRAG
 ========================= */
 
-let menuKind = null;
-let pendingAddKind = null;
+function saveOrderFromDom(
+  kind
+){
 
-function sourceForKind(kind){
-  if(kind === 'allowance'){
-    return allowances;
-  }
+  const listElement =
+    listForKind(kind);
 
-  if(kind === 'commitment'){
-    return commitments;
-  }
+  const source =
+    sourceForKind(kind);
 
-  return budgets;
-}
+  const order =
+    Array.from(
+      listElement
+      .querySelectorAll(
+        '.dynamic-row'
+      )
+    )
+    .map(
+      row =>
+        row.dataset.id
+    );
 
-function listForKind(kind){
-  if(kind === 'allowance'){
-    return $('allowancesList');
-  }
+  source.sort(
+    (
+      a,
+      b
+    ) =>
+      order.indexOf(a.id)
+      -
+      order.indexOf(b.id)
+  );
 
-  if(kind === 'commitment'){
-    return $('commitmentsList');
-  }
-
-  return $('budgetList');
+  save();
 }
 
 function setupHandle(
@@ -2342,27 +3938,125 @@ function setupHandle(
   row,
   kind
 ){
-  let timer = null;
-  let dragging = false;
-  let startX = 0;
-  let startY = 0;
+
+  let pressTimer =
+    null;
+
+  let dragging =
+    false;
+
+  let pointerId =
+    null;
+
+  let startX =
+    0;
+
+  let startY =
+    0;
 
   const list =
     listForKind(kind);
 
+  const clearPress =
+    () => {
+
+      if(pressTimer){
+
+        clearTimeout(
+          pressTimer
+        );
+
+        pressTimer =
+          null;
+      }
+    };
+
+  const endDrag =
+    () => {
+
+      clearPress();
+
+      if(dragging){
+
+        dragging =
+          false;
+
+        row.classList.remove(
+          'dragging'
+        );
+
+        handle.classList.remove(
+          'drag-ready'
+        );
+
+        saveOrderFromDom(
+          kind
+        );
+
+        calculate();
+      }
+
+      pointerId =
+        null;
+    };
+
   handle.addEventListener(
     'pointerdown',
     event => {
-      startX = event.clientX;
-      startY = event.clientY;
 
-      timer =
+      if(
+        cardForKind(kind)
+        ?.classList
+        .contains(
+          'delete-mode'
+        )
+      ){
+        return;
+      }
+
+      pointerId =
+        event.pointerId;
+
+      startX =
+        event.clientX;
+
+      startY =
+        event.clientY;
+
+      try{
+
+        handle.setPointerCapture(
+          event.pointerId
+        );
+
+      }catch(e){}
+
+      pressTimer =
         setTimeout(
           () => {
-            dragging = true;
-            row.classList.add('dragging');
+
+            dragging =
+              true;
+
+            row.classList.add(
+              'dragging'
+            );
+
+            handle.classList.add(
+              'drag-ready'
+            );
+
+            if(
+              navigator.vibrate
+            ){
+
+              navigator.vibrate(
+                20
+              );
+            }
+
           },
-          450
+          350
         );
     }
   );
@@ -2370,14 +4064,39 @@ function setupHandle(
   handle.addEventListener(
     'pointermove',
     event => {
-      const moved =
-        Math.abs(event.clientX-startX) +
-        Math.abs(event.clientY-startY);
+
+      if(
+        pointerId !==
+        event.pointerId
+      ){
+        return;
+      }
 
       if(!dragging){
-        if(moved > 12){
-          clearTimeout(timer);
+
+        const distance =
+          Math.abs(
+            event.clientX
+            -
+            startX
+          )
+          +
+          Math.abs(
+            event.clientY
+            -
+            startY
+          );
+
+        /*
+          إذا المستخدم تحرك كثير
+          قبل اكتمال الضغط المطوّل
+          نلغي السحب
+        */
+        if(distance > 14){
+
+          clearPress();
         }
+
         return;
       }
 
@@ -2389,262 +4108,467 @@ function setupHandle(
           event.clientY
         );
 
-      if(!element){
-        return;
-      }
-
       const target =
-        element.closest('.dynamic-row');
+        element
+        ?.closest(
+          '.dynamic-row'
+        );
 
       if(
-        !target ||
-        target === row ||
+        !target
+        ||
+        target === row
+        ||
         target.parentElement !== list
       ){
         return;
       }
 
       const rect =
-        target.getBoundingClientRect();
+        target
+        .getBoundingClientRect();
+
+      const middle =
+        rect.top
+        +
+        rect.height / 2;
 
       if(
         event.clientY <
-        rect.top + rect.height / 2
+        middle
       ){
-        list.insertBefore(
-          row,
-          target
-        );
-      }else{
-        list.insertBefore(
-          row,
-          target.nextSibling
-        );
+
+        if(
+          target.previousElementSibling
+          !==
+          row
+        ){
+
+          list.insertBefore(
+            row,
+            target
+          );
+        }
+      }
+
+      else{
+
+        if(
+          target.nextElementSibling
+          !==
+          row
+        ){
+
+          list.insertBefore(
+            row,
+            target.nextSibling
+          );
+        }
       }
     }
   );
 
   handle.addEventListener(
     'pointerup',
-    () => {
-      clearTimeout(timer);
+    event => {
 
-      if(dragging){
-        dragging = false;
-        row.classList.remove('dragging');
+      const wasDragging =
+        dragging;
 
-        const order =
-          Array.from(
-            list.querySelectorAll(
-              '.dynamic-row'
-            )
-          ).map(
-            element =>
-              element.dataset.id
+      clearPress();
+
+      if(
+        pointerId ===
+        event.pointerId
+      ){
+
+        try{
+
+          handle.releasePointerCapture(
+            event.pointerId
           );
 
-        sourceForKind(kind)
-          .sort(
-            (a,b) =>
-              order.indexOf(a.id) -
-              order.indexOf(b.id)
-          );
+        }catch(e){}
 
-        save();
-        return;
+        endDrag();
       }
 
-      openOptions(kind);
+      /*
+        إذا كانت مجرد ضغطة
+        وليس ضغط مطوّل
+        نفتح الخيارات
+      */
+      if(!wasDragging){
+
+        openOptions(
+          kind
+        );
+      }
     }
   );
 
   handle.addEventListener(
     'pointercancel',
+    endDrag
+  );
+
+  handle.addEventListener(
+    'lostpointercapture',
     () => {
-      clearTimeout(timer);
-      dragging = false;
-      row.classList.remove('dragging');
+
+      if(dragging){
+
+        endDrag();
+      }
     }
   );
 }
 
+/* =========================
+   SHEETS
+========================= */
+
+let menuKind =
+  null;
+
+let pendingAddKind =
+  null;
+
 function showOverlay(){
-  $('overlay').classList.add('show');
+
+  $('overlay')
+  .classList
+  .add(
+    'show'
+  );
 }
 
 function hideOverlay(){
-  $('overlay').classList.remove('show');
+
+  $('overlay')
+  .classList
+  .remove(
+    'show'
+  );
 }
 
 function closeSheets(){
-  $('optionsSheet').classList.remove('show');
-  $('typeSheet').classList.remove('show');
-  $('settingsSheet').classList.remove('show');
+
+  $('optionsSheet')
+  .classList
+  .remove(
+    'show'
+  );
+
+  $('typeSheet')
+  .classList
+  .remove(
+    'show'
+  );
+
+  $('settingsSheet')
+  .classList
+  .remove(
+    'show'
+  );
+
   hideOverlay();
 }
 
 function openOptions(kind){
-  menuKind = kind;
 
-  if(kind === 'allowance'){
-    $('optionsTitle').textContent =
-      t('allowanceOptions');
+  menuKind =
+    kind;
 
-    $('optionAdd').textContent =
-      t('addAllowance');
+  if(
+    kind ===
+    'allowance'
+  ){
+
+    $('optionsTitle')
+    .textContent =
+      t(
+        'allowanceOptions'
+      );
+
+    $('optionAdd')
+    .textContent =
+      t(
+        'addAllowance'
+      );
   }
 
-  else if(kind === 'commitment'){
-    $('optionsTitle').textContent =
-      t('commitmentOptions');
+  else if(
+    kind ===
+    'deduction'
+  ){
 
-    $('optionAdd').textContent =
-      t('addCommitment');
+    $('optionsTitle')
+    .textContent =
+      t(
+        'deductionOptions'
+      );
+
+    $('optionAdd')
+    .textContent =
+      t(
+        'addDeduction'
+      );
+  }
+
+  else if(
+    kind ===
+    'commitment'
+  ){
+
+    $('optionsTitle')
+    .textContent =
+      t(
+        'commitmentOptions'
+      );
+
+    $('optionAdd')
+    .textContent =
+      t(
+        'addCommitment'
+      );
   }
 
   else{
-    $('optionsTitle').textContent =
-      t('budgetOptions');
 
-    $('optionAdd').textContent =
-      t('addCategory');
+    $('optionsTitle')
+    .textContent =
+      t(
+        'budgetOptions'
+      );
+
+    $('optionAdd')
+    .textContent =
+      t(
+        'addCategory'
+      );
   }
 
   showOverlay();
-  $('optionsSheet').classList.add('show');
+
+  $('optionsSheet')
+  .classList
+  .add(
+    'show'
+  );
 }
 
-$('optionCancel').addEventListener(
+$('optionCancel')
+.addEventListener(
   'click',
   closeSheets
 );
 
-$('typeCancel').addEventListener(
+$('typeCancel')
+.addEventListener(
   'click',
   closeSheets
 );
 
-$('overlay').addEventListener(
+$('overlay')
+.addEventListener(
   'click',
   closeSheets
 );
 
-$('optionAdd').addEventListener(
+$('optionAdd')
+.addEventListener(
   'click',
   () => {
+
     pendingAddKind =
       menuKind;
 
-    if(menuKind === 'budget'){
+    if(
+      menuKind ===
+      'budget'
+    ){
+
       budgets.push({
+
         id:makeId(),
+
         name:
           settings.language === 'ar'
             ? 'فئة جديدة'
             : 'New category',
+
         allocated:''
       });
 
       closeSheets();
+
       renderBudgets();
+
       calculate();
+
       return;
     }
 
     $('optionsSheet')
-      .classList.remove('show');
+    .classList
+    .remove(
+      'show'
+    );
 
     $('typeSheet')
-      .classList.add('show');
+    .classList
+    .add(
+      'show'
+    );
   }
 );
 
-$('optionDelete').addEventListener(
+$('optionDelete')
+.addEventListener(
   'click',
   () => {
-    const kind = menuKind;
+
+    const kind =
+      menuKind;
+
     closeSheets();
-    activateDeleteMode(kind);
+
+    activateDeleteMode(
+      kind
+    );
   }
 );
 
-function activateDeleteMode(kind){
+function activateDeleteMode(
+  kind
+){
+
   exitDeleteMode();
 
-  let card;
-
-  if(kind === 'allowance'){
-    card = $('allowanceCard');
-  }
-  else if(kind === 'commitment'){
-    card = $('commitmentCard');
-  }
-  else{
-    card = $('budgetCard');
-  }
-
-  card?.classList.add('delete-mode');
+  cardForKind(kind)
+  ?.classList
+  .add(
+    'delete-mode'
+  );
 }
 
 function exitDeleteMode(){
+
   document
-    .querySelectorAll('.delete-mode')
-    .forEach(
-      element =>
-        element.classList.remove(
-          'delete-mode'
-        )
-    );
+  .querySelectorAll(
+    '.delete-mode'
+  )
+  .forEach(
+    element =>
+      element
+      .classList
+      .remove(
+        'delete-mode'
+      )
+  );
 }
 
 /* =========================
-   ADD ALLOWANCE / COMMITMENT
+   ADD FINANCIAL ITEM
 ========================= */
 
-function addFinancialItem(type){
-  if(pendingAddKind === 'allowance'){
+function addFinancialItem(
+  type
+){
+
+  if(
+    pendingAddKind ===
+    'allowance'
+  ){
+
     allowances.push({
+
       id:makeId(),
+
       name:
-        settings.language === 'ar'
+        settings.language ===
+        'ar'
           ? 'بدل إضافي'
           : 'New allowance',
+
       type,
+
       value:'',
+
       system:false
     });
   }
 
   else if(
-    pendingAddKind === 'commitment'
+    pendingAddKind ===
+    'deduction'
   ){
-    commitments.push({
+
+    deductions.push({
+
       id:makeId(),
+
       name:
-        settings.language === 'ar'
+        settings.language ===
+        'ar'
+          ? 'استقطاع جديد'
+          : 'New deduction',
+
+      type,
+
+      value:'',
+
+      system:false
+    });
+  }
+
+  else if(
+    pendingAddKind ===
+    'commitment'
+  ){
+
+    commitments.push({
+
+      id:makeId(),
+
+      name:
+        settings.language ===
+        'ar'
           ? 'التزام جديد'
           : 'New commitment',
+
       type,
+
       value:'',
+
       system:false
     });
   }
 
   closeSheets();
+
   renderFinancialLists();
+
   calculate();
 }
 
-$('choosePercent').addEventListener(
+$('choosePercent')
+.addEventListener(
   'click',
   () =>
-    addFinancialItem('percent')
+    addFinancialItem(
+      'percent'
+    )
 );
 
-$('chooseFixed').addEventListener(
+$('chooseFixed')
+.addEventListener(
   'click',
   () =>
-    addFinancialItem('fixed')
+    addFinancialItem(
+      'fixed'
+    )
 );
 
 /* =========================
@@ -2652,22 +4576,32 @@ $('chooseFixed').addEventListener(
 ========================= */
 
 function renderBudgets(){
+
   const box =
     $('budgetList');
 
-  box.innerHTML = '';
+  box.innerHTML =
+    '';
 
   budgets.forEach(
-    (item,index) => {
+    item => {
+
       const spent =
-        spentForBudget(item.id);
+        spentForBudget(
+          item.id
+        );
 
       const remaining =
-        numberValue(item.allocated) -
+        numberValue(
+          item.allocated
+        )
+        -
         spent;
 
       const row =
-        document.createElement('div');
+        document.createElement(
+          'div'
+        );
 
       row.className =
         'dynamic-row deletable';
@@ -2676,15 +4610,20 @@ function renderBudgets(){
         item.id;
 
       row.innerHTML = `
+
         <button
           type="button"
           class="handle"
-        >☰</button>
+        >
+          ☰
+        </button>
 
         <button
           type="button"
           class="delete-mark"
-        >×</button>
+        >
+          ×
+        </button>
 
         <div class="item-body">
 
@@ -2704,11 +4643,20 @@ function renderBudgets(){
             <div class="budget-info">
 
               <span class="remaining">
-                ${money(remaining)}
+
+                ${
+                  money(
+                    remaining
+                  )
+                }
+
               </span>
 
               <small>
-                ${t('spent')} ${money(spent)}
+
+                ${t('spent')}
+                ${money(spent)}
+
               </small>
 
             </div>
@@ -2734,7 +4682,9 @@ function renderBudgets(){
       `;
 
       const nameInput =
-        row.querySelector('.item-name');
+        row.querySelector(
+          '.item-name'
+        );
 
       const amountInput =
         row.querySelector(
@@ -2751,20 +4701,25 @@ function renderBudgets(){
         amountInput
       );
 
-      nameInput.addEventListener(
+      nameInput
+      .addEventListener(
         'input',
         () => {
+
           item.name =
             nameInput.value;
 
           updateCategories();
+
           save();
         }
       );
 
-      amountInput.addEventListener(
+      amountInput
+      .addEventListener(
         'input',
         () => {
+
           const cleaned =
             cleanNumericInput(
               amountInput.value
@@ -2774,7 +4729,9 @@ function renderBudgets(){
             cleaned;
 
           amountInput.value =
-            rawInputValue(cleaned);
+            rawInputValue(
+              cleaned
+            );
 
           resizeNumericWrap(
             amountWrap,
@@ -2785,36 +4742,59 @@ function renderBudgets(){
         }
       );
 
-      row
-        .querySelector('.delete-mark')
-        .addEventListener(
-          'click',
-          () => {
-            const id =
-              item.id;
+      row.querySelector(
+        '.delete-mark'
+      )
+      .addEventListener(
+        'click',
+        () => {
 
-            budgets.splice(index,1);
+          const id =
+            item.id;
 
-            transactions =
-              transactions.filter(
-                transaction =>
-                  transaction.budgetId !== id
-              );
+          const index =
+            budgets.findIndex(
+              current =>
+                current.id ===
+                id
+            );
 
-            exitDeleteMode();
-            renderBudgets();
-            renderTransactions();
-            calculate();
+          if(index !== -1){
+
+            budgets.splice(
+              index,
+              1
+            );
           }
-        );
+
+          transactions =
+            transactions.filter(
+              transaction =>
+                transaction
+                .budgetId !== id
+            );
+
+          exitDeleteMode();
+
+          renderBudgets();
+
+          renderTransactions();
+
+          calculate();
+        }
+      );
 
       setupHandle(
-        row.querySelector('.handle'),
+        row.querySelector(
+          '.handle'
+        ),
         row,
         'budget'
       );
 
-      box.appendChild(row);
+      box.appendChild(
+        row
+      );
     }
   );
 
@@ -2822,18 +4802,23 @@ function renderBudgets(){
 }
 
 function updateCategories(){
+
   const select =
     $('expenseCategory');
 
   const old =
     select.value;
 
-  select.innerHTML = '';
+  select.innerHTML =
+    '';
 
   budgets.forEach(
     budget => {
+
       const option =
-        document.createElement('option');
+        document.createElement(
+          'option'
+        );
 
       option.value =
         budget.id;
@@ -2841,16 +4826,21 @@ function updateCategories(){
       option.textContent =
         budget.name;
 
-      select.appendChild(option);
+      select.appendChild(
+        option
+      );
     }
   );
 
   if(
     budgets.some(
-      budget => budget.id === old
+      budget =>
+        budget.id === old
     )
   ){
-    select.value = old;
+
+    select.value =
+      old;
   }
 }
 
@@ -2858,88 +4848,126 @@ function updateCategories(){
    EXPENSES
 ========================= */
 
-$('expenseForm').addEventListener(
+$('expenseForm')
+.addEventListener(
   'submit',
   event => {
+
     event.preventDefault();
 
     const budgetId =
-      $('expenseCategory').value;
+      $('expenseCategory')
+      .value;
 
     const cleaned =
       cleanNumericInput(
-        $('expenseAmount').value
+        $('expenseAmount')
+        .value
       );
 
     const amount =
-      numberValue(cleaned);
+      numberValue(
+        cleaned
+      );
 
     const note =
       $('expenseNote')
-        .value
-        .trim();
+      .value
+      .trim();
 
     if(
-      !budgetId ||
+      !budgetId
+      ||
       amount <= 0
     ){
       return;
     }
 
     transactions.unshift({
+
       id:makeId(),
+
       budgetId,
+
       amount,
+
       note,
+
       createdAt:
-        new Date().toISOString()
+        new Date()
+        .toISOString()
     });
 
-    $('expenseAmount').value = '';
-    $('expenseNote').value = '';
+    $('expenseAmount').value =
+      '';
+
+    $('expenseNote').value =
+      '';
 
     renderBudgets();
+
     renderTransactions();
+
     calculate();
   }
 );
 
-$('expenseAmount').addEventListener(
+$('expenseAmount')
+.addEventListener(
   'input',
   () => {
+
     const cleaned =
       cleanNumericInput(
-        $('expenseAmount').value
+        $('expenseAmount')
+        .value
       );
 
     $('expenseAmount').value =
-      rawInputValue(cleaned);
+      rawInputValue(
+        cleaned
+      );
   }
 );
 
 function renderTransactions(){
+
   const box =
     $('transactionList');
 
-  box.innerHTML = '';
+  box.innerHTML =
+    '';
 
-  $('transactionCount').textContent =
+  $('transactionCount')
+  .textContent =
+
     formatNumber(
       transactions.length,
       0
-    ) +
-    ' ' +
+    )
+
+    +
+
+    ' '
+
+    +
+
     (
-      transactions.length === 1
+      transactions.length ===
+      1
         ? t('operation')
         : t('operations')
     );
 
   if(
-    transactions.length === 0
+    transactions.length ===
+    0
   ){
+
     const empty =
-      document.createElement('div');
+      document.createElement(
+        'div'
+      );
 
     empty.className =
       'card';
@@ -2954,14 +4982,20 @@ function renderTransactions(){
       '11px';
 
     empty.textContent =
-      t('noExpenses');
+      t(
+        'noExpenses'
+      );
 
-    box.appendChild(empty);
+    box.appendChild(
+      empty
+    );
+
     return;
   }
 
   transactions.forEach(
-    (transaction,index) => {
+    transaction => {
+
       const budget =
         budgets.find(
           item =>
@@ -2975,7 +5009,8 @@ function renderTransactions(){
           : '';
 
       const locale =
-        settings.language === 'ar'
+        settings.language ===
+        'ar'
           ? 'ar-SA-u-ca-gregory'
           : 'en-US';
 
@@ -2988,38 +5023,53 @@ function renderTransactions(){
             hour:'2-digit',
             minute:'2-digit'
           }
-        ).format(
+        )
+        .format(
           new Date(
             transaction.createdAt
           )
         );
 
       const row =
-        document.createElement('div');
+        document.createElement(
+          'div'
+        );
 
       row.className =
         'transaction';
 
       row.innerHTML = `
+
         <div>
+
           <h4>
             ${escapeHtml(category)}
           </h4>
 
           <p>
+
             ${
               transaction.note
-                ? escapeHtml(transaction.note) + ' • '
+                ? escapeHtml(
+                    transaction.note
+                  )
+                  +
+                  ' • '
                 : ''
             }
+
             ${escapeHtml(dateText)}
+
           </p>
+
         </div>
 
         <div class="transaction-right">
 
           <span class="transaction-amount">
+
             -${money(transaction.amount)}
+
           </span>
 
           <button
@@ -3032,23 +5082,39 @@ function renderTransactions(){
         </div>
       `;
 
-      row
-        .querySelector('.transaction-menu')
-        .addEventListener(
-          'click',
-          () => {
+      row.querySelector(
+        '.transaction-menu'
+      )
+      .addEventListener(
+        'click',
+        () => {
+
+          const index =
+            transactions.findIndex(
+              current =>
+                current.id ===
+                transaction.id
+            );
+
+          if(index !== -1){
+
             transactions.splice(
               index,
               1
             );
-
-            renderTransactions();
-            renderBudgets();
-            calculate();
           }
-        );
 
-      box.appendChild(row);
+          renderTransactions();
+
+          renderBudgets();
+
+          calculate();
+        }
+      );
+
+      box.appendChild(
+        row
+      );
     }
   );
 }
@@ -3058,68 +5124,167 @@ function renderTransactions(){
 ========================= */
 
 function calculate(){
+
   const result =
     getTotals();
 
-  $('allowancesTotal').textContent =
-    money(result.allowanceTotal);
+  $('allowancesTotal')
+  .textContent =
+    money(
+      result.allowanceTotal
+    );
 
-  $('allowancesPercent').textContent =
+  $('allowancesPercent')
+  .textContent =
+
     percentText(
+
       result.salary > 0
-        ? result.allowanceTotal /
-          result.salary *
+
+        ? result.allowanceTotal
+          /
+          result.salary
+          *
           100
+
         : 0
-    ) +
-    ' ' +
-    t('ofBasicSalary');
+    )
 
-  $('gross').textContent =
-    money(result.gross);
+    +
 
-  $('grossTop').textContent =
-    money(result.gross);
+    ' '
 
-  $('commitmentsTotal').textContent =
-    money(result.commitmentTotal);
+    +
 
-  $('commitmentsPercent').textContent =
+    t(
+      'ofBasicSalary'
+    );
+
+  $('gross')
+  .textContent =
+    money(
+      result.gross
+    );
+
+  $('grossTop')
+  .textContent =
+    money(
+      result.gross
+    );
+
+  $('deductionsTotal')
+  .textContent =
+    money(
+      result.deductionTotal
+    );
+
+  $('deductionsPercent')
+  .textContent =
+
     percentText(
+
       result.gross > 0
-        ? result.commitmentTotal /
-          result.gross *
+
+        ? result.deductionTotal
+          /
+          result.gross
+          *
           100
+
         : 0
-    ) +
-    ' ' +
-    t('ofTotalIncome');
+    )
 
-  $('afterCommitments').textContent =
-    money(result.afterCommitments);
+    +
 
-  $('budgetAvailable').textContent =
-    money(result.afterCommitments);
+    ' '
 
-  $('unallocated').textContent =
-    money(result.unallocated);
+    +
 
-  $('remainingNumber').textContent =
+    t(
+      'ofTotalIncome'
+    );
+
+  $('afterDeductions')
+  .textContent =
+    money(
+      result.afterDeductions
+    );
+
+  $('commitmentsTotal')
+  .textContent =
+    money(
+      result.commitmentTotal
+    );
+
+  $('commitmentsPercent')
+  .textContent =
+
+    percentText(
+
+      result.gross > 0
+
+        ? result.commitmentTotal
+          /
+          result.gross
+          *
+          100
+
+        : 0
+    )
+
+    +
+
+    ' '
+
+    +
+
+    t(
+      'ofTotalIncome'
+    );
+
+  $('afterCommitments')
+  .textContent =
+    money(
+      result.afterCommitments
+    );
+
+  $('budgetAvailable')
+  .textContent =
+    money(
+      result.afterCommitments
+    );
+
+  $('unallocated')
+  .textContent =
+    money(
+      result.unallocated
+    );
+
+  $('remainingNumber')
+  .textContent =
     formatNumber(
       result.finalRemaining
     );
 
-  $('spentTop').textContent =
+  $('spentTop')
+  .textContent =
     money(
-      result.commitmentTotal +
+      result.deductionTotal
+      +
+      result.commitmentTotal
+      +
       result.transactionTotal
     );
 
   let remainingPercent =
     result.gross > 0
-      ? result.finalRemaining /
-        result.gross *
+
+      ? result.finalRemaining
+        /
+        result.gross
+        *
         100
+
       : 0;
 
   remainingPercent =
@@ -3131,7 +5296,8 @@ function calculate(){
       )
     );
 
-  $('remainPct').textContent =
+  $('remainPct')
+  .textContent =
     percentText(
       Math.round(
         remainingPercent
@@ -3139,39 +5305,52 @@ function calculate(){
     );
 
   $('orbit')
-    .style
-    .setProperty(
-      '--angle',
-      remainingPercent * 3.6 + 'deg'
-    );
+  .style
+  .setProperty(
+    '--angle',
+    remainingPercent *
+    3.6
+    +
+    'deg'
+  );
 
   updateRowAmounts();
+
   save();
 }
 
 function updateRowAmounts(){
+
   const salary =
     salaryValue();
 
-  document
-    .querySelectorAll(
-      '#allowancesList .dynamic-row'
-    )
-    .forEach(
-      row => {
-        const item =
-          allowances.find(
-            item =>
-              item.id ===
-              row.dataset.id
-          );
+  const update =
+    (
+      selector,
+      source
+    ) => {
 
-        if(!item){
-          return;
-        }
+      document
+      .querySelectorAll(
+        selector
+      )
+      .forEach(
+        row => {
 
-        row
-          .querySelector('.item-amount')
+          const item =
+            source.find(
+              item =>
+                item.id ===
+                row.dataset.id
+            );
+
+          if(!item){
+            return;
+          }
+
+          row.querySelector(
+            '.item-amount'
+          )
           .textContent =
             money(
               itemAmount(
@@ -3179,53 +5358,44 @@ function updateRowAmounts(){
                 salary
               )
             );
-      }
-    );
-
-  document
-    .querySelectorAll(
-      '#commitmentsList .dynamic-row'
-    )
-    .forEach(
-      row => {
-        const item =
-          commitments.find(
-            item =>
-              item.id ===
-              row.dataset.id
-          );
-
-        if(!item){
-          return;
         }
+      );
+    };
 
-        row
-          .querySelector('.item-amount')
-          .textContent =
-            money(
-              itemAmount(
-                item,
-                salary
-              )
-            );
-      }
-    );
+  update(
+    '#allowancesList .dynamic-row',
+    allowances
+  );
+
+  update(
+    '#deductionsList .dynamic-row',
+    deductions
+  );
+
+  update(
+    '#commitmentsList .dynamic-row',
+    commitments
+  );
 }
 
 /* =========================
-   INPUTS
+   SALARY INPUT
 ========================= */
 
-$('salary').addEventListener(
+$('salary')
+.addEventListener(
   'input',
   () => {
+
     const cleaned =
       cleanNumericInput(
         $('salary').value
       );
 
     $('salary').value =
-      rawInputValue(cleaned);
+      rawInputValue(
+        cleaned
+      );
 
     calculate();
   }
@@ -3236,71 +5406,93 @@ $('salary').addEventListener(
 ========================= */
 
 function updateSettingsButtons(){
+
   $('digitsEnglish')
-    .classList.toggle(
-      'active',
-      settings.digits === 'en'
-    );
+  .classList
+  .toggle(
+    'active',
+    settings.digits ===
+    'en'
+  );
 
   $('digitsArabic')
-    .classList.toggle(
-      'active',
-      settings.digits === 'ar'
-    );
+  .classList
+  .toggle(
+    'active',
+    settings.digits ===
+    'ar'
+  );
 
   $('langArabic')
-    .classList.toggle(
-      'active',
-      settings.language === 'ar'
-    );
+  .classList
+  .toggle(
+    'active',
+    settings.language ===
+    'ar'
+  );
 
   $('langEnglish')
-    .classList.toggle(
-      'active',
-      settings.language === 'en'
-    );
+  .classList
+  .toggle(
+    'active',
+    settings.language ===
+    'en'
+  );
 }
 
 function applyLanguage(){
+
   const isArabic =
-    settings.language === 'ar';
+    settings.language ===
+    'ar';
 
   document.documentElement.lang =
-    isArabic ? 'ar' : 'en';
+    isArabic
+      ? 'ar'
+      : 'en';
 
   document.documentElement.dir =
-    isArabic ? 'rtl' : 'ltr';
+    isArabic
+      ? 'rtl'
+      : 'ltr';
 
   document
-    .querySelectorAll('[data-i18n]')
-    .forEach(
-      element => {
-        const key =
-          element.dataset.i18n;
+  .querySelectorAll(
+    '[data-i18n]'
+  )
+  .forEach(
+    element => {
 
-        element.textContent =
-          t(key);
-      }
-    );
+      const key =
+        element.dataset.i18n;
+
+      element.textContent =
+        t(key);
+    }
+  );
 
   document
-    .querySelectorAll(
-      '[data-placeholder-key]'
-    )
-    .forEach(
-      element => {
-        element.placeholder =
-          t(
-            element.dataset.placeholderKey
-          );
-      }
-    );
+  .querySelectorAll(
+    '[data-placeholder-key]'
+  )
+  .forEach(
+    element => {
+
+      element.placeholder =
+        t(
+          element.dataset
+          .placeholderKey
+        );
+    }
+  );
 
   updateDate();
+
   updateSettingsButtons();
 }
 
 function rerenderForSettings(){
+
   const salaryCanonical =
     cleanNumericInput(
       $('salary').value
@@ -3312,146 +5504,197 @@ function rerenderForSettings(){
     );
 
   applyLanguage();
+
   renderFinancialLists();
+
   renderBudgets();
+
   renderTransactions();
+
   calculate();
 }
 
-$('settingsBtn').addEventListener(
+$('settingsBtn')
+.addEventListener(
   'click',
   () => {
+
     showOverlay();
+
     $('settingsSheet')
-      .classList
-      .add('show');
+    .classList
+    .add(
+      'show'
+    );
 
     updateSettingsButtons();
   }
 );
 
-$('settingsClose').addEventListener(
+$('settingsClose')
+.addEventListener(
   'click',
   closeSheets
 );
 
-$('digitsEnglish').addEventListener(
+$('digitsEnglish')
+.addEventListener(
   'click',
   () => {
-    settings.digits = 'en';
+
+    settings.digits =
+      'en';
+
     rerenderForSettings();
   }
 );
 
-$('digitsArabic').addEventListener(
+$('digitsArabic')
+.addEventListener(
   'click',
   () => {
-    settings.digits = 'ar';
+
+    settings.digits =
+      'ar';
+
     rerenderForSettings();
   }
 );
 
-$('langArabic').addEventListener(
+$('langArabic')
+.addEventListener(
   'click',
   () => {
-    settings.language = 'ar';
+
+    settings.language =
+      'ar';
+
     rerenderForSettings();
   }
 );
 
-$('langEnglish').addEventListener(
+$('langEnglish')
+.addEventListener(
   'click',
   () => {
-    settings.language = 'en';
+
+    settings.language =
+      'en';
+
     rerenderForSettings();
   }
 );
 
 /* =========================
-   NAV + LAST PAGE
+   NAV
 ========================= */
 
 function showPage(page){
+
   if(
-    page !== 'p1' &&
-    page !== 'p2' &&
+    page !== 'p1'
+    &&
+    page !== 'p2'
+    &&
     page !== 'p3'
   ){
-    page = 'p1';
+
+    page =
+      'p1';
   }
 
   activePage =
     page;
 
   exitDeleteMode();
+
   closeSheets();
 
   document
-    .querySelectorAll('.page')
-    .forEach(
-      element =>
-        element.classList.remove(
-          'active'
-        )
-    );
+  .querySelectorAll(
+    '.page'
+  )
+  .forEach(
+    element =>
+      element
+      .classList
+      .remove(
+        'active'
+      )
+  );
 
   document
-    .querySelectorAll(
-      '.nav button'
-    )
-    .forEach(
-      button =>
-        button.classList.remove(
-          'active'
-        )
-    );
+  .querySelectorAll(
+    '.nav button'
+  )
+  .forEach(
+    button =>
+      button
+      .classList
+      .remove(
+        'active'
+      )
+  );
 
-  $(page).classList.add('active');
+  $(page)
+  .classList
+  .add(
+    'active'
+  );
 
   const button =
     document.querySelector(
       `.nav button[data-page="${page}"]`
     );
 
-  button?.classList.add('active');
+  button
+  ?.classList
+  .add(
+    'active'
+  );
 
   document.body.className =
-    'page-' + page;
+    'page-' +
+    page;
 
   save();
 }
 
 document
-  .querySelectorAll(
-    '.nav button'
-  )
-  .forEach(
-    button => {
-      button.addEventListener(
-        'click',
-        () => {
-          showPage(
-            button.dataset.page
-          );
+.querySelectorAll(
+  '.nav button'
+)
+.forEach(
+  button => {
 
-          window.scrollTo(
-            0,
-            0
-          );
-        }
-      );
-    }
-  );
+    button.addEventListener(
+      'click',
+      () => {
+
+        showPage(
+          button.dataset.page
+        );
+
+        window.scrollTo(
+          0,
+          0
+        );
+      }
+    );
+  }
+);
 
 /* =========================
    DATE
 ========================= */
 
 function updateDate(){
+
   const now =
     new Date();
 
   try{
+
     const ar =
       new Intl.DateTimeFormat(
         'ar-SA-u-ca-gregory',
@@ -3459,7 +5702,8 @@ function updateDate(){
           month:'long',
           year:'numeric'
         }
-      ).format(now);
+      )
+      .format(now);
 
     const en =
       new Intl.DateTimeFormat(
@@ -3468,17 +5712,38 @@ function updateDate(){
           month:'long',
           year:'numeric'
         }
-      ).format(now);
+      )
+      .format(now);
 
-    if(settings.language === 'ar'){
-      $('monthLabel').textContent =
-        ar + ' • ' + en;
-    }else{
-      $('monthLabel').textContent =
-        en + ' • ' + ar;
+    if(
+      settings.language ===
+      'ar'
+    ){
+
+      $('monthLabel')
+      .textContent =
+        ar
+        +
+        ' • '
+        +
+        en;
     }
+
+    else{
+
+      $('monthLabel')
+      .textContent =
+        en
+        +
+        ' • '
+        +
+        ar;
+    }
+
   }catch(e){
-    $('monthLabel').textContent =
+
+    $('monthLabel')
+    .textContent =
       'Rasd';
   }
 }
@@ -3487,18 +5752,25 @@ function updateDate(){
    IOS DOUBLE TAP
 ========================= */
 
-let lastTouchEnd = 0;
+let lastTouchEnd =
+  0;
 
-document.addEventListener(
+document
+.addEventListener(
   'touchend',
   event => {
+
     const now =
       Date.now();
 
     if(
-      now -
-      lastTouchEnd <= 300
+      now
+      -
+      lastTouchEnd
+      <=
+      300
     ){
+
       event.preventDefault();
     }
 
@@ -3526,8 +5798,13 @@ renderTransactions();
 
 calculate();
 
-/* يرجع لنفس آخر صفحة كنت فيها */
-showPage(activePage);
+/*
+  يرجع لنفس آخر صفحة
+  كنت واقف عليها
+*/
+showPage(
+  activePage
+);
 </script>
 
 </body>
