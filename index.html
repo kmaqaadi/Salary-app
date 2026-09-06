@@ -2,5810 +2,1084 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0b0f21">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="رصد">
-
 <title>رصد</title>
-
 <link rel="apple-touch-icon" href="icon.png.PNG">
 <link rel="icon" href="icon.png.PNG">
-
 <style>
-:root{
-  --bg:#070913;
-  --bg2:#0c1228;
-  --text:#f7f8ff;
-  --muted:#8f96ae;
-  --blue:#6098ff;
-  --cyan:#63c7ff;
-  --violet:#985cff;
-  --green:#55e3a4;
-  --red:#b84d5b;
-  --line:rgba(255,255,255,.07);
-}
-
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html{
-  min-height:100%;
-  background:
-    radial-gradient(
-      circle at 82% -5%,
-      rgba(54,83,151,.30),
-      transparent 36%
-    ),
-    linear-gradient(
-      180deg,
-      #10172f 0,
-      #080a15 36%,
-      #070913 100%
-    );
-}
-
-body{
-  margin:0;
-  min-height:100vh;
-  overflow-x:hidden;
-  color:var(--text);
-  background:transparent;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "Segoe UI",
-    Arial,
-    sans-serif;
-}
-
-button,
-input,
-select{
-  font:inherit;
-  font-size:16px;
-}
-
-button{
-  cursor:pointer;
-}
-
-input,
-select{
-  min-width:0;
-  outline:none;
-}
-
-.app{
-  max-width:720px;
-  margin:auto;
-
-  padding:
-    calc(env(safe-area-inset-top) + 5px)
-    14px
-    110px;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:11px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-}
-
-.logo{
-  width:44px;
-  height:44px;
-  flex:0 0 auto;
-  overflow:hidden;
-  border-radius:14px;
-
-  box-shadow:
-    0 8px 26px
-    rgba(91,140,255,.22);
-}
-
-.logo img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.brand-text{
-  min-width:0;
-}
-
-.brand h1{
-  margin:0;
-  font-size:19px;
-  line-height:1.15;
-}
-
-.brand small{
-  display:block;
-  margin-top:3px;
-
-  color:var(--muted);
-  font-size:10px;
-  white-space:nowrap;
-}
-
-.settings-btn{
-  width:42px;
-  height:42px;
-  flex:0 0 auto;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:0;
-
-  border:
-    1px solid
-    rgba(255,255,255,.07);
-
-  border-radius:13px;
-
-  background:
-    rgba(0,0,0,.12);
-
-  color:#aeb6cc;
-
-  /* كبرنا الرمز فقط */
-  font-size:25px;
-  line-height:1;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  position:relative;
-  overflow:hidden;
-
-  padding:14px 16px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.09);
-
-  border-radius:23px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(91,140,255,.20),
-      rgba(152,92,255,.11) 50%,
-      rgba(255,94,168,.06)
-    );
-}
-
-.hero::before{
-  content:"";
-
-  position:absolute;
-
-  top:-115px;
-  left:-90px;
-
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-
-  background:
-    rgba(64,224,255,.10);
-
-  filter:blur(22px);
-}
-
-.hero-grid{
-  position:relative;
-  z-index:1;
-
-  display:grid;
-
-  grid-template-columns:
-    minmax(0,1fr)
-    82px;
-
-  gap:10px;
-  align-items:center;
-}
-
-.hero-label{
-  color:#b9bfd1;
-  font-size:11px;
-}
-
-.hero-money{
-  display:flex;
-  align-items:baseline;
-
-  gap:5px;
-
-  margin:5px 0;
-
-  line-height:1;
-  white-space:nowrap;
-}
-
-#remainingNumber{
-  font-size:30px;
-  font-weight:900;
-}
-
-.currency{
-  color:#bec4d8;
-  font-size:13px;
-}
-
-.hero-sub{
-  color:#939bb5;
-  font-size:10px;
-}
-
-.orbit{
-  --angle:0deg;
-
-  width:78px;
-  height:78px;
-
-  padding:6px;
-
-  border-radius:50%;
-
-  background:
-    conic-gradient(
-      from -90deg,
-      var(--cyan) 0deg,
-      var(--blue) var(--angle),
-      rgba(255,255,255,.08)
-      var(--angle),
-      rgba(255,255,255,.08)
-      360deg
-    );
-}
-
-.orbit-inner{
-  width:100%;
-  height:100%;
-
-  display:flex;
-  flex-direction:column;
-
-  align-items:center;
-  justify-content:center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.05);
-
-  border-radius:50%;
-
-  background:#0c0f1c;
-}
-
-.orbit-inner strong{
-  font-size:14px;
-}
-
-.orbit-inner span{
-  margin-top:2px;
-
-  color:var(--muted);
-  font-size:9px;
-}
-
-.hero-stats,
-.p3-hero-summary{
-  position:relative;
-  z-index:1;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:7px;
-
-  margin-top:9px;
-}
-
-.hero-stat,
-.p3-hero-mini{
-  padding:9px 10px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.06);
-
-  border-radius:13px;
-
-  background:
-    rgba(0,0,0,.14);
-}
-
-.hero-stat span,
-.p3-hero-mini span{
-  display:block;
-
-  margin-bottom:4px;
-
-  color:var(--muted);
-  font-size:9px;
-}
-
-.hero-stat strong,
-.p3-hero-mini strong{
-  color:#f7f8ff;
-  font-size:12px;
-}
-
-.hero .positive,
-.hero .negative{
-  color:#f7f8ff!important;
-}
-
-.p3-hero-summary{
-  display:none;
-}
-
-body.page-p3 .hero-stats{
-  display:none;
-}
-
-body.page-p3 .p3-hero-summary{
-  display:grid;
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-.page{
-  display:none;
-  margin-top:14px;
-}
-
-.page.active{
-  display:block;
-}
-
-.section-title{
-  display:flex;
-
-  align-items:flex-end;
-  justify-content:space-between;
-
-  gap:10px;
-
-  margin:
-    18px
-    3px
-    9px;
-}
-
-.section-title h2{
-  margin:0;
-  font-size:16px;
-}
-
-.section-title span{
-  color:var(--muted);
-  font-size:10px;
-}
-
-.card{
-  padding:14px;
-  margin-bottom:10px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:21px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.043),
-      rgba(255,255,255,.024)
-    );
-}
-
-.money-row{
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  gap:12px;
-
-  padding:12px 3px;
-}
-
-.money-row > span{
-  color:#9ea6bd;
-  font-size:13px;
-}
-
-.money-row strong{
-  font-size:14px;
-}
-
-.positive{
-  color:var(--green)!important;
-}
-
-.negative{
-  color:var(--red)!important;
-}
-
-.total-side{
-  text-align:left;
-}
-
-.substat{
-  display:block;
-
-  margin-top:4px;
-
-  color:#7f89a8;
-  font-size:10px;
-}
-
-/* =========================
-   SALARY
-========================= */
-
-.salary-heading{
-  margin:
-    18px
-    3px
-    9px;
-}
-
-.salary-heading h2{
-  margin:0;
-  font-size:16px;
-}
-
-.salary-box{
-  padding:0;
-  border-radius:18px;
-}
-
-.salary-input-wrap{
-  position:relative;
-
-  display:flex;
-  align-items:center;
-}
-
-.salary-input{
-  width:100%;
-  height:58px;
-
-  padding:
-    0
-    14px
-    0
-    50px;
-
-  border:0;
-
-  border-radius:18px;
-
-  background:#0c0f1b;
-
-  color:white;
-
-  text-align:right;
-  font-size:17px;
-}
-
-.input-unit{
-  position:absolute;
-
-  left:13px;
-  top:50%;
-
-  transform:
-    translateY(-50%);
-
-  color:#747d99;
-
-  font-size:13px;
-
-  white-space:nowrap;
-
-  pointer-events:none;
-}
-
-/* =========================
-   LISTS
-========================= */
-
-.dynamic-list{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-}
-
-.dynamic-row{
-  position:relative;
-
-  display:grid;
-
-  grid-template-columns:
-    30px
-    minmax(0,1fr);
-
-  gap:7px;
-
-  padding:8px 0;
-
-  border:0!important;
-
-  transition:
-    background .15s ease,
-    opacity .15s ease;
-}
-
-.dynamic-row.dragging{
-  z-index:20;
-
-  opacity:.82;
-
-  border-radius:13px;
-
-  background:
-    rgba(91,140,255,.10);
-}
-
-.handle{
-  width:30px;
-  height:38px;
-
-  padding:0;
-
-  border:0;
-
-  background:transparent;
-
-  color:#68728e;
-
-  font-size:18px;
-
-  touch-action:none;
-
-  user-select:none;
-  -webkit-user-select:none;
-}
-
-.handle.drag-ready{
-  color:#8eaaff;
-}
-
-.item-body{
-  min-width:0;
-}
-
-.item-top{
-  display:flex;
-  align-items:center;
-}
-
-.item-name{
-  width:100%;
-  min-width:0;
-
-  padding:2px 0;
-
-  border:0;
-
-  background:transparent;
-
-  color:white;
-
-  text-align:right;
-
-  font-size:14px;
-  font-weight:700;
-}
-
-.item-bottom{
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  gap:6px;
-
-  margin-top:0;
-}
-
-.item-amount{
-  color:var(--cyan);
-
-  font-size:14px;
-
-  font-weight:800;
-
-  white-space:nowrap;
-}
-
-.controls{
-  display:flex;
-
-  align-items:center;
-
-  gap:5px;
-
-  flex:0 0 auto;
-
-  transition:
-    transform .16s ease;
-}
-
-.mode{
-  width:56px;
-  height:31px;
-
-  padding:0;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:10px;
-
-  background:#0c0f1b;
-
-  color:#aab2ca;
-
-  font-size:10px;
-
-  font-weight:700;
-}
-
-.mode.locked{
-  pointer-events:none;
-}
-
-.value-wrap{
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  gap:2px;
-
-  width:53px;
-  height:31px;
-
-  padding:0 4px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:10px;
-
-  background:#0c0f1b;
-}
-
-.value-wrap input{
-  width:100%;
-  height:100%;
-
-  padding:0;
-
-  border:0;
-
-  background:transparent;
-
-  color:white;
-
-  text-align:center;
-
-  font-size:14px;
-
-  line-height:1;
-}
-
-.value-unit{
-  flex:0 0 auto;
-
-  color:#707894;
-
-  font-size:9px;
-
-  line-height:1;
-
-  white-space:nowrap;
-
-  pointer-events:none;
-}
-
-.value-wrap.long input{
-  font-size:11.5px;
-}
-
-.value-wrap.very-long input{
-  font-size:9.5px;
-}
-
-/* =========================
-   DELETE MODE
-========================= */
-
-.delete-mark{
-  position:absolute;
-
-  left:0;
-  bottom:8px;
-
-  z-index:10;
-
-  display:none;
-
-  width:29px;
-  height:29px;
-
-  padding:0;
-
-  border:
-    1px solid
-    rgba(150,57,70,.22);
-
-  border-radius:9px;
-
-  background:
-    rgba(82,27,36,.55);
-
-  color:#bd6370;
-
-  font-size:17px;
-
-  line-height:1;
-}
-
-.delete-mode
-.dynamic-row.deletable
-.delete-mark{
-  display:block;
-}
-
-.delete-mode
-.dynamic-row.deletable
-.handle{
-  visibility:hidden;
-}
-
-/* تحريك بسيط فقط */
-.delete-mode
-.dynamic-row.deletable
-.item-bottom{
-  padding-left:32px;
-}
-
-.delete-mode
-.dynamic-row.deletable
-.controls{
-  transform:
-    translateX(5px);
-}
-
-.hint{
-  margin-top:7px;
-
-  color:#626c86;
-
-  font-size:9px;
-
-  text-align:center;
-}
-
-/* =========================
-   PAGE 3
-========================= */
-
-.budget-info{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-}
-
-.budget-info .remaining{
-  color:var(--green);
-
-  font-size:14px;
-
-  font-weight:800;
-}
-
-.budget-info small{
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.budget-value{
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  gap:3px;
-
-  width:74px;
-  height:33px;
-
-  padding:0 5px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:10px;
-
-  background:#0c0f1b;
-}
-
-.budget-value input{
-  width:100%;
-  height:100%;
-
-  padding:0;
-
-  border:0;
-
-  background:transparent;
-
-  color:white;
-
-  text-align:center;
-
-  font-size:14px;
-}
-
-.budget-value.long input{
-  font-size:11.5px;
-}
-
-.budget-value.very-long input{
-  font-size:9.5px;
-}
-
-.expense-form{
-  display:grid;
-  gap:8px;
-}
-
-.expense-form select,
-.expense-form input{
-  width:100%;
-
-  min-height:46px;
-
-  padding:0 12px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:13px;
-
-  background:#0c0f1b;
-
-  color:white;
-}
-
-.form-grid{
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:8px;
-}
-
-.primary-btn{
-  width:100%;
-
-  min-height:46px;
-
-  border:
-    1px solid
-    rgba(91,140,255,.28);
-
-  border-radius:13px;
-
-  background:
-    rgba(91,140,255,.12);
-
-  color:#a8bcff;
-
-  font-size:13px;
-  font-weight:800;
-}
-
-.transaction-list{
-  display:flex;
-
-  flex-direction:column;
-
-  gap:8px;
-}
-
-.transaction{
-  display:grid;
-
-  grid-template-columns:
-    minmax(0,1fr)
-    auto;
-
-  gap:10px;
-
-  align-items:center;
-
-  padding:11px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:14px;
-
-  background:#0c0f1b;
-}
-
-.transaction h4{
-  margin:
-    0
-    0
-    4px;
-
-  font-size:13px;
-}
-
-.transaction p{
-  margin:0;
-
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.transaction-right{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.transaction-amount{
-  color:var(--red);
-
-  font-size:13px;
-
-  font-weight:800;
-}
-
-.transaction-menu{
-  width:34px;
-  height:34px;
-
-  border:0;
-
-  border-radius:10px;
-
-  background:
-    rgba(255,255,255,.04);
-
-  color:#7f89a8;
-}
-
-/* =========================
-   OVERLAY / SHEETS
-========================= */
-
-.overlay{
-  position:fixed;
-  inset:0;
-
-  z-index:150;
-
-  display:none;
-
-  background:
-    rgba(0,0,0,.45);
-
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
-}
-
-.overlay.show{
-  display:block;
-}
-
-.sheet{
-  position:fixed;
-
-  right:14px;
-
-  bottom:
-    calc(
-      86px +
-      env(safe-area-inset-bottom)
-    );
-
-  left:14px;
-
-  z-index:151;
-
-  display:none;
-
-  max-width:690px;
-
-  padding:8px;
-
-  margin:auto;
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
-  border-radius:19px;
-
-  background:#111522;
-
-  box-shadow:
-    0 18px 50px
-    rgba(0,0,0,.4);
-}
-
-.sheet.show{
-  display:block;
-}
-
-.sheet-title{
-  padding:11px;
-
-  color:#8f96ae;
-
-  text-align:center;
-
-  font-size:11px;
-}
-
-.sheet button{
-  width:100%;
-
-  min-height:48px;
-
-  border:0;
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,.06);
-
-  background:transparent;
-
-  color:white;
-
-  font-size:14px;
-}
-
-.sheet button:last-child{
-  border-bottom:0;
-}
-
-.sheet .danger{
-  color:#c25e6c;
-}
-
-.choice-grid{
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:8px;
-
-  padding:6px;
-}
-
-.choice-grid button{
-  min-height:54px;
-
-  border:
-    1px solid
-    rgba(91,140,255,.20);
-
-  border-radius:14px;
-
-  background:
-    rgba(91,140,255,.08);
-
-  color:#b2c2ff;
-
-  font-weight:800;
-}
-
-/* =========================
-   SETTINGS
-========================= */
-
-.settings-sheet{
-  bottom:auto;
-
-  top:
-    calc(
-      env(safe-area-inset-top) +
-      56px
-    );
-}
-
-.settings-group{
-  padding:9px;
-}
-
-.settings-group +
-.settings-group{
-  border-top:
-    1px solid
-    rgba(255,255,255,.06);
-}
-
-.settings-label{
-  display:block;
-
-  margin-bottom:8px;
-
-  color:#8f96ae;
-
-  font-size:10px;
-}
-
-.segment{
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:6px;
-}
-
-.segment button{
-  min-height:43px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.06);
-
-  border-radius:11px;
-
-  background:#0d111e;
-
-  color:#8992aa;
-
-  font-size:12px;
-}
-
-.segment button.active{
-  border-color:
-    rgba(91,140,255,.25);
-
-  background:
-    rgba(91,140,255,.14);
-
-  color:white;
-}
-
-/* =========================
-   NAV
-========================= */
-
-.nav{
-  position:fixed;
-
-  z-index:99;
-
-  right:0;
-  bottom:0;
-  left:0;
-
-  width:min(720px,100%);
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  padding:
-    9px
-    13px
-    calc(
-      9px +
-      env(safe-area-inset-bottom)
-    );
-
-  margin:auto;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.07);
-
-  background:
-    rgba(8,10,19,.92);
-
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
-}
-
-.nav button{
-  height:57px;
-
-  border:0;
-
-  border-radius:16px;
-
-  background:transparent;
-
-  color:#6e7691;
-
-  font-size:11px;
-
-  font-weight:700;
-}
-
-.nav button b{
-  display:block;
-
-  margin-bottom:2px;
-
-  font-size:21px;
-
-  font-weight:500;
-}
-
-.nav button.active{
-  color:white;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(91,140,255,.18),
-      rgba(152,92,255,.12)
-    );
-}
-
-@media(max-width:380px){
-
-  .app{
-    padding-left:11px;
-    padding-right:11px;
-  }
-
-  #remainingNumber{
-    font-size:27px;
-  }
-
-  .mode{
-    width:53px;
-  }
-
-  .value-wrap{
-    width:50px;
-  }
-}
+:root{--bg:#070913;--text:#f7f8ff;--muted:#8f96ae;--blue:#6098ff;--cyan:#63c7ff;--violet:#985cff;--green:#55e3a4;--red:#b84d5b;--line:rgba(255,255,255,.07)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{min-height:100%;background:radial-gradient(circle at 82% -5%,rgba(54,83,151,.30),transparent 36%),linear-gradient(180deg,#10172f 0,#080a15 36%,#070913 100%)}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);background:transparent;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit;font-size:16px}button{cursor:pointer}input,select,textarea{min-width:0;outline:none}.app{max-width:720px;margin:auto;padding:calc(env(safe-area-inset-top) + 5px) 14px 110px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:44px;height:44px;flex:0 0 auto;overflow:hidden;border-radius:14px;box-shadow:0 8px 26px rgba(91,140,255,.22)}.logo img{display:block;width:100%;height:100%;object-fit:cover}.brand h1{margin:0;font-size:19px;line-height:1.15}.brand small{display:block;margin-top:3px;color:var(--muted);font-size:10px;white-space:nowrap}.header-actions{display:flex;gap:6px;direction:ltr}.icon-btn{width:42px;height:42px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(0,0,0,.12);color:#aeb6cc;font-size:21px;line-height:1}.settings-btn{font-size:25px}
+.hero{position:relative;overflow:hidden;padding:14px 16px;border:1px solid rgba(255,255,255,.09);border-radius:23px;background:linear-gradient(135deg,rgba(91,140,255,.20),rgba(152,92,255,.11) 50%,rgba(255,94,168,.06))}.hero::before{content:"";position:absolute;top:-115px;left:-90px;width:180px;height:180px;border-radius:50%;background:rgba(64,224,255,.10);filter:blur(22px)}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 82px;gap:10px;align-items:center}.hero-label{color:#b9bfd1;font-size:11px}.hero-money{display:flex;align-items:baseline;gap:5px;margin:5px 0;line-height:1;white-space:nowrap}#remainingNumber{font-size:30px;font-weight:900}.currency{color:#bec4d8;font-size:13px}.hero-sub{color:#939bb5;font-size:10px}.orbit{--angle:0deg;width:78px;height:78px;padding:6px;border-radius:50%;background:conic-gradient(from -90deg,var(--cyan) 0deg,var(--blue) var(--angle),rgba(255,255,255,.08) var(--angle),rgba(255,255,255,.08) 360deg)}.orbit-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.05);border-radius:50%;background:#0c0f1c}.orbit-inner strong{font-size:14px}.orbit-inner span{margin-top:2px;color:var(--muted);font-size:9px}.hero-stats,.p3-hero-summary{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.hero-stat,.p3-hero-mini{padding:9px 10px;border:1px solid rgba(255,255,255,.06);border-radius:13px;background:rgba(0,0,0,.14)}.hero-stat span,.p3-hero-mini span{display:block;margin-bottom:4px;color:var(--muted);font-size:9px}.hero-stat strong,.p3-hero-mini strong{color:#f7f8ff;font-size:12px}.hero .positive,.hero .negative{color:#f7f8ff!important}.p3-hero-summary{display:none}body.page-p3 .hero-stats{display:none}body.page-p3 .p3-hero-summary{display:grid}
+.page{display:none;margin-top:14px}.page.active{display:block}.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px 3px 8px}.section-title h2{margin:0;font-size:16px}.section-title span{color:var(--muted);font-size:10px}.card{padding:12px;margin-bottom:10px;border:1px solid var(--line);border-radius:21px;background:linear-gradient(180deg,rgba(255,255,255,.043),rgba(255,255,255,.024))}.list-card{padding-top:10px;padding-bottom:10px}.list-card .dynamic-row{padding-top:6px;padding-bottom:6px}.summary-card{padding-top:5px;padding-bottom:5px}.money-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 3px}.money-row>span{color:#9ea6bd;font-size:13px}.money-row strong{font-size:14px}.positive{color:var(--green)!important}.negative{color:var(--red)!important}.total-side{text-align:left}.substat{display:block;margin-top:3px;color:#7f89a8;font-size:10px}
+.salary-heading{margin:16px 3px 8px}.salary-heading h2{margin:0;font-size:16px}.salary-box{padding:0;border-radius:18px}.salary-input-wrap{position:relative;display:flex;align-items:center}.salary-input{width:100%;height:56px;padding:0 14px 0 50px;border:0;border-radius:18px;background:#0c0f1b;color:white;text-align:right;font-size:17px}.input-unit{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#747d99;font-size:13px;white-space:nowrap;pointer-events:none}
+.dynamic-list{display:flex;flex-direction:column;gap:1px}.dynamic-row{position:relative;display:grid;grid-template-columns:30px minmax(0,1fr);gap:7px;padding:8px 0;border:0!important;transition:background .15s ease,opacity .15s ease}.dynamic-row.dragging{z-index:20;opacity:.82;border-radius:13px;background:rgba(91,140,255,.10)}.handle{width:30px;height:36px;padding:0;border:0;background:transparent;color:#68728e;font-size:18px;touch-action:none;user-select:none;-webkit-user-select:none}.handle.drag-ready{color:#8eaaff}.item-body{min-width:0}.item-top{display:flex;align-items:center}.item-name{width:100%;min-width:0;padding:1px 0;border:0;background:transparent;color:white;text-align:right;font-size:14px;font-weight:700}.item-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px}.item-amount{color:var(--cyan);font-size:14px;font-weight:800;white-space:nowrap}.controls{display:flex;align-items:center;gap:5px;flex:0 0 auto;transition:transform .16s ease}.mode{width:56px;height:31px;padding:0;border:1px solid var(--line);border-radius:10px;background:#0c0f1b;color:#aab2ca;font-size:10px;font-weight:700}.mode.locked{pointer-events:none}.value-wrap{display:flex;align-items:center;justify-content:center;gap:2px;width:53px;height:31px;padding:0 4px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b}.value-wrap input{width:100%;height:100%;padding:0;border:0;background:transparent;color:white;text-align:center;font-size:14px;line-height:1}.value-unit{flex:0 0 auto;color:#707894;font-size:9px;line-height:1;white-space:nowrap;pointer-events:none}.value-wrap.long input,.budget-value.long input{font-size:11.5px}.value-wrap.very-long input,.budget-value.very-long input{font-size:9.5px}.delete-mark{position:absolute;left:0;bottom:6px;z-index:10;display:none;width:29px;height:29px;padding:0;border:1px solid rgba(150,57,70,.22);border-radius:9px;background:rgba(82,27,36,.55);color:#bd6370;font-size:17px;line-height:1}.delete-mode .dynamic-row.deletable .delete-mark{display:block}.delete-mode .dynamic-row.deletable .handle{visibility:hidden}.delete-mode .dynamic-row.deletable .item-bottom{padding-left:32px}.delete-mode .dynamic-row.deletable .controls{transform:translateX(5px)}.hint{margin-top:6px;color:#626c86;font-size:9px;text-align:center}
+.budget-info{display:flex;flex-direction:column;gap:2px}.budget-info .remaining{color:var(--green);font-size:14px;font-weight:800}.budget-info small{color:var(--muted);font-size:9px}.budget-value{display:flex;align-items:center;justify-content:center;gap:3px;width:74px;height:33px;padding:0 5px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b}.budget-value input{width:100%;height:100%;padding:0;border:0;background:transparent;color:white;text-align:center;font-size:14px}.subcat-row{display:flex;gap:5px;align-items:center;margin-top:5px;overflow:auto;padding-bottom:2px}.subcat-chip{flex:0 0 auto;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:#0c0f1b;color:#858da6;padding:5px 8px;font-size:9px}.subcat-chip.active{color:white;border-color:rgba(91,140,255,.30);background:rgba(91,140,255,.12)}.subcat-add{color:#8eaaff}
+.expense-launcher{position:sticky;bottom:82px;z-index:40;margin-top:10px;padding:8px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:rgba(13,16,29,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.expense-compact{display:grid;grid-template-columns:auto 1fr 94px;gap:7px;align-items:center}.expense-compact button,.expense-compact .compact-category,.expense-compact input{height:42px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:white}.compact-category{display:flex;align-items:center;padding:0 11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.compact-amount{width:100%;padding:0 10px;text-align:center}.quick-save{width:46px;background:rgba(91,140,255,.15)!important;color:#b9c8ff!important;font-weight:900}.expense-expanded{display:none;padding-top:8px}.expense-launcher.open .expense-expanded{display:grid;gap:8px}.expense-launcher.open .expense-compact{display:none}.expense-form select,.expense-form input{width:100%;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:white}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.primary-btn{width:100%;min-height:44px;border:1px solid rgba(91,140,255,.28);border-radius:12px;background:rgba(91,140,255,.12);color:#a8bcff;font-size:13px;font-weight:800}.secondary-btn{width:100%;min-height:42px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:#9aa3bb}.transaction-list{display:flex;flex-direction:column;gap:8px}.transaction{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:14px;background:#0c0f1b}.transaction h4{margin:0 0 4px;font-size:13px}.transaction p{margin:0;color:var(--muted);font-size:9px}.transaction-right{display:flex;align-items:center;gap:8px}.transaction-amount{color:var(--red);font-size:13px;font-weight:800}.transaction-menu{width:34px;height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.04);color:#7f89a8}
+.overlay{position:fixed;inset:0;z-index:150;display:none;background:rgba(0,0,0,.48);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}.overlay.show{display:block}.sheet{position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom));left:14px;z-index:151;display:none;max-width:690px;padding:8px;margin:auto;border:1px solid rgba(255,255,255,.08);border-radius:19px;background:#111522;box-shadow:0 18px 50px rgba(0,0,0,.4)}.sheet.show{display:block}.sheet-title{padding:11px;color:#8f96ae;text-align:center;font-size:11px}.sheet>button{width:100%;min-height:48px;border:0;border-bottom:1px solid rgba(255,255,255,.06);background:transparent;color:white;font-size:14px}.sheet>button:last-child{border-bottom:0}.sheet .danger{color:#c25e6c}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px}.choice-grid button{min-height:52px;border:1px solid rgba(91,140,255,.20);border-radius:14px;background:rgba(91,140,255,.08);color:#b2c2ff;font-weight:800}.settings-sheet{bottom:auto;top:calc(env(safe-area-inset-top) + 56px)}.settings-group{padding:9px}.settings-group+.settings-group{border-top:1px solid rgba(255,255,255,.06)}.settings-label{display:block;margin-bottom:8px;color:#8f96ae;font-size:10px}.segment{display:grid;grid-template-columns:1fr 1fr;gap:6px}.segment button{min-height:43px;border:1px solid rgba(255,255,255,.06);border-radius:11px;background:#0d111e;color:#8992aa;font-size:12px}.segment button.active{border-color:rgba(91,140,255,.25);background:rgba(91,140,255,.14);color:white}.payday-input{width:100%;height:43px;border:1px solid var(--line);border-radius:11px;background:#0d111e;color:white;padding:0 12px;text-align:center}.notes-sheet,.archive-sheet{top:calc(env(safe-area-inset-top) + 56px);bottom:calc(82px + env(safe-area-inset-bottom));overflow:auto}.notes-area{width:100%;min-height:45vh;resize:none;border:1px solid var(--line);border-radius:14px;background:#0c0f1b;color:white;padding:13px;line-height:1.7}.save-state{margin-top:7px;text-align:center;color:#68728e;font-size:9px}.archive-entry{border:1px solid var(--line);border-radius:14px;background:#0c0f1b;margin:7px 0;overflow:hidden}.archive-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:0;background:transparent;color:white;text-align:right}.archive-head small{color:var(--muted)}.archive-body{display:none;padding:0 12px 12px;color:#9ea6bd;font-size:11px;line-height:1.8}.archive-entry.open .archive-body{display:block}.archive-empty{padding:20px;text-align:center;color:var(--muted);font-size:11px}
+.nav{position:fixed;z-index:99;right:0;bottom:0;left:0;width:min(720px,100%);display:grid;grid-template-columns:repeat(3,1fr);padding:9px 13px calc(9px + env(safe-area-inset-bottom));margin:auto;border-top:1px solid rgba(255,255,255,.07);background:rgba(8,10,19,.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}.nav button{height:57px;border:0;border-radius:16px;background:transparent;color:#6e7691;font-size:11px;font-weight:700}.nav button b{display:block;margin-bottom:2px;font-size:21px;font-weight:500}.nav button.active{color:white;background:linear-gradient(135deg,rgba(91,140,255,.18),rgba(152,92,255,.12))}
+@media(max-width:430px){.app{padding-left:13px;padding-right:13px}.header-actions{gap:4px}.icon-btn{width:39px;height:39px;border-radius:12px}.settings-btn{font-size:24px}.brand{gap:8px}.logo{width:42px;height:42px}.expense-compact{grid-template-columns:auto 1fr 88px}}@media(max-width:380px){.app{padding-left:11px;padding-right:11px}#remainingNumber{font-size:27px}.mode{width:53px}.value-wrap{width:50px}.icon-btn{width:36px;height:36px}.header-actions{gap:3px}.brand h1{font-size:18px}}
 </style>
 </head>
-
 <body class="page-p1">
-
 <div class="app">
-
-  <header class="topbar">
-
-    <div class="brand">
-
-      <div class="logo">
-        <img
-          src="icon.png.PNG"
-          alt="رصد"
-        >
-      </div>
-
-      <div class="brand-text">
-        <h1>رصد</h1>
-        <small id="monthLabel"></small>
-      </div>
-
-    </div>
-
-    <button
-      id="settingsBtn"
-      class="settings-btn"
-      type="button"
-      aria-label="الإعدادات"
-    >
-      ⚙
-    </button>
-
-  </header>
-
-  <div class="hero">
-
-    <div class="hero-grid">
-
-      <div>
-
-        <div
-          class="hero-label"
-          data-i18n="availableNow"
-        >
-          المتاح لك الآن
-        </div>
-
-        <div class="hero-money">
-
-          <span id="remainingNumber">
-            0
-          </span>
-
-          <span class="currency sar-sign">
-            ⃁
-          </span>
-
-        </div>
-
-        <div
-          class="hero-sub"
-          data-i18n="afterEverything"
-        >
-          بعد الاستقطاعات والالتزامات والمصروفات
-        </div>
-
-      </div>
-
-      <div
-        class="orbit"
-        id="orbit"
-      >
-
-        <div class="orbit-inner">
-
-          <strong id="remainPct">
-            0%
-          </strong>
-
-          <span data-i18n="remaining">
-            متبقي
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="hero-stats">
-
-      <div class="hero-stat">
-
-        <span data-i18n="totalSalary">
-          إجمالي الراتب
-        </span>
-
-        <strong id="grossTop">
-          0
-        </strong>
-
-      </div>
-
-      <div class="hero-stat">
-
-        <span data-i18n="totalSpent">
-          إجمالي الصرف
-        </span>
-
-        <strong id="spentTop">
-          0
-        </strong>
-
-      </div>
-
-    </div>
-
-    <div class="p3-hero-summary">
-
-      <div class="p3-hero-mini">
-
-        <span data-i18n="afterCommitments">
-          بعد الالتزامات
-        </span>
-
-        <strong id="budgetAvailable">
-          0
-        </strong>
-
-      </div>
-
-      <div class="p3-hero-mini">
-
-        <span data-i18n="unallocated">
-          غير موزع
-        </span>
-
-        <strong id="unallocated">
-          0
-        </strong>
-
-      </div>
-
-    </div>
-
+<header class="topbar">
+  <div class="brand"><div class="logo"><img src="icon.png.PNG" alt="رصد"></div><div><h1>رصد</h1><small id="monthLabel"></small></div></div>
+  <div class="header-actions">
+    <button id="archiveBtn" class="icon-btn" type="button" aria-label="الأرشيف">▣</button>
+    <button id="notesBtn" class="icon-btn" type="button" aria-label="الملاحظات">✎</button>
+    <button id="settingsBtn" class="icon-btn settings-btn" type="button" aria-label="الإعدادات">⚙</button>
   </div>
-
-  <!-- =====================
-       PAGE 1
-  ====================== -->
-
-  <section
-    id="p1"
-    class="page active"
-  >
-
-    <div class="salary-heading">
-
-      <h2 data-i18n="basicSalary">
-        الراتب الأساسي
-      </h2>
-
-    </div>
-
-    <div class="card salary-box">
-
-      <div class="salary-input-wrap">
-
-        <input
-          id="salary"
-          class="salary-input numeric-input"
-          type="text"
-          inputmode="decimal"
-          autocomplete="off"
-        >
-
-        <span class="input-unit sar-sign">
-          ⃁
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="section-title">
-
-      <h2 data-i18n="allowances">
-        البدلات
-      </h2>
-
-      <span data-i18n="autoChange">
-        تتغير تلقائيًا
-      </span>
-
-    </div>
-
-    <div
-      class="card"
-      id="allowanceCard"
-    >
-
-      <div
-        id="allowancesList"
-        class="dynamic-list"
-      ></div>
-
-      <div
-        class="hint"
-        data-i18n="handleHint"
-      >
-        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <div class="money-row">
-
-        <span data-i18n="totalAllowances">
-          إجمالي البدلات
-        </span>
-
-        <div class="total-side">
-
-          <strong
-            class="positive"
-            id="allowancesTotal"
-          >
-            0
-          </strong>
-
-          <small
-            class="substat"
-            id="allowancesPercent"
-          >
-            0%
-          </small>
-
-        </div>
-
-      </div>
-
-      <div class="money-row">
-
-        <span data-i18n="totalIncome">
-          إجمالي الدخل
-        </span>
-
-        <strong id="gross">
-          0
-        </strong>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =====================
-       PAGE 2
-  ====================== -->
-
-  <section
-    id="p2"
-    class="page"
-  >
-
-    <!-- الاستقطاعات -->
-
-    <div class="section-title">
-
-      <h2 data-i18n="deductions">
-        الاستقطاعات
-      </h2>
-
-      <span data-i18n="monthlyDeductions">
-        الاستقطاعات الشهرية
-      </span>
-
-    </div>
-
-    <div
-      class="card"
-      id="deductionCard"
-    >
-
-      <div
-        id="deductionsList"
-        class="dynamic-list"
-      ></div>
-
-      <div
-        class="hint"
-        data-i18n="handleHint"
-      >
-        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <div class="money-row">
-
-        <span data-i18n="totalDeductions">
-          إجمالي الاستقطاعات
-        </span>
-
-        <div class="total-side">
-
-          <strong
-            class="negative"
-            id="deductionsTotal"
-          >
-            0
-          </strong>
-
-          <small
-            class="substat"
-            id="deductionsPercent"
-          >
-            0%
-          </small>
-
-        </div>
-
-      </div>
-
-      <div class="money-row">
-
-        <span data-i18n="remainingAfterDeductions">
-          المتبقي بعد الاستقطاعات
-        </span>
-
-        <strong id="afterDeductions">
-          0
-        </strong>
-
-      </div>
-
-    </div>
-
-    <!-- الالتزامات -->
-
-    <div class="section-title">
-
-      <h2 data-i18n="commitments">
-        الالتزامات
-      </h2>
-
-      <span data-i18n="monthlyCommitments">
-        الالتزامات الشهرية
-      </span>
-
-    </div>
-
-    <div
-      class="card"
-      id="commitmentCard"
-    >
-
-      <div
-        id="commitmentsList"
-        class="dynamic-list"
-      ></div>
-
-      <div
-        class="hint"
-        data-i18n="handleHint"
-      >
-        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <div class="money-row">
-
-        <span data-i18n="totalCommitments">
-          إجمالي الالتزامات
-        </span>
-
-        <div class="total-side">
-
-          <strong
-            class="negative"
-            id="commitmentsTotal"
-          >
-            0
-          </strong>
-
-          <small
-            class="substat"
-            id="commitmentsPercent"
-          >
-            0%
-          </small>
-
-        </div>
-
-      </div>
-
-      <div class="money-row">
-
-        <span data-i18n="remainingAfterCommitments">
-          المتبقي بعد الالتزامات
-        </span>
-
-        <strong id="afterCommitments">
-          0
-        </strong>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =====================
-       PAGE 3
-  ====================== -->
-
-  <section
-    id="p3"
-    class="page"
-  >
-
-    <div class="section-title">
-
-      <h2 data-i18n="budgetDistribution">
-        توزيع الميزانية
-      </h2>
-
-      <span data-i18n="distributeRemaining">
-        وزع المتبقي
-      </span>
-
-    </div>
-
-    <div
-      class="card"
-      id="budgetCard"
-    >
-
-      <div
-        id="budgetList"
-        class="dynamic-list"
-      ></div>
-
-      <div
-        class="hint"
-        data-i18n="handleHint"
-      >
-        ☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب
-      </div>
-
-    </div>
-
-    <div class="section-title">
-
-      <h2 data-i18n="recordExpense">
-        تسجيل مصروف
-      </h2>
-
-      <span data-i18n="dailySpending">
-        الصرف اليومي
-      </span>
-
-    </div>
-
-    <div class="card">
-
-      <form
-        id="expenseForm"
-        class="expense-form"
-      >
-
-        <select
-          id="expenseCategory"
-          required
-        ></select>
-
-        <div class="form-grid">
-
-          <input
-            id="expenseAmount"
-            class="numeric-input"
-            type="text"
-            inputmode="decimal"
-            autocomplete="off"
-            data-placeholder-key="amount"
-            placeholder="المبلغ"
-            required
-          >
-
-          <input
-            id="expenseNote"
-            type="text"
-            dir="auto"
-            data-placeholder-key="note"
-            placeholder="ملاحظة"
-          >
-
-        </div>
-
-        <button
-          type="submit"
-          class="primary-btn"
-          data-i18n="recordExpense"
-        >
-          تسجيل مصروف
-        </button>
-
-      </form>
-
-    </div>
-
-    <div class="section-title">
-
-      <h2 data-i18n="recentExpenses">
-        المصروفات الأخيرة
-      </h2>
-
-      <span id="transactionCount">
-        0 عملية
-      </span>
-
-    </div>
-
-    <div
-      id="transactionList"
-      class="transaction-list"
-    ></div>
-
-  </section>
-
+</header>
+<div class="hero">
+  <div class="hero-grid"><div><div class="hero-label">المتاح لك الآن</div><div class="hero-money"><span id="remainingNumber">0</span><span class="currency">⃁</span></div><div class="hero-sub">بعد الاستقطاعات والالتزامات والمصروفات</div></div><div class="orbit" id="orbit"><div class="orbit-inner"><strong id="remainPct">0%</strong><span>متبقي</span></div></div></div>
+  <div class="hero-stats"><div class="hero-stat"><span>إجمالي الراتب</span><strong id="grossTop">0</strong></div><div class="hero-stat"><span>إجمالي الصرف</span><strong id="spentTop">0</strong></div></div>
+  <div class="p3-hero-summary"><div class="p3-hero-mini"><span>بعد الالتزامات</span><strong id="budgetAvailable">0</strong></div><div class="p3-hero-mini"><span>غير موزع</span><strong id="unallocated">0</strong></div></div>
+</div>
+<section id="p1" class="page active">
+  <div class="salary-heading"><h2>الراتب الأساسي</h2></div>
+  <div class="card salary-box"><div class="salary-input-wrap"><input id="salary" class="salary-input" type="text" inputmode="decimal" autocomplete="off"><span class="input-unit">⃁</span></div></div>
+  <div class="section-title"><h2>البدلات</h2><span>تتغير تلقائيًا</span></div>
+  <div class="card" id="allowanceCard"><div id="allowancesList" class="dynamic-list"></div><div class="hint">☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب</div></div>
+  <div class="card summary-card"><div class="money-row"><span>إجمالي البدلات</span><div class="total-side"><strong class="positive" id="allowancesTotal">0</strong><small class="substat" id="allowancesPercent">0%</small></div></div><div class="money-row"><span>إجمالي الدخل</span><strong id="gross">0</strong></div></div>
+</section>
+<section id="p2" class="page">
+  <div class="section-title"><h2>الاستقطاعات</h2><span>الاستقطاعات الشهرية</span></div>
+  <div class="card list-card" id="deductionCard"><div id="deductionsList" class="dynamic-list"></div><div class="hint">☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب</div></div>
+  <div class="card summary-card"><div class="money-row"><span>إجمالي الاستقطاعات</span><div class="total-side"><strong class="negative" id="deductionsTotal">0</strong><small class="substat" id="deductionsPercent">0%</small></div></div><div class="money-row"><span>المتبقي بعد الاستقطاعات</span><strong id="afterDeductions">0</strong></div></div>
+  <div class="section-title"><h2>الالتزامات</h2><span>الالتزامات الشهرية</span></div>
+  <div class="card list-card" id="commitmentCard"><div id="commitmentsList" class="dynamic-list"></div><div class="hint">☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب</div></div>
+  <div class="card summary-card"><div class="money-row"><span>إجمالي الالتزامات</span><div class="total-side"><strong class="negative" id="commitmentsTotal">0</strong><small class="substat" id="commitmentsPercent">0%</small></div></div><div class="money-row"><span>المتبقي بعد الالتزامات</span><strong id="afterCommitments">0</strong></div></div>
+</section>
+<section id="p3" class="page">
+  <div class="section-title"><h2>توزيع الميزانية</h2><span>وزع المتبقي</span></div>
+  <div class="card" id="budgetCard"><div id="budgetList" class="dynamic-list"></div><div class="hint">☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب</div></div>
+  <div class="section-title"><h2>المصروفات الأخيرة</h2><span id="transactionCount">0 عملية</span></div>
+  <div id="transactionList" class="transaction-list"></div>
+  <div id="expenseLauncher" class="expense-launcher">
+    <div id="expenseCompact" class="expense-compact"><button id="quickSave" class="quick-save" type="button">✓</button><div id="compactCategory" class="compact-category">اختر الفئة</div><input id="compactAmount" class="compact-amount" type="text" inputmode="decimal" placeholder="0"></div>
+    <div class="expense-expanded"><form id="expenseForm" class="expense-form">
+      <select id="expenseCategory" required></select><select id="expenseSubcategory"></select>
+      <div class="form-grid"><input id="expenseAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="المبلغ" required><input id="expenseNote" type="text" dir="auto" placeholder="ملاحظة"></div>
+      <button id="expenseSubmit" type="submit" class="primary-btn">تسجيل مصروف</button><button id="expenseCancel" type="button" class="secondary-btn">إلغاء</button>
+    </form></div>
+  </div>
+</section>
 </div>
 
-<!-- =====================
-     OVERLAY
-====================== -->
-
-<div
-  id="overlay"
-  class="overlay"
-></div>
-
-<!-- =====================
-     OPTIONS
-====================== -->
-
-<div
-  id="optionsSheet"
-  class="sheet"
->
-
-  <div
-    id="optionsTitle"
-    class="sheet-title"
-  >
-    خيارات
-  </div>
-
-  <button
-    id="optionAdd"
-    type="button"
-  >
-    إضافة
-  </button>
-
-  <button
-    id="optionDelete"
-    type="button"
-    class="danger"
-    data-i18n="delete"
-  >
-    حذف
-  </button>
-
-  <button
-    id="optionCancel"
-    type="button"
-    data-i18n="cancel"
-  >
-    إلغاء
-  </button>
-
+<div id="overlay" class="overlay"></div>
+<div id="optionsSheet" class="sheet"><div id="optionsTitle" class="sheet-title">خيارات</div><button id="optionAdd" type="button">إضافة</button><button id="optionSubcats" type="button">التفرعات</button><button id="optionDelete" type="button" class="danger">حذف</button><button id="optionCancel" type="button">إلغاء</button></div>
+<div id="typeSheet" class="sheet"><div class="sheet-title">اختر نوع القيمة</div><div class="choice-grid"><button id="choosePercent" type="button">نسبة</button><button id="chooseFixed" type="button">مبلغ ثابت</button></div><button id="typeCancel" type="button">إلغاء</button></div>
+<div id="transactionSheet" class="sheet"><div class="sheet-title">خيارات المصروف</div><button id="transactionEdit" type="button">تعديل</button><button id="transactionDelete" type="button" class="danger">حذف</button><button id="transactionCancel" type="button">إلغاء</button></div>
+<div id="subcatSheet" class="sheet"><div class="sheet-title">تفرعات الفئة</div><div id="subcatManager"></div><button id="addSubcatBtn" type="button">＋ إضافة تفرع</button><button id="subcatClose" type="button">إغلاق</button></div>
+<div id="settingsSheet" class="sheet settings-sheet"><div class="sheet-title">الإعدادات</div>
+  <div class="settings-group"><span class="settings-label">شكل الأرقام</span><div class="segment"><button id="digitsEnglish" type="button">123</button><button id="digitsArabic" type="button">١٢٣</button></div></div>
+  <div class="settings-group"><span class="settings-label">لغة التطبيق</span><div class="segment"><button id="langArabic" type="button">العربية</button><button id="langEnglish" type="button">English</button></div></div>
+  <div class="settings-group"><span class="settings-label">يوم نزول الراتب</span><input id="paydayInput" class="payday-input" type="text" inputmode="numeric" placeholder="مثال: 27"></div>
+  <button id="settingsClose" type="button">إغلاق</button>
 </div>
-
-<!-- =====================
-     TYPE PICKER
-====================== -->
-
-<div
-  id="typeSheet"
-  class="sheet"
->
-
-  <div
-    class="sheet-title"
-    data-i18n="chooseValueType"
-  >
-    اختر نوع القيمة
-  </div>
-
-  <div class="choice-grid">
-
-    <button
-      id="choosePercent"
-      type="button"
-      data-i18n="percent"
-    >
-      نسبة
-    </button>
-
-    <button
-      id="chooseFixed"
-      type="button"
-      data-i18n="fixedAmount"
-    >
-      مبلغ ثابت
-    </button>
-
-  </div>
-
-  <button
-    id="typeCancel"
-    type="button"
-    data-i18n="cancel"
-  >
-    إلغاء
-  </button>
-
-</div>
-
-<!-- =====================
-     SETTINGS
-====================== -->
-
-<div
-  id="settingsSheet"
-  class="sheet settings-sheet"
->
-
-  <div
-    class="sheet-title"
-    data-i18n="settings"
-  >
-    الإعدادات
-  </div>
-
-  <div class="settings-group">
-
-    <span
-      class="settings-label"
-      data-i18n="numberStyle"
-    >
-      شكل الأرقام
-    </span>
-
-    <div class="segment">
-
-      <button
-        id="digitsEnglish"
-        type="button"
-      >
-        123
-      </button>
-
-      <button
-        id="digitsArabic"
-        type="button"
-      >
-        ١٢٣
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="settings-group">
-
-    <span
-      class="settings-label"
-      data-i18n="appLanguage"
-    >
-      لغة التطبيق
-    </span>
-
-    <div class="segment">
-
-      <button
-        id="langArabic"
-        type="button"
-      >
-        العربية
-      </button>
-
-      <button
-        id="langEnglish"
-        type="button"
-      >
-        English
-      </button>
-
-    </div>
-
-  </div>
-
-  <button
-    id="settingsClose"
-    type="button"
-    data-i18n="close"
-  >
-    إغلاق
-  </button>
-
-</div>
-
-<!-- =====================
-     NAV
-====================== -->
-
-<nav class="nav">
-
-  <button
-    type="button"
-    data-page="p1"
-  >
-
-    <b>◉</b>
-
-    <span data-i18n="salaryTab">
-      الراتب
-    </span>
-
-  </button>
-
-  <button
-    type="button"
-    data-page="p2"
-  >
-
-    <b>⌁</b>
-
-    <span data-i18n="commitmentsTab">
-      الالتزامات
-    </span>
-
-  </button>
-
-  <button
-    type="button"
-    data-page="p3"
-  >
-
-    <b>◌</b>
-
-    <span data-i18n="expensesTab">
-      المصروفات
-    </span>
-
-  </button>
-
-</nav>
+<div id="notesSheet" class="sheet notes-sheet"><div class="sheet-title">ملاحظاتي وأهدافي</div><div class="settings-group"><textarea id="notesArea" class="notes-area" placeholder="اكتب أهدافك وخططك هنا..."></textarea><div class="save-state">يتم الحفظ تلقائيًا</div></div><button id="notesClose" type="button">إغلاق</button></div>
+<div id="archiveSheet" class="sheet archive-sheet"><div class="sheet-title">أرشيف دورات الراتب</div><div id="archiveList"></div><button id="archiveClose" type="button">إغلاق</button></div>
+<nav class="nav"><button type="button" data-page="p1"><b>◉</b><span>الراتب</span></button><button type="button" data-page="p2"><b>⌁</b><span>الالتزامات</span></button><button type="button" data-page="p3"><b>◌</b><span>المصروفات</span></button></nav>
 
 <script>
-const $ =
-  id =>
-    document.getElementById(id);
-
-/* =========================
-   TRANSLATIONS
-========================= */
-
-const translations = {
-
-  ar:{
-
-    availableNow:
-      'المتاح لك الآن',
-
-    afterEverything:
-      'بعد الاستقطاعات والالتزامات والمصروفات',
-
-    remaining:
-      'متبقي',
-
-    totalSalary:
-      'إجمالي الراتب',
-
-    totalSpent:
-      'إجمالي الصرف',
-
-    afterCommitments:
-      'بعد الالتزامات',
-
-    unallocated:
-      'غير موزع',
-
-    basicSalary:
-      'الراتب الأساسي',
-
-    allowances:
-      'البدلات',
-
-    autoChange:
-      'تتغير تلقائيًا',
-
-    handleHint:
-      '☰ ضغطة للخيارات — ضغط مطوّل للسحب والترتيب',
-
-    totalAllowances:
-      'إجمالي البدلات',
-
-    totalIncome:
-      'إجمالي الدخل',
-
-    deductions:
-      'الاستقطاعات',
-
-    monthlyDeductions:
-      'الاستقطاعات الشهرية',
-
-    totalDeductions:
-      'إجمالي الاستقطاعات',
-
-    remainingAfterDeductions:
-      'المتبقي بعد الاستقطاعات',
-
-    commitments:
-      'الالتزامات',
-
-    monthlyCommitments:
-      'الالتزامات الشهرية',
-
-    totalCommitments:
-      'إجمالي الالتزامات',
-
-    remainingAfterCommitments:
-      'المتبقي بعد الالتزامات',
-
-    budgetDistribution:
-      'توزيع الميزانية',
-
-    distributeRemaining:
-      'وزع المتبقي',
-
-    recordExpense:
-      'تسجيل مصروف',
-
-    dailySpending:
-      'الصرف اليومي',
-
-    recentExpenses:
-      'المصروفات الأخيرة',
-
-    amount:
-      'المبلغ',
-
-    note:
-      'ملاحظة',
-
-    delete:
-      'حذف',
-
-    cancel:
-      'إلغاء',
-
-    close:
-      'إغلاق',
-
-    chooseValueType:
-      'اختر نوع القيمة',
-
-    percent:
-      'نسبة',
-
-    fixed:
-      'ثابت',
-
-    fixedAmount:
-      'مبلغ ثابت',
-
-    settings:
-      'الإعدادات',
-
-    numberStyle:
-      'شكل الأرقام',
-
-    appLanguage:
-      'لغة التطبيق',
-
-    salaryTab:
-      'الراتب',
-
-    commitmentsTab:
-      'الالتزامات',
-
-    expensesTab:
-      'المصروفات',
-
-    addAllowance:
-      'إضافة بدل',
-
-    addDeduction:
-      'إضافة استقطاع',
-
-    addCommitment:
-      'إضافة التزام',
-
-    addCategory:
-      'إضافة فئة',
-
-    allowanceOptions:
-      'خيارات البدلات',
-
-    deductionOptions:
-      'خيارات الاستقطاعات',
-
-    commitmentOptions:
-      'خيارات الالتزامات',
-
-    budgetOptions:
-      'خيارات توزيع الميزانية',
-
-    noExpenses:
-      'ما سجلت أي مصروف حتى الآن',
-
-    operation:
-      'عملية',
-
-    operations:
-      'عملية',
-
-    spent:
-      'صرفت',
-
-    ofBasicSalary:
-      'من الراتب الأساسي',
-
-    ofTotalIncome:
-      'من إجمالي الدخل'
-  },
-
-  en:{
-
-    availableNow:
-      'Available now',
-
-    afterEverything:
-      'After deductions, commitments and expenses',
-
-    remaining:
-      'Remaining',
-
-    totalSalary:
-      'Total salary',
-
-    totalSpent:
-      'Total spent',
-
-    afterCommitments:
-      'After commitments',
-
-    unallocated:
-      'Unallocated',
-
-    basicSalary:
-      'Basic salary',
-
-    allowances:
-      'Allowances',
-
-    autoChange:
-      'Updates automatically',
-
-    handleHint:
-      'Tap ☰ for options — hold and drag to reorder',
-
-    totalAllowances:
-      'Total allowances',
-
-    totalIncome:
-      'Total income',
-
-    deductions:
-      'Deductions',
-
-    monthlyDeductions:
-      'Monthly deductions',
-
-    totalDeductions:
-      'Total deductions',
-
-    remainingAfterDeductions:
-      'Remaining after deductions',
-
-    commitments:
-      'Commitments',
-
-    monthlyCommitments:
-      'Monthly commitments',
-
-    totalCommitments:
-      'Total commitments',
-
-    remainingAfterCommitments:
-      'Remaining after commitments',
-
-    budgetDistribution:
-      'Budget distribution',
-
-    distributeRemaining:
-      'Allocate remaining',
-
-    recordExpense:
-      'Record expense',
-
-    dailySpending:
-      'Daily spending',
-
-    recentExpenses:
-      'Recent expenses',
-
-    amount:
-      'Amount',
-
-    note:
-      'Note',
-
-    delete:
-      'Delete',
-
-    cancel:
-      'Cancel',
-
-    close:
-      'Close',
-
-    chooseValueType:
-      'Choose value type',
-
-    percent:
-      'Percent',
-
-    fixed:
-      'Fixed',
-
-    fixedAmount:
-      'Fixed amount',
-
-    settings:
-      'Settings',
-
-    numberStyle:
-      'Number style',
-
-    appLanguage:
-      'App language',
-
-    salaryTab:
-      'Salary',
-
-    commitmentsTab:
-      'Commitments',
-
-    expensesTab:
-      'Expenses',
-
-    addAllowance:
-      'Add allowance',
-
-    addDeduction:
-      'Add deduction',
-
-    addCommitment:
-      'Add commitment',
-
-    addCategory:
-      'Add category',
-
-    allowanceOptions:
-      'Allowance options',
-
-    deductionOptions:
-      'Deduction options',
-
-    commitmentOptions:
-      'Commitment options',
-
-    budgetOptions:
-      'Budget options',
-
-    noExpenses:
-      'No expenses recorded yet',
-
-    operation:
-      'transaction',
-
-    operations:
-      'transactions',
-
-    spent:
-      'Spent',
-
-    ofBasicSalary:
-      'of basic salary',
-
-    ofTotalIncome:
-      'of total income'
-  }
+const $=id=>document.getElementById(id);
+const makeId=()=> 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2);
+
+const allowancesList=$('allowancesList'),deductionsList=$('deductionsList'),commitmentsList=$('commitmentsList'),budgetList=$('budgetList'),overlay=$('overlay'),optionsTitle=$('optionsTitle'),optionAdd=$('optionAdd'),optionSubcats=$('optionSubcats'),optionDelete=$('optionDelete'),optionCancel=$('optionCancel'),optionsSheet=$('optionsSheet'),typeSheet=$('typeSheet'),typeCancel=$('typeCancel'),choosePercent=$('choosePercent'),chooseFixed=$('chooseFixed'),transactionSheet=$('transactionSheet'),transactionEdit=$('transactionEdit'),transactionDelete=$('transactionDelete'),transactionCancel=$('transactionCancel'),subcatSheet=$('subcatSheet'),subcatManager=$('subcatManager'),addSubcatBtn=$('addSubcatBtn'),subcatClose=$('subcatClose'),expenseLauncher=$('expenseLauncher'),expenseCategory=$('expenseCategory'),expenseSubcategory=$('expenseSubcategory'),compactCategory=$('compactCategory'),compactAmount=$('compactAmount'),quickSave=$('quickSave'),expenseForm=$('expenseForm'),expenseAmount=$('expenseAmount'),expenseNote=$('expenseNote'),expenseSubmit=$('expenseSubmit'),expenseCancel=$('expenseCancel'),transactionList=$('transactionList'),transactionCount=$('transactionCount'),salary=$('salary'),allowancesTotal=$('allowancesTotal'),allowancesPercent=$('allowancesPercent'),gross=$('gross'),grossTop=$('grossTop'),deductionsTotal=$('deductionsTotal'),deductionsPercent=$('deductionsPercent'),afterDeductions=$('afterDeductions'),commitmentsTotal=$('commitmentsTotal'),commitmentsPercent=$('commitmentsPercent'),afterCommitments=$('afterCommitments'),budgetAvailable=$('budgetAvailable'),unallocated=$('unallocated'),remainingNumber=$('remainingNumber'),spentTop=$('spentTop'),remainPct=$('remainPct'),orbit=$('orbit'),settingsBtn=$('settingsBtn'),settingsSheet=$('settingsSheet'),settingsClose=$('settingsClose'),digitsEnglish=$('digitsEnglish'),digitsArabic=$('digitsArabic'),langArabic=$('langArabic'),langEnglish=$('langEnglish'),paydayInput=$('paydayInput'),notesBtn=$('notesBtn'),notesSheet=$('notesSheet'),notesArea=$('notesArea'),notesClose=$('notesClose'),archiveBtn=$('archiveBtn'),archiveSheet=$('archiveSheet'),archiveList=$('archiveList'),archiveClose=$('archiveClose'),monthLabel=$('monthLabel');
+
+let settings={digits:'en',language:'ar',payday:27},notes='',archives=[],currentCycleKey='';
+const AR='٠١٢٣٤٥٦٧٨٩',FA='۰۱۲۳۴۵۶۷۸۹';
+
+function normalizeDigits(v){return String(v??'').replace(/[٠-٩]/g,d=>AR.indexOf(d)).replace(/[۰-۹]/g,d=>FA.indexOf(d)).replace(/٫/g,'.').replace(/[٬,]/g,'')}
+function cleanNumericInput(v){v=normalizeDigits(v).replace(/[^0-9.]/g,'');const i=v.indexOf('.');if(i!==-1)v=v.slice(0,i+1)+v.slice(i+1).replace(/\./g,'');if(v.includes('.')){let [w,d]=v.split('.');w=w.replace(/^0+(?=\d)/,'')||'0';return w+'.'+d}return v.replace(/^0+/,'')}
+function numberValue(v){const n=Number(normalizeDigits(v));return Number.isFinite(n)?Math.max(0,n):0}
+function inputDigits(v){v=normalizeDigits(v);return settings.digits==='ar'?v.replace(/[0-9]/g,d=>AR[d]):v}
+function fmt(v,d=2){return new Intl.NumberFormat(settings.digits==='ar'?'ar-SA':'en-US',{maximumFractionDigits:d,useGrouping:true}).format(v)}
+function money(v){return fmt(v,2)+' ⃁'}
+function pct(v){return fmt(v,1)+(settings.digits==='ar'?'٪':'%')}
+function esc(v){return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
+
+function defaultAllowances(){return[
+{id:makeId(),name:'بدل المواصلات',type:'percent',value:'10',system:true,systemKey:'transport'},
+{id:makeId(),name:'بدل السكن',type:'percent',value:'25',system:true,systemKey:'housing'}
+]}
+function defaultDeductions(){return[{id:makeId(),name:'استقطاع التأمينات',type:'fixed',value:'',system:true,systemKey:'insurance'}]}
+function defaultCommitments(){return[
+{id:makeId(),name:'قسط / قرض',type:'fixed',value:'',system:false},
+{id:makeId(),name:'إيجار',type:'fixed',value:'',system:false},
+{id:makeId(),name:'التزامات أخرى',type:'fixed',value:'',system:false}
+]}
+function defaultBudgets(){return[]}
+
+let allowances=defaultAllowances(),deductions=defaultDeductions(),commitments=defaultCommitments(),budgets=defaultBudgets(),transactions=[],activePage='p1';
+
+const suggestionMap={
+'البيت':['مقاضي','منظفات','أثاث وأدوات','صيانة','غاز','أخرى'],
+'مقاضي البيت':['مواد غذائية','منظفات','مستلزمات منزلية','أخرى'],
+'السيارة':['بنزين','صيانة','غسيل','تأمين','مخالفات','أخرى'],
+'بنزين':['وقود','زيوت','غسيل','أخرى'],
+'مطاعم ومقاهي':['مطاعم','قهوة','توصيل','وجبات سريعة','أخرى'],
+'أكل ومطاعم':['مطاعم','قهوة','توصيل','وجبات سريعة','أخرى'],
+'شخصي':['ملابس','حلاقة','صيدلية','عناية شخصية','مشتريات شخصية','أخرى'],
+'فواتير':['جوال','إنترنت','كهرباء','ماء','اشتراكات','أخرى'],
+'العائلة':['الزوجة','الأولاد','هدايا','مناسبات','أخرى'],
+'زوجة':['مصروف','هدايا','مطاعم','احتياجات','أخرى'],
+'ترفيه':['ألعاب','سينما','طلعات','سفر','أخرى'],
+'صحة ورياضة':['نادي','مكملات','علاج','فحوصات','أخرى'],
+'خيري':['صدقة','تبرع','زكاة']
 };
 
-let settings = {
-  digits:'en',
-  language:'ar'
-};
-
-function t(key){
-
-  return (
-    translations[
-      settings.language
-    ][key]
-    ||
-    key
-  );
-}
-
-/* =========================
-   NUMBERS
-========================= */
-
-function normalizeDigits(value){
-
-  return String(
-    value ?? ''
-  )
-
-  .replace(
-    /[٠-٩]/g,
-    d =>
-      '٠١٢٣٤٥٦٧٨٩'
-      .indexOf(d)
-  )
-
-  .replace(
-    /[۰-۹]/g,
-    d =>
-      '۰۱۲۳۴۵۶۷۸۹'
-      .indexOf(d)
-  )
-
-  .replace(
-    /٫/g,
-    '.'
-  )
-
-  .replace(
-    /[٬,]/g,
-    ''
-  );
-}
-
-function cleanNumericInput(value){
-
-  let v =
-    normalizeDigits(value);
-
-  v =
-    v.replace(
-      /[^0-9.]/g,
-      ''
-    );
-
-  const firstDot =
-    v.indexOf('.');
-
-  if(firstDot !== -1){
-
-    v =
-      v.slice(
-        0,
-        firstDot + 1
-      )
-      +
-      v.slice(
-        firstDot + 1
-      )
-      .replace(
-        /\./g,
-        ''
-      );
-  }
-
-  if(v.includes('.')){
-
-    let [
-      whole,
-      decimal
-    ] =
-      v.split('.');
-
-    whole =
-      whole.replace(
-        /^0+(?=\d)/,
-        ''
-      );
-
-    if(whole === ''){
-      whole = '0';
-    }
-
-    return (
-      whole +
-      '.' +
-      decimal
-    );
-  }
-
-  v =
-    v.replace(
-      /^0+/,
-      ''
-    );
-
-  return v;
-}
-
-function numberValue(value){
-
-  const v =
-    normalizeDigits(value);
-
-  if(v === ''){
-    return 0;
-  }
-
-  const n =
-    Number(v);
-
-  return (
-    Number.isFinite(n)
-      ? Math.max(0,n)
-      : 0
-  );
-}
-
-function inputDigits(value){
-
-  const latin =
-    normalizeDigits(value);
-
-  if(settings.digits === 'ar'){
-
-    return latin.replace(
-      /[0-9]/g,
-      d =>
-        '٠١٢٣٤٥٦٧٨٩'[d]
-    );
-  }
-
-  return latin;
-}
-
-function formatNumber(
-  value,
-  decimals=2
-){
-
-  const locale =
-    settings.digits === 'ar'
-      ? 'ar-SA'
-      : 'en-US';
-
-  return new Intl.NumberFormat(
-    locale,
-    {
-      maximumFractionDigits:
-        decimals,
-
-      useGrouping:true
-    }
-  ).format(value);
-}
-
-function percentText(value){
-
-  const symbol =
-    settings.digits === 'ar'
-      ? '٪'
-      : '%';
-
-  return (
-    formatNumber(
-      value,
-      1
-    )
-    +
-    symbol
-  );
-}
-
-function money(value){
-
-  return (
-    formatNumber(
-      value,
-      2
-    )
-    +
-    ' ⃁'
-  );
-}
-
-function rawInputValue(value){
-
-  if(
-    value === ''
-    ||
-    value === null
-    ||
-    value === undefined
-  ){
-    return '';
-  }
-
-  return inputDigits(
-    String(value)
-  );
-}
-
-function resizeNumericWrap(
-  wrap,
-  input
-){
-
-  const length =
-    normalizeDigits(
-      input.value
-    ).length;
-
-  wrap.classList.toggle(
-    'long',
-    length >= 5
-  );
-
-  wrap.classList.toggle(
-    'very-long',
-    length >= 7
-  );
-}
-
-/* =========================
-   HELPERS
-========================= */
-
-const makeId =
-  () =>
-    'x'
-    +
-    Date.now()
-      .toString(36)
-    +
-    Math.random()
-      .toString(36)
-      .slice(2);
-
-function escapeHtml(value){
-
-  return String(value)
-
-  .replace(
-    /&/g,
-    '&amp;'
-  )
-
-  .replace(
-    /</g,
-    '&lt;'
-  )
-
-  .replace(
-    />/g,
-    '&gt;'
-  )
-
-  .replace(
-    /"/g,
-    '&quot;'
-  )
-
-  .replace(
-    /'/g,
-    '&#039;'
-  );
-}
-
-/* =========================
-   DEFAULT DATA
-========================= */
-
-function defaultAllowances(){
-
-  return [
-
-    {
-      id:makeId(),
-      name:'بدل المواصلات',
-      type:'percent',
-      value:'10',
-      system:true,
-      systemKey:'transport'
-    },
-
-    {
-      id:makeId(),
-      name:'بدل السكن',
-      type:'percent',
-      value:'25',
-      system:true,
-      systemKey:'housing'
-    }
-
-  ];
-}
-
-function defaultDeductions(){
-
-  return [
-
-    {
-      id:makeId(),
-      name:'استقطاع التأمينات',
-      type:'fixed',
-      value:'',
-      system:true,
-      systemKey:'insurance'
-    }
-
-  ];
-}
-
-function defaultCommitments(){
-
-  return [
-
-    {
-      id:makeId(),
-      name:'قسط / قرض',
-      type:'fixed',
-      value:'',
-      system:false
-    },
-
-    {
-      id:makeId(),
-      name:'إيجار',
-      type:'fixed',
-      value:'',
-      system:false
-    },
-
-    {
-      id:makeId(),
-      name:'التزامات أخرى',
-      type:'fixed',
-      value:'',
-      system:false
-    }
-
-  ];
-}
-
-function defaultBudgets(){
-
-  return [
-
-    {
-      id:makeId(),
-      name:'مقاضي البيت',
-      allocated:''
-    },
-
-    {
-      id:makeId(),
-      name:'بنزين',
-      allocated:''
-    },
-
-    {
-      id:makeId(),
-      name:'أكل ومطاعم',
-      allocated:''
-    },
-
-    {
-      id:makeId(),
-      name:'أخرى',
-      allocated:''
-    }
-
-  ];
-}
-
-let allowances =
-  defaultAllowances();
-
-let deductions =
-  defaultDeductions();
-
-let commitments =
-  defaultCommitments();
-
-let budgets =
-  defaultBudgets();
-
-let transactions = [];
-
-let activePage =
-  'p1';
-
-/* =========================
-   STORAGE
-========================= */
-
-function save(){
-
-  try{
-
-    localStorage.setItem(
-      'salaryApp',
-
-      JSON.stringify({
-
-        version:7,
-
-        salary:
-          normalizeDigits(
-            $('salary').value
-          ),
-
-        allowances,
-
-        deductions,
-
-        commitments,
-
-        budgets,
-
-        transactions,
-
-        settings,
-
-        activePage
-      })
-    );
-
-  }catch(e){}
-}
-
-function normalizeFinancialItem(
-  item,
-  fallbackName
-){
-
-  return {
-
-    id:
-      item.id
-      ||
-      makeId(),
-
-    name:
-      item.name
-      ||
-      fallbackName,
-
-    type:
-      item.type === 'percent'
-        ? 'percent'
-        : 'fixed',
-
-    value:
-      item.value === ''
-      ||
-      item.value === undefined
-        ? ''
-        : cleanNumericInput(
-            item.value
-          ),
-
-    system:
-      item.system === true,
-
-    systemKey:
-      item.systemKey
-      ||
-      null
-  };
-}
+function normalizeName(s){return String(s||'').trim().replace(/\s+/g,' ')}
+function suggestedSubcats(name){return suggestionMap[normalizeName(name)]||[]}
+
+function snapshot(){return{salary:normalizeDigits($('salary')?.value||''),allowances,deductions,commitments,budgets,transactions,settings,notes,activePage}}
+function save(){try{localStorage.setItem('salaryApp',JSON.stringify({version:8,...snapshot(),archives,currentCycleKey}))}catch(e){}}
+function normItem(i,f){return{id:i.id||makeId(),name:i.name||f,type:i.type==='percent'?'percent':'fixed',value:i.value===''||i.value==null?'':cleanNumericInput(i.value),system:i.system===true,systemKey:i.systemKey||null}}
 
 function load(){
+let d;
+try{d=JSON.parse(localStorage.getItem('salaryApp'))}catch(e){}
+if(!d)return;
+if(d.settings)settings={...settings,...d.settings};
+if(d.notes!=null)notes=d.notes;
+if(Array.isArray(d.archives))archives=d.archives;
+if(d.currentCycleKey)currentCycleKey=d.currentCycleKey;
+if(['p1','p2','p3'].includes(d.activePage))activePage=d.activePage;
+if(d.salary!=null)$('salary').value=inputDigits(cleanNumericInput(d.salary));
+if(Array.isArray(d.allowances))allowances=d.allowances.map(i=>normItem(i,'بدل'));
 
-  let data;
-
-  try{
-
-    data =
-      JSON.parse(
-        localStorage.getItem(
-          'salaryApp'
-        )
-      );
-
-  }catch(e){
-
-    return;
-  }
-
-  if(!data){
-    return;
-  }
-
-  if(data.settings){
-
-    settings = {
-      ...settings,
-      ...data.settings
-    };
-  }
-
-  if(
-    data.activePage === 'p1'
-    ||
-    data.activePage === 'p2'
-    ||
-    data.activePage === 'p3'
-  ){
-
-    activePage =
-      data.activePage;
-  }
-
-  if(
-    data.salary !== undefined
-  ){
-
-    $('salary').value =
-      rawInputValue(
-        cleanNumericInput(
-          data.salary
-        )
-      );
-  }
-
-  if(
-    Array.isArray(
-      data.allowances
-    )
-  ){
-
-    allowances =
-      data.allowances.map(
-        item => {
-
-          const result =
-            normalizeFinancialItem(
-              item,
-              'بدل'
-            );
-
-          if(
-            item.name ===
-            'بدل المواصلات'
-            ||
-            item.systemKey ===
-            'transport'
-          ){
-
-            result.system =
-              true;
-
-            result.systemKey =
-              'transport';
-          }
-
-          if(
-            item.name ===
-            'بدل السكن'
-            ||
-            item.systemKey ===
-            'housing'
-          ){
-
-            result.system =
-              true;
-
-            result.systemKey =
-              'housing';
-          }
-
-          return result;
-        }
-      );
-  }
-
-  /*
-    النسخة الجديدة:
-    deductions = الاستقطاعات
-    commitments = الالتزامات
-
-    ترحيل بيانات النسخة القديمة:
-    التأمينات -> استقطاعات
-    والباقي -> التزامات
-  */
-
-  if(
-    Array.isArray(
-      data.deductions
-    )
-  ){
-
-    deductions =
-      data.deductions.map(
-        item => {
-
-          const result =
-            normalizeFinancialItem(
-              item,
-              'استقطاع'
-            );
-
-          if(
-            item.systemKey ===
-            'insurance'
-            ||
-            String(
-              item.name
-            ).includes(
-              'التأمين'
-            )
-          ){
-
-            result.system =
-              true;
-
-            result.systemKey =
-              'insurance';
-          }
-
-          return result;
-        }
-      );
-
-    if(
-      Array.isArray(
-        data.commitments
-      )
-    ){
-
-      commitments =
-        data.commitments.map(
-          item =>
-            normalizeFinancialItem(
-              item,
-              'التزام'
-            )
-        );
-    }
-  }
-
-  else if(
-    Array.isArray(
-      data.commitments
-    )
-  ){
-
-    const old =
-      data.commitments.map(
-        item =>
-          normalizeFinancialItem(
-            item,
-            'التزام'
-          )
-      );
-
-    const insuranceItems =
-      old.filter(
-        item =>
-          item.systemKey ===
-          'insurance'
-          ||
-          String(
-            item.name
-          ).includes(
-            'التأمين'
-          )
-      );
-
-    const otherItems =
-      old.filter(
-        item =>
-          !insuranceItems
-          .includes(item)
-      );
-
-    deductions =
-      insuranceItems.length
-        ? insuranceItems.map(
-            item => ({
-              ...item,
-              system:true,
-              systemKey:
-                'insurance'
-            })
-          )
-        : defaultDeductions();
-
-    commitments =
-      otherItems.length
-        ? otherItems.map(
-            item => ({
-              ...item,
-              system:false,
-              systemKey:null
-            })
-          )
-        : defaultCommitments();
-  }
-
-  if(
-    Array.isArray(
-      data.budgets
-    )
-  ){
-
-    budgets =
-      data.budgets.map(
-        item => ({
-
-          id:
-            item.id
-            ||
-            makeId(),
-
-          name:
-            item.name
-            ||
-            'فئة',
-
-          allocated:
-            item.allocated === ''
-            ||
-            item.allocated === undefined
-              ? ''
-              : cleanNumericInput(
-                  item.allocated
-                )
-        })
-      );
-  }
-
-  if(
-    Array.isArray(
-      data.transactions
-    )
-  ){
-
-    transactions =
-      data.transactions.map(
-        item => ({
-
-          id:
-            item.id
-            ||
-            makeId(),
-
-          budgetId:
-            item.budgetId
-            ||
-            '',
-
-          amount:
-            numberValue(
-              item.amount
-            ),
-
-          note:
-            item.note
-            ||
-            '',
-
-          createdAt:
-            item.createdAt
-            ||
-            new Date()
-            .toISOString()
-        })
-      );
-  }
+if(Array.isArray(d.deductions))deductions=d.deductions.map(i=>normItem(i,'استقطاع'));
+else if(Array.isArray(d.commitments)){
+const old=d.commitments.map(i=>normItem(i,'التزام'));
+const ins=old.filter(i=>i.systemKey==='insurance'||String(i.name).includes('التأمين'));
+deductions=ins.length?ins.map(i=>({...i,system:true,systemKey:'insurance'})):defaultDeductions();
+commitments=old.filter(i=>!ins.includes(i)).map(i=>({...i,system:false,systemKey:null}))
 }
 
-/* =========================
-   CALCULATIONS
-========================= */
+if(Array.isArray(d.commitments)&&Array.isArray(d.deductions))commitments=d.commitments.map(i=>normItem(i,'التزام'));
 
-function salaryValue(){
+if(Array.isArray(d.budgets))budgets=d.budgets.map(i=>({
+id:i.id||makeId(),
+name:i.name||'فئة',
+allocated:i.allocated==null?'':cleanNumericInput(i.allocated),
+subcategories:Array.isArray(i.subcategories)?i.subcategories.map(s=>({id:s.id||makeId(),name:s.name||'تفرع'})):[]
+}));
 
-  return numberValue(
-    $('salary').value
-  );
+if(Array.isArray(d.transactions))transactions=d.transactions.map(i=>({
+id:i.id||makeId(),
+budgetId:i.budgetId||'',
+subcategoryId:i.subcategoryId||'',
+subcategoryName:i.subcategoryName||'',
+amount:numberValue(i.amount),
+note:i.note||'',
+createdAt:i.createdAt||new Date().toISOString()
+}));
 }
 
-function itemAmount(
-  item,
-  salary
-){
-
-  const value =
-    numberValue(
-      item.value
-    );
-
-  return (
-    item.type === 'percent'
-      ? salary *
-        value /
-        100
-      : value
-  );
+function cycleInfo(date=new Date(),payday=Number(settings.payday)||27){
+payday=Math.max(1,Math.min(31,payday));
+const y=date.getFullYear(),m=date.getMonth(),day=date.getDate();
+let sy=y,sm=m;
+if(day<payday){sm--;if(sm<0){sm=11;sy--}}
+const last=new Date(sy,sm+1,0).getDate(),sd=Math.min(payday,last),start=new Date(sy,sm,sd);
+let ey=sy,em=sm+1;if(em>11){em=0;ey++}
+const nextLast=new Date(ey,em+1,0).getDate(),nextDay=Math.min(payday,nextLast),next=new Date(ey,em,nextDay);
+const end=new Date(next.getTime()-86400000);
+const key=`${start.getFullYear()}-${String(start.getMonth()+1).padStart(2,'0')}-${String(start.getDate()).padStart(2,'0')}`;
+return{key,start,end}
 }
 
-function spentForBudget(id){
-
-  return transactions
-
-  .filter(
-    item =>
-      item.budgetId === id
-  )
-
-  .reduce(
-    (
-      sum,
-      item
-    ) =>
-      sum
-      +
-      numberValue(
-        item.amount
-      ),
-
-    0
-  );
+function archiveCurrent(oldKey){
+if(!oldKey)return;
+if(archives.some(a=>a.key===oldKey))return;
+const totals=getTotals();
+archives.unshift({
+id:makeId(),
+key:oldKey,
+archivedAt:new Date().toISOString(),
+data:JSON.parse(JSON.stringify(snapshot())),
+totals:{
+gross:totals.gross,
+spent:totals.deductionTotal+totals.commitmentTotal+totals.transactionTotal,
+remaining:totals.finalRemaining
 }
+});
+if(archives.length>48)archives=archives.slice(0,48)
+}
+
+function handleCycle(){
+const info=cycleInfo();
+if(!currentCycleKey){currentCycleKey=info.key;save();return}
+if(currentCycleKey!==info.key){
+archiveCurrent(currentCycleKey);
+transactions=[];
+currentCycleKey=info.key;
+save()
+}
+}
+
+function salaryValue(){return numberValue($('salary').value)}
+function itemAmount(i,s){const v=numberValue(i.value);return i.type==='percent'?s*v/100:v}
+function spentForBudget(id){return transactions.filter(x=>x.budgetId===id).reduce((a,x)=>a+numberValue(x.amount),0)}
 
 function getTotals(){
+const salary=salaryValue(),
+allowanceTotal=allowances.reduce((a,i)=>a+itemAmount(i,salary),0),
+gross=salary+allowanceTotal,
+deductionTotal=deductions.reduce((a,i)=>a+itemAmount(i,salary),0),
+afterDeductions=gross-deductionTotal,
+commitmentTotal=commitments.reduce((a,i)=>a+itemAmount(i,salary),0),
+afterCommitments=afterDeductions-commitmentTotal,
+transactionTotal=transactions.reduce((a,i)=>a+numberValue(i.amount),0),
+finalRemaining=afterCommitments-transactionTotal,
+allocatedTotal=budgets.reduce((a,i)=>a+numberValue(i.allocated),0);
 
-  const salary =
-    salaryValue();
-
-  const allowanceTotal =
-    allowances.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum
-        +
-        itemAmount(
-          item,
-          salary
-        ),
-
-      0
-    );
-
-  const gross =
-    salary
-    +
-    allowanceTotal;
-
-  const deductionTotal =
-    deductions.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum
-        +
-        itemAmount(
-          item,
-          salary
-        ),
-
-      0
-    );
-
-  const afterDeductions =
-    gross
-    -
-    deductionTotal;
-
-  const commitmentTotal =
-    commitments.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum
-        +
-        itemAmount(
-          item,
-          salary
-        ),
-
-      0
-    );
-
-  const afterCommitments =
-    afterDeductions
-    -
-    commitmentTotal;
-
-  const transactionTotal =
-    transactions.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum
-        +
-        numberValue(
-          item.amount
-        ),
-
-      0
-    );
-
-  const finalRemaining =
-    afterCommitments
-    -
-    transactionTotal;
-
-  const allocatedTotal =
-    budgets.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum
-        +
-        numberValue(
-          item.allocated
-        ),
-
-      0
-    );
-
-  return {
-
-    salary,
-
-    allowanceTotal,
-
-    gross,
-
-    deductionTotal,
-
-    afterDeductions,
-
-    commitmentTotal,
-
-    afterCommitments,
-
-    transactionTotal,
-
-    finalRemaining,
-
-    allocatedTotal,
-
-    unallocated:
-      afterCommitments
-      -
-      allocatedTotal
-  };
+return{
+salary,allowanceTotal,gross,deductionTotal,afterDeductions,commitmentTotal,afterCommitments,transactionTotal,finalRemaining,allocatedTotal,
+unallocated:afterCommitments-allocatedTotal
+}
 }
 
-/* =========================
-   SYSTEM NAMES
-========================= */
+function sourceForKind(k){return k==='allowance'?allowances:k==='deduction'?deductions:k==='commitment'?commitments:budgets}
+function listForKind(k){return $(k==='allowance'?'allowancesList':k==='deduction'?'deductionsList':k==='commitment'?'commitmentsList':'budgetList')}
+function cardForKind(k){return $(k==='allowance'?'allowanceCard':k==='deduction'?'deductionCard':k==='commitment'?'commitmentCard':'budgetCard')}
 
-function displayedSystemName(
-  item
-){
-
-  if(
-    settings.language ===
-    'ar'
-  ){
-
-    if(
-      item.systemKey ===
-      'transport'
-    ){
-      return 'بدل المواصلات';
-    }
-
-    if(
-      item.systemKey ===
-      'housing'
-    ){
-      return 'بدل السكن';
-    }
-
-    if(
-      item.systemKey ===
-      'insurance'
-    ){
-      return 'استقطاع التأمينات';
-    }
-  }
-
-  if(
-    settings.language ===
-    'en'
-  ){
-
-    if(
-      item.systemKey ===
-      'transport'
-    ){
-      return 'Transport allowance';
-    }
-
-    if(
-      item.systemKey ===
-      'housing'
-    ){
-      return 'Housing allowance';
-    }
-
-    if(
-      item.systemKey ===
-      'insurance'
-    ){
-      return 'Social insurance';
-    }
-  }
-
-  return item.name;
+function systemName(i){
+if(i.systemKey==='transport')return'بدل المواصلات';
+if(i.systemKey==='housing')return'بدل السكن';
+if(i.systemKey==='insurance')return'استقطاع التأمينات';
+return i.name
 }
 
-/* =========================
-   LIST HELPERS
-========================= */
-
-function sourceForKind(
-  kind
-){
-
-  if(
-    kind ===
-    'allowance'
-  ){
-    return allowances;
-  }
-
-  if(
-    kind ===
-    'deduction'
-  ){
-    return deductions;
-  }
-
-  if(
-    kind ===
-    'commitment'
-  ){
-    return commitments;
-  }
-
-  return budgets;
+function resizeWrap(w,i){
+const l=normalizeDigits(i.value).length;
+w.classList.toggle('long',l>=5);
+w.classList.toggle('very-long',l>=7)
 }
 
-function listForKind(
-  kind
-){
-
-  if(
-    kind ===
-    'allowance'
-  ){
-    return $('allowancesList');
-  }
-
-  if(
-    kind ===
-    'deduction'
-  ){
-    return $('deductionsList');
-  }
-
-  if(
-    kind ===
-    'commitment'
-  ){
-    return $('commitmentsList');
-  }
-
-  return $('budgetList');
-}
-
-function cardForKind(
-  kind
-){
-
-  if(
-    kind ===
-    'allowance'
-  ){
-    return $('allowanceCard');
-  }
-
-  if(
-    kind ===
-    'deduction'
-  ){
-    return $('deductionCard');
-  }
-
-  if(
-    kind ===
-    'commitment'
-  ){
-    return $('commitmentCard');
-  }
-
-  return $('budgetCard');
-}
-
-/* =========================
-   FINANCIAL ROW
-========================= */
-
-function createFinancialRow(
-  item,
-  kind
-){
-
-  const row =
-    document.createElement(
-      'div'
-    );
-
-  row.className =
-    'dynamic-row'
-    +
-    (
-      item.system
-        ? ''
-        : ' deletable'
-    );
-
-  row.dataset.id =
-    item.id;
-
-  const lockedType =
-    kind === 'allowance'
-    &&
-    item.system;
-
-  const value =
-    rawInputValue(
-      item.value
-    );
-
-  const displayName =
-    item.system
-      ? displayedSystemName(
-          item
-        )
-      : item.name;
-
-  row.innerHTML = `
-
-    <button
-      type="button"
-      class="handle"
-      aria-label="options"
-    >
-      ☰
-    </button>
-
-    <button
-      type="button"
-      class="delete-mark"
-      aria-label="delete"
-    >
-      ×
-    </button>
-
-    <div class="item-body">
-
-      <div class="item-top">
-
-        <input
-          type="text"
-          dir="auto"
-          class="item-name"
-          value="${escapeHtml(displayName)}"
-          ${item.system ? 'readonly' : ''}
-        >
-
-      </div>
-
-      <div class="item-bottom">
-
-        <div class="item-amount">
-
-          ${
-            money(
-              itemAmount(
-                item,
-                salaryValue()
-              )
-            )
-          }
-
-        </div>
-
-        <div class="controls">
-
-          <button
-            type="button"
-            class="mode ${lockedType ? 'locked' : ''}"
-          >
-
-            ${
-              item.type === 'percent'
-                ? t('percent')
-                : t('fixed')
-            }
-
-          </button>
-
-          <div class="value-wrap">
-
-            <input
-              type="text"
-              inputmode="decimal"
-              autocomplete="off"
-              value="${escapeHtml(value)}"
-            >
-
-            <span class="value-unit">
-
-              ${
-                item.type === 'percent'
-                  ? (
-                      settings.digits === 'ar'
-                        ? '٪'
-                        : '%'
-                    )
-                  : '⃁'
-              }
-
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-  const nameInput =
-    row.querySelector(
-      '.item-name'
-    );
-
-  const valueInput =
-    row.querySelector(
-      '.value-wrap input'
-    );
-
-  const valueWrap =
-    row.querySelector(
-      '.value-wrap'
-    );
-
-  const mode =
-    row.querySelector(
-      '.mode'
-    );
-
-  resizeNumericWrap(
-    valueWrap,
-    valueInput
-  );
-
-  if(!item.system){
-
-    nameInput.addEventListener(
-      'input',
-      () => {
-
-        item.name =
-          nameInput.value;
-
-        save();
-
-        updateCategories();
-      }
-    );
-  }
-
-  valueInput.addEventListener(
-    'input',
-    () => {
-
-      const cleaned =
-        cleanNumericInput(
-          valueInput.value
-        );
-
-      item.value =
-        cleaned;
-
-      valueInput.value =
-        rawInputValue(
-          cleaned
-        );
-
-      resizeNumericWrap(
-        valueWrap,
-        valueInput
-      );
-
-      calculate();
-    }
-  );
-
-  if(!lockedType){
-
-    mode.addEventListener(
-      'click',
-      () => {
-
-        item.type =
-          item.type === 'percent'
-            ? 'fixed'
-            : 'percent';
-
-        renderFinancialLists();
-
-        calculate();
-      }
-    );
-  }
-
-  row.querySelector(
-    '.delete-mark'
-  )
-  .addEventListener(
-    'click',
-    () => {
-
-      if(item.system){
-        return;
-      }
-
-      const source =
-        sourceForKind(kind);
-
-      const index =
-        source.findIndex(
-          current =>
-            current.id ===
-            item.id
-        );
-
-      if(index !== -1){
-
-        source.splice(
-          index,
-          1
-        );
-      }
-
-      exitDeleteMode();
-
-      renderFinancialLists();
-
-      calculate();
-    }
-  );
-
-  setupHandle(
-    row.querySelector(
-      '.handle'
-    ),
-    row,
-    kind
-  );
-
-  return row;
+function createFinancialRow(item,kind){
+const r=document.createElement('div');
+r.className='dynamic-row'+(item.system?'':' deletable');
+r.dataset.id=item.id;
+const locked=kind==='allowance'&&item.system;
+
+r.innerHTML=`
+<button type="button" class="handle">☰</button>
+<button type="button" class="delete-mark">×</button>
+<div class="item-body">
+<div class="item-top">
+<input type="text" dir="auto" class="item-name" value="${esc(item.system?systemName(item):item.name)}" ${item.system?'readonly':''}>
+</div>
+<div class="item-bottom">
+<div class="item-amount">${money(itemAmount(item,salaryValue()))}</div>
+<div class="controls">
+<button type="button" class="mode ${locked?'locked':''}">${item.type==='percent'?'نسبة':'ثابت'}</button>
+<div class="value-wrap">
+<input type="text" inputmode="decimal" value="${esc(inputDigits(item.value))}">
+<span class="value-unit">${item.type==='percent'?(settings.digits==='ar'?'٪':'%'):'⃁'}</span>
+</div>
+</div>
+</div>
+</div>`;
+
+const ni=r.querySelector('.item-name'),
+vi=r.querySelector('.value-wrap input'),
+vw=r.querySelector('.value-wrap'),
+mode=r.querySelector('.mode');
+
+resizeWrap(vw,vi);
+
+if(!item.system)ni.oninput=()=>{item.name=ni.value;save()};
+
+vi.oninput=()=>{
+item.value=cleanNumericInput(vi.value);
+vi.value=inputDigits(item.value);
+resizeWrap(vw,vi);
+calculate()
+};
+
+if(!locked)mode.onclick=()=>{
+item.type=item.type==='percent'?'fixed':'percent';
+renderFinancialLists();
+calculate()
+};
+
+r.querySelector('.delete-mark').onclick=()=>{
+if(item.system)return;
+const s=sourceForKind(kind),
+i=s.findIndex(x=>x.id===item.id);
+if(i>=0)s.splice(i,1);
+exitDeleteMode();
+renderFinancialLists();
+calculate()
+};
+
+setupHandle(r.querySelector('.handle'),r,kind);
+return r
 }
 
 function renderFinancialLists(){
-
-  $('allowancesList').innerHTML =
-    '';
-
-  allowances.forEach(
-    item => {
-
-      $('allowancesList')
-      .appendChild(
-        createFinancialRow(
-          item,
-          'allowance'
-        )
-      );
-    }
-  );
-
-  $('deductionsList').innerHTML =
-    '';
-
-  deductions.forEach(
-    item => {
-
-      $('deductionsList')
-      .appendChild(
-        createFinancialRow(
-          item,
-          'deduction'
-        )
-      );
-    }
-  );
-
-  $('commitmentsList').innerHTML =
-    '';
-
-  commitments.forEach(
-    item => {
-
-      $('commitmentsList')
-      .appendChild(
-        createFinancialRow(
-          item,
-          'commitment'
-        )
-      );
-    }
-  );
+allowancesList.innerHTML='';
+allowances.forEach(i=>allowancesList.appendChild(createFinancialRow(i,'allowance')));
+deductionsList.innerHTML='';
+deductions.forEach(i=>deductionsList.appendChild(createFinancialRow(i,'deduction')));
+commitmentsList.innerHTML='';
+commitments.forEach(i=>commitmentsList.appendChild(createFinancialRow(i,'commitment')))
 }
 
-/* =========================
-   NEW LONG PRESS DRAG
-========================= */
-
-function saveOrderFromDom(
-  kind
-){
-
-  const listElement =
-    listForKind(kind);
-
-  const source =
-    sourceForKind(kind);
-
-  const order =
-    Array.from(
-      listElement
-      .querySelectorAll(
-        '.dynamic-row'
-      )
-    )
-    .map(
-      row =>
-        row.dataset.id
-    );
-
-  source.sort(
-    (
-      a,
-      b
-    ) =>
-      order.indexOf(a.id)
-      -
-      order.indexOf(b.id)
-  );
-
-  save();
+function saveOrderFromDom(k){
+const list=listForKind(k),src=sourceForKind(k),
+order=[...list.querySelectorAll('.dynamic-row')].map(r=>r.dataset.id);
+src.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id));
+save()
 }
 
-function setupHandle(
-  handle,
-  row,
-  kind
-){
-
-  let pressTimer =
-    null;
-
-  let dragging =
-    false;
-
-  let pointerId =
-    null;
-
-  let startX =
-    0;
-
-  let startY =
-    0;
-
-  const list =
-    listForKind(kind);
-
-  const clearPress =
-    () => {
-
-      if(pressTimer){
-
-        clearTimeout(
-          pressTimer
-        );
-
-        pressTimer =
-          null;
-      }
-    };
-
-  const endDrag =
-    () => {
-
-      clearPress();
-
-      if(dragging){
-
-        dragging =
-          false;
-
-        row.classList.remove(
-          'dragging'
-        );
-
-        handle.classList.remove(
-          'drag-ready'
-        );
-
-        saveOrderFromDom(
-          kind
-        );
-
-        calculate();
-      }
-
-      pointerId =
-        null;
-    };
-
-  handle.addEventListener(
-    'pointerdown',
-    event => {
-
-      if(
-        cardForKind(kind)
-        ?.classList
-        .contains(
-          'delete-mode'
-        )
-      ){
-        return;
-      }
-
-      pointerId =
-        event.pointerId;
-
-      startX =
-        event.clientX;
-
-      startY =
-        event.clientY;
-
-      try{
-
-        handle.setPointerCapture(
-          event.pointerId
-        );
-
-      }catch(e){}
-
-      pressTimer =
-        setTimeout(
-          () => {
-
-            dragging =
-              true;
-
-            row.classList.add(
-              'dragging'
-            );
-
-            handle.classList.add(
-              'drag-ready'
-            );
-
-            if(
-              navigator.vibrate
-            ){
-
-              navigator.vibrate(
-                20
-              );
-            }
-
-          },
-          350
-        );
-    }
-  );
-
-  handle.addEventListener(
-    'pointermove',
-    event => {
-
-      if(
-        pointerId !==
-        event.pointerId
-      ){
-        return;
-      }
-
-      if(!dragging){
-
-        const distance =
-          Math.abs(
-            event.clientX
-            -
-            startX
-          )
-          +
-          Math.abs(
-            event.clientY
-            -
-            startY
-          );
-
-        /*
-          إذا المستخدم تحرك كثير
-          قبل اكتمال الضغط المطوّل
-          نلغي السحب
-        */
-        if(distance > 14){
-
-          clearPress();
-        }
-
-        return;
-      }
-
-      event.preventDefault();
-
-      const element =
-        document.elementFromPoint(
-          event.clientX,
-          event.clientY
-        );
-
-      const target =
-        element
-        ?.closest(
-          '.dynamic-row'
-        );
-
-      if(
-        !target
-        ||
-        target === row
-        ||
-        target.parentElement !== list
-      ){
-        return;
-      }
-
-      const rect =
-        target
-        .getBoundingClientRect();
-
-      const middle =
-        rect.top
-        +
-        rect.height / 2;
-
-      if(
-        event.clientY <
-        middle
-      ){
-
-        if(
-          target.previousElementSibling
-          !==
-          row
-        ){
-
-          list.insertBefore(
-            row,
-            target
-          );
-        }
-      }
-
-      else{
-
-        if(
-          target.nextElementSibling
-          !==
-          row
-        ){
-
-          list.insertBefore(
-            row,
-            target.nextSibling
-          );
-        }
-      }
-    }
-  );
-
-  handle.addEventListener(
-    'pointerup',
-    event => {
-
-      const wasDragging =
-        dragging;
-
-      clearPress();
-
-      if(
-        pointerId ===
-        event.pointerId
-      ){
-
-        try{
-
-          handle.releasePointerCapture(
-            event.pointerId
-          );
-
-        }catch(e){}
-
-        endDrag();
-      }
-
-      /*
-        إذا كانت مجرد ضغطة
-        وليس ضغط مطوّل
-        نفتح الخيارات
-      */
-      if(!wasDragging){
-
-        openOptions(
-          kind
-        );
-      }
-    }
-  );
-
-  handle.addEventListener(
-    'pointercancel',
-    endDrag
-  );
-
-  handle.addEventListener(
-    'lostpointercapture',
-    () => {
-
-      if(dragging){
-
-        endDrag();
-      }
-    }
-  );
+function setupHandle(handle,row,kind){
+let timer=null,drag=false,pid=null,sx=0,sy=0;
+const list=listForKind(kind);
+
+const clear=()=>{if(timer){clearTimeout(timer);timer=null}};
+const end=()=>{
+clear();
+if(drag){
+drag=false;
+row.classList.remove('dragging');
+handle.classList.remove('drag-ready');
+saveOrderFromDom(kind);
+calculate()
+}
+pid=null
+};
+
+handle.addEventListener('pointerdown',e=>{
+if(cardForKind(kind)?.classList.contains('delete-mode'))return;
+pid=e.pointerId;
+sx=e.clientX;
+sy=e.clientY;
+try{handle.setPointerCapture(pid)}catch{}
+timer=setTimeout(()=>{
+drag=true;
+row.classList.add('dragging');
+handle.classList.add('drag-ready');
+navigator.vibrate?.(20)
+},350)
+});
+
+handle.addEventListener('pointermove',e=>{
+if(pid!==e.pointerId)return;
+if(!drag){
+if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>14)clear();
+return
+}
+e.preventDefault();
+const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.dynamic-row');
+if(!target||target===row||target.parentElement!==list)return;
+const rect=target.getBoundingClientRect();
+if(e.clientY<rect.top+rect.height/2)list.insertBefore(row,target);
+else list.insertBefore(row,target.nextSibling)
+});
+
+handle.addEventListener('pointerup',e=>{
+const was=drag;
+clear();
+try{handle.releasePointerCapture(e.pointerId)}catch{}
+end();
+if(!was)openOptions(kind,row.dataset.id||null)
+});
+
+handle.addEventListener('pointercancel',end);
+handle.addEventListener('lostpointercapture',()=>{if(drag)end()})
 }
 
-/* =========================
-   SHEETS
-========================= */
+let menuKind=null,pendingAddKind=null,menuBudgetId=null;
 
-let menuKind =
-  null;
-
-let pendingAddKind =
-  null;
-
-function showOverlay(){
-
-  $('overlay')
-  .classList
-  .add(
-    'show'
-  );
-}
-
-function hideOverlay(){
-
-  $('overlay')
-  .classList
-  .remove(
-    'show'
-  );
-}
+function showOverlay(){overlay.classList.add('show')}
+function hideOverlay(){overlay.classList.remove('show')}
 
 function closeSheets(){
-
-  $('optionsSheet')
-  .classList
-  .remove(
-    'show'
-  );
-
-  $('typeSheet')
-  .classList
-  .remove(
-    'show'
-  );
-
-  $('settingsSheet')
-  .classList
-  .remove(
-    'show'
-  );
-
-  hideOverlay();
+document.querySelectorAll('.sheet.show').forEach(x=>x.classList.remove('show'));
+hideOverlay()
 }
 
-function openOptions(kind){
+function openOptions(k,id=null){
+menuKind=k;
+menuBudgetId=id;
+optionsTitle.textContent=
+k==='allowance'?'خيارات البدلات':
+k==='deduction'?'خيارات الاستقطاعات':
+k==='commitment'?'خيارات الالتزامات':'خيارات الفئة';
 
-  menuKind =
-    kind;
+optionAdd.textContent=
+k==='allowance'?'إضافة بدل':
+k==='deduction'?'إضافة استقطاع':
+k==='commitment'?'إضافة التزام':'إضافة فئة';
 
-  if(
-    kind ===
-    'allowance'
-  ){
-
-    $('optionsTitle')
-    .textContent =
-      t(
-        'allowanceOptions'
-      );
-
-    $('optionAdd')
-    .textContent =
-      t(
-        'addAllowance'
-      );
-  }
-
-  else if(
-    kind ===
-    'deduction'
-  ){
-
-    $('optionsTitle')
-    .textContent =
-      t(
-        'deductionOptions'
-      );
-
-    $('optionAdd')
-    .textContent =
-      t(
-        'addDeduction'
-      );
-  }
-
-  else if(
-    kind ===
-    'commitment'
-  ){
-
-    $('optionsTitle')
-    .textContent =
-      t(
-        'commitmentOptions'
-      );
-
-    $('optionAdd')
-    .textContent =
-      t(
-        'addCommitment'
-      );
-  }
-
-  else{
-
-    $('optionsTitle')
-    .textContent =
-      t(
-        'budgetOptions'
-      );
-
-    $('optionAdd')
-    .textContent =
-      t(
-        'addCategory'
-      );
-  }
-
-  showOverlay();
-
-  $('optionsSheet')
-  .classList
-  .add(
-    'show'
-  );
+optionSubcats.style.display=k==='budget'&&id?'block':'none';
+showOverlay();
+optionsSheet.classList.add('show')
 }
 
-$('optionCancel')
-.addEventListener(
-  'click',
-  closeSheets
-);
+optionCancel.onclick=typeCancel.onclick=transactionCancel.onclick=closeSheets;
+overlay.onclick=closeSheets;
 
-$('typeCancel')
-.addEventListener(
-  'click',
-  closeSheets
-);
+optionAdd.onclick=()=>{
+pendingAddKind=menuKind;
 
-$('overlay')
-.addEventListener(
-  'click',
-  closeSheets
-);
+if(menuKind==='budget'){
+budgets.push({id:makeId(),name:'',allocated:'',subcategories:[]});
+closeSheets();
+renderBudgets();
+calculate();
+return
+}
 
-$('optionAdd')
-.addEventListener(
-  'click',
-  () => {
+optionsSheet.classList.remove('show');
+typeSheet.classList.add('show')
+};
 
-    pendingAddKind =
-      menuKind;
+optionDelete.onclick=()=>{
+const k=menuKind;
+closeSheets();
+activateDeleteMode(k)
+};
 
-    if(
-      menuKind ===
-      'budget'
-    ){
-
-      budgets.push({
-
-        id:makeId(),
-
-        name:
-          settings.language === 'ar'
-            ? 'فئة جديدة'
-            : 'New category',
-
-        allocated:''
-      });
-
-      closeSheets();
-
-      renderBudgets();
-
-      calculate();
-
-      return;
-    }
-
-    $('optionsSheet')
-    .classList
-    .remove(
-      'show'
-    );
-
-    $('typeSheet')
-    .classList
-    .add(
-      'show'
-    );
-  }
-);
-
-$('optionDelete')
-.addEventListener(
-  'click',
-  () => {
-
-    const kind =
-      menuKind;
-
-    closeSheets();
-
-    activateDeleteMode(
-      kind
-    );
-  }
-);
-
-function activateDeleteMode(
-  kind
-){
-
-  exitDeleteMode();
-
-  cardForKind(kind)
-  ?.classList
-  .add(
-    'delete-mode'
-  );
+function activateDeleteMode(k){
+exitDeleteMode();
+cardForKind(k)?.classList.add('delete-mode')
 }
 
 function exitDeleteMode(){
-
-  document
-  .querySelectorAll(
-    '.delete-mode'
-  )
-  .forEach(
-    element =>
-      element
-      .classList
-      .remove(
-        'delete-mode'
-      )
-  );
+document.querySelectorAll('.delete-mode').forEach(e=>e.classList.remove('delete-mode'))
 }
 
-/* =========================
-   ADD FINANCIAL ITEM
-========================= */
-
-function addFinancialItem(
-  type
-){
-
-  if(
-    pendingAddKind ===
-    'allowance'
-  ){
-
-    allowances.push({
-
-      id:makeId(),
-
-      name:
-        settings.language ===
-        'ar'
-          ? 'بدل إضافي'
-          : 'New allowance',
-
-      type,
-
-      value:'',
-
-      system:false
-    });
-  }
-
-  else if(
-    pendingAddKind ===
-    'deduction'
-  ){
-
-    deductions.push({
-
-      id:makeId(),
-
-      name:
-        settings.language ===
-        'ar'
-          ? 'استقطاع جديد'
-          : 'New deduction',
-
-      type,
-
-      value:'',
-
-      system:false
-    });
-  }
-
-  else if(
-    pendingAddKind ===
-    'commitment'
-  ){
-
-    commitments.push({
-
-      id:makeId(),
-
-      name:
-        settings.language ===
-        'ar'
-          ? 'التزام جديد'
-          : 'New commitment',
-
-      type,
-
-      value:'',
-
-      system:false
-    });
-  }
-
-  closeSheets();
-
-  renderFinancialLists();
-
-  calculate();
+function addFinancial(type){
+const obj={
+id:makeId(),
+name:pendingAddKind==='allowance'?'بدل إضافي':pendingAddKind==='deduction'?'استقطاع جديد':'التزام جديد',
+type,
+value:'',
+system:false
+};
+sourceForKind(pendingAddKind).push(obj);
+closeSheets();
+renderFinancialLists();
+calculate()
 }
 
-$('choosePercent')
-.addEventListener(
-  'click',
-  () =>
-    addFinancialItem(
-      'percent'
-    )
-);
-
-$('chooseFixed')
-.addEventListener(
-  'click',
-  () =>
-    addFinancialItem(
-      'fixed'
-    )
-);
-
-/* =========================
-   BUDGETS
-========================= */
+choosePercent.onclick=()=>addFinancial('percent');
+chooseFixed.onclick=()=>addFinancial('fixed');
 
 function renderBudgets(){
+budgetList.innerHTML='';
 
-  const box =
-    $('budgetList');
-
-  box.innerHTML =
-    '';
-
-  budgets.forEach(
-    item => {
-
-      const spent =
-        spentForBudget(
-          item.id
-        );
-
-      const remaining =
-        numberValue(
-          item.allocated
-        )
-        -
-        spent;
-
-      const row =
-        document.createElement(
-          'div'
-        );
-
-      row.className =
-        'dynamic-row deletable';
-
-      row.dataset.id =
-        item.id;
-
-      row.innerHTML = `
-
-        <button
-          type="button"
-          class="handle"
-        >
-          ☰
-        </button>
-
-        <button
-          type="button"
-          class="delete-mark"
-        >
-          ×
-        </button>
-
-        <div class="item-body">
-
-          <div class="item-top">
-
-            <input
-              type="text"
-              dir="auto"
-              class="item-name"
-              value="${escapeHtml(item.name)}"
-            >
-
-          </div>
-
-          <div class="item-bottom">
-
-            <div class="budget-info">
-
-              <span class="remaining">
-
-                ${
-                  money(
-                    remaining
-                  )
-                }
-
-              </span>
-
-              <small>
-
-                ${t('spent')}
-                ${money(spent)}
-
-              </small>
-
-            </div>
-
-            <div class="budget-value">
-
-              <input
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                value="${escapeHtml(rawInputValue(item.allocated))}"
-              >
-
-              <span class="value-unit">
-                ⃁
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-      `;
-
-      const nameInput =
-        row.querySelector(
-          '.item-name'
-        );
-
-      const amountInput =
-        row.querySelector(
-          '.budget-value input'
-        );
-
-      const amountWrap =
-        row.querySelector(
-          '.budget-value'
-        );
-
-      resizeNumericWrap(
-        amountWrap,
-        amountInput
-      );
-
-      nameInput
-      .addEventListener(
-        'input',
-        () => {
-
-          item.name =
-            nameInput.value;
-
-          updateCategories();
-
-          save();
-        }
-      );
-
-      amountInput
-      .addEventListener(
-        'input',
-        () => {
-
-          const cleaned =
-            cleanNumericInput(
-              amountInput.value
-            );
-
-          item.allocated =
-            cleaned;
-
-          amountInput.value =
-            rawInputValue(
-              cleaned
-            );
-
-          resizeNumericWrap(
-            amountWrap,
-            amountInput
-          );
-
-          calculate();
-        }
-      );
-
-      row.querySelector(
-        '.delete-mark'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          const id =
-            item.id;
-
-          const index =
-            budgets.findIndex(
-              current =>
-                current.id ===
-                id
-            );
-
-          if(index !== -1){
-
-            budgets.splice(
-              index,
-              1
-            );
-          }
-
-          transactions =
-            transactions.filter(
-              transaction =>
-                transaction
-                .budgetId !== id
-            );
-
-          exitDeleteMode();
-
-          renderBudgets();
-
-          renderTransactions();
-
-          calculate();
-        }
-      );
-
-      setupHandle(
-        row.querySelector(
-          '.handle'
-        ),
-        row,
-        'budget'
-      );
-
-      box.appendChild(
-        row
-      );
-    }
-  );
-
-  updateCategories();
+if(!budgets.length){
+const empty=document.createElement('button');
+empty.type='button';
+empty.className='secondary-btn';
+empty.textContent='＋ إضافة أول فئة';
+empty.onclick=()=>{
+budgets.push({id:makeId(),name:'',allocated:'',subcategories:[]});
+renderBudgets();
+calculate()
+};
+budgetList.appendChild(empty);
+updateCategories();
+return
 }
+
+budgets.forEach(item=>{
+if(!Array.isArray(item.subcategories))item.subcategories=[];
+
+const spent=spentForBudget(item.id),
+rem=numberValue(item.allocated)-spent,
+r=document.createElement('div');
+
+r.className='dynamic-row deletable';
+r.dataset.id=item.id;
+
+r.innerHTML=`
+<button type="button" class="handle">☰</button>
+<button type="button" class="delete-mark">×</button>
+<div class="item-body">
+<div class="item-top">
+<input type="text" dir="auto" class="item-name" placeholder="اسم الفئة" value="${esc(item.name)}">
+</div>
+<div class="item-bottom">
+<div class="budget-info">
+<span class="remaining">${money(rem)}</span>
+<small>صرفت ${money(spent)}</small>
+</div>
+<div class="budget-value">
+<input type="text" inputmode="decimal" value="${esc(inputDigits(item.allocated))}">
+<span class="value-unit">⃁</span>
+</div>
+</div>
+</div>`;
+
+const ni=r.querySelector('.item-name'),
+ai=r.querySelector('.budget-value input'),
+aw=r.querySelector('.budget-value'),
+green=r.querySelector('.remaining');
+
+resizeWrap(aw,ai);
+
+ni.oninput=()=>{
+item.name=ni.value;
+updateCategories();
+save()
+};
+
+ai.oninput=()=>{
+item.allocated=cleanNumericInput(ai.value);
+ai.value=inputDigits(item.allocated);
+resizeWrap(aw,ai);
+green.textContent=money(numberValue(item.allocated)-spent);
+calculate(false)
+};
+
+r.querySelector('.delete-mark').onclick=()=>{
+const idx=budgets.findIndex(x=>x.id===item.id);
+if(idx>=0)budgets.splice(idx,1);
+transactions=transactions.filter(x=>x.budgetId!==item.id);
+exitDeleteMode();
+renderBudgets();
+renderTransactions();
+calculate()
+};
+
+setupHandle(r.querySelector('.handle'),r,'budget');
+r.querySelector('.handle').addEventListener('contextmenu',e=>e.preventDefault());
+budgetList.appendChild(r)
+});
+
+updateCategories()
+}
+
+function openSubcatManager(id){
+menuBudgetId=id;
+closeSheets();
+renderSubcatManager();
+showOverlay();
+subcatSheet.classList.add('show')
+}
+
+optionSubcats.onclick=()=>openSubcatManager(menuBudgetId);
+
+function renderSubcatManager(){
+const b=budgets.find(x=>x.id===menuBudgetId);
+subcatManager.innerHTML='';
+if(!b)return;
+
+const sugg=suggestedSubcats(b.name).filter(n=>!b.subcategories.some(s=>normalizeName(s.name)===normalizeName(n)));
+
+if(sugg.length){
+const w=document.createElement('div');
+w.className='subcat-row';
+
+sugg.forEach(n=>{
+const x=document.createElement('button');
+x.className='subcat-chip';
+x.type='button';
+x.textContent='+ '+n;
+x.onclick=()=>{
+b.subcategories.push({id:makeId(),name:n});
+renderSubcatManager();
+updateCategories();
+save()
+};
+w.appendChild(x)
+});
+
+subcatManager.appendChild(w)
+}
+
+b.subcategories.forEach(s=>{
+const row=document.createElement('div');
+row.className='setting-row';
+row.style='display:flex;gap:7px;padding:6px';
+
+row.innerHTML=`
+<input style="flex:1;height:40px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b;color:white;padding:0 10px" value="${esc(s.name)}">
+<button style="width:40px;border:0;border-radius:10px;background:rgba(82,27,36,.55);color:#bd6370">×</button>`;
+
+row.querySelector('input').oninput=e=>{
+s.name=e.target.value;
+updateCategories();
+save()
+};
+
+row.querySelector('button').onclick=()=>{
+b.subcategories=b.subcategories.filter(x=>x.id!==s.id);
+renderSubcatManager();
+updateCategories();
+save()
+};
+
+subcatManager.appendChild(row)
+})
+}
+
+addSubcatBtn.onclick=()=>{
+const b=budgets.find(x=>x.id===menuBudgetId);
+if(!b)return;
+b.subcategories.push({id:makeId(),name:'تفرع جديد'});
+renderSubcatManager();
+updateCategories();
+save()
+};
+
+subcatClose.onclick=closeSheets;
 
 function updateCategories(){
+const old=expenseCategory.value;
+expenseCategory.innerHTML='';
 
-  const select =
-    $('expenseCategory');
+budgets.forEach(b=>{
+const o=document.createElement('option');
+o.value=b.id;
+o.textContent=b.name||'فئة بدون اسم';
+expenseCategory.appendChild(o)
+});
 
-  const old =
-    select.value;
-
-  select.innerHTML =
-    '';
-
-  budgets.forEach(
-    budget => {
-
-      const option =
-        document.createElement(
-          'option'
-        );
-
-      option.value =
-        budget.id;
-
-      option.textContent =
-        budget.name;
-
-      select.appendChild(
-        option
-      );
-    }
-  );
-
-  if(
-    budgets.some(
-      budget =>
-        budget.id === old
-    )
-  ){
-
-    select.value =
-      old;
-  }
+if(budgets.some(b=>b.id===old))expenseCategory.value=old;
+updateSubcategorySelect();
+updateCompactCategory()
 }
 
-/* =========================
-   EXPENSES
-========================= */
+function updateSubcategorySelect(){
+const b=budgets.find(x=>x.id===expenseCategory.value);
+expenseSubcategory.innerHTML='';
 
-$('expenseForm')
-.addEventListener(
-  'submit',
-  event => {
+const none=document.createElement('option');
+none.value='';
+none.textContent='بدون تفرع';
+expenseSubcategory.appendChild(none);
 
-    event.preventDefault();
+(b?.subcategories||[]).forEach(s=>{
+const o=document.createElement('option');
+o.value=s.id;
+o.textContent=s.name;
+expenseSubcategory.appendChild(o)
+})
+}
 
-    const budgetId =
-      $('expenseCategory')
-      .value;
+expenseCategory.onchange=()=>{
+updateSubcategorySelect();
+updateCompactCategory()
+};
 
-    const cleaned =
-      cleanNumericInput(
-        $('expenseAmount')
-        .value
-      );
+expenseSubcategory.onchange=updateCompactCategory;
 
-    const amount =
-      numberValue(
-        cleaned
-      );
+function updateCompactCategory(){
+const b=budgets.find(x=>x.id===expenseCategory.value),
+s=b?.subcategories?.find(x=>x.id===expenseSubcategory.value);
 
-    const note =
-      $('expenseNote')
-      .value
-      .trim();
+compactCategory.textContent=b
+?(s?`${b.name} / ${s.name}`:b.name||'فئة بدون اسم')
+:'اختر الفئة'
+}
 
-    if(
-      !budgetId
-      ||
-      amount <= 0
-    ){
-      return;
-    }
+let editingTransactionId=null;
 
-    transactions.unshift({
+function openExpense(edit=null){
+expenseLauncher.classList.add('open');
 
-      id:makeId(),
+if(edit){
+editingTransactionId=edit.id;
+expenseCategory.value=edit.budgetId;
+updateSubcategorySelect();
+expenseSubcategory.value=edit.subcategoryId||'';
+expenseAmount.value=inputDigits(edit.amount);
+expenseNote.value=edit.note||'';
+expenseSubmit.textContent='حفظ التعديل'
+}else{
+editingTransactionId=null;
+expenseSubmit.textContent='تسجيل مصروف'
+}
 
-      budgetId,
+updateCompactCategory();
+setTimeout(()=>expenseAmount.focus(),80)
+}
 
-      amount,
+function closeExpense(){
+expenseLauncher.classList.remove('open');
+editingTransactionId=null;
+expenseSubmit.textContent='تسجيل مصروف'
+}
 
-      note,
+compactCategory.onclick=()=>openExpense();
 
-      createdAt:
-        new Date()
-        .toISOString()
-    });
+compactAmount.oninput=()=>{
+compactAmount.value=inputDigits(cleanNumericInput(compactAmount.value))
+};
 
-    $('expenseAmount').value =
-      '';
+quickSave.onclick=()=>{
+const amount=numberValue(compactAmount.value),
+bid=expenseCategory.value;
 
-    $('expenseNote').value =
-      '';
+if(!bid||amount<=0){
+openExpense();
+return
+}
 
-    renderBudgets();
+transactions.unshift({
+id:makeId(),
+budgetId:bid,
+subcategoryId:'',
+subcategoryName:'',
+amount,
+note:'',
+createdAt:new Date().toISOString()
+});
 
-    renderTransactions();
+compactAmount.value='';
+renderBudgets();
+renderTransactions();
+calculate()
+};
 
-    calculate();
-  }
-);
+expenseCancel.onclick=closeExpense;
 
-$('expenseAmount')
-.addEventListener(
-  'input',
-  () => {
+expenseAmount.oninput=()=>{
+expenseAmount.value=inputDigits(cleanNumericInput(expenseAmount.value))
+};
 
-    const cleaned =
-      cleanNumericInput(
-        $('expenseAmount')
-        .value
-      );
+expenseForm.onsubmit=e=>{
+e.preventDefault();
 
-    $('expenseAmount').value =
-      rawInputValue(
-        cleaned
-      );
-  }
-);
+const bid=expenseCategory.value,
+amount=numberValue(expenseAmount.value);
+
+if(!bid||amount<=0)return;
+
+const b=budgets.find(x=>x.id===bid),
+s=b?.subcategories?.find(x=>x.id===expenseSubcategory.value);
+
+if(editingTransactionId){
+const tr=transactions.find(x=>x.id===editingTransactionId);
+if(tr){
+tr.budgetId=bid;
+tr.subcategoryId=s?.id||'';
+tr.subcategoryName=s?.name||'';
+tr.amount=amount;
+tr.note=expenseNote.value.trim()
+}
+}else{
+transactions.unshift({
+id:makeId(),
+budgetId:bid,
+subcategoryId:s?.id||'',
+subcategoryName:s?.name||'',
+amount,
+note:expenseNote.value.trim(),
+createdAt:new Date().toISOString()
+})
+}
+
+expenseAmount.value='';
+expenseNote.value='';
+closeExpense();
+renderBudgets();
+renderTransactions();
+calculate()
+};
+
+let selectedTransactionId=null;
 
 function renderTransactions(){
+transactionList.innerHTML='';
+transactionCount.textContent=`${fmt(transactions.length,0)} عملية`;
 
-  const box =
-    $('transactionList');
-
-  box.innerHTML =
-    '';
-
-  $('transactionCount')
-  .textContent =
-
-    formatNumber(
-      transactions.length,
-      0
-    )
-
-    +
-
-    ' '
-
-    +
-
-    (
-      transactions.length ===
-      1
-        ? t('operation')
-        : t('operations')
-    );
-
-  if(
-    transactions.length ===
-    0
-  ){
-
-    const empty =
-      document.createElement(
-        'div'
-      );
-
-    empty.className =
-      'card';
-
-    empty.style.color =
-      'var(--muted)';
-
-    empty.style.textAlign =
-      'center';
-
-    empty.style.fontSize =
-      '11px';
-
-    empty.textContent =
-      t(
-        'noExpenses'
-      );
-
-    box.appendChild(
-      empty
-    );
-
-    return;
-  }
-
-  transactions.forEach(
-    transaction => {
-
-      const budget =
-        budgets.find(
-          item =>
-            item.id ===
-            transaction.budgetId
-        );
-
-      const category =
-        budget
-          ? budget.name
-          : '';
-
-      const locale =
-        settings.language ===
-        'ar'
-          ? 'ar-SA-u-ca-gregory'
-          : 'en-US';
-
-      const dateText =
-        new Intl.DateTimeFormat(
-          locale,
-          {
-            day:'numeric',
-            month:'short',
-            hour:'2-digit',
-            minute:'2-digit'
-          }
-        )
-        .format(
-          new Date(
-            transaction.createdAt
-          )
-        );
-
-      const row =
-        document.createElement(
-          'div'
-        );
-
-      row.className =
-        'transaction';
-
-      row.innerHTML = `
-
-        <div>
-
-          <h4>
-            ${escapeHtml(category)}
-          </h4>
-
-          <p>
-
-            ${
-              transaction.note
-                ? escapeHtml(
-                    transaction.note
-                  )
-                  +
-                  ' • '
-                : ''
-            }
-
-            ${escapeHtml(dateText)}
-
-          </p>
-
-        </div>
-
-        <div class="transaction-right">
-
-          <span class="transaction-amount">
-
-            -${money(transaction.amount)}
-
-          </span>
-
-          <button
-            type="button"
-            class="transaction-menu"
-          >
-            ⋯
-          </button>
-
-        </div>
-      `;
-
-      row.querySelector(
-        '.transaction-menu'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          const index =
-            transactions.findIndex(
-              current =>
-                current.id ===
-                transaction.id
-            );
-
-          if(index !== -1){
-
-            transactions.splice(
-              index,
-              1
-            );
-          }
-
-          renderTransactions();
-
-          renderBudgets();
-
-          calculate();
-        }
-      );
-
-      box.appendChild(
-        row
-      );
-    }
-  );
+if(!transactions.length){
+const e=document.createElement('div');
+e.className='card';
+e.style='color:var(--muted);text-align:center;font-size:11px';
+e.textContent='ما سجلت أي مصروف حتى الآن';
+transactionList.appendChild(e);
+return
 }
 
-/* =========================
-   CALCULATE
-========================= */
+transactions.forEach(tr=>{
+const b=budgets.find(x=>x.id===tr.budgetId),
+cat=b?.name||'',
+sub=tr.subcategoryName||b?.subcategories?.find(x=>x.id===tr.subcategoryId)?.name||'',
+date=new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(tr.createdAt)),
+r=document.createElement('div');
 
-function calculate(){
+r.className='transaction';
 
-  const result =
-    getTotals();
+r.innerHTML=`
+<div>
+<h4>${esc(sub?cat+' / '+sub:cat)}</h4>
+<p>${tr.note?esc(tr.note)+' • ':''}${esc(date)}</p>
+</div>
+<div class="transaction-right">
+<span class="transaction-amount">-${money(tr.amount)}</span>
+<button type="button" class="transaction-menu">⋯</button>
+</div>`;
 
-  $('allowancesTotal')
-  .textContent =
-    money(
-      result.allowanceTotal
-    );
+r.querySelector('.transaction-menu').onclick=()=>{
+selectedTransactionId=tr.id;
+showOverlay();
+transactionSheet.classList.add('show')
+};
 
-  $('allowancesPercent')
-  .textContent =
-
-    percentText(
-
-      result.salary > 0
-
-        ? result.allowanceTotal
-          /
-          result.salary
-          *
-          100
-
-        : 0
-    )
-
-    +
-
-    ' '
-
-    +
-
-    t(
-      'ofBasicSalary'
-    );
-
-  $('gross')
-  .textContent =
-    money(
-      result.gross
-    );
-
-  $('grossTop')
-  .textContent =
-    money(
-      result.gross
-    );
-
-  $('deductionsTotal')
-  .textContent =
-    money(
-      result.deductionTotal
-    );
-
-  $('deductionsPercent')
-  .textContent =
-
-    percentText(
-
-      result.gross > 0
-
-        ? result.deductionTotal
-          /
-          result.gross
-          *
-          100
-
-        : 0
-    )
-
-    +
-
-    ' '
-
-    +
-
-    t(
-      'ofTotalIncome'
-    );
-
-  $('afterDeductions')
-  .textContent =
-    money(
-      result.afterDeductions
-    );
-
-  $('commitmentsTotal')
-  .textContent =
-    money(
-      result.commitmentTotal
-    );
-
-  $('commitmentsPercent')
-  .textContent =
-
-    percentText(
-
-      result.gross > 0
-
-        ? result.commitmentTotal
-          /
-          result.gross
-          *
-          100
-
-        : 0
-    )
-
-    +
-
-    ' '
-
-    +
-
-    t(
-      'ofTotalIncome'
-    );
-
-  $('afterCommitments')
-  .textContent =
-    money(
-      result.afterCommitments
-    );
-
-  $('budgetAvailable')
-  .textContent =
-    money(
-      result.afterCommitments
-    );
-
-  $('unallocated')
-  .textContent =
-    money(
-      result.unallocated
-    );
-
-  $('remainingNumber')
-  .textContent =
-    formatNumber(
-      result.finalRemaining
-    );
-
-  $('spentTop')
-  .textContent =
-    money(
-      result.deductionTotal
-      +
-      result.commitmentTotal
-      +
-      result.transactionTotal
-    );
-
-  let remainingPercent =
-    result.gross > 0
-
-      ? result.finalRemaining
-        /
-        result.gross
-        *
-        100
-
-      : 0;
-
-  remainingPercent =
-    Math.max(
-      0,
-      Math.min(
-        100,
-        remainingPercent
-      )
-    );
-
-  $('remainPct')
-  .textContent =
-    percentText(
-      Math.round(
-        remainingPercent
-      )
-    );
-
-  $('orbit')
-  .style
-  .setProperty(
-    '--angle',
-    remainingPercent *
-    3.6
-    +
-    'deg'
-  );
-
-  updateRowAmounts();
-
-  save();
+transactionList.appendChild(r)
+})
 }
 
-function updateRowAmounts(){
+transactionDelete.onclick=()=>{
+const i=transactions.findIndex(x=>x.id===selectedTransactionId);
+if(i>=0)transactions.splice(i,1);
+closeSheets();
+renderTransactions();
+renderBudgets();
+calculate()
+};
 
-  const salary =
-    salaryValue();
+transactionEdit.onclick=()=>{
+const tr=transactions.find(x=>x.id===selectedTransactionId);
+closeSheets();
+if(tr)openExpense(tr)
+};
 
-  const update =
-    (
-      selector,
-      source
-    ) => {
+function calculate(updateBudgets=false){
+const r=getTotals();
 
-      document
-      .querySelectorAll(
-        selector
-      )
-      .forEach(
-        row => {
+allowancesTotal.textContent=money(r.allowanceTotal);
+allowancesPercent.textContent=pct(r.salary?r.allowanceTotal/r.salary*100:0)+' من الراتب الأساسي';
+gross.textContent=grossTop.textContent=money(r.gross);
 
-          const item =
-            source.find(
-              item =>
-                item.id ===
-                row.dataset.id
-            );
+deductionsTotal.textContent=money(r.deductionTotal);
+deductionsPercent.textContent=pct(r.gross?r.deductionTotal/r.gross*100:0)+' من إجمالي الدخل';
+afterDeductions.textContent=money(r.afterDeductions);
 
-          if(!item){
-            return;
-          }
+commitmentsTotal.textContent=money(r.commitmentTotal);
+commitmentsPercent.textContent=pct(r.gross?r.commitmentTotal/r.gross*100:0)+' من إجمالي الدخل';
+afterCommitments.textContent=budgetAvailable.textContent=money(r.afterCommitments);
 
-          row.querySelector(
-            '.item-amount'
-          )
-          .textContent =
-            money(
-              itemAmount(
-                item,
-                salary
-              )
-            );
-        }
-      );
-    };
+unallocated.textContent=money(r.unallocated);
+remainingNumber.textContent=fmt(r.finalRemaining);
 
-  update(
-    '#allowancesList .dynamic-row',
-    allowances
-  );
+spentTop.textContent=money(r.deductionTotal+r.commitmentTotal+r.transactionTotal);
 
-  update(
-    '#deductionsList .dynamic-row',
-    deductions
-  );
+let p=r.gross?Math.max(0,Math.min(100,r.finalRemaining/r.gross*100)):0;
 
-  update(
-    '#commitmentsList .dynamic-row',
-    commitments
-  );
+remainPct.textContent=pct(Math.round(p));
+orbit.style.setProperty('--angle',p*3.6+'deg');
+
+document.querySelectorAll('#allowancesList .dynamic-row').forEach(row=>{
+const i=allowances.find(x=>x.id===row.dataset.id);
+if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))
+});
+
+document.querySelectorAll('#deductionsList .dynamic-row').forEach(row=>{
+const i=deductions.find(x=>x.id===row.dataset.id);
+if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))
+});
+
+document.querySelectorAll('#commitmentsList .dynamic-row').forEach(row=>{
+const i=commitments.find(x=>x.id===row.dataset.id);
+if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))
+});
+
+if(updateBudgets)renderBudgets();
+save()
 }
 
-/* =========================
-   SALARY INPUT
-========================= */
-
-$('salary')
-.addEventListener(
-  'input',
-  () => {
-
-    const cleaned =
-      cleanNumericInput(
-        $('salary').value
-      );
-
-    $('salary').value =
-      rawInputValue(
-        cleaned
-      );
-
-    calculate();
-  }
-);
-
-/* =========================
-   SETTINGS
-========================= */
+salary.oninput=()=>{
+const c=cleanNumericInput(salary.value);
+salary.value=inputDigits(c);
+calculate()
+};
 
 function updateSettingsButtons(){
-
-  $('digitsEnglish')
-  .classList
-  .toggle(
-    'active',
-    settings.digits ===
-    'en'
-  );
-
-  $('digitsArabic')
-  .classList
-  .toggle(
-    'active',
-    settings.digits ===
-    'ar'
-  );
-
-  $('langArabic')
-  .classList
-  .toggle(
-    'active',
-    settings.language ===
-    'ar'
-  );
-
-  $('langEnglish')
-  .classList
-  .toggle(
-    'active',
-    settings.language ===
-    'en'
-  );
+digitsEnglish.classList.toggle('active',settings.digits==='en');
+digitsArabic.classList.toggle('active',settings.digits==='ar');
+langArabic.classList.toggle('active',settings.language==='ar');
+langEnglish.classList.toggle('active',settings.language==='en');
+paydayInput.value=inputDigits(String(settings.payday||''))
 }
 
-function applyLanguage(){
-
-  const isArabic =
-    settings.language ===
-    'ar';
-
-  document.documentElement.lang =
-    isArabic
-      ? 'ar'
-      : 'en';
-
-  document.documentElement.dir =
-    isArabic
-      ? 'rtl'
-      : 'ltr';
-
-  document
-  .querySelectorAll(
-    '[data-i18n]'
-  )
-  .forEach(
-    element => {
-
-      const key =
-        element.dataset.i18n;
-
-      element.textContent =
-        t(key);
-    }
-  );
-
-  document
-  .querySelectorAll(
-    '[data-placeholder-key]'
-  )
-  .forEach(
-    element => {
-
-      element.placeholder =
-        t(
-          element.dataset
-          .placeholderKey
-        );
-    }
-  );
-
-  updateDate();
-
-  updateSettingsButtons();
+function rerenderSettings(){
+const s=cleanNumericInput(salary.value);
+salary.value=inputDigits(s);
+updateSettingsButtons();
+renderFinancialLists();
+renderBudgets();
+renderTransactions();
+calculate();
+updateDate()
 }
 
-function rerenderForSettings(){
+settingsBtn.onclick=()=>{
+showOverlay();
+settingsSheet.classList.add('show');
+updateSettingsButtons()
+};
 
-  const salaryCanonical =
-    cleanNumericInput(
-      $('salary').value
-    );
+settingsClose.onclick=closeSheets;
 
-  $('salary').value =
-    rawInputValue(
-      salaryCanonical
-    );
+digitsEnglish.onclick=()=>{
+settings.digits='en';
+rerenderSettings()
+};
 
-  applyLanguage();
+digitsArabic.onclick=()=>{
+settings.digits='ar';
+rerenderSettings()
+};
 
-  renderFinancialLists();
+langArabic.onclick=()=>{
+settings.language='ar';
+rerenderSettings()
+};
 
-  renderBudgets();
+langEnglish.onclick=()=>{
+settings.language='en';
+rerenderSettings()
+};
 
-  renderTransactions();
+paydayInput.oninput=()=>{
+let v=parseInt(normalizeDigits(paydayInput.value),10);
 
-  calculate();
+if(!Number.isFinite(v)){
+settings.payday='';
+paydayInput.value='';
+save();
+return
 }
 
-$('settingsBtn')
-.addEventListener(
-  'click',
-  () => {
+v=Math.max(1,Math.min(31,v));
+settings.payday=v;
+paydayInput.value=inputDigits(String(v));
+currentCycleKey=cycleInfo().key;
+updateDate();
+save()
+};
 
-    showOverlay();
+notesBtn.onclick=()=>{
+notesArea.value=notes;
+showOverlay();
+notesSheet.classList.add('show');
+setTimeout(()=>notesArea.focus(),80)
+};
 
-    $('settingsSheet')
-    .classList
-    .add(
-      'show'
-    );
+notesArea.oninput=()=>{
+notes=notesArea.value;
+save()
+};
 
-    updateSettingsButtons();
-  }
-);
+notesClose.onclick=closeSheets;
 
-$('settingsClose')
-.addEventListener(
-  'click',
-  closeSheets
-);
+function renderArchive(){
+archiveList.innerHTML='';
 
-$('digitsEnglish')
-.addEventListener(
-  'click',
-  () => {
-
-    settings.digits =
-      'en';
-
-    rerenderForSettings();
-  }
-);
-
-$('digitsArabic')
-.addEventListener(
-  'click',
-  () => {
-
-    settings.digits =
-      'ar';
-
-    rerenderForSettings();
-  }
-);
-
-$('langArabic')
-.addEventListener(
-  'click',
-  () => {
-
-    settings.language =
-      'ar';
-
-    rerenderForSettings();
-  }
-);
-
-$('langEnglish')
-.addEventListener(
-  'click',
-  () => {
-
-    settings.language =
-      'en';
-
-    rerenderForSettings();
-  }
-);
-
-/* =========================
-   NAV
-========================= */
-
-function showPage(page){
-
-  if(
-    page !== 'p1'
-    &&
-    page !== 'p2'
-    &&
-    page !== 'p3'
-  ){
-
-    page =
-      'p1';
-  }
-
-  activePage =
-    page;
-
-  exitDeleteMode();
-
-  closeSheets();
-
-  document
-  .querySelectorAll(
-    '.page'
-  )
-  .forEach(
-    element =>
-      element
-      .classList
-      .remove(
-        'active'
-      )
-  );
-
-  document
-  .querySelectorAll(
-    '.nav button'
-  )
-  .forEach(
-    button =>
-      button
-      .classList
-      .remove(
-        'active'
-      )
-  );
-
-  $(page)
-  .classList
-  .add(
-    'active'
-  );
-
-  const button =
-    document.querySelector(
-      `.nav button[data-page="${page}"]`
-    );
-
-  button
-  ?.classList
-  .add(
-    'active'
-  );
-
-  document.body.className =
-    'page-' +
-    page;
-
-  save();
+if(!archives.length){
+archiveList.innerHTML='<div class="archive-empty">ما عندك دورات مؤرشفة إلى الآن</div>';
+return
 }
 
-document
-.querySelectorAll(
-  '.nav button'
-)
-.forEach(
-  button => {
+archives.forEach(a=>{
+const e=document.createElement('div');
+e.className='archive-entry';
 
-    button.addEventListener(
-      'click',
-      () => {
+const d=a.data||{},
+tx=Array.isArray(d.transactions)?d.transactions:[],
+start=new Date(a.key+'T12:00:00'),
+label=new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{month:'long',year:'numeric'}).format(start);
 
-        showPage(
-          button.dataset.page
-        );
+e.innerHTML=`
+<button type="button" class="archive-head">
+<span>${esc(label)}</span>
+<small>${money(a.totals?.remaining||0)}</small>
+</button>
+<div class="archive-body">
+إجمالي الدخل: ${money(a.totals?.gross||0)}<br>
+إجمالي الصرف: ${money(a.totals?.spent||0)}<br>
+المتبقي: ${money(a.totals?.remaining||0)}<br>
+عدد المصروفات: ${fmt(tx.length,0)}
+</div>`;
 
-        window.scrollTo(
-          0,
-          0
-        );
-      }
-    );
-  }
-);
+e.querySelector('.archive-head').onclick=()=>e.classList.toggle('open');
+archiveList.appendChild(e)
+})
+}
 
-/* =========================
-   DATE
-========================= */
+archiveBtn.onclick=()=>{
+renderArchive();
+showOverlay();
+archiveSheet.classList.add('show')
+};
+
+archiveClose.onclick=closeSheets;
+
+function showPage(p){
+if(!['p1','p2','p3'].includes(p))p='p1';
+
+activePage=p;
+
+exitDeleteMode();
+closeSheets();
+
+document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+
+$(p).classList.add('active');
+
+document.querySelector(`.nav button[data-page="${p}"]`)?.classList.add('active');
+
+document.body.className='page-'+p;
+
+save()
+}
+
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{
+showPage(b.dataset.page);
+window.scrollTo(0,0)
+});
 
 function updateDate(){
+const c=cycleInfo(),
+loc=settings.language==='en'?'en-US':'ar-SA-u-ca-gregory';
 
-  const now =
-    new Date();
+const sm=new Intl.DateTimeFormat(loc,{month:'short',day:'numeric'}).format(c.start),
+em=new Intl.DateTimeFormat(loc,{month:'short',day:'numeric',year:'numeric'}).format(c.end);
 
-  try{
-
-    const ar =
-      new Intl.DateTimeFormat(
-        'ar-SA-u-ca-gregory',
-        {
-          month:'long',
-          year:'numeric'
-        }
-      )
-      .format(now);
-
-    const en =
-      new Intl.DateTimeFormat(
-        'en-US',
-        {
-          month:'long',
-          year:'numeric'
-        }
-      )
-      .format(now);
-
-    if(
-      settings.language ===
-      'ar'
-    ){
-
-      $('monthLabel')
-      .textContent =
-        ar
-        +
-        ' • '
-        +
-        en;
-    }
-
-    else{
-
-      $('monthLabel')
-      .textContent =
-        en
-        +
-        ' • '
-        +
-        ar;
-    }
-
-  }catch(e){
-
-    $('monthLabel')
-    .textContent =
-      'Rasd';
-  }
+monthLabel.textContent=`${sm} — ${em}`
 }
 
-/* =========================
-   IOS DOUBLE TAP
-========================= */
+let lastTouchEnd=0;
 
-let lastTouchEnd =
-  0;
+document.addEventListener('touchend',e=>{
+const n=Date.now();
 
-document
-.addEventListener(
-  'touchend',
-  event => {
+if(
+n-lastTouchEnd<=300 &&
+!e.target.closest('input,textarea,select')
+){
+e.preventDefault()
+}
 
-    const now =
-      Date.now();
-
-    if(
-      now
-      -
-      lastTouchEnd
-      <=
-      300
-    ){
-
-      event.preventDefault();
-    }
-
-    lastTouchEnd =
-      now;
-  },
-  {
-    passive:false
-  }
-);
-
-/* =========================
-   START
-========================= */
+lastTouchEnd=n
+},{passive:false});
 
 load();
-
-applyLanguage();
-
+handleCycle();
+notesArea.value=notes;
+updateSettingsButtons();
+updateDate();
 renderFinancialLists();
-
 renderBudgets();
-
 renderTransactions();
-
 calculate();
-
-/*
-  يرجع لنفس آخر صفحة
-  كنت واقف عليها
-*/
-showPage(
-  activePage
-);
+showPage(activePage);
 </script>
-
 </body>
 </html>
