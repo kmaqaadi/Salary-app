@@ -14,16 +14,16 @@
 :root{--bg:#070913;--text:#f7f8ff;--muted:#8f96ae;--blue:#6098ff;--cyan:#63c7ff;--violet:#985cff;--green:#55e3a4;--red:#b84d5b;--line:rgba(255,255,255,.07)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{min-height:100%;background:radial-gradient(circle at 82% -5%,rgba(54,83,151,.30),transparent 36%),linear-gradient(180deg,#10172f 0,#080a15 36%,#070913 100%)}
 body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);background:transparent;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit;font-size:16px}button{cursor:pointer}input,select,textarea{min-width:0;outline:none}.app{max-width:720px;margin:auto;padding:calc(env(safe-area-inset-top) + 5px) 14px 110px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:44px;height:44px;flex:0 0 auto;overflow:hidden;border-radius:14px;box-shadow:0 8px 26px rgba(91,140,255,.22)}.logo img{display:block;width:100%;height:100%;object-fit:cover}.brand h1{margin:0;font-size:19px;line-height:1.15}.brand small{display:block;margin-top:3px;color:var(--muted);font-size:10px;white-space:nowrap}.header-actions{display:flex;gap:6px;direction:ltr}.icon-btn{width:42px;height:42px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(0,0,0,.12);color:#aeb6cc;font-size:21px;line-height:1}.settings-btn{font-size:25px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:44px;height:44px;flex:0 0 auto;overflow:hidden;border-radius:14px;box-shadow:0 8px 26px rgba(91,140,255,.22)}.logo img{display:block;width:100%;height:100%;object-fit:cover}.brand h1{margin:0;font-size:19px;line-height:1.15}.brand small{display:block;margin-top:3px;color:var(--muted);font-size:10px;white-space:nowrap}.header-actions{display:flex;gap:6px;direction:ltr}.icon-btn{width:42px;height:42px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(0,0,0,.12);color:#aeb6cc;line-height:1}.icon-btn svg{display:block;width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.notes-btn svg{width:26px;height:26px}.settings-btn svg{width:24px;height:24px}
 .hero{position:relative;overflow:hidden;padding:14px 16px;border:1px solid rgba(255,255,255,.09);border-radius:23px;background:linear-gradient(135deg,rgba(91,140,255,.20),rgba(152,92,255,.11) 50%,rgba(255,94,168,.06))}.hero::before{content:"";position:absolute;top:-115px;left:-90px;width:180px;height:180px;border-radius:50%;background:rgba(64,224,255,.10);filter:blur(22px)}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 82px;gap:10px;align-items:center}.hero-label{color:#b9bfd1;font-size:11px}.hero-money{display:flex;align-items:baseline;gap:5px;margin:5px 0;line-height:1;white-space:nowrap}#remainingNumber{font-size:30px;font-weight:900}.currency{color:#bec4d8;font-size:13px}.hero-sub{color:#939bb5;font-size:10px}.orbit{--angle:0deg;width:78px;height:78px;padding:6px;border-radius:50%;background:conic-gradient(from -90deg,var(--cyan) 0deg,var(--blue) var(--angle),rgba(255,255,255,.08) var(--angle),rgba(255,255,255,.08) 360deg)}.orbit-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.05);border-radius:50%;background:#0c0f1c}.orbit-inner strong{font-size:14px}.orbit-inner span{margin-top:2px;color:var(--muted);font-size:9px}.hero-stats,.p3-hero-summary{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.hero-stat,.p3-hero-mini{padding:9px 10px;border:1px solid rgba(255,255,255,.06);border-radius:13px;background:rgba(0,0,0,.14)}.hero-stat span,.p3-hero-mini span{display:block;margin-bottom:4px;color:var(--muted);font-size:9px}.hero-stat strong,.p3-hero-mini strong{color:#f7f8ff;font-size:12px}.hero .positive,.hero .negative{color:#f7f8ff!important}.p3-hero-summary{display:none}body.page-p3 .hero-stats{display:none}body.page-p3 .p3-hero-summary{display:grid}
-.page{display:none;margin-top:14px}.page.active{display:block}.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px 3px 8px}.section-title h2{margin:0;font-size:16px}.section-title span{color:var(--muted);font-size:10px}.card{padding:12px;margin-bottom:10px;border:1px solid var(--line);border-radius:21px;background:linear-gradient(180deg,rgba(255,255,255,.043),rgba(255,255,255,.024))}.list-card{padding-top:10px;padding-bottom:10px}.list-card .dynamic-row{padding-top:6px;padding-bottom:6px}.summary-card{padding-top:5px;padding-bottom:5px}.money-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 3px}.money-row>span{color:#9ea6bd;font-size:13px}.money-row strong{font-size:14px}.positive{color:var(--green)!important}.negative{color:var(--red)!important}.total-side{text-align:left}.substat{display:block;margin-top:3px;color:#7f89a8;font-size:10px}
-.salary-heading{margin:16px 3px 8px}.salary-heading h2{margin:0;font-size:16px}.salary-box{padding:0;border-radius:18px}.salary-input-wrap{position:relative;display:flex;align-items:center}.salary-input{width:100%;height:56px;padding:0 14px 0 50px;border:0;border-radius:18px;background:#0c0f1b;color:white;text-align:right;font-size:17px}.input-unit{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#747d99;font-size:13px;white-space:nowrap;pointer-events:none}
+.page{display:none;margin-top:14px}.page.active{display:block}.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px 3px 8px}.section-title h2{margin:0;font-size:16px}.section-title span{color:var(--muted);font-size:10px}.card{padding:12px;margin-bottom:10px;border:1px solid var(--line);border-radius:21px;background:linear-gradient(180deg,rgba(255,255,255,.043),rgba(255,255,255,.024))}.list-card{padding-top:7px;padding-bottom:7px}.list-card .dynamic-row{padding-top:5px;padding-bottom:5px}.summary-card{padding-top:1px;padding-bottom:1px}.money-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 3px}.summary-card .money-row{padding-top:5px;padding-bottom:5px}.money-row>span{color:#9ea6bd;font-size:13px}.money-row strong{font-size:14px}.positive{color:var(--green)!important}.negative{color:var(--red)!important}.total-side{text-align:left}.substat{display:block;margin-top:3px;color:#7f89a8;font-size:10px}
+.salary-heading{margin:16px 3px 8px}.salary-heading h2{margin:0;font-size:16px}.salary-box{padding:0;border-radius:18px}.salary-input-wrap{position:relative;display:flex;align-items:center}.salary-input{width:100%;height:50px;padding:0 14px 0 50px;border:0;border-radius:18px;background:#0c0f1b;color:white;text-align:right;font-size:17px}.input-unit{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#747d99;font-size:13px;white-space:nowrap;pointer-events:none}
 .dynamic-list{display:flex;flex-direction:column;gap:1px}.dynamic-row{position:relative;display:grid;grid-template-columns:30px minmax(0,1fr);gap:7px;padding:8px 0;border:0!important;transition:background .15s ease,opacity .15s ease}.dynamic-row.dragging{z-index:20;opacity:.82;border-radius:13px;background:rgba(91,140,255,.10)}.handle{width:30px;height:36px;padding:0;border:0;background:transparent;color:#68728e;font-size:18px;touch-action:none;user-select:none;-webkit-user-select:none}.handle.drag-ready{color:#8eaaff}.item-body{min-width:0}.item-top{display:flex;align-items:center}.item-name{width:100%;min-width:0;padding:1px 0;border:0;background:transparent;color:white;text-align:right;font-size:14px;font-weight:700}.item-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px}.item-amount{color:var(--cyan);font-size:14px;font-weight:800;white-space:nowrap}.controls{display:flex;align-items:center;gap:5px;flex:0 0 auto;transition:transform .16s ease}.mode{width:56px;height:31px;padding:0;border:1px solid var(--line);border-radius:10px;background:#0c0f1b;color:#aab2ca;font-size:10px;font-weight:700}.mode.locked{pointer-events:none}.value-wrap{display:flex;align-items:center;justify-content:center;gap:2px;width:53px;height:31px;padding:0 4px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b}.value-wrap input{width:100%;height:100%;padding:0;border:0;background:transparent;color:white;text-align:center;font-size:14px;line-height:1}.value-unit{flex:0 0 auto;color:#707894;font-size:9px;line-height:1;white-space:nowrap;pointer-events:none}.value-wrap.long input,.budget-value.long input{font-size:11.5px}.value-wrap.very-long input,.budget-value.very-long input{font-size:9.5px}.delete-mark{position:absolute;left:0;bottom:6px;z-index:10;display:none;width:29px;height:29px;padding:0;border:1px solid rgba(150,57,70,.22);border-radius:9px;background:rgba(82,27,36,.55);color:#bd6370;font-size:17px;line-height:1}.delete-mode .dynamic-row.deletable .delete-mark{display:block}.delete-mode .dynamic-row.deletable .handle{visibility:hidden}.delete-mode .dynamic-row.deletable .item-bottom{padding-left:32px}.delete-mode .dynamic-row.deletable .controls{transform:translateX(5px)}.hint{margin-top:6px;color:#626c86;font-size:9px;text-align:center}
 .budget-info{display:flex;flex-direction:column;gap:2px}.budget-info .remaining{color:var(--green);font-size:14px;font-weight:800}.budget-info small{color:var(--muted);font-size:9px}.budget-value{display:flex;align-items:center;justify-content:center;gap:3px;width:74px;height:33px;padding:0 5px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b}.budget-value input{width:100%;height:100%;padding:0;border:0;background:transparent;color:white;text-align:center;font-size:14px}.subcat-row{display:flex;gap:5px;align-items:center;margin-top:5px;overflow:auto;padding-bottom:2px}.subcat-chip{flex:0 0 auto;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:#0c0f1b;color:#858da6;padding:5px 8px;font-size:9px}.subcat-chip.active{color:white;border-color:rgba(91,140,255,.30);background:rgba(91,140,255,.12)}.subcat-add{color:#8eaaff}
-.expense-launcher{position:sticky;bottom:82px;z-index:40;margin-top:10px;padding:8px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:rgba(13,16,29,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.expense-compact{display:grid;grid-template-columns:auto 1fr 94px;gap:7px;align-items:center}.expense-compact button,.expense-compact .compact-category,.expense-compact input{height:42px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:white}.compact-category{display:flex;align-items:center;padding:0 11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.compact-amount{width:100%;padding:0 10px;text-align:center}.quick-save{width:46px;background:rgba(91,140,255,.15)!important;color:#b9c8ff!important;font-weight:900}.expense-expanded{display:none;padding-top:8px}.expense-launcher.open .expense-expanded{display:grid;gap:8px}.expense-launcher.open .expense-compact{display:none}.expense-form select,.expense-form input{width:100%;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:white}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.primary-btn{width:100%;min-height:44px;border:1px solid rgba(91,140,255,.28);border-radius:12px;background:rgba(91,140,255,.12);color:#a8bcff;font-size:13px;font-weight:800}.secondary-btn{width:100%;min-height:42px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:#9aa3bb}.transaction-list{display:flex;flex-direction:column;gap:8px}.transaction{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:14px;background:#0c0f1b}.transaction h4{margin:0 0 4px;font-size:13px}.transaction p{margin:0;color:var(--muted);font-size:9px}.transaction-right{display:flex;align-items:center;gap:8px}.transaction-amount{color:var(--red);font-size:13px;font-weight:800}.transaction-menu{width:34px;height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.04);color:#7f89a8}
-.overlay{position:fixed;inset:0;z-index:150;display:none;background:rgba(0,0,0,.48);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}.overlay.show{display:block}.sheet{position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom));left:14px;z-index:151;display:none;max-width:690px;padding:8px;margin:auto;border:1px solid rgba(255,255,255,.08);border-radius:19px;background:#111522;box-shadow:0 18px 50px rgba(0,0,0,.4)}.sheet.show{display:block}.sheet-title{padding:11px;color:#8f96ae;text-align:center;font-size:11px}.sheet>button{width:100%;min-height:48px;border:0;border-bottom:1px solid rgba(255,255,255,.06);background:transparent;color:white;font-size:14px}.sheet>button:last-child{border-bottom:0}.sheet .danger{color:#c25e6c}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px}.choice-grid button{min-height:52px;border:1px solid rgba(91,140,255,.20);border-radius:14px;background:rgba(91,140,255,.08);color:#b2c2ff;font-weight:800}.settings-sheet{bottom:auto;top:calc(env(safe-area-inset-top) + 56px)}.settings-group{padding:9px}.settings-group+.settings-group{border-top:1px solid rgba(255,255,255,.06)}.settings-label{display:block;margin-bottom:8px;color:#8f96ae;font-size:10px}.segment{display:grid;grid-template-columns:1fr 1fr;gap:6px}.segment button{min-height:43px;border:1px solid rgba(255,255,255,.06);border-radius:11px;background:#0d111e;color:#8992aa;font-size:12px}.segment button.active{border-color:rgba(91,140,255,.25);background:rgba(91,140,255,.14);color:white}.payday-input{width:100%;height:43px;border:1px solid var(--line);border-radius:11px;background:#0d111e;color:white;padding:0 12px;text-align:center}.notes-sheet,.archive-sheet{top:calc(env(safe-area-inset-top) + 56px);bottom:calc(82px + env(safe-area-inset-bottom));overflow:auto}.notes-area{width:100%;min-height:45vh;resize:none;border:1px solid var(--line);border-radius:14px;background:#0c0f1b;color:white;padding:13px;line-height:1.7}.save-state{margin-top:7px;text-align:center;color:#68728e;font-size:9px}.archive-entry{border:1px solid var(--line);border-radius:14px;background:#0c0f1b;margin:7px 0;overflow:hidden}.archive-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:0;background:transparent;color:white;text-align:right}.archive-head small{color:var(--muted)}.archive-body{display:none;padding:0 12px 12px;color:#9ea6bd;font-size:11px;line-height:1.8}.archive-entry.open .archive-body{display:block}.archive-empty{padding:20px;text-align:center;color:var(--muted);font-size:11px}
+.expense-launcher{position:sticky;bottom:82px;z-index:40;margin-top:10px;padding:8px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:rgba(13,16,29,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.expense-compact{display:grid;grid-template-columns:auto 1fr 94px;gap:7px;align-items:center}.expense-compact button,.expense-compact .compact-category,.expense-compact input{height:42px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:white}.compact-category{display:flex;align-items:center;padding:0 11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.compact-amount{width:100%;padding:0 10px;text-align:center}.quick-save{width:46px;background:rgba(91,140,255,.15)!important;color:#b9c8ff!important;font-weight:900}.expense-expanded{display:none;padding-top:8px}.expense-launcher.open .expense-expanded{display:grid;gap:8px}.expense-launcher.open .expense-compact{display:none}.category-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.expense-form select,.expense-form input{width:100%;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:white}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.primary-btn{width:100%;min-height:44px;border:1px solid rgba(91,140,255,.28);border-radius:12px;background:rgba(91,140,255,.12);color:#a8bcff;font-size:13px;font-weight:800}.secondary-btn{width:100%;min-height:42px;border:1px solid var(--line);border-radius:12px;background:#0c0f1b;color:#9aa3bb}.transaction-list{display:flex;flex-direction:column;gap:8px}.transaction{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:14px;background:#0c0f1b}.transaction h4{margin:0 0 4px;font-size:13px}.transaction p{margin:0;color:var(--muted);font-size:9px}.transaction-right{display:flex;align-items:center;gap:8px}.transaction-amount{color:var(--red);font-size:13px;font-weight:800}.transaction-menu{width:34px;height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.04);color:#7f89a8}
+.overlay{position:fixed;inset:0;z-index:150;display:none;background:rgba(0,0,0,.48);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}.overlay.show{display:block}.sheet{position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom));left:14px;z-index:151;display:none;max-width:690px;padding:8px;margin:auto;border:1px solid rgba(255,255,255,.08);border-radius:19px;background:#111522;box-shadow:0 18px 50px rgba(0,0,0,.4)}.sheet.show{display:block}.sheet-title{padding:11px;color:#8f96ae;text-align:center;font-size:11px}.sheet>button{width:100%;min-height:48px;border:0;border-bottom:1px solid rgba(255,255,255,.06);background:transparent;color:white;font-size:14px}.sheet>button:last-child{border-bottom:0}.sheet .danger{color:#c25e6c}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px}.choice-grid button{min-height:52px;border:1px solid rgba(91,140,255,.20);border-radius:14px;background:rgba(91,140,255,.08);color:#b2c2ff;font-weight:800}.settings-sheet{bottom:auto;top:calc(env(safe-area-inset-top) + 56px)}.settings-group{padding:9px}.settings-group+.settings-group{border-top:1px solid rgba(255,255,255,.06)}.settings-label{display:block;margin-bottom:8px;color:#8f96ae;font-size:10px}.segment{display:grid;grid-template-columns:1fr 1fr;gap:6px}.segment button{min-height:43px;border:1px solid rgba(255,255,255,.06);border-radius:11px;background:#0d111e;color:#8992aa;font-size:12px}.segment button.active{border-color:rgba(91,140,255,.25);background:rgba(91,140,255,.14);color:white}.payday-input{width:100%;height:43px;border:1px solid var(--line);border-radius:11px;background:#0d111e;color:white;padding:0 12px;text-align:center}.notes-sheet,.archive-sheet{top:calc(env(safe-area-inset-top) + 56px);bottom:calc(82px + env(safe-area-inset-bottom));overflow:auto}.notes-area{width:100%;min-height:45vh;resize:none;border:1px solid var(--line);border-radius:14px;background:#0c0f1b;color:white;padding:13px;line-height:1.7;direction:rtl;text-align:right}.save-state{margin-top:7px;text-align:center;color:#68728e;font-size:9px}.archive-entry{border:1px solid var(--line);border-radius:14px;background:#0c0f1b;margin:7px 0;overflow:hidden}.archive-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:0;background:transparent;color:white;text-align:right}.archive-head small{color:var(--muted)}.archive-body{display:none;padding:0 12px 12px;color:#9ea6bd;font-size:11px;line-height:1.8}.archive-entry.open .archive-body{display:block}.archive-empty{padding:20px;text-align:center;color:var(--muted);font-size:11px}
 .nav{position:fixed;z-index:99;right:0;bottom:0;left:0;width:min(720px,100%);display:grid;grid-template-columns:repeat(3,1fr);padding:9px 13px calc(9px + env(safe-area-inset-bottom));margin:auto;border-top:1px solid rgba(255,255,255,.07);background:rgba(8,10,19,.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}.nav button{height:57px;border:0;border-radius:16px;background:transparent;color:#6e7691;font-size:11px;font-weight:700}.nav button b{display:block;margin-bottom:2px;font-size:21px;font-weight:500}.nav button.active{color:white;background:linear-gradient(135deg,rgba(91,140,255,.18),rgba(152,92,255,.12))}
-@media(max-width:430px){.app{padding-left:13px;padding-right:13px}.header-actions{gap:4px}.icon-btn{width:39px;height:39px;border-radius:12px}.settings-btn{font-size:24px}.brand{gap:8px}.logo{width:42px;height:42px}.expense-compact{grid-template-columns:auto 1fr 88px}}@media(max-width:380px){.app{padding-left:11px;padding-right:11px}#remainingNumber{font-size:27px}.mode{width:53px}.value-wrap{width:50px}.icon-btn{width:36px;height:36px}.header-actions{gap:3px}.brand h1{font-size:18px}}
+@media(max-width:430px){.app{padding-left:13px;padding-right:13px}.header-actions{gap:4px}.icon-btn{width:39px;height:39px;border-radius:12px}.brand{gap:8px}.logo{width:42px;height:42px}.expense-compact{grid-template-columns:auto 1fr 88px}}@media(max-width:380px){.app{padding-left:11px;padding-right:11px}#remainingNumber{font-size:27px}.mode{width:53px}.value-wrap{width:50px}.icon-btn{width:36px;height:36px}.header-actions{gap:3px}.brand h1{font-size:18px}}
 </style>
 </head>
 <body class="page-p1">
@@ -31,9 +31,9 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);background:tr
 <header class="topbar">
   <div class="brand"><div class="logo"><img src="icon.png.PNG" alt="رصد"></div><div><h1>رصد</h1><small id="monthLabel"></small></div></div>
   <div class="header-actions">
-    <button id="archiveBtn" class="icon-btn" type="button" aria-label="الأرشيف">▣</button>
-    <button id="notesBtn" class="icon-btn" type="button" aria-label="الملاحظات">✎</button>
-    <button id="settingsBtn" class="icon-btn settings-btn" type="button" aria-label="الإعدادات">⚙</button>
+    <button id="archiveBtn" class="icon-btn archive-btn" type="button" aria-label="الأرشيف"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h16v12.5H4z"/><path d="M3 4h18v3.5H3z"/><path d="M9.5 11.5h5"/></svg></button>
+    <button id="notesBtn" class="icon-btn notes-btn" type="button" aria-label="الملاحظات"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4.2L19 9.2a2.2 2.2 0 0 0-3.1-3.1L5.1 16.9 4 20z"/><path d="m14.7 7.3 3 3"/></svg></button>
+    <button id="settingsBtn" class="icon-btn settings-btn" type="button" aria-label="الإعدادات"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.86 2.86-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.08A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06L3.8 16.94l.06-.06A1.7 1.7 0 0 0 4.2 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H2.4v-4h.08A1.7 1.7 0 0 0 4.2 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06L6.66 3.8l.06.06A1.7 1.7 0 0 0 8.6 4.2a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V2.4h4v.08A1.7 1.7 0 0 0 15 4.2a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.86 2.86-.06.06A1.7 1.7 0 0 0 19.4 8.6a1.7 1.7 0 0 0 .6 1 1.7 1.7 0 0 0 1.1.4h.1v4h-.08A1.7 1.7 0 0 0 19.4 15z"/></svg></button>
   </div>
 </header>
 <div class="hero">
@@ -64,14 +64,13 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);background:tr
   <div id="expenseLauncher" class="expense-launcher">
     <div id="expenseCompact" class="expense-compact"><button id="quickSave" class="quick-save" type="button">✓</button><div id="compactCategory" class="compact-category">اختر الفئة</div><input id="compactAmount" class="compact-amount" type="text" inputmode="decimal" placeholder="0"></div>
     <div class="expense-expanded"><form id="expenseForm" class="expense-form">
-      <select id="expenseCategory" required></select><select id="expenseSubcategory"></select>
+      <div class="category-grid"><select id="expenseCategory" required></select><select id="expenseSubcategory"></select></div>
       <div class="form-grid"><input id="expenseAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="المبلغ" required><input id="expenseNote" type="text" dir="auto" placeholder="ملاحظة"></div>
       <button id="expenseSubmit" type="submit" class="primary-btn">تسجيل مصروف</button><button id="expenseCancel" type="button" class="secondary-btn">إلغاء</button>
     </form></div>
   </div>
 </section>
 </div>
-
 <div id="overlay" class="overlay"></div>
 <div id="optionsSheet" class="sheet"><div id="optionsTitle" class="sheet-title">خيارات</div><button id="optionAdd" type="button">إضافة</button><button id="optionSubcats" type="button">التفرعات</button><button id="optionDelete" type="button" class="danger">حذف</button><button id="optionCancel" type="button">إلغاء</button></div>
 <div id="typeSheet" class="sheet"><div class="sheet-title">اختر نوع القيمة</div><div class="choice-grid"><button id="choosePercent" type="button">نسبة</button><button id="chooseFixed" type="button">مبلغ ثابت</button></div><button id="typeCancel" type="button">إلغاء</button></div>
@@ -83,19 +82,14 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);background:tr
   <div class="settings-group"><span class="settings-label">يوم نزول الراتب</span><input id="paydayInput" class="payday-input" type="text" inputmode="numeric" placeholder="مثال: 27"></div>
   <button id="settingsClose" type="button">إغلاق</button>
 </div>
-<div id="notesSheet" class="sheet notes-sheet"><div class="sheet-title">ملاحظاتي وأهدافي</div><div class="settings-group"><textarea id="notesArea" class="notes-area" placeholder="اكتب أهدافك وخططك هنا..."></textarea><div class="save-state">يتم الحفظ تلقائيًا</div></div><button id="notesClose" type="button">إغلاق</button></div>
+<div id="notesSheet" class="sheet notes-sheet"><div class="sheet-title">ملاحظاتي وأهدافي</div><div class="settings-group"><textarea id="notesArea" class="notes-area" dir="rtl" placeholder="اكتب أهدافك وخططك هنا..."></textarea><div class="save-state">يتم الحفظ تلقائيًا</div></div><button id="notesClose" type="button">إغلاق</button></div>
 <div id="archiveSheet" class="sheet archive-sheet"><div class="sheet-title">أرشيف دورات الراتب</div><div id="archiveList"></div><button id="archiveClose" type="button">إغلاق</button></div>
 <nav class="nav"><button type="button" data-page="p1"><b>◉</b><span>الراتب</span></button><button type="button" data-page="p2"><b>⌁</b><span>الالتزامات</span></button><button type="button" data-page="p3"><b>◌</b><span>المصروفات</span></button></nav>
-
 <script>
-const $=id=>document.getElementById(id);
-const makeId=()=> 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2);
-
+const $=id=>document.getElementById(id);const makeId=()=> 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2);
 const allowancesList=$('allowancesList'),deductionsList=$('deductionsList'),commitmentsList=$('commitmentsList'),budgetList=$('budgetList'),overlay=$('overlay'),optionsTitle=$('optionsTitle'),optionAdd=$('optionAdd'),optionSubcats=$('optionSubcats'),optionDelete=$('optionDelete'),optionCancel=$('optionCancel'),optionsSheet=$('optionsSheet'),typeSheet=$('typeSheet'),typeCancel=$('typeCancel'),choosePercent=$('choosePercent'),chooseFixed=$('chooseFixed'),transactionSheet=$('transactionSheet'),transactionEdit=$('transactionEdit'),transactionDelete=$('transactionDelete'),transactionCancel=$('transactionCancel'),subcatSheet=$('subcatSheet'),subcatManager=$('subcatManager'),addSubcatBtn=$('addSubcatBtn'),subcatClose=$('subcatClose'),expenseLauncher=$('expenseLauncher'),expenseCategory=$('expenseCategory'),expenseSubcategory=$('expenseSubcategory'),compactCategory=$('compactCategory'),compactAmount=$('compactAmount'),quickSave=$('quickSave'),expenseForm=$('expenseForm'),expenseAmount=$('expenseAmount'),expenseNote=$('expenseNote'),expenseSubmit=$('expenseSubmit'),expenseCancel=$('expenseCancel'),transactionList=$('transactionList'),transactionCount=$('transactionCount'),salary=$('salary'),allowancesTotal=$('allowancesTotal'),allowancesPercent=$('allowancesPercent'),gross=$('gross'),grossTop=$('grossTop'),deductionsTotal=$('deductionsTotal'),deductionsPercent=$('deductionsPercent'),afterDeductions=$('afterDeductions'),commitmentsTotal=$('commitmentsTotal'),commitmentsPercent=$('commitmentsPercent'),afterCommitments=$('afterCommitments'),budgetAvailable=$('budgetAvailable'),unallocated=$('unallocated'),remainingNumber=$('remainingNumber'),spentTop=$('spentTop'),remainPct=$('remainPct'),orbit=$('orbit'),settingsBtn=$('settingsBtn'),settingsSheet=$('settingsSheet'),settingsClose=$('settingsClose'),digitsEnglish=$('digitsEnglish'),digitsArabic=$('digitsArabic'),langArabic=$('langArabic'),langEnglish=$('langEnglish'),paydayInput=$('paydayInput'),notesBtn=$('notesBtn'),notesSheet=$('notesSheet'),notesArea=$('notesArea'),notesClose=$('notesClose'),archiveBtn=$('archiveBtn'),archiveSheet=$('archiveSheet'),archiveList=$('archiveList'),archiveClose=$('archiveClose'),monthLabel=$('monthLabel');
-
 let settings={digits:'en',language:'ar',payday:27},notes='',archives=[],currentCycleKey='';
 const AR='٠١٢٣٤٥٦٧٨٩',FA='۰۱۲۳۴۵۶۷۸۹';
-
 function normalizeDigits(v){return String(v??'').replace(/[٠-٩]/g,d=>AR.indexOf(d)).replace(/[۰-۹]/g,d=>FA.indexOf(d)).replace(/٫/g,'.').replace(/[٬,]/g,'')}
 function cleanNumericInput(v){v=normalizeDigits(v).replace(/[^0-9.]/g,'');const i=v.indexOf('.');if(i!==-1)v=v.slice(0,i+1)+v.slice(i+1).replace(/\./g,'');if(v.includes('.')){let [w,d]=v.split('.');w=w.replace(/^0+(?=\d)/,'')||'0';return w+'.'+d}return v.replace(/^0+/,'')}
 function numberValue(v){const n=Number(normalizeDigits(v));return Number.isFinite(n)?Math.max(0,n):0}
@@ -104,21 +98,11 @@ function fmt(v,d=2){return new Intl.NumberFormat(settings.digits==='ar'?'ar-SA':
 function money(v){return fmt(v,2)+' ⃁'}
 function pct(v){return fmt(v,1)+(settings.digits==='ar'?'٪':'%')}
 function esc(v){return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}
-
-function defaultAllowances(){return[
-{id:makeId(),name:'بدل المواصلات',type:'percent',value:'10',system:true,systemKey:'transport'},
-{id:makeId(),name:'بدل السكن',type:'percent',value:'25',system:true,systemKey:'housing'}
-]}
+function defaultAllowances(){return[{id:makeId(),name:'بدل المواصلات',type:'percent',value:'10',system:true,systemKey:'transport'},{id:makeId(),name:'بدل السكن',type:'percent',value:'25',system:true,systemKey:'housing'}]}
 function defaultDeductions(){return[{id:makeId(),name:'استقطاع التأمينات',type:'fixed',value:'',system:true,systemKey:'insurance'}]}
-function defaultCommitments(){return[
-{id:makeId(),name:'قسط / قرض',type:'fixed',value:'',system:false},
-{id:makeId(),name:'إيجار',type:'fixed',value:'',system:false},
-{id:makeId(),name:'التزامات أخرى',type:'fixed',value:'',system:false}
-]}
+function defaultCommitments(){return[{id:makeId(),name:'قسط / قرض',type:'fixed',value:'',system:false},{id:makeId(),name:'إيجار',type:'fixed',value:'',system:false},{id:makeId(),name:'التزامات أخرى',type:'fixed',value:'',system:false}]}
 function defaultBudgets(){return[]}
-
 let allowances=defaultAllowances(),deductions=defaultDeductions(),commitments=defaultCommitments(),budgets=defaultBudgets(),transactions=[],activePage='p1';
-
 const suggestionMap={
 'البيت':['مقاضي','منظفات','أثاث وأدوات','صيانة','غاز','أخرى'],
 'مقاضي البيت':['مواد غذائية','منظفات','مستلزمات منزلية','أخرى'],
@@ -134,942 +118,87 @@ const suggestionMap={
 'صحة ورياضة':['نادي','مكملات','علاج','فحوصات','أخرى'],
 'خيري':['صدقة','تبرع','زكاة']
 };
-
 function normalizeName(s){return String(s||'').trim().replace(/\s+/g,' ')}
 function suggestedSubcats(name){return suggestionMap[normalizeName(name)]||[]}
-
 function snapshot(){return{salary:normalizeDigits($('salary')?.value||''),allowances,deductions,commitments,budgets,transactions,settings,notes,activePage}}
 function save(){try{localStorage.setItem('salaryApp',JSON.stringify({version:8,...snapshot(),archives,currentCycleKey}))}catch(e){}}
 function normItem(i,f){return{id:i.id||makeId(),name:i.name||f,type:i.type==='percent'?'percent':'fixed',value:i.value===''||i.value==null?'':cleanNumericInput(i.value),system:i.system===true,systemKey:i.systemKey||null}}
-
-function load(){
-let d;
-try{d=JSON.parse(localStorage.getItem('salaryApp'))}catch(e){}
-if(!d)return;
-if(d.settings)settings={...settings,...d.settings};
-if(d.notes!=null)notes=d.notes;
-if(Array.isArray(d.archives))archives=d.archives;
-if(d.currentCycleKey)currentCycleKey=d.currentCycleKey;
-if(['p1','p2','p3'].includes(d.activePage))activePage=d.activePage;
-if(d.salary!=null)$('salary').value=inputDigits(cleanNumericInput(d.salary));
-if(Array.isArray(d.allowances))allowances=d.allowances.map(i=>normItem(i,'بدل'));
-
-if(Array.isArray(d.deductions))deductions=d.deductions.map(i=>normItem(i,'استقطاع'));
-else if(Array.isArray(d.commitments)){
-const old=d.commitments.map(i=>normItem(i,'التزام'));
-const ins=old.filter(i=>i.systemKey==='insurance'||String(i.name).includes('التأمين'));
-deductions=ins.length?ins.map(i=>({...i,system:true,systemKey:'insurance'})):defaultDeductions();
-commitments=old.filter(i=>!ins.includes(i)).map(i=>({...i,system:false,systemKey:null}))
-}
-
-if(Array.isArray(d.commitments)&&Array.isArray(d.deductions))commitments=d.commitments.map(i=>normItem(i,'التزام'));
-
-if(Array.isArray(d.budgets))budgets=d.budgets.map(i=>({
-id:i.id||makeId(),
-name:i.name||'فئة',
-allocated:i.allocated==null?'':cleanNumericInput(i.allocated),
-subcategories:Array.isArray(i.subcategories)?i.subcategories.map(s=>({id:s.id||makeId(),name:s.name||'تفرع'})):[]
-}));
-
-if(Array.isArray(d.transactions))transactions=d.transactions.map(i=>({
-id:i.id||makeId(),
-budgetId:i.budgetId||'',
-subcategoryId:i.subcategoryId||'',
-subcategoryName:i.subcategoryName||'',
-amount:numberValue(i.amount),
-note:i.note||'',
-createdAt:i.createdAt||new Date().toISOString()
-}));
-}
-
-function cycleInfo(date=new Date(),payday=Number(settings.payday)||27){
-payday=Math.max(1,Math.min(31,payday));
-const y=date.getFullYear(),m=date.getMonth(),day=date.getDate();
-let sy=y,sm=m;
-if(day<payday){sm--;if(sm<0){sm=11;sy--}}
-const last=new Date(sy,sm+1,0).getDate(),sd=Math.min(payday,last),start=new Date(sy,sm,sd);
-let ey=sy,em=sm+1;if(em>11){em=0;ey++}
-const nextLast=new Date(ey,em+1,0).getDate(),nextDay=Math.min(payday,nextLast),next=new Date(ey,em,nextDay);
-const end=new Date(next.getTime()-86400000);
-const key=`${start.getFullYear()}-${String(start.getMonth()+1).padStart(2,'0')}-${String(start.getDate()).padStart(2,'0')}`;
-return{key,start,end}
-}
-
-function archiveCurrent(oldKey){
-if(!oldKey)return;
-if(archives.some(a=>a.key===oldKey))return;
-const totals=getTotals();
-archives.unshift({
-id:makeId(),
-key:oldKey,
-archivedAt:new Date().toISOString(),
-data:JSON.parse(JSON.stringify(snapshot())),
-totals:{
-gross:totals.gross,
-spent:totals.deductionTotal+totals.commitmentTotal+totals.transactionTotal,
-remaining:totals.finalRemaining
-}
-});
-if(archives.length>48)archives=archives.slice(0,48)
-}
-
-function handleCycle(){
-const info=cycleInfo();
-if(!currentCycleKey){currentCycleKey=info.key;save();return}
-if(currentCycleKey!==info.key){
-archiveCurrent(currentCycleKey);
-transactions=[];
-currentCycleKey=info.key;
-save()
-}
-}
-
+function load(){let d;try{d=JSON.parse(localStorage.getItem('salaryApp'))}catch(e){}if(!d)return;if(d.settings)settings={...settings,...d.settings};if(d.notes!=null)notes=d.notes;if(Array.isArray(d.archives))archives=d.archives;if(d.currentCycleKey)currentCycleKey=d.currentCycleKey;if(['p1','p2','p3'].includes(d.activePage))activePage=d.activePage;if(d.salary!=null)$('salary').value=inputDigits(cleanNumericInput(d.salary));if(Array.isArray(d.allowances))allowances=d.allowances.map(i=>normItem(i,'بدل'));if(Array.isArray(d.deductions))deductions=d.deductions.map(i=>normItem(i,'استقطاع'));else if(Array.isArray(d.commitments)){const old=d.commitments.map(i=>normItem(i,'التزام'));const ins=old.filter(i=>i.systemKey==='insurance'||String(i.name).includes('التأمين'));deductions=ins.length?ins.map(i=>({...i,system:true,systemKey:'insurance'})):defaultDeductions();commitments=old.filter(i=>!ins.includes(i)).map(i=>({...i,system:false,systemKey:null}))}if(Array.isArray(d.commitments)&&Array.isArray(d.deductions))commitments=d.commitments.map(i=>normItem(i,'التزام'));if(Array.isArray(d.budgets))budgets=d.budgets.map(i=>({id:i.id||makeId(),name:i.name||'فئة',allocated:i.allocated==null?'':cleanNumericInput(i.allocated),subcategories:Array.isArray(i.subcategories)?i.subcategories.map(s=>({id:s.id||makeId(),name:s.name||'تفرع'})):[]}));if(Array.isArray(d.transactions))transactions=d.transactions.map(i=>({id:i.id||makeId(),budgetId:i.budgetId||'',subcategoryId:i.subcategoryId||'',subcategoryName:i.subcategoryName||'',amount:numberValue(i.amount),note:i.note||'',createdAt:i.createdAt||new Date().toISOString()}));}
+function cycleInfo(date=new Date(),payday=Number(settings.payday)||27){payday=Math.max(1,Math.min(31,payday));const y=date.getFullYear(),m=date.getMonth(),day=date.getDate();let sy=y,sm=m;if(day<payday){sm--;if(sm<0){sm=11;sy--}}const last=new Date(sy,sm+1,0).getDate(),sd=Math.min(payday,last),start=new Date(sy,sm,sd);let ey=sy,em=sm+1;if(em>11){em=0;ey++}const nextLast=new Date(ey,em+1,0).getDate(),nextDay=Math.min(payday,nextLast),next=new Date(ey,em,nextDay);const end=new Date(next.getTime()-86400000);const key=`${start.getFullYear()}-${String(start.getMonth()+1).padStart(2,'0')}-${String(start.getDate()).padStart(2,'0')}`;return{key,start,end}}
+function archiveCurrent(oldKey){if(!oldKey)return;if(archives.some(a=>a.key===oldKey))return;const totals=getTotals();archives.unshift({id:makeId(),key:oldKey,archivedAt:new Date().toISOString(),data:JSON.parse(JSON.stringify(snapshot())),totals:{gross:totals.gross,spent:totals.deductionTotal+totals.commitmentTotal+totals.transactionTotal,remaining:totals.finalRemaining}});if(archives.length>48)archives=archives.slice(0,48)}
+function handleCycle(){const info=cycleInfo();if(!currentCycleKey){currentCycleKey=info.key;save();return}if(currentCycleKey!==info.key){archiveCurrent(currentCycleKey);transactions=[];currentCycleKey=info.key;save()}}
 function salaryValue(){return numberValue($('salary').value)}
 function itemAmount(i,s){const v=numberValue(i.value);return i.type==='percent'?s*v/100:v}
 function spentForBudget(id){return transactions.filter(x=>x.budgetId===id).reduce((a,x)=>a+numberValue(x.amount),0)}
-
-function getTotals(){
-const salary=salaryValue(),
-allowanceTotal=allowances.reduce((a,i)=>a+itemAmount(i,salary),0),
-gross=salary+allowanceTotal,
-deductionTotal=deductions.reduce((a,i)=>a+itemAmount(i,salary),0),
-afterDeductions=gross-deductionTotal,
-commitmentTotal=commitments.reduce((a,i)=>a+itemAmount(i,salary),0),
-afterCommitments=afterDeductions-commitmentTotal,
-transactionTotal=transactions.reduce((a,i)=>a+numberValue(i.amount),0),
-finalRemaining=afterCommitments-transactionTotal,
-allocatedTotal=budgets.reduce((a,i)=>a+numberValue(i.allocated),0);
-
-return{
-salary,allowanceTotal,gross,deductionTotal,afterDeductions,commitmentTotal,afterCommitments,transactionTotal,finalRemaining,allocatedTotal,
-unallocated:afterCommitments-allocatedTotal
-}
-}
-
+function getTotals(){const salary=salaryValue(),allowanceTotal=allowances.reduce((a,i)=>a+itemAmount(i,salary),0),gross=salary+allowanceTotal,deductionTotal=deductions.reduce((a,i)=>a+itemAmount(i,salary),0),afterDeductions=gross-deductionTotal,commitmentTotal=commitments.reduce((a,i)=>a+itemAmount(i,salary),0),afterCommitments=afterDeductions-commitmentTotal,transactionTotal=transactions.reduce((a,i)=>a+numberValue(i.amount),0),finalRemaining=afterCommitments-transactionTotal,allocatedTotal=budgets.reduce((a,i)=>a+numberValue(i.allocated),0);return{salary,allowanceTotal,gross,deductionTotal,afterDeductions,commitmentTotal,afterCommitments,transactionTotal,finalRemaining,allocatedTotal,unallocated:afterCommitments-allocatedTotal}}
 function sourceForKind(k){return k==='allowance'?allowances:k==='deduction'?deductions:k==='commitment'?commitments:budgets}
 function listForKind(k){return $(k==='allowance'?'allowancesList':k==='deduction'?'deductionsList':k==='commitment'?'commitmentsList':'budgetList')}
 function cardForKind(k){return $(k==='allowance'?'allowanceCard':k==='deduction'?'deductionCard':k==='commitment'?'commitmentCard':'budgetCard')}
-
-function systemName(i){
-if(i.systemKey==='transport')return'بدل المواصلات';
-if(i.systemKey==='housing')return'بدل السكن';
-if(i.systemKey==='insurance')return'استقطاع التأمينات';
-return i.name
-}
-
-function resizeWrap(w,i){
-const l=normalizeDigits(i.value).length;
-w.classList.toggle('long',l>=5);
-w.classList.toggle('very-long',l>=7)
-}
-
-function createFinancialRow(item,kind){
-const r=document.createElement('div');
-r.className='dynamic-row'+(item.system?'':' deletable');
-r.dataset.id=item.id;
-const locked=kind==='allowance'&&item.system;
-
-r.innerHTML=`
-<button type="button" class="handle">☰</button>
-<button type="button" class="delete-mark">×</button>
-<div class="item-body">
-<div class="item-top">
-<input type="text" dir="auto" class="item-name" value="${esc(item.system?systemName(item):item.name)}" ${item.system?'readonly':''}>
-</div>
-<div class="item-bottom">
-<div class="item-amount">${money(itemAmount(item,salaryValue()))}</div>
-<div class="controls">
-<button type="button" class="mode ${locked?'locked':''}">${item.type==='percent'?'نسبة':'ثابت'}</button>
-<div class="value-wrap">
-<input type="text" inputmode="decimal" value="${esc(inputDigits(item.value))}">
-<span class="value-unit">${item.type==='percent'?(settings.digits==='ar'?'٪':'%'):'⃁'}</span>
-</div>
-</div>
-</div>
-</div>`;
-
-const ni=r.querySelector('.item-name'),
-vi=r.querySelector('.value-wrap input'),
-vw=r.querySelector('.value-wrap'),
-mode=r.querySelector('.mode');
-
-resizeWrap(vw,vi);
-
-if(!item.system)ni.oninput=()=>{item.name=ni.value;save()};
-
-vi.oninput=()=>{
-item.value=cleanNumericInput(vi.value);
-vi.value=inputDigits(item.value);
-resizeWrap(vw,vi);
-calculate()
-};
-
-if(!locked)mode.onclick=()=>{
-item.type=item.type==='percent'?'fixed':'percent';
-renderFinancialLists();
-calculate()
-};
-
-r.querySelector('.delete-mark').onclick=()=>{
-if(item.system)return;
-const s=sourceForKind(kind),
-i=s.findIndex(x=>x.id===item.id);
-if(i>=0)s.splice(i,1);
-exitDeleteMode();
-renderFinancialLists();
-calculate()
-};
-
-setupHandle(r.querySelector('.handle'),r,kind);
-return r
-}
-
-function renderFinancialLists(){
-allowancesList.innerHTML='';
-allowances.forEach(i=>allowancesList.appendChild(createFinancialRow(i,'allowance')));
-deductionsList.innerHTML='';
-deductions.forEach(i=>deductionsList.appendChild(createFinancialRow(i,'deduction')));
-commitmentsList.innerHTML='';
-commitments.forEach(i=>commitmentsList.appendChild(createFinancialRow(i,'commitment')))
-}
-
-function saveOrderFromDom(k){
-const list=listForKind(k),src=sourceForKind(k),
-order=[...list.querySelectorAll('.dynamic-row')].map(r=>r.dataset.id);
-src.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id));
-save()
-}
-
-function setupHandle(handle,row,kind){
-let timer=null,drag=false,pid=null,sx=0,sy=0;
-const list=listForKind(kind);
-
-const clear=()=>{if(timer){clearTimeout(timer);timer=null}};
-const end=()=>{
-clear();
-if(drag){
-drag=false;
-row.classList.remove('dragging');
-handle.classList.remove('drag-ready');
-saveOrderFromDom(kind);
-calculate()
-}
-pid=null
-};
-
-handle.addEventListener('pointerdown',e=>{
-if(cardForKind(kind)?.classList.contains('delete-mode'))return;
-pid=e.pointerId;
-sx=e.clientX;
-sy=e.clientY;
-try{handle.setPointerCapture(pid)}catch{}
-timer=setTimeout(()=>{
-drag=true;
-row.classList.add('dragging');
-handle.classList.add('drag-ready');
-navigator.vibrate?.(20)
-},350)
-});
-
-handle.addEventListener('pointermove',e=>{
-if(pid!==e.pointerId)return;
-if(!drag){
-if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>14)clear();
-return
-}
-e.preventDefault();
-const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.dynamic-row');
-if(!target||target===row||target.parentElement!==list)return;
-const rect=target.getBoundingClientRect();
-if(e.clientY<rect.top+rect.height/2)list.insertBefore(row,target);
-else list.insertBefore(row,target.nextSibling)
-});
-
-handle.addEventListener('pointerup',e=>{
-const was=drag;
-clear();
-try{handle.releasePointerCapture(e.pointerId)}catch{}
-end();
-if(!was)openOptions(kind,row.dataset.id||null)
-});
-
-handle.addEventListener('pointercancel',end);
-handle.addEventListener('lostpointercapture',()=>{if(drag)end()})
-}
-
+function systemName(i){if(i.systemKey==='transport')return'بدل المواصلات';if(i.systemKey==='housing')return'بدل السكن';if(i.systemKey==='insurance')return'استقطاع التأمينات';return i.name}
+function resizeWrap(w,i){const l=normalizeDigits(i.value).length;w.classList.toggle('long',l>=5);w.classList.toggle('very-long',l>=7)}
+function createFinancialRow(item,kind){const r=document.createElement('div');r.className='dynamic-row'+(item.system?'':' deletable');r.dataset.id=item.id;const locked=kind==='allowance'&&item.system;r.innerHTML=`<button type="button" class="handle">☰</button><button type="button" class="delete-mark">×</button><div class="item-body"><div class="item-top"><input type="text" dir="auto" class="item-name" value="${esc(item.system?systemName(item):item.name)}" ${item.system?'readonly':''}></div><div class="item-bottom"><div class="item-amount">${money(itemAmount(item,salaryValue()))}</div><div class="controls"><button type="button" class="mode ${locked?'locked':''}">${item.type==='percent'?'نسبة':'ثابت'}</button><div class="value-wrap"><input type="text" inputmode="decimal" value="${esc(inputDigits(item.value))}"><span class="value-unit">${item.type==='percent'?(settings.digits==='ar'?'٪':'%'):'⃁'}</span></div></div></div></div>`;const ni=r.querySelector('.item-name'),vi=r.querySelector('.value-wrap input'),vw=r.querySelector('.value-wrap'),mode=r.querySelector('.mode');resizeWrap(vw,vi);if(!item.system)ni.oninput=()=>{item.name=ni.value;save()};vi.oninput=()=>{item.value=cleanNumericInput(vi.value);vi.value=inputDigits(item.value);resizeWrap(vw,vi);calculate()};if(!locked)mode.onclick=()=>{item.type=item.type==='percent'?'fixed':'percent';renderFinancialLists();calculate()};r.querySelector('.delete-mark').onclick=()=>{if(item.system)return;const s=sourceForKind(kind),i=s.findIndex(x=>x.id===item.id);if(i>=0)s.splice(i,1);exitDeleteMode();renderFinancialLists();calculate()};setupHandle(r.querySelector('.handle'),r,kind);return r}
+function renderFinancialLists(){allowancesList.innerHTML='';allowances.forEach(i=>allowancesList.appendChild(createFinancialRow(i,'allowance')));deductionsList.innerHTML='';deductions.forEach(i=>deductionsList.appendChild(createFinancialRow(i,'deduction')));commitmentsList.innerHTML='';commitments.forEach(i=>commitmentsList.appendChild(createFinancialRow(i,'commitment')))}
+function saveOrderFromDom(k){const list=listForKind(k),src=sourceForKind(k),order=[...list.querySelectorAll('.dynamic-row')].map(r=>r.dataset.id);src.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id));save()}
+function setupHandle(handle,row,kind){let timer=null,drag=false,pid=null,sx=0,sy=0;const list=listForKind(kind);const clear=()=>{if(timer){clearTimeout(timer);timer=null}};const end=()=>{clear();if(drag){drag=false;row.classList.remove('dragging');handle.classList.remove('drag-ready');saveOrderFromDom(kind);calculate()}pid=null};handle.addEventListener('pointerdown',e=>{if(cardForKind(kind)?.classList.contains('delete-mode'))return;pid=e.pointerId;sx=e.clientX;sy=e.clientY;try{handle.setPointerCapture(pid)}catch{}timer=setTimeout(()=>{drag=true;row.classList.add('dragging');handle.classList.add('drag-ready');navigator.vibrate?.(20)},350)});handle.addEventListener('pointermove',e=>{if(pid!==e.pointerId)return;if(!drag){if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>14)clear();return}e.preventDefault();const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.dynamic-row');if(!target||target===row||target.parentElement!==list)return;const rect=target.getBoundingClientRect();if(e.clientY<rect.top+rect.height/2)list.insertBefore(row,target);else list.insertBefore(row,target.nextSibling)});handle.addEventListener('pointerup',e=>{const was=drag;clear();try{handle.releasePointerCapture(e.pointerId)}catch{}end();if(!was)openOptions(kind,row.dataset.id||null)});handle.addEventListener('pointercancel',end);handle.addEventListener('lostpointercapture',()=>{if(drag)end()})}
 let menuKind=null,pendingAddKind=null,menuBudgetId=null;
-
 function showOverlay(){overlay.classList.add('show')}
 function hideOverlay(){overlay.classList.remove('show')}
-
-function closeSheets(){
-document.querySelectorAll('.sheet.show').forEach(x=>x.classList.remove('show'));
-hideOverlay()
-}
-
-function openOptions(k,id=null){
-menuKind=k;
-menuBudgetId=id;
-optionsTitle.textContent=
-k==='allowance'?'خيارات البدلات':
-k==='deduction'?'خيارات الاستقطاعات':
-k==='commitment'?'خيارات الالتزامات':'خيارات الفئة';
-
-optionAdd.textContent=
-k==='allowance'?'إضافة بدل':
-k==='deduction'?'إضافة استقطاع':
-k==='commitment'?'إضافة التزام':'إضافة فئة';
-
-optionSubcats.style.display=k==='budget'&&id?'block':'none';
-showOverlay();
-optionsSheet.classList.add('show')
-}
-
-optionCancel.onclick=typeCancel.onclick=transactionCancel.onclick=closeSheets;
-overlay.onclick=closeSheets;
-
-optionAdd.onclick=()=>{
-pendingAddKind=menuKind;
-
-if(menuKind==='budget'){
-budgets.push({id:makeId(),name:'',allocated:'',subcategories:[]});
-closeSheets();
-renderBudgets();
-calculate();
-return
-}
-
-optionsSheet.classList.remove('show');
-typeSheet.classList.add('show')
-};
-
-optionDelete.onclick=()=>{
-const k=menuKind;
-closeSheets();
-activateDeleteMode(k)
-};
-
-function activateDeleteMode(k){
-exitDeleteMode();
-cardForKind(k)?.classList.add('delete-mode')
-}
-
-function exitDeleteMode(){
-document.querySelectorAll('.delete-mode').forEach(e=>e.classList.remove('delete-mode'))
-}
-
-function addFinancial(type){
-const obj={
-id:makeId(),
-name:pendingAddKind==='allowance'?'بدل إضافي':pendingAddKind==='deduction'?'استقطاع جديد':'التزام جديد',
-type,
-value:'',
-system:false
-};
-sourceForKind(pendingAddKind).push(obj);
-closeSheets();
-renderFinancialLists();
-calculate()
-}
-
+function closeSheets(){document.querySelectorAll('.sheet.show').forEach(x=>x.classList.remove('show'));hideOverlay()}
+function openOptions(k,id=null){menuKind=k;menuBudgetId=id;optionsTitle.textContent=k==='allowance'?'خيارات البدلات':k==='deduction'?'خيارات الاستقطاعات':k==='commitment'?'خيارات الالتزامات':'خيارات الفئة';optionAdd.textContent=k==='allowance'?'إضافة بدل':k==='deduction'?'إضافة استقطاع':k==='commitment'?'إضافة التزام':'إضافة فئة';optionSubcats.style.display=k==='budget'&&id?'block':'none';showOverlay();optionsSheet.classList.add('show')}
+optionCancel.onclick=typeCancel.onclick=transactionCancel.onclick=closeSheets;overlay.onclick=closeSheets;
+optionAdd.onclick=()=>{pendingAddKind=menuKind;if(menuKind==='budget'){budgets.push({id:makeId(),name:'',allocated:'',subcategories:[]});closeSheets();renderBudgets();calculate();return}optionsSheet.classList.remove('show');typeSheet.classList.add('show')};
+optionDelete.onclick=()=>{const k=menuKind;closeSheets();activateDeleteMode(k)};
+function activateDeleteMode(k){exitDeleteMode();cardForKind(k)?.classList.add('delete-mode')}
+function exitDeleteMode(){document.querySelectorAll('.delete-mode').forEach(e=>e.classList.remove('delete-mode'))}
+function addFinancial(type){const obj={id:makeId(),name:pendingAddKind==='allowance'?'بدل إضافي':pendingAddKind==='deduction'?'استقطاع جديد':'التزام جديد',type,value:'',system:false};sourceForKind(pendingAddKind).push(obj);closeSheets();renderFinancialLists();calculate()}
 choosePercent.onclick=()=>addFinancial('percent');
 chooseFixed.onclick=()=>addFinancial('fixed');
-
-function renderBudgets(){
-budgetList.innerHTML='';
-
-if(!budgets.length){
-const empty=document.createElement('button');
-empty.type='button';
-empty.className='secondary-btn';
-empty.textContent='＋ إضافة أول فئة';
-empty.onclick=()=>{
-budgets.push({id:makeId(),name:'',allocated:'',subcategories:[]});
-renderBudgets();
-calculate()
-};
-budgetList.appendChild(empty);
-updateCategories();
-return
-}
-
-budgets.forEach(item=>{
-if(!Array.isArray(item.subcategories))item.subcategories=[];
-
-const spent=spentForBudget(item.id),
-rem=numberValue(item.allocated)-spent,
-r=document.createElement('div');
-
-r.className='dynamic-row deletable';
-r.dataset.id=item.id;
-
-r.innerHTML=`
-<button type="button" class="handle">☰</button>
-<button type="button" class="delete-mark">×</button>
-<div class="item-body">
-<div class="item-top">
-<input type="text" dir="auto" class="item-name" placeholder="اسم الفئة" value="${esc(item.name)}">
-</div>
-<div class="item-bottom">
-<div class="budget-info">
-<span class="remaining">${money(rem)}</span>
-<small>صرفت ${money(spent)}</small>
-</div>
-<div class="budget-value">
-<input type="text" inputmode="decimal" value="${esc(inputDigits(item.allocated))}">
-<span class="value-unit">⃁</span>
-</div>
-</div>
-</div>`;
-
-const ni=r.querySelector('.item-name'),
-ai=r.querySelector('.budget-value input'),
-aw=r.querySelector('.budget-value'),
-green=r.querySelector('.remaining');
-
-resizeWrap(aw,ai);
-
-ni.oninput=()=>{
-item.name=ni.value;
-updateCategories();
-save()
-};
-
-ai.oninput=()=>{
-item.allocated=cleanNumericInput(ai.value);
-ai.value=inputDigits(item.allocated);
-resizeWrap(aw,ai);
-green.textContent=money(numberValue(item.allocated)-spent);
-calculate(false)
-};
-
-r.querySelector('.delete-mark').onclick=()=>{
-const idx=budgets.findIndex(x=>x.id===item.id);
-if(idx>=0)budgets.splice(idx,1);
-transactions=transactions.filter(x=>x.budgetId!==item.id);
-exitDeleteMode();
-renderBudgets();
-renderTransactions();
-calculate()
-};
-
-setupHandle(r.querySelector('.handle'),r,'budget');
-r.querySelector('.handle').addEventListener('contextmenu',e=>e.preventDefault());
-budgetList.appendChild(r)
-});
-
-updateCategories()
-}
-
-function openSubcatManager(id){
-menuBudgetId=id;
-closeSheets();
-renderSubcatManager();
-showOverlay();
-subcatSheet.classList.add('show')
-}
-
+function renderBudgets(){budgetList.innerHTML='';if(!budgets.length){const empty=document.createElement('button');empty.type='button';empty.className='secondary-btn';empty.textContent='＋ إضافة أول فئة';empty.onclick=()=>{budgets.push({id:makeId(),name:'',allocated:'',subcategories:[]});renderBudgets();calculate()};budgetList.appendChild(empty);updateCategories();return}budgets.forEach(item=>{if(!Array.isArray(item.subcategories))item.subcategories=[];const spent=spentForBudget(item.id),rem=numberValue(item.allocated)-spent,r=document.createElement('div');r.className='dynamic-row deletable';r.dataset.id=item.id;r.innerHTML=`<button type="button" class="handle">☰</button><button type="button" class="delete-mark">×</button><div class="item-body"><div class="item-top"><input type="text" dir="auto" class="item-name" placeholder="اسم الفئة" value="${esc(item.name)}"></div><div class="item-bottom"><div class="budget-info"><span class="remaining">${money(rem)}</span><small>صرفت ${money(spent)}</small></div><div class="budget-value"><input type="text" inputmode="decimal" value="${esc(inputDigits(item.allocated))}"><span class="value-unit">⃁</span></div></div></div>`;const ni=r.querySelector('.item-name'),ai=r.querySelector('.budget-value input'),aw=r.querySelector('.budget-value'),green=r.querySelector('.remaining');resizeWrap(aw,ai);ni.oninput=()=>{item.name=ni.value;updateCategories();save()};ai.oninput=()=>{item.allocated=cleanNumericInput(ai.value);ai.value=inputDigits(item.allocated);resizeWrap(aw,ai);green.textContent=money(numberValue(item.allocated)-spent);calculate(false)};r.querySelector('.delete-mark').onclick=()=>{const idx=budgets.findIndex(x=>x.id===item.id);if(idx>=0)budgets.splice(idx,1);transactions=transactions.filter(x=>x.budgetId!==item.id);exitDeleteMode();renderBudgets();renderTransactions();calculate()};setupHandle(r.querySelector('.handle'),r,'budget');r.querySelector('.handle').addEventListener('contextmenu',e=>e.preventDefault());budgetList.appendChild(r)});updateCategories()}
+function openSubcatManager(id){menuBudgetId=id;closeSheets();renderSubcatManager();showOverlay();subcatSheet.classList.add('show')}
 optionSubcats.onclick=()=>openSubcatManager(menuBudgetId);
-
-function renderSubcatManager(){
-const b=budgets.find(x=>x.id===menuBudgetId);
-subcatManager.innerHTML='';
-if(!b)return;
-
-const sugg=suggestedSubcats(b.name).filter(n=>!b.subcategories.some(s=>normalizeName(s.name)===normalizeName(n)));
-
-if(sugg.length){
-const w=document.createElement('div');
-w.className='subcat-row';
-
-sugg.forEach(n=>{
-const x=document.createElement('button');
-x.className='subcat-chip';
-x.type='button';
-x.textContent='+ '+n;
-x.onclick=()=>{
-b.subcategories.push({id:makeId(),name:n});
-renderSubcatManager();
-updateCategories();
-save()
-};
-w.appendChild(x)
-});
-
-subcatManager.appendChild(w)
-}
-
-b.subcategories.forEach(s=>{
-const row=document.createElement('div');
-row.className='setting-row';
-row.style='display:flex;gap:7px;padding:6px';
-
-row.innerHTML=`
-<input style="flex:1;height:40px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b;color:white;padding:0 10px" value="${esc(s.name)}">
-<button style="width:40px;border:0;border-radius:10px;background:rgba(82,27,36,.55);color:#bd6370">×</button>`;
-
-row.querySelector('input').oninput=e=>{
-s.name=e.target.value;
-updateCategories();
-save()
-};
-
-row.querySelector('button').onclick=()=>{
-b.subcategories=b.subcategories.filter(x=>x.id!==s.id);
-renderSubcatManager();
-updateCategories();
-save()
-};
-
-subcatManager.appendChild(row)
-})
-}
-
-addSubcatBtn.onclick=()=>{
-const b=budgets.find(x=>x.id===menuBudgetId);
-if(!b)return;
-b.subcategories.push({id:makeId(),name:'تفرع جديد'});
-renderSubcatManager();
-updateCategories();
-save()
-};
-
+function renderSubcatManager(){const b=budgets.find(x=>x.id===menuBudgetId);subcatManager.innerHTML='';if(!b)return;const sugg=suggestedSubcats(b.name).filter(n=>!b.subcategories.some(s=>normalizeName(s.name)===normalizeName(n)));if(sugg.length){const w=document.createElement('div');w.className='subcat-row';sugg.forEach(n=>{const x=document.createElement('button');x.className='subcat-chip';x.type='button';x.textContent='+ '+n;x.onclick=()=>{b.subcategories.push({id:makeId(),name:n});renderSubcatManager();updateCategories();save()};w.appendChild(x)});subcatManager.appendChild(w)}b.subcategories.forEach(s=>{const row=document.createElement('div');row.className='setting-row';row.style='display:flex;gap:7px;padding:6px';row.innerHTML=`<input style="flex:1;height:40px;border:1px solid var(--line);border-radius:10px;background:#0c0f1b;color:white;padding:0 10px" value="${esc(s.name)}"><button style="width:40px;border:0;border-radius:10px;background:rgba(82,27,36,.55);color:#bd6370">×</button>`;row.querySelector('input').oninput=e=>{s.name=e.target.value;updateCategories();save()};row.querySelector('button').onclick=()=>{b.subcategories=b.subcategories.filter(x=>x.id!==s.id);renderSubcatManager();updateCategories();save()};subcatManager.appendChild(row)})}
+addSubcatBtn.onclick=()=>{const b=budgets.find(x=>x.id===menuBudgetId);if(!b)return;b.subcategories.push({id:makeId(),name:'تفرع جديد'});renderSubcatManager();updateCategories();save()};
 subcatClose.onclick=closeSheets;
-
-function updateCategories(){
-const old=expenseCategory.value;
-expenseCategory.innerHTML='';
-
-budgets.forEach(b=>{
-const o=document.createElement('option');
-o.value=b.id;
-o.textContent=b.name||'فئة بدون اسم';
-expenseCategory.appendChild(o)
-});
-
-if(budgets.some(b=>b.id===old))expenseCategory.value=old;
-updateSubcategorySelect();
-updateCompactCategory()
-}
-
-function updateSubcategorySelect(){
-const b=budgets.find(x=>x.id===expenseCategory.value);
-expenseSubcategory.innerHTML='';
-
-const none=document.createElement('option');
-none.value='';
-none.textContent='بدون تفرع';
-expenseSubcategory.appendChild(none);
-
-(b?.subcategories||[]).forEach(s=>{
-const o=document.createElement('option');
-o.value=s.id;
-o.textContent=s.name;
-expenseSubcategory.appendChild(o)
-})
-}
-
-expenseCategory.onchange=()=>{
-updateSubcategorySelect();
-updateCompactCategory()
-};
-
+function updateCategories(){const old=expenseCategory.value;expenseCategory.innerHTML='';budgets.forEach(b=>{const o=document.createElement('option');o.value=b.id;o.textContent=b.name||'فئة بدون اسم';expenseCategory.appendChild(o)});if(budgets.some(b=>b.id===old))expenseCategory.value=old;updateSubcategorySelect();updateCompactCategory()}
+function updateSubcategorySelect(){const b=budgets.find(x=>x.id===expenseCategory.value);expenseSubcategory.innerHTML='';const none=document.createElement('option');none.value='';none.textContent='بدون تفرع';expenseSubcategory.appendChild(none);(b?.subcategories||[]).forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.name;expenseSubcategory.appendChild(o)})}
+expenseCategory.onchange=()=>{updateSubcategorySelect();updateCompactCategory()};
 expenseSubcategory.onchange=updateCompactCategory;
-
-function updateCompactCategory(){
-const b=budgets.find(x=>x.id===expenseCategory.value),
-s=b?.subcategories?.find(x=>x.id===expenseSubcategory.value);
-
-compactCategory.textContent=b
-?(s?`${b.name} / ${s.name}`:b.name||'فئة بدون اسم')
-:'اختر الفئة'
-}
-
+function updateCompactCategory(){const b=budgets.find(x=>x.id===expenseCategory.value),s=b?.subcategories?.find(x=>x.id===expenseSubcategory.value);compactCategory.textContent=b?(s?`${b.name} / ${s.name}`:b.name||'فئة بدون اسم'):'اختر الفئة'}
 let editingTransactionId=null;
-
-function openExpense(edit=null){
-expenseLauncher.classList.add('open');
-
-if(edit){
-editingTransactionId=edit.id;
-expenseCategory.value=edit.budgetId;
-updateSubcategorySelect();
-expenseSubcategory.value=edit.subcategoryId||'';
-expenseAmount.value=inputDigits(edit.amount);
-expenseNote.value=edit.note||'';
-expenseSubmit.textContent='حفظ التعديل'
-}else{
-editingTransactionId=null;
-expenseSubmit.textContent='تسجيل مصروف'
-}
-
-updateCompactCategory();
-setTimeout(()=>expenseAmount.focus(),80)
-}
-
-function closeExpense(){
-expenseLauncher.classList.remove('open');
-editingTransactionId=null;
-expenseSubmit.textContent='تسجيل مصروف'
-}
-
+function openExpense(edit=null){expenseLauncher.classList.add('open');if(edit){editingTransactionId=edit.id;expenseCategory.value=edit.budgetId;updateSubcategorySelect();expenseSubcategory.value=edit.subcategoryId||'';expenseAmount.value=inputDigits(edit.amount);expenseNote.value=edit.note||'';expenseSubmit.textContent='حفظ التعديل'}else{editingTransactionId=null;expenseSubmit.textContent='تسجيل مصروف'}updateCompactCategory();setTimeout(()=>expenseAmount.focus(),80)}
+function closeExpense(){expenseLauncher.classList.remove('open');editingTransactionId=null;expenseSubmit.textContent='تسجيل مصروف'}
 compactCategory.onclick=()=>openExpense();
-
-compactAmount.oninput=()=>{
-compactAmount.value=inputDigits(cleanNumericInput(compactAmount.value))
-};
-
-quickSave.onclick=()=>{
-const amount=numberValue(compactAmount.value),
-bid=expenseCategory.value;
-
-if(!bid||amount<=0){
-openExpense();
-return
-}
-
-transactions.unshift({
-id:makeId(),
-budgetId:bid,
-subcategoryId:'',
-subcategoryName:'',
-amount,
-note:'',
-createdAt:new Date().toISOString()
-});
-
-compactAmount.value='';
-renderBudgets();
-renderTransactions();
-calculate()
-};
-
+compactAmount.oninput=()=>{compactAmount.value=inputDigits(cleanNumericInput(compactAmount.value))};
+quickSave.onclick=()=>{const amount=numberValue(compactAmount.value),bid=expenseCategory.value;if(!bid||amount<=0){openExpense();return}transactions.unshift({id:makeId(),budgetId:bid,subcategoryId:'',subcategoryName:'',amount,note:'',createdAt:new Date().toISOString()});compactAmount.value='';renderBudgets();renderTransactions();calculate()};
 expenseCancel.onclick=closeExpense;
-
-expenseAmount.oninput=()=>{
-expenseAmount.value=inputDigits(cleanNumericInput(expenseAmount.value))
-};
-
-expenseForm.onsubmit=e=>{
-e.preventDefault();
-
-const bid=expenseCategory.value,
-amount=numberValue(expenseAmount.value);
-
-if(!bid||amount<=0)return;
-
-const b=budgets.find(x=>x.id===bid),
-s=b?.subcategories?.find(x=>x.id===expenseSubcategory.value);
-
-if(editingTransactionId){
-const tr=transactions.find(x=>x.id===editingTransactionId);
-if(tr){
-tr.budgetId=bid;
-tr.subcategoryId=s?.id||'';
-tr.subcategoryName=s?.name||'';
-tr.amount=amount;
-tr.note=expenseNote.value.trim()
-}
-}else{
-transactions.unshift({
-id:makeId(),
-budgetId:bid,
-subcategoryId:s?.id||'',
-subcategoryName:s?.name||'',
-amount,
-note:expenseNote.value.trim(),
-createdAt:new Date().toISOString()
-})
-}
-
-expenseAmount.value='';
-expenseNote.value='';
-closeExpense();
-renderBudgets();
-renderTransactions();
-calculate()
-};
-
+expenseAmount.oninput=()=>{expenseAmount.value=inputDigits(cleanNumericInput(expenseAmount.value))};
+expenseForm.onsubmit=e=>{e.preventDefault();const bid=expenseCategory.value,amount=numberValue(expenseAmount.value);if(!bid||amount<=0)return;const b=budgets.find(x=>x.id===bid),s=b?.subcategories?.find(x=>x.id===expenseSubcategory.value);if(editingTransactionId){const tr=transactions.find(x=>x.id===editingTransactionId);if(tr){tr.budgetId=bid;tr.subcategoryId=s?.id||'';tr.subcategoryName=s?.name||'';tr.amount=amount;tr.note=expenseNote.value.trim()}}else transactions.unshift({id:makeId(),budgetId:bid,subcategoryId:s?.id||'',subcategoryName:s?.name||'',amount,note:expenseNote.value.trim(),createdAt:new Date().toISOString()});expenseAmount.value='';expenseNote.value='';closeExpense();renderBudgets();renderTransactions();calculate()};
 let selectedTransactionId=null;
-
-function renderTransactions(){
-transactionList.innerHTML='';
-transactionCount.textContent=`${fmt(transactions.length,0)} عملية`;
-
-if(!transactions.length){
-const e=document.createElement('div');
-e.className='card';
-e.style='color:var(--muted);text-align:center;font-size:11px';
-e.textContent='ما سجلت أي مصروف حتى الآن';
-transactionList.appendChild(e);
-return
-}
-
-transactions.forEach(tr=>{
-const b=budgets.find(x=>x.id===tr.budgetId),
-cat=b?.name||'',
-sub=tr.subcategoryName||b?.subcategories?.find(x=>x.id===tr.subcategoryId)?.name||'',
-date=new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(tr.createdAt)),
-r=document.createElement('div');
-
-r.className='transaction';
-
-r.innerHTML=`
-<div>
-<h4>${esc(sub?cat+' / '+sub:cat)}</h4>
-<p>${tr.note?esc(tr.note)+' • ':''}${esc(date)}</p>
-</div>
-<div class="transaction-right">
-<span class="transaction-amount">-${money(tr.amount)}</span>
-<button type="button" class="transaction-menu">⋯</button>
-</div>`;
-
-r.querySelector('.transaction-menu').onclick=()=>{
-selectedTransactionId=tr.id;
-showOverlay();
-transactionSheet.classList.add('show')
-};
-
-transactionList.appendChild(r)
-})
-}
-
-transactionDelete.onclick=()=>{
-const i=transactions.findIndex(x=>x.id===selectedTransactionId);
-if(i>=0)transactions.splice(i,1);
-closeSheets();
-renderTransactions();
-renderBudgets();
-calculate()
-};
-
-transactionEdit.onclick=()=>{
-const tr=transactions.find(x=>x.id===selectedTransactionId);
-closeSheets();
-if(tr)openExpense(tr)
-};
-
-function calculate(updateBudgets=false){
-const r=getTotals();
-
-allowancesTotal.textContent=money(r.allowanceTotal);
-allowancesPercent.textContent=pct(r.salary?r.allowanceTotal/r.salary*100:0)+' من الراتب الأساسي';
-gross.textContent=grossTop.textContent=money(r.gross);
-
-deductionsTotal.textContent=money(r.deductionTotal);
-deductionsPercent.textContent=pct(r.gross?r.deductionTotal/r.gross*100:0)+' من إجمالي الدخل';
-afterDeductions.textContent=money(r.afterDeductions);
-
-commitmentsTotal.textContent=money(r.commitmentTotal);
-commitmentsPercent.textContent=pct(r.gross?r.commitmentTotal/r.gross*100:0)+' من إجمالي الدخل';
-afterCommitments.textContent=budgetAvailable.textContent=money(r.afterCommitments);
-
-unallocated.textContent=money(r.unallocated);
-remainingNumber.textContent=fmt(r.finalRemaining);
-
-spentTop.textContent=money(r.deductionTotal+r.commitmentTotal+r.transactionTotal);
-
-let p=r.gross?Math.max(0,Math.min(100,r.finalRemaining/r.gross*100)):0;
-
-remainPct.textContent=pct(Math.round(p));
-orbit.style.setProperty('--angle',p*3.6+'deg');
-
-document.querySelectorAll('#allowancesList .dynamic-row').forEach(row=>{
-const i=allowances.find(x=>x.id===row.dataset.id);
-if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))
-});
-
-document.querySelectorAll('#deductionsList .dynamic-row').forEach(row=>{
-const i=deductions.find(x=>x.id===row.dataset.id);
-if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))
-});
-
-document.querySelectorAll('#commitmentsList .dynamic-row').forEach(row=>{
-const i=commitments.find(x=>x.id===row.dataset.id);
-if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))
-});
-
-if(updateBudgets)renderBudgets();
-save()
-}
-
-salary.oninput=()=>{
-const c=cleanNumericInput(salary.value);
-salary.value=inputDigits(c);
-calculate()
-};
-
-function updateSettingsButtons(){
-digitsEnglish.classList.toggle('active',settings.digits==='en');
-digitsArabic.classList.toggle('active',settings.digits==='ar');
-langArabic.classList.toggle('active',settings.language==='ar');
-langEnglish.classList.toggle('active',settings.language==='en');
-paydayInput.value=inputDigits(String(settings.payday||''))
-}
-
-function rerenderSettings(){
-const s=cleanNumericInput(salary.value);
-salary.value=inputDigits(s);
-updateSettingsButtons();
-renderFinancialLists();
-renderBudgets();
-renderTransactions();
-calculate();
-updateDate()
-}
-
-settingsBtn.onclick=()=>{
-showOverlay();
-settingsSheet.classList.add('show');
-updateSettingsButtons()
-};
-
+function renderTransactions(){transactionList.innerHTML='';transactionCount.textContent=`${fmt(transactions.length,0)} عملية`;if(!transactions.length){const e=document.createElement('div');e.className='card';e.style='color:var(--muted);text-align:center;font-size:11px';e.textContent='ما سجلت أي مصروف حتى الآن';transactionList.appendChild(e);return}transactions.forEach(tr=>{const b=budgets.find(x=>x.id===tr.budgetId),cat=b?.name||'',sub=tr.subcategoryName||b?.subcategories?.find(x=>x.id===tr.subcategoryId)?.name||'',date=new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(tr.createdAt)),r=document.createElement('div');r.className='transaction';r.innerHTML=`<div><h4>${esc(sub?cat+' / '+sub:cat)}</h4><p>${tr.note?esc(tr.note)+' • ':''}${esc(date)}</p></div><div class="transaction-right"><span class="transaction-amount">-${money(tr.amount)}</span><button type="button" class="transaction-menu">⋯</button></div>`;r.querySelector('.transaction-menu').onclick=()=>{selectedTransactionId=tr.id;showOverlay();transactionSheet.classList.add('show')};transactionList.appendChild(r)})}
+transactionDelete.onclick=()=>{const i=transactions.findIndex(x=>x.id===selectedTransactionId);if(i>=0)transactions.splice(i,1);closeSheets();renderTransactions();renderBudgets();calculate()};
+transactionEdit.onclick=()=>{const tr=transactions.find(x=>x.id===selectedTransactionId);closeSheets();if(tr)openExpense(tr)};
+function calculate(updateBudgets=false){const r=getTotals();allowancesTotal.textContent=money(r.allowanceTotal);allowancesPercent.textContent=pct(r.salary?r.allowanceTotal/r.salary*100:0)+' من الراتب الأساسي';gross.textContent=grossTop.textContent=money(r.gross);deductionsTotal.textContent=money(r.deductionTotal);deductionsPercent.textContent=pct(r.gross?r.deductionTotal/r.gross*100:0)+' من إجمالي الدخل';afterDeductions.textContent=money(r.afterDeductions);commitmentsTotal.textContent=money(r.commitmentTotal);commitmentsPercent.textContent=pct(r.gross?r.commitmentTotal/r.gross*100:0)+' من إجمالي الدخل';afterCommitments.textContent=budgetAvailable.textContent=money(r.afterCommitments);unallocated.textContent=money(r.unallocated);remainingNumber.textContent=fmt(r.finalRemaining);spentTop.textContent=money(r.deductionTotal+r.commitmentTotal+r.transactionTotal);let p=r.gross?Math.max(0,Math.min(100,r.finalRemaining/r.gross*100)):0;remainPct.textContent=pct(Math.round(p));orbit.style.setProperty('--angle',p*3.6+'deg');document.querySelectorAll('#allowancesList .dynamic-row').forEach(row=>{const i=allowances.find(x=>x.id===row.dataset.id);if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))});document.querySelectorAll('#deductionsList .dynamic-row').forEach(row=>{const i=deductions.find(x=>x.id===row.dataset.id);if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))});document.querySelectorAll('#commitmentsList .dynamic-row').forEach(row=>{const i=commitments.find(x=>x.id===row.dataset.id);if(i)row.querySelector('.item-amount').textContent=money(itemAmount(i,r.salary))});if(updateBudgets)renderBudgets();save()}
+salary.oninput=()=>{const c=cleanNumericInput(salary.value);salary.value=inputDigits(c);calculate()};
+function updateSettingsButtons(){digitsEnglish.classList.toggle('active',settings.digits==='en');digitsArabic.classList.toggle('active',settings.digits==='ar');langArabic.classList.toggle('active',settings.language==='ar');langEnglish.classList.toggle('active',settings.language==='en');paydayInput.value=inputDigits(String(settings.payday||''))}
+function rerenderSettings(){const s=cleanNumericInput(salary.value);salary.value=inputDigits(s);updateSettingsButtons();renderFinancialLists();renderBudgets();renderTransactions();calculate();updateDate()}
+settingsBtn.onclick=()=>{showOverlay();settingsSheet.classList.add('show');updateSettingsButtons()};
 settingsClose.onclick=closeSheets;
-
-digitsEnglish.onclick=()=>{
-settings.digits='en';
-rerenderSettings()
-};
-
-digitsArabic.onclick=()=>{
-settings.digits='ar';
-rerenderSettings()
-};
-
-langArabic.onclick=()=>{
-settings.language='ar';
-rerenderSettings()
-};
-
-langEnglish.onclick=()=>{
-settings.language='en';
-rerenderSettings()
-};
-
-paydayInput.oninput=()=>{
-let v=parseInt(normalizeDigits(paydayInput.value),10);
-
-if(!Number.isFinite(v)){
-settings.payday='';
-paydayInput.value='';
-save();
-return
-}
-
-v=Math.max(1,Math.min(31,v));
-settings.payday=v;
-paydayInput.value=inputDigits(String(v));
-currentCycleKey=cycleInfo().key;
-updateDate();
-save()
-};
-
-notesBtn.onclick=()=>{
-notesArea.value=notes;
-showOverlay();
-notesSheet.classList.add('show');
-setTimeout(()=>notesArea.focus(),80)
-};
-
-notesArea.oninput=()=>{
-notes=notesArea.value;
-save()
-};
-
+digitsEnglish.onclick=()=>{settings.digits='en';rerenderSettings()};
+digitsArabic.onclick=()=>{settings.digits='ar';rerenderSettings()};
+langArabic.onclick=()=>{settings.language='ar';rerenderSettings()};
+langEnglish.onclick=()=>{settings.language='en';rerenderSettings()};
+paydayInput.oninput=()=>{let v=parseInt(normalizeDigits(paydayInput.value),10);if(!Number.isFinite(v)){settings.payday='';paydayInput.value='';save();return}v=Math.max(1,Math.min(31,v));settings.payday=v;paydayInput.value=inputDigits(String(v));currentCycleKey=cycleInfo().key;updateDate();save()};
+notesBtn.onclick=()=>{notesArea.value=notes;showOverlay();notesSheet.classList.add('show');setTimeout(()=>notesArea.focus(),80)};
+notesArea.oninput=()=>{notes=notesArea.value;save()};
 notesClose.onclick=closeSheets;
-
-function renderArchive(){
-archiveList.innerHTML='';
-
-if(!archives.length){
-archiveList.innerHTML='<div class="archive-empty">ما عندك دورات مؤرشفة إلى الآن</div>';
-return
-}
-
-archives.forEach(a=>{
-const e=document.createElement('div');
-e.className='archive-entry';
-
-const d=a.data||{},
-tx=Array.isArray(d.transactions)?d.transactions:[],
-start=new Date(a.key+'T12:00:00'),
-label=new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{month:'long',year:'numeric'}).format(start);
-
-e.innerHTML=`
-<button type="button" class="archive-head">
-<span>${esc(label)}</span>
-<small>${money(a.totals?.remaining||0)}</small>
-</button>
-<div class="archive-body">
-إجمالي الدخل: ${money(a.totals?.gross||0)}<br>
-إجمالي الصرف: ${money(a.totals?.spent||0)}<br>
-المتبقي: ${money(a.totals?.remaining||0)}<br>
-عدد المصروفات: ${fmt(tx.length,0)}
-</div>`;
-
-e.querySelector('.archive-head').onclick=()=>e.classList.toggle('open');
-archiveList.appendChild(e)
-})
-}
-
-archiveBtn.onclick=()=>{
-renderArchive();
-showOverlay();
-archiveSheet.classList.add('show')
-};
-
+function renderArchive(){archiveList.innerHTML='';if(!archives.length){archiveList.innerHTML='<div class="archive-empty">ما عندك دورات مؤرشفة إلى الآن</div>';return}archives.forEach(a=>{const e=document.createElement('div');e.className='archive-entry';const d=a.data||{},tx=Array.isArray(d.transactions)?d.transactions:[],start=new Date(a.key+'T12:00:00'),label=new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{month:'long',year:'numeric'}).format(start);e.innerHTML=`<button type="button" class="archive-head"><span>${esc(label)}</span><small>${money(a.totals?.remaining||0)}</small></button><div class="archive-body">إجمالي الدخل: ${money(a.totals?.gross||0)}<br>إجمالي الصرف: ${money(a.totals?.spent||0)}<br>المتبقي: ${money(a.totals?.remaining||0)}<br>عدد المصروفات: ${fmt(tx.length,0)}</div>`;e.querySelector('.archive-head').onclick=()=>e.classList.toggle('open');archiveList.appendChild(e)})}
+archiveBtn.onclick=()=>{renderArchive();showOverlay();archiveSheet.classList.add('show')};
 archiveClose.onclick=closeSheets;
-
-function showPage(p){
-if(!['p1','p2','p3'].includes(p))p='p1';
-
-activePage=p;
-
-exitDeleteMode();
-closeSheets();
-
-document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
-document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-
-$(p).classList.add('active');
-
-document.querySelector(`.nav button[data-page="${p}"]`)?.classList.add('active');
-
-document.body.className='page-'+p;
-
-save()
-}
-
-document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{
-showPage(b.dataset.page);
-window.scrollTo(0,0)
-});
-
-function updateDate(){
-const c=cycleInfo(),
-loc=settings.language==='en'?'en-US':'ar-SA-u-ca-gregory';
-
-const sm=new Intl.DateTimeFormat(loc,{month:'short',day:'numeric'}).format(c.start),
-em=new Intl.DateTimeFormat(loc,{month:'short',day:'numeric',year:'numeric'}).format(c.end);
-
-monthLabel.textContent=`${sm} — ${em}`
-}
-
+function showPage(p){if(!['p1','p2','p3'].includes(p))p='p1';activePage=p;exitDeleteMode();closeSheets();document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));$(p).classList.add('active');document.querySelector(`.nav button[data-page="${p}"]`)?.classList.add('active');document.body.className='page-'+p;save()}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{showPage(b.dataset.page);window.scrollTo(0,0)});
+function updateDate(){const c=cycleInfo(),loc=settings.language==='en'?'en-US':'ar-SA-u-ca-gregory';const sm=new Intl.DateTimeFormat(loc,{month:'short',day:'numeric'}).format(c.start),em=new Intl.DateTimeFormat(loc,{month:'short',day:'numeric',year:'numeric'}).format(c.end);monthLabel.textContent=`${sm} — ${em}`}
 let lastTouchEnd=0;
-
-document.addEventListener('touchend',e=>{
-const n=Date.now();
-
-if(
-n-lastTouchEnd<=300 &&
-!e.target.closest('input,textarea,select')
-){
-e.preventDefault()
-}
-
-lastTouchEnd=n
-},{passive:false});
-
+document.addEventListener('touchend',e=>{const n=Date.now();if(n-lastTouchEnd<=300&&!e.target.closest('input,textarea,select'))e.preventDefault();lastTouchEnd=n},{passive:false});
 load();
 handleCycle();
 notesArea.value=notes;
